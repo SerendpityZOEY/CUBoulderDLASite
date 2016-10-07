@@ -2,7 +2,123 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1041f5ba-7bdc-4557-acb6-c40696da5a5b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run.py" afterPath="$PROJECT_DIR$/run.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/img/bootstrap-formhelpers-countries.flags.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/img/bootstrap-formhelpers-currencies.flags.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/img/bootstrap-formhelpers-googlefonts.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/img/bootstrap-formhelpers-countries.flags.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/img/bootstrap-formhelpers-currencies.flags.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/img/bootstrap-formhelpers-googlefonts.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/.coveralls.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-colorpicker.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-country.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-currency.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-datepicker.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-font.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-fontsize.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-googlefont.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-language.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-number.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-phone.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-select.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-slider.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-state.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-timepicker.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bfh-timezone.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/img/bootstrap-formhelpers-countries.flags-LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/img/bootstrap-formhelpers-countries.flags-LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-colorpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-countries.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-currencies.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-fonts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-fontsizes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-googlefonts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-languages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-number.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-phone.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-selectbox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-slider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-states.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-timepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/bootstrap-formhelpers-timezones.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/ar/bootstrap-formhelpers-countries.ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/de_DE/bootstrap-formhelpers-countries.de_DE.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-countries.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-currencies.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-datepicker.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-fonts.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-fontsizes.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-googlefonts.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-languages.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-phone.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-states.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-timepicker.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/en_US/bootstrap-formhelpers-timezones.en_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/es_ES/bootstrap-formhelpers-countries.es_ES.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/es_ES/bootstrap-formhelpers-datepicker.es_ES.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/es_US/bootstrap-formhelpers-datepicker.es_US.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/fr_CA/bootstrap-formhelpers-countries.fr_CA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/fr_FR/bootstrap-formhelpers-countries.fr_FR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/it_IT/bootstrap-formhelpers-countries.it_IT.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/pt_BR/bootstrap-formhelpers-countries.pt_BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/ru_RU/bootstrap-formhelpers-countries.ru_RU.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/ru_RU/bootstrap-formhelpers-datepicker.ru_RU.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/zh_CN/bootstrap-formhelpers-countries.zh_CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/zh_CN/bootstrap-formhelpers-timezones.zh_CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/zh_TW/bootstrap-formhelpers-countries.zh_TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/fixture.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-colorpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-countries.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-currencies.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-fonts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-fontsizes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-googlefonts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-languages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-number.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-phone.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-selectbox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-slider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-states.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-timepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/unit/bootstrap-formhelpers-timezones.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/css/bootstrap-3.0.0.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/css/qunit-1.12.0.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/js/bootstrap-3.0.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/js/jquery-1.10.2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/tests/vendor/js/qunit-1.12.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/karma.conf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-colorpicker.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-datepicker.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-flags.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-googlefonts.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-mixins.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-number.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-selectbox.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-slider.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-timepicker.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers-variables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/less/bootstrap-formhelpers.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/BootstrapFormHelpers/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/static/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/student.html" afterPath="$PROJECT_DIR$/app/templates/student.html" />
     </list>
     <ignored path="Flask.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +151,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -45,21 +161,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/forms.py">
+      <file leaf-file-name="student.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/templates/student.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="513">
+              <caret line="112" column="13" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+              <folding>
+                <element signature="n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/student.html">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/static/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+            <state relative-caret-position="60">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -83,6 +201,7 @@
         <option value="Python Script" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -99,10 +218,11 @@
         <option value="$PROJECT_DIR$/app/templates/base.html" />
         <option value="$PROJECT_DIR$/app/templates/faculty.html" />
         <option value="$PROJECT_DIR$/app/static/js/jquery-3.1.1.min.js" />
-        <option value="$PROJECT_DIR$/app/templates/student.html" />
         <option value="$PROJECT_DIR$/app/forms.py" />
         <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/app/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/app/templates/student.html" />
       </list>
     </option>
   </component>
@@ -113,7 +233,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="-4" />
+    <option name="y" value="42" />
     <option name="width" value="1280" />
     <option name="height" value="709" />
   </component>
@@ -187,8 +308,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/static" />
     </key>
@@ -417,7 +542,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="-4" y="42" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -470,7 +595,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -488,7 +615,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -534,14 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/student.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -558,6 +679,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="64" selection-start-line="0" selection-start-column="64" selection-end-line="0" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -568,11 +697,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
+    <entry file="file://$PROJECT_DIR$/app/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/de_DE/bootstrap-formhelpers-countries.de_DE.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="64" selection-start-line="0" selection-start-column="64" selection-end-line="0" selection-end-column="64" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/BootstrapFormHelpers/js/lang/ar/bootstrap-formhelpers-countries.ar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/student.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="112" column="13" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+          <folding>
+            <element signature="n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -4,38 +4,114 @@
     <meta charset="UTF-8">
     <title>Student Application</title>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <script src="../static/js/jquery-3.1.1.min.js"></script>
 
+    <!-- Bootstrap Form Helpers -->
+    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
 </head>
 <body>
 
 <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-9">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">@</span>
-              <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-              <span class="input-group-addon" id="basic-addon2">@example.com</span>
-            </div>
-
-            <div class="input-group">
-              <span class="input-group-addon">$</span>
-              <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-              <span class="input-group-addon">.00</span>
-            </div>
-
-            <label for="basic-url">Your vanity URL</label>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+   <div class="row">
+          <div class="col-md-9 center">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Demographic Information</h3>
+              </div>
+              <div class="panel-body">
+                <form>
+              <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label>Gender:</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+              </div>
+              <div class="form-group">
+                  <label>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
+                      American, or Spanish Origin?</label>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="option1" value="yes">
+                        Yes
+                      </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="option2" value="no">
+                        No
+                      </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="option3" value="option3">
+                        I do not wish to provide this information
+                      </label>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label>Please check your race (select all that apply):</label>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="">American Indian or Alaskan Native</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="">Black or African-American</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="">Native Hawaiian or other Pacific Islander</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="">Asian</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="">White</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="">Other</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="">Do Not Wish to Provide</label>
+                </div>
+              </div>
+            </form>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
             </div>
           </div>
       </div>
+
+   <div class="row">
+       <div class="col-md-9 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Boulder Contact Information</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="address">Boulder Address: (street, city, state, zip)</label>
+                <textarea class="form-control" id="address" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Boulder Phone:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+              </div>
+                <div class="form-group">
+                  <label>Email:</label>
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+       </div>
+   </div>
 </div>
 
 
