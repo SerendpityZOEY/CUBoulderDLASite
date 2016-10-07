@@ -1,3 +1,3 @@
-#!../../Users/yuezhang/anaconda3/bin/flask
+#!bin/bash
 from app import app
 app.run(debug=True)
