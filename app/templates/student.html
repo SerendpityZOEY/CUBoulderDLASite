@@ -5,15 +5,16 @@
     <title>Student Application</title>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
 
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../static/js/jquery-3.1.1.min.js"></script>
 
     <!-- Bootstrap Form Helpers -->
     <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
     <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
 </head>
 <body>
+    <script src="../static/js/script.js"></script>
 
 <div class="container-fluid">
    <div class="row">
@@ -26,7 +27,7 @@
                 <form>
               <div class="form-group">
                 <label for="name">Your Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
               </div>
               <div class="form-group">
                 <label>Gender:</label>
@@ -58,34 +59,34 @@
               <div class="form-group">
                 <label>Please check your race (select all that apply):</label>
                 <div class="checkbox">
-                  <label><input type="checkbox" value="">American Indian or Alaskan Native</label>
+                  <label><input type="checkbox" name="hello" value="1">American Indian or Alaskan Native</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" value="">Black or African-American</label>
+                  <label><input type="checkbox" name="hello" value="2">Black or African-American</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" value="">Native Hawaiian or other Pacific Islander</label>
+                  <label><input type="checkbox" name="hello" value="3">Native Hawaiian or other Pacific Islander</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" value="">Asian</label>
+                  <label><input type="checkbox" name="hello" value="4">Asian</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" value="">White</label>
+                  <label><input type="checkbox" name="hello" value="5">White</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" value="">Other</label>
+                  <label><input type="checkbox" name="hello" value="6">Other</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" value="">Do Not Wish to Provide</label>
+                  <label><input type="checkbox" name="hello" value="7">Do Not Wish to Provide</label>
                 </div>
               </div>
             </form>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="form1">Submit</button>
               </div>
             </div>
           </div>
       </div>
-
+<!--
    <div class="row">
        <div class="col-md-9 center">
         <div class="panel panel-default">
@@ -104,7 +105,7 @@
               </div>
                 <div class="form-group">
                   <label>Email:</label>
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  <input type="email" class="form-control" id="email" placeholder="Email">
                 </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -112,6 +113,7 @@
         </div>
        </div>
    </div>
+   -->
 </div>
 
 
