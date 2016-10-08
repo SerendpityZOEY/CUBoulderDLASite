@@ -12,5 +12,5 @@
 |Website|URL|
 |:---|:---:|
 |GitHub Repository|https://github.com/usbader/Silk-Road|
-|User Story Board|https://trello.com/b/xPQcKWGH/first-sprint|
-|URL for Software Prototype|&lt;URL&gt;|
+|User Story Board|https://trello.com/b/ppIUlYL0/user-stories|
+|URL for Software Prototype|http://www.silkroad-cu.ml|
