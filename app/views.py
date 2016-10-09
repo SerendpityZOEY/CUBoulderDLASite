@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, request, json
 from flaskext.mysql import MySQL
 
+
 mysql = MySQL()
 
 # MySQL configurations
@@ -20,6 +21,7 @@ def index():
 
 @app.route('/student')
 def student():
+    app.logger.info('waiting for input in student page')
     return render_template("student.html")
 
 
@@ -29,12 +31,12 @@ def submit():
     gender = request.form['optradio']
     origin = request.form['optionsRadios']
     race = request.form.getlist('hello')
-
     conn = mysql.connect()
     cursor = conn.cursor()
     query = "INSERT INTO `Demographic` (`name`, `gender`, `origin`, `race`) VALUES (%s,%s,%s,%s);"
     print(race)
     print(query)
+    app.logger.info(name+'is sucessfully submitted')
     cursor.execute(query,(name,gender,origin,race))
     conn.commit()
     # cursor.callproc('sp_createUser', (_name, _gender, _origin, _race))
@@ -46,4 +48,5 @@ def submit():
 
 @app.route('/faculty')
 def faculty():
+    app.logger.info('waiting for input in teacher page')
     return render_template("faculty.html")
