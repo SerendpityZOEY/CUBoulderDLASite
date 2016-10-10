@@ -25,11 +25,11 @@
               <div class="panel-body">
                 <form>
               <div class="form-group">
-                <label for="name">Your Name:</label>
+                <label for="name"><span style="color:red;">* </span>Your Name:</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
               </div>
               <div class="form-group">
-                <label>Gender:</label>
+                <label><span style="color:red;">* </span>Gender:</label>
                 <label class="radio-inline"><input type="radio" name="optradio">Male</label>
                 <label class="radio-inline"><input type="radio" name="optradio">Female</label>
               </div>
@@ -85,7 +85,6 @@
             </div>
           </div>
       </div>
-<!--
    <div class="row">
        <div class="col-md-9 center">
         <div class="panel panel-default">
@@ -95,24 +94,50 @@
           <div class="panel-body">
             <form>
               <div class="form-group">
-                <label for="address">Boulder Address: (street, city, state, zip)</label>
+                <label for="address"><span style="color:red;">* </span>Boulder Address: (street, city, state, zip)</label>
                 <textarea class="form-control" id="address" rows="3"></textarea>
               </div>
               <div class="form-group">
-                <label>Boulder Phone:</label>
+                <label><span style="color:red;">* </span>Boulder Phone:</label>
                 <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
               </div>
                 <div class="form-group">
-                  <label>Email:</label>
+                  <label><span style="color:red;">* </span>Boulder Email:</label>
                   <input type="email" class="form-control" id="email" placeholder="Email">
                 </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Save and Continue</button>
             </form>
           </div>
         </div>
        </div>
    </div>
-   -->
+
+   <div class="row">
+     <div class="col-md-9 center">
+       <div class="panel panel-default">
+           <div class="panel-heading">
+            <h3 class="panel-title">Summer Contact Information (if different)</h3>
+          </div>
+         <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="address">Summer Address: (street, city, state, zip)</label>
+                <textarea class="form-control" id="summer-address" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Summer Phone:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+              </div>
+                <div class="form-group">
+                  <label>Summer Email:</label>
+                  <input type="email" class="form-control" id="summer-email" placeholder="Email">
+                </div>
+              <button type="submit" class="btn btn-primary">Save and Continue</button>
+            </form>
+          </div>
+       </div>
+     </div>
+   </div>
 </div>
 
 
