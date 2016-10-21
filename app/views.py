@@ -7,8 +7,8 @@ mysql = MySQL()
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'SEDB'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'abs234grj2345'
+app.config['MYSQL_DATABASE_DB'] = 'sedb'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
@@ -22,7 +22,12 @@ def index():
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    return render_template("student.html")
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM `project`")
+    data = cursor.fetchall()
+
+    return render_template("student.html", data=data)
 
 
 @app.route('/submit', methods=['GET', 'POST'])
@@ -31,13 +36,27 @@ def submit():
     gender = request.form['optradio']
     origin = request.form['optionsRadios']
     race = request.form.getlist('hello')
+    phoneNumber = request.form.getlist('phone')
+    email = request.form.getlist('email')
+    Address = request.form.getlist('address')
+    Major = request.form.getlist('major')
+    studentNumber = request.form.getlist('SN')
+    GPA = request.form.getlist('GPA')
+    level = request.form.getlist('level')
+    Date = request.form.getlist('date')
+    experience = request.form.getlist('experience')
+    Apply = request.form.getlist('apply')
+    p1 = request.form.getlist('p1')
+    p2 = request.form.getlist('p2')
+    p3 = request.form.getlist('p3')
+    app.logger.info(p1[0])
     conn = mysql.connect()
     cursor = conn.cursor()
-    query = "INSERT INTO `Demographic` (`name`, `gender`, `origin`, `race`) VALUES (%s,%s,%s,%s);"
-    print(race)
-    print(query)
-    app.logger.info(name+'is sucessfully submitted')
-    cursor.execute(query,(name,gender,origin,race))
+    query = "INSERT INTO `student` (`name`, `gender`, `origin`, `race`,`phoneNumber`,`email`,`Address`,`Major`,`studentNumber`,`GPA`,`level`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+    cursor.execute(query,(name,gender,origin,race,phoneNumber,email,Address,Major,studentNumber,GPA,level))
+    query2 = "INSERT INTO `application` (`Sid`, `P1id`, `P2id`, `P3id`) VALUES (%s,%s,%s,%s);"
+    cursor.execute(query2,(studentNumber,p1[0],p2[0],p3[0]))
+    # app.logger.info(name+'is sucessfully submitted')
     conn.commit()
     # cursor.callproc('sp_createUser', (_name, _gender, _origin, _race))
     data = cursor.fetchall()
