@@ -34,8 +34,8 @@ def submit():
     conn = mysql.connect()
     cursor = conn.cursor()
     query = "INSERT INTO `Demographic` (`name`, `gender`, `origin`, `race`) VALUES (%s,%s,%s,%s);"
-    print(race)
-    print(query)
+    # print(race)
+    # print(query)
     app.logger.info(name+'is sucessfully submitted')
     cursor.execute(query,(name,gender,origin,race))
     conn.commit()

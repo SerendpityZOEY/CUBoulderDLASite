@@ -1,10 +1,160 @@
-<!DOCTYPE html>
+{% include "base.html" %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Facaulty Application</title>
+    <title>Faculty Application</title>
 </head>
 <body>
+<div class="container-fluid">
+   <h1>Discovery Learning Apprenticeship Submission</h1>
+   <div class="row">
+      <div class="col-md-9 center">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Faculty Member Info</h3>
+              </div>
+              <div class="panel-body">
+                <form>
+              <div class="form-group">
+                <label for="name"><span style="color:red;">* </span>Faculty Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label>Faculty Phone Number:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+              </div>
+              <div class="form-group">
+                <label><span style="color:red;">* </span>Faculty email address:</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+              </div>
 
+              <div class="dropdown">
+                  <label><span style="color:red;">* </span>Faculty Department/Program:</label>
+
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Please Select
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Aerospace Engineering Sciences</a></li>
+                    <li><a href="#">Applied Math</a></li>
+                    <li><a href="#">Chemical & Biological Engineering</a></li>
+                    <li><a href="#">Civil, Environmental and Architectural Engineering</a></li>
+                    <li><a href="#">Computer Science</a></li>
+                    <li><a href="#">Electrical, Computer and Energy Engineering</a></li>
+                    <li><a href="#">Physics</a></li>
+                    <li><a href="#">Environmental Engineering</a></li>
+                    <li><a href="#">Mechanical Engineering</a></li>
+                    <li><a href="#">Colorado Space Grant</a></li>
+                    <li><a href="#">Engineering Education</a></li>
+                    <li><a href="#">ATLAS</a></li>
+
+                  </ul>
+                </div>
+              <div class="form-group">
+                <label>Does this project have a focus on Engineering for Developing Communities?</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Yes</label>
+                <label class="radio-inline"><input type="radio" name="optradio">No</label>
+              </div>
+            </form>
+              </div>
+            </div>
+          </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-9 center">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Second Faculty Member(Optional)</h3>
+              </div>
+              <div class="panel-body">
+                <form>
+              <div class="form-group">
+                <label for="name">Faculty Name:</label>
+                <input type="text" class="form-control" name="name2" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label>Faculty Phone Number:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+              </div>
+              <div class="form-group">
+                <label>Faculty email address:</label>
+                <input type="text" class="form-control" name="email2" placeholder="Enter Email">
+              </div>
+
+              <div class="dropdown">
+                  <label>Faculty Department/Program:</label>
+
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Please Select
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><a href="#">Aerospace Engineering Sciences</a></li>
+                    <li><a href="#">Applied Math</a></li>
+                    <li><a href="#">Chemical & Biological Engineering</a></li>
+                    <li><a href="#">Civil, Environmental and Architectural Engineering</a></li>
+                    <li><a href="#">Computer Science</a></li>
+                    <li><a href="#">Electrical, Computer and Energy Engineering</a></li>
+                    <li><a href="#">Physics</a></li>
+                    <li><a href="#">Environmental Engineering</a></li>
+                    <li><a href="#">Mechanical Engineering</a></li>
+                    <li><a href="#">Colorado Space Grant</a></li>
+                    <li><a href="#">Engineering Education</a></li>
+                    <li><a href="#">ATLAS</a></li>
+
+                  </ul>
+                </div>
+            </form>
+              </div>
+            </div>
+          </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-9 center">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Grad Student/Post Doc Info (Optional)</h3>
+              </div>
+              <div class="panel-body">
+                <form>
+              <div class="form-group">
+                <label for="name">Grad Student/Post Doc name:</label>
+                <input type="text" class="form-control" name="sname" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label>Grad Student/Post Doc phone number:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+              </div>
+              <div class="form-group">
+                <label>Grad Student/Post Doc email address:</label>
+                <input type="text" class="form-control" name="semail" placeholder="Enter Email">
+              </div>
+            </form>
+              </div>
+            </div>
+          </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-9 center">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Apprenticeship Information</h3>
+              </div>
+              <div class="panel-body">
+                <form>
+              <div class="form-group">
+                <label for="name"><span style="color:red;">* </span>A title/description for the apprenticeship:</label>
+                <input type="text" class="form-control" name="title">
+              </div>
+            </form>
+              </div>
+            </div>
+          </div>
+   </div>
+</div>
 </body>
 </html>
