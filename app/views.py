@@ -57,6 +57,11 @@ def submit():
     query2 = "INSERT INTO `application` (`Sid`, `P1id`, `P2id`, `P3id`) VALUES (%s,%s,%s,%s);"
     cursor.execute(query2,(studentNumber,p1[0],p2[0],p3[0]))
     # app.logger.info(name+'is sucessfully submitted')
+    query = "INSERT INTO `Demographic` (`name`, `gender`, `origin`, `race`) VALUES (%s,%s,%s,%s);"
+    # print(race)
+    # print(query)
+    app.logger.info(name+'is sucessfully submitted')
+    cursor.execute(query,(name,gender,origin,race))
     conn.commit()
     # cursor.callproc('sp_createUser', (_name, _gender, _origin, _race))
     data = cursor.fetchall()
