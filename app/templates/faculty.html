@@ -5,6 +5,7 @@
     <title>Faculty Application</title>
 </head>
 <body>
+    <script src="../static/js/script.js"></script>
 
 <div class="container-fluid">
    <h1>Discovery Learning Apprenticeship Submission</h1>
@@ -18,46 +19,42 @@
                 <form>
               <div class="form-group">
                 <label for="name"><span style="color:red;">* </span>Faculty Name:</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                <input type="text" class="form-control" id="name" name="name1" placeholder="Enter Name">
               </div>
               <div class="form-group">
                 <label>Faculty Phone Number:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone1">
               </div>
               <div class="form-group">
                 <label><span style="color:red;">* </span>Faculty email address:</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+                <input type="text" class="form-control" id="email" name="email1" placeholder="Enter Email">
               </div>
 
               <div class="dropdown">
                   <label><span style="color:red;">* </span>Faculty Department/Program:</label>
-
-                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Please Select
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Aerospace Engineering Sciences</a></li>
-                    <li><a href="#">Applied Math</a></li>
-                    <li><a href="#">Chemical & Biological Engineering</a></li>
-                    <li><a href="#">Civil, Environmental and Architectural Engineering</a></li>
-                    <li><a href="#">Computer Science</a></li>
-                    <li><a href="#">Electrical, Computer and Energy Engineering</a></li>
-                    <li><a href="#">Physics</a></li>
-                    <li><a href="#">Environmental Engineering</a></li>
-                    <li><a href="#">Mechanical Engineering</a></li>
-                    <li><a href="#">Colorado Space Grant</a></li>
-                    <li><a href="#">Engineering Education</a></li>
-                    <li><a href="#">ATLAS</a></li>
-
-                  </ul>
+                  <select class="form-control" name="program1">
+                    <option value="0" selected="selected">Please Select</option>
+                    <option value="1">Aerospace Engineering Sciences</option>
+                    <option value="2">Applied Math</option>
+                    <option value="3">Chemical & Biological Engineering</option>
+                    <option value="4">Civil, Environmental and Architectural Engineering</option>
+                    <option value="5">Computer Science</option>
+                    <option value="6">Electrical, Computer and Energy Engineering</option>
+                    <option value="7">Physics</option>
+                    <option value="8">Environmental Engineering</option>
+                    <option value="9">Mechanical Engineering</option>
+                    <option value="10">Colorado Space Grant</option>
+                    <option value="11">Engineering Education</option>
+                    <option value="12">ATLAS</option>
+                  </select>
                 </div>
               <div class="form-group">
                 <label>Does this project have a focus on Engineering for Developing Communities?</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Yes</label>
-                <label class="radio-inline"><input type="radio" name="optradio">No</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="y">Yes</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="n">No</label>
               </div>
             </form>
+
               </div>
             </div>
           </div>
@@ -77,7 +74,7 @@
               </div>
               <div class="form-group">
                 <label>Faculty Phone Number:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone2">
               </div>
               <div class="form-group">
                 <label>Faculty email address:</label>
@@ -86,26 +83,21 @@
 
               <div class="dropdown">
                   <label>Faculty Department/Program:</label>
-
-                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Please Select
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li><a href="#">Aerospace Engineering Sciences</a></li>
-                    <li><a href="#">Applied Math</a></li>
-                    <li><a href="#">Chemical & Biological Engineering</a></li>
-                    <li><a href="#">Civil, Environmental and Architectural Engineering</a></li>
-                    <li><a href="#">Computer Science</a></li>
-                    <li><a href="#">Electrical, Computer and Energy Engineering</a></li>
-                    <li><a href="#">Physics</a></li>
-                    <li><a href="#">Environmental Engineering</a></li>
-                    <li><a href="#">Mechanical Engineering</a></li>
-                    <li><a href="#">Colorado Space Grant</a></li>
-                    <li><a href="#">Engineering Education</a></li>
-                    <li><a href="#">ATLAS</a></li>
-
-                  </ul>
+                  <select class="form-control" name="program2">
+                    <option value="0" selected="selected">Please Select</option>
+                    <option value="1">Aerospace Engineering Sciences</option>
+                    <option value="2">Applied Math</option>
+                    <option value="3">Chemical & Biological Engineering</option>
+                    <option value="4">Civil, Environmental and Architectural Engineering</option>
+                    <option value="5">Computer Science</option>
+                    <option value="6">Electrical, Computer and Energy Engineering</option>
+                    <option value="7">Physics</option>
+                    <option value="8">Environmental Engineering</option>
+                    <option value="9">Mechanical Engineering</option>
+                    <option value="10">Colorado Space Grant</option>
+                    <option value="11">Engineering Education</option>
+                    <option value="12">ATLAS</option>
+                  </select>
                 </div>
             </form>
               </div>
@@ -123,15 +115,15 @@
                 <form>
               <div class="form-group">
                 <label for="name">Grad Student/Post Doc name:</label>
-                <input type="text" class="form-control" name="sname" placeholder="Enter Name">
+                <input type="text" class="form-control" name="name3" placeholder="Enter Name">
               </div>
               <div class="form-group">
                 <label>Grad Student/Post Doc phone number:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone3">
               </div>
               <div class="form-group">
                 <label>Grad Student/Post Doc email address:</label>
-                <input type="text" class="form-control" name="semail" placeholder="Enter Email">
+                <input type="text" class="form-control" name="email3" placeholder="Enter Email">
               </div>
             </form>
               </div>
@@ -185,49 +177,49 @@
                   <div class="row">
                       <div class="col-md-6">
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="1">Aerospace Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="0">Aerospace Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="2">Applied Mathematics</label>
+                          <label><input type="checkbox" class="check" name="field5" value="1">Applied Mathematics</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="3">Architectural Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="2">Architectural Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="4">Chemical Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="3">Chemical Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="5">Chemical & Biological Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="4">Chemical & Biological Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="6">Civil Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="5">Civil Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="7">Computer Science</label>
+                          <label><input type="checkbox" class="check" name="field5" value="6">Computer Science</label>
                         </div>
                       </div>
 
                       <div class="col-md-6">
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="8">Electrical Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="7">Electrical Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="9">Electrical and Computer Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="8">Electrical and Computer Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="10">Engineering Physics</label>
+                          <label><input type="checkbox" class="check" name="field5" value="9">Engineering Physics</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="11">Environmental Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="10">Environmental Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="12">Engineering Plus</label>
+                          <label><input type="checkbox" class="check" name="field5" value="11">Engineering Plus</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="13">Mechanical Engineering</label>
+                          <label><input type="checkbox" class="check" name="field5" value="12">Mechanical Engineering</label>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" class="check" name="field5" value="14">Technology, Arts and Media</label>
+                          <label><input type="checkbox" class="check" name="field5" value="13">Technology, Arts and Media</label>
                         </div>
                       </div>
                   </div>
@@ -236,45 +228,45 @@
 
               <div class="form-group">
                 <label><span style="color:red;">* </span>Amount of supervision required/interaction available:</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Very little supervision; student will need to work largely independently</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Moderate amount of supervision and interaction with others</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Good deal of supervision; student will work as an integral part of a research team</label>
+                <label class="radio-inline"><input type="radio" name="optradio1" value="0">Very little supervision; student will need to work largely independently</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio1" value="1">Moderate amount of supervision and interaction with others</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio1" value="2">Good deal of supervision; student will work as an integral part of a research team</label>
               </div>
 
                <div class="form-group">
                 <label><span style="color:red;">* </span>Supervision provided by:</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Supervision primarily by faculty supervisor</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Supervision primarily by graduate students</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Supervision primarily a combination of faculty and graduate students</label>
+                <label class="radio-inline"><input type="radio" name="optradio2" value="0">Supervision primarily by faculty supervisor</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio2" value="1">Supervision primarily by graduate students</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio2" value="2">Supervision primarily a combination of faculty and graduate students</label>
               </div>
 
 
                <div class="form-group">
                 <label><span style="color:red;">* </span>Nature of work:</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Nature of work is primarily theoretical, most work on paper/electronic medium</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Nature of work is primarily experimental, requiring hands-on work in a lab</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Nature of work is primarily field based, requiring hands-on work in the field</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Nature of work is primarily computer-related, involving coding/analysis</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Nature of work is a combination of several types of work.</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">other, specify:</label>
-                <input type="text" class="form-control">
+                <label class="radio-inline"><input type="radio" name="optradio3" value="0">Nature of work is primarily theoretical, most work on paper/electronic medium</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio3" value="1">Nature of work is primarily experimental, requiring hands-on work in a lab</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio3" value="2">Nature of work is primarily field based, requiring hands-on work in the field</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio3" value="3">Nature of work is primarily computer-related, involving coding/analysis</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio3" value="4">Nature of work is a combination of several types of work.</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio3" value="5">other, specify:</label>
+                <input type="text" class="form-control" name="optradio3">
 
               </div>
 
 
                <div class="form-group">
                 <label><span style="color:red;">* </span>Amount of prior work conducted in association with this project:</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">No prior work; student will be starting from basic idea</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Some prior work; student will build on work of others</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">Well-established body of work; student will refine/improved upon efforts of others</label><br>
-                <label class="radio-inline"><input type="radio" name="optradio">other, specify:</label>
-                <input type="text" class="form-control">
+                <label class="radio-inline"><input type="radio" name="optradio4" value="0">No prior work; student will be starting from basic idea</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio4" value="1">Some prior work; student will build on work of others</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio4" value="2">Well-established body of work; student will refine/improved upon efforts of others</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio4" value="3">other, specify:</label>
+                <input type="text" class="form-control" name="optradio4">
               </div>
 
 
               <div class="form-group">
                 <label for="name">Name of specific student desired: (if any) – be sure to ask them to apply!</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="field6">
               </div>
 
               </form>
@@ -307,6 +299,28 @@
           </div>
    </div>
 
+   <div class="row">
+      <div class="col-md-9 center">
+              <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Other</h3>
+              </div>
+              <div class="panel-body">
+                <form>
+              <div class="form-group">
+                <label>Have you supervised a Discovery Learning Apprentice in the past?</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio5" value="y">Yes</label><br>
+                <label class="radio-inline"><input type="radio" name="optradio5" value="n">No</label><br>
+                <small class="form-text text-muted">(this question intended for the faculty supervisor, not the graduate student or post-doc)</small>
+
+              </div>
+            </form>
+            <button type="submit" class="btn btn-primary" id="form2">Submit</button>
+
+              </div>
+            </div>
+          </div>
+   </div>
 </div>
 
     <script>

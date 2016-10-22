@@ -20,3 +20,23 @@ $(function() {
         });
     });
 });
+
+$(function() {
+    $('#form2').click(function() {
+
+        $.ajax({
+            url: '/fsubmit',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+                alert("succesfully added!");
+            },
+            error: function(error) {
+                console.log($('form').serialize());
+                console.log(error);
+                alert("information miss!");
+            }
+        });
+    });
+});
