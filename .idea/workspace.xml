@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1041f5ba-7bdc-4557-acb6-c40696da5a5b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/js/script.js" afterPath="$PROJECT_DIR$/app/static/js/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/faculty.html" afterPath="$PROJECT_DIR$/app/templates/faculty.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/student.html" afterPath="$PROJECT_DIR$/app/templates/student.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/record.log" afterPath="$PROJECT_DIR$/record.log" />
     </list>
@@ -26,20 +26,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+            <state relative-caret-position="406">
+              <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1477095102000" expanded="true" signature="900:983" ph="INSERT INTO `Demographic`... " />
-                <marker date="1477095102000" expanded="true" signature="2858:2940" ph="INSERT INTO `table`... " />
-                <marker date="1477095102000" expanded="true" signature="2858:3036" ph="INSERT INTO `table`... " />
-                <marker date="1477095102000" expanded="true" signature="2858:3118" ph="INSERT INTO `table`... " />
-                <marker date="1477095102000" expanded="true" signature="2858:3164" ph="INSERT INTO `table`... " />
-                <marker date="1477095102000" expanded="true" signature="2858:3266" ph="INSERT INTO `table`... " />
+                <marker date="1477095198000" expanded="true" signature="656:679" ph="SELECT * FRO... project" />
+                <marker date="1477095198000" expanded="true" signature="1624:1794" ph="INSERT INTO `student`... " />
+                <marker date="1477095198000" expanded="true" signature="1919:1997" ph="INSERT INTO `application`... " />
+                <marker date="1477095198000" expanded="true" signature="2129:2212" ph="INSERT INTO `Demographic`... " />
+                <marker date="1477095198000" expanded="true" signature="4087:4169" ph="INSERT INTO `table`... " />
+                <marker date="1477095198000" expanded="true" signature="4087:4265" ph="INSERT INTO `table`... " />
+                <marker date="1477095198000" expanded="true" signature="4087:4347" ph="INSERT INTO `table`... " />
+                <marker date="1477095198000" expanded="true" signature="4087:4393" ph="INSERT INTO `table`... " />
+                <marker date="1477095198000" expanded="true" signature="4087:4495" ph="INSERT INTO `table`... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="record.log" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/record.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,15 +93,9 @@
       <file leaf-file-name="student.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/student.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="750">
+              <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,6 +141,7 @@
         <option value="$PROJECT_DIR$/app/static/js/script.js" />
         <option value="$PROJECT_DIR$/app/templates/faculty.html" />
         <option value="$PROJECT_DIR$/app/views.py" />
+        <option value="$PROJECT_DIR$/record.log" />
       </list>
     </option>
   </component>
@@ -559,12 +567,15 @@
           <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1477095102000" expanded="true" signature="900:983" ph="INSERT INTO `Demographic`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:2940" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3036" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3118" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3164" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3266" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="656:679" ph="SELECT * FRO... project" />
+            <marker date="1477095198000" expanded="true" signature="1624:1794" ph="INSERT INTO `student`... " />
+            <marker date="1477095198000" expanded="true" signature="1919:1997" ph="INSERT INTO `application`... " />
+            <marker date="1477095198000" expanded="true" signature="2129:2212" ph="INSERT INTO `Demographic`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4169" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4265" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4347" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4393" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4495" ph="INSERT INTO `table`... " />
           </folding>
         </state>
       </provider>
@@ -594,13 +605,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="34" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -618,12 +623,15 @@
           <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1477095102000" expanded="true" signature="900:983" ph="INSERT INTO `Demographic`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:2940" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3036" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3118" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3164" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3266" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="656:679" ph="SELECT * FRO... project" />
+            <marker date="1477095198000" expanded="true" signature="1624:1794" ph="INSERT INTO `student`... " />
+            <marker date="1477095198000" expanded="true" signature="1919:1997" ph="INSERT INTO `application`... " />
+            <marker date="1477095198000" expanded="true" signature="2129:2212" ph="INSERT INTO `Demographic`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4169" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4265" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4347" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4393" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4495" ph="INSERT INTO `table`... " />
           </folding>
         </state>
       </provider>
@@ -653,13 +661,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="34" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -677,12 +679,15 @@
           <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1477095102000" expanded="true" signature="900:983" ph="INSERT INTO `Demographic`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:2940" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3036" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3118" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3164" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3266" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="656:679" ph="SELECT * FRO... project" />
+            <marker date="1477095198000" expanded="true" signature="1624:1794" ph="INSERT INTO `student`... " />
+            <marker date="1477095198000" expanded="true" signature="1919:1997" ph="INSERT INTO `application`... " />
+            <marker date="1477095198000" expanded="true" signature="2129:2212" ph="INSERT INTO `Demographic`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4169" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4265" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4347" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4393" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4495" ph="INSERT INTO `table`... " />
           </folding>
         </state>
       </provider>
@@ -705,13 +710,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -896,15 +895,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/student.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="750">
+          <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -939,17 +932,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        <state relative-caret-position="406">
+          <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1477095102000" expanded="true" signature="900:983" ph="INSERT INTO `Demographic`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:2940" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3036" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3118" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3164" ph="INSERT INTO `table`... " />
-            <marker date="1477095102000" expanded="true" signature="2858:3266" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="656:679" ph="SELECT * FRO... project" />
+            <marker date="1477095198000" expanded="true" signature="1624:1794" ph="INSERT INTO `student`... " />
+            <marker date="1477095198000" expanded="true" signature="1919:1997" ph="INSERT INTO `application`... " />
+            <marker date="1477095198000" expanded="true" signature="2129:2212" ph="INSERT INTO `Demographic`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4169" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4265" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4347" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4393" ph="INSERT INTO `table`... " />
+            <marker date="1477095198000" expanded="true" signature="4087:4495" ph="INSERT INTO `table`... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

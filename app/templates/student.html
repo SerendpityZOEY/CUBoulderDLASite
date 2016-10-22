@@ -6,18 +6,43 @@
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/styles.css">
     <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
     <script src="../static/bootstrap/js/bootstrap.min.js"></script>
     <!-- Bootstrap Form Helpers -->
     <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
     <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <style>
+      .sidebar1 {
+      float: right;
+      width: 25%;
+      padding-bottom: 10px;
+      background-color: #eee;
+      }
+    </style>
 </head>
 <body>
     <script src="../static/js/script.js"></script>
 
 <div class="container-fluid">
    <div class="row">
-          <div class="col-md-9 center">
+          <div class="sidebar1">
+            {% for row in data%}
+              <a href=#{{ row[0] }} class="btn btn-info" data-toggle="collapse">{{ row[1] }}</a>
+              <div id={{ row[0] }} class="collapse">
+                <ul class="list-group">
+                  <li class="list-group-item">link:{{ row[2] }}</li>
+                  <li class="list-group-item">Description: {{ row[3] }}</li>
+                  {% for req in row[4:] %}
+                    {% if req %}
+                      <li class="list-group-item">req: {{ req }}</li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endfor %}
+          </div>  
+          <div class="col-md-9 left">
               <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">Demographic Information</h3>
@@ -30,8 +55,8 @@
               </div>
               <div class="form-group">
                 <label><span style="color:red;">* </span>Gender:</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Male</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Female</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="male">Male</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value="female">Female</label>
               </div>
               <div class="form-group">
                   <label>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
@@ -80,67 +105,124 @@
                 </div>
               </div>
             </form>
-                <button type="submit" class="btn btn-primary" id="form1">Submit</button>
               </div>
             </div>
           </div>
       </div>
    <div class="row">
-       <div class="col-md-9 center">
+       <div class="col-md-9 left">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Boulder Contact Information</h3>
+            <h3 class="panel-title">Contact Information</h3>
           </div>
           <div class="panel-body">
             <form>
               <div class="form-group">
                 <label for="address"><span style="color:red;">* </span>Boulder Address: (street, city, state, zip)</label>
-                <textarea class="form-control" id="address" rows="3"></textarea>
+                <textarea class="form-control" name="address" rows="3" type="text"></textarea>
               </div>
               <div class="form-group">
-                <label><span style="color:red;">* </span>Boulder Phone:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+                <label><span style="color:red;">* </span>Phone:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone">
               </div>
                 <div class="form-group">
-                  <label><span style="color:red;">* </span>Boulder Email:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Email">
+                  <label><span style="color:red;">* </span>Email:</label>
+                  <input type="text" class="form-control" name="email" placeholder="Email">
                 </div>
-              <button type="submit" class="btn btn-primary">Save and Continue</button>
             </form>
           </div>
         </div>
        </div>
    </div>
-
    <div class="row">
-     <div class="col-md-9 center">
-       <div class="panel panel-default">
-           <div class="panel-heading">
-            <h3 class="panel-title">Summer Contact Information (if different)</h3>
+       <div class="col-md-9 left">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Education</h3>
           </div>
-         <div class="panel-body">
+          <div class="panel-body">
             <form>
               <div class="form-group">
-                <label for="address">Summer Address: (street, city, state, zip)</label>
-                <textarea class="form-control" id="summer-address" rows="3"></textarea>
+                <label for="address"><span style="color:red;">* </span>Major</label>
+                <textarea class="form-control" name="major" type="text"></textarea>
               </div>
               <div class="form-group">
-                <label>Summer Phone:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
+                <label><span style="color:red;">* </span>StudentNumber:</label>
+                <input class="form-control" type="texte" name="SN">
               </div>
-                <div class="form-group">
-                  <label>Summer Email:</label>
-                  <input type="email" class="form-control" id="summer-email" placeholder="Email">
+              <div class="form-group">
+                <label><span style="color:red;">* </span>GPA:</label>
+                <input class="form-control" name="GPA" type="text">
+              </div>
+              <div class="form-group">
+                <label><span style="color:red;">* </span>Level: (freshman, Sophomore, Junior, Senior, Other)</label>
+                <input class="form-control" name="level" type="text">
+              </div>
+              <div class="input-group date" data-provide="datepicker">
+                <label><span style="color:red;">* </span>Graduation Date</label>
+                <input class="form-control" name="date">
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
                 </div>
-              <button type="submit" class="btn btn-primary">Save and Continue</button>
+              </div>
             </form>
           </div>
+        </div>
        </div>
-     </div>
    </div>
-</div>
+  <div class="row">
+    <div class="col-md-9 left">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Projects</h3>
+          </div>
+      <div class="panel-body">
+        <form>
+          <div class="form-group">
+            <label for="address">Research Experience</label>
+            <textarea class="form-control" name="experience"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Apply Before:(Y/N)</label>
+            <input class="form-control" name="apply">
+          </div>
+          <div class="form-group">
+            <label>Project1</label>
+            <select name="p1">
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project2</label>
+            <select name="p2">
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project3</label>
+            <select name="p3">
 
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </form>
+      </div>
+     </div>
+     <button type="submit" class="btn btn-primary" id="form1">Submit</button>
+    </div>
+  </div>
 
 
 </body>
+<script>
+// $('.datepicker').datepicker();
+Mycomponet = '{{data[0]}}'
+  $(document).ready(console.log(Mycomponet))
+</script>
 </html>
