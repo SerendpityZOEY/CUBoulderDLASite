@@ -35,35 +35,36 @@ def submit():
     name = request.form['name']
     gender = request.form['optradio']
     origin = request.form['optionsRadios']
-    race = request.form.getlist('hello')
-    phoneNumber = request.form.getlist('phone')
-    email = request.form.getlist('email')
-    Address = request.form.getlist('address')
-    Major = request.form.getlist('major')
-    studentNumber = request.form.getlist('SN')
-    GPA = request.form.getlist('GPA')
-    level = request.form.getlist('level')
-    Date = request.form.getlist('date')
-    experience = request.form.getlist('experience')
-    Apply = request.form.getlist('apply')
-    p1 = request.form.getlist('p1')
-    p2 = request.form.getlist('p2')
-    p3 = request.form.getlist('p3')
-    app.logger.info(p1[0])
+    race = request.form['hello']
+    phoneNumber = request.form['phone']
+    email = request.form['email']
+    Address = request.form['address']
+    Major = request.form['major']
+    studentNumber = int(request.form['SN'])
+    GPA = float(request.form['GPA'])
+    level = request.form['level']
+    Date = request.form['date']
+    experience = request.form['experience']
+    Apply = request.form['apply']
+    p1 = request.form['p1']
+    p2 = request.form['p2']
+    p3 = request.form['p3']
+    p4 = request.form['p4']
+    p5 = request.form['p5']   
     conn = mysql.connect()
     cursor = conn.cursor()
     query = "INSERT INTO `student` (`name`, `gender`, `origin`, `race`,`phoneNumber`,`email`,`Address`,`Major`,`studentNumber`,`GPA`,`level`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
     cursor.execute(query,(name,gender,origin,race,phoneNumber,email,Address,Major,studentNumber,GPA,level))
-    query2 = "INSERT INTO `application` (`Sid`, `P1id`, `P2id`, `P3id`) VALUES (%s,%s,%s,%s);"
-    cursor.execute(query2,(studentNumber,p1[0],p2[0],p3[0]))
-    # app.logger.info(name+'is sucessfully submitted')
-    query = "INSERT INTO `Demographic` (`name`, `gender`, `origin`, `race`) VALUES (%s,%s,%s,%s);"
-    # print(race)
-    # print(query)
+    query2 = "INSERT INTO `application` (`Sid`, `Priority`, `ProjectID`) VALUES (%s,%s,%s);"
+    cursor.execute(query2,(studentNumber,1,p1[0]))
+    cursor.execute(query2,(studentNumber,2,p2[0]))
+    cursor.execute(query2,(studentNumber,3,p3[0]))
+    cursor.execute(query2,(studentNumber,4,p4[0]))
+    cursor.execute(query2,(studentNumber,5,p5[0]))
+    print(race)
+    print(query)
     app.logger.info(name + 'is sucessfully submitted')
-    cursor.execute(query, (name, gender, origin, race))
     conn.commit()
-    # cursor.callproc('sp_createUser', (_name, _gender, _origin, _race))
     data = cursor.fetchall()
     cursor.close()
     conn.close()
@@ -108,7 +109,7 @@ def f_submit():
     cursor = conn.cursor()
     print(name1, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
           field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5)
-    query = "INSERT INTO `faculty` (`name1`, `phone1`, `email1`, `program1`, `radio0`, `name2`,  \
+    query = "INSERT INTO `faculty` (`name1`, `phone1`, `email1`, `program1`, `radio0`, `name2`, \
             `phone2`, `email2`, `program2`, `name3`, `phone3`, `email3`, `field1`, `field2`, \
             `field3`, `field4`, `major`, `radio1`, `radio2`, `radio3`, `radio4`, `field6`, \
             `f1`, `f2`, `radio5`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \

@@ -148,11 +148,11 @@
               </div>
               <div class="form-group">
                 <label><span style="color:red;">* </span>StudentNumber:</label>
-                <input class="form-control" type="texte" name="SN">
+                <input class="form-control" type="number" min="0" name="SN">
               </div>
               <div class="form-group">
                 <label><span style="color:red;">* </span>GPA:</label>
-                <input class="form-control" name="GPA" type="text">
+                <input class="form-control" name="GPA" type="number" min="0" step="any">
               </div>
               <div class="form-group">
                 <label><span style="color:red;">* </span>Level: (freshman, Sophomore, Junior, Senior, Other)</label>
@@ -205,6 +205,24 @@
           <div class="form-group">
             <label>Project3</label>
             <select name="p3">
+
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project4</label>
+            <select name="p4">
+
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project5</label>
+            <select name="p5">
 
               {% for row in data %}
                 <option value={{ row[0] }} type="number">{{ row[1] }}</option>
