@@ -1,6 +1,9 @@
 from app import app
 from flask import render_template, request, json
 from flaskext.mysql import MySQL
+import random
+import string
+from hashlib import sha512
 
 mysql = MySQL()
 
@@ -10,6 +13,16 @@ app.config['MYSQL_DATABASE_PASSWORD'] = 'abs234grj2345'
 app.config['MYSQL_DATABASE_DB'] = 'SEDB'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
+
+SIMPLE_CHARS = string.ascii_letters + string.digits
+
+def getRandomString(length=24):
+    return ''.join(random.choice(SIMPLE_CHARS) for i in xrange(length))
+
+def getRandomHash(length=24):
+    hash = sha512()
+    hash.update(getRandomString())
+    return hash.hexdigest()[:length]
 
 
 @app.route('/')
@@ -50,7 +63,7 @@ def submit():
     p2 = request.form['p2']
     p3 = request.form['p3']
     p4 = request.form['p4']
-    p5 = request.form['p5']   
+    p5 = request.form['p5']
     conn = mysql.connect()
     cursor = conn.cursor()
     query = "INSERT INTO `student` (`name`, `gender`, `origin`, `race`,`phoneNumber`,`email`,`Address`,`Major`,`studentNumber`,`GPA`,`level`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
