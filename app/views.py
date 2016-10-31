@@ -165,11 +165,32 @@ def f_submit():
             `field3`, `field4`, `major`, `radio1`, `radio2`, `radio3`, `radio4`, `field6`, \
             `f1`, `f2`, `radio5`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
             "%s,%s,%s,%s);"
+
+
     app.logger.info('is sucessfully submitted')
     cursor.execute(query,
                    (name1, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
                     field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5))
     conn.commit()
+    #submit to project table
+    fetch_id = "SELECT `id` FROM `faculty` WHERE `name1` = name1"
+    profId = cursor.execute(fetch_id)
+    ProfessorID = int(profId)
+    projectName = field1
+    webLink = field2
+    req1 = field3
+    completeDescription = field4
+    req2 = "null"
+    req3 = "null"
+    req4 = "null"
+    req5 = "null"
+    project_query = "INSERT INTO `project` (`projectName`, `ProfessorID`, `webLink`, \
+                    `completeDescription`, `req1`, `req2`, `req3`, `req4`, `req5`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+    print(ProfessorID)
+    cursor.execute(project_query, (projectName, int(ProfessorID), webLink,\
+                    completeDescription, req1, req2, req3, req4, req5))
+    conn.commit()
+
     data = cursor.fetchall()
     cursor.close()
     conn.close()
