@@ -158,6 +158,18 @@
 (may not exceed 1000 characters)</small>
               </div>
 
+
+                <div class="form-group">
+                    <div class="input-group">
+                    <div id="field">
+                      <input class="form-control" id="field1" type="text" placeholder="Type something">
+                        <span class="input-group-btn">
+                            <button id="b1" class="btn add-more" type="button">+</button>
+                        </span>
+                    </div>
+                    </div>
+                </div>
+
               <div class="form-group">
                 <label for="name"><span style="color:red;">* </span>A longer description of the apprenticeship:</label>
                 <input type="text" class="form-control" name="field4" maxlength="1200">
@@ -322,12 +334,47 @@
           </div>
    </div>
 </div>
+      <input type="text" class="form-control" placeholder="TBD">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="plus">+</button>
+      </span>
 
     <script>
         $("#checkAll").click(function () {
             console.log("hit")
             $(".check").prop('checked', $(this).prop('checked'));
         });
+
+        $(document).ready(function(){
+            var next = 1;
+            $(".add-more").click(function(e){
+                e.preventDefault();
+                var addto = "#field" + next;
+                var addRemove = "#field" + (next);
+                next = next + 1;
+                var newIn = '<input class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';
+                var newInput = $(newIn);
+                var removeBtn = '<span class="input-group-btn"><button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field"></span>';
+                var removeButton = $(removeBtn);
+                $(addto).after(newInput);
+                $(addRemove).after(removeButton);
+                $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+                $("#count").val(next);
+
+                    $('.remove-me').click(function(e){
+                        e.preventDefault();
+                        var fieldNum = this.id.charAt(this.id.length-1);
+                        var fieldID = "#field" + fieldNum;
+                        $(this).remove();
+                        $(fieldID).remove();
+                    });
+            });
+
+
+
+        });
+
     </script>
+
 </body>
 </html>
