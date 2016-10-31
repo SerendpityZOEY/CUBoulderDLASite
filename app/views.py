@@ -150,7 +150,7 @@ def f_submit():
     f1 = request.form['f1']
     print("check 23")
 
-    f2 = request.form['f2'] 
+    f2 = request.form['f2']
     print("check 24")
 
     radio5 = request.form['optradio5']
