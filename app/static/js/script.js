@@ -31,6 +31,7 @@ $(function() {
             success: function(response) {
                 console.log(response);
                 alert("succesfully added!");
+                window.location = "/";
             },
             error: function(error) {
                 console.log($('form').serialize());
