@@ -92,3 +92,8 @@ ENV/
 # Other files and folders
 .idea
 .DS_Store
+
+# Sync files
+config.pyc
+app/views.pyc
+app/__init__.pyc
