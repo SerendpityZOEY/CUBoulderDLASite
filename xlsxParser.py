@@ -50,7 +50,7 @@ csv_content = list(DictReader(open("Students.csv", 'r')))
 
 sql = MysqlUtil(app)
 
-for row in csv_content[30:40]:
+for row in csv_content[40:50]:
     sql.insert_push('name', row['Name'])
     sql.insert_push('gender', row['Gender'])
     sql.insert_push('race', row['Ethnicity'])
@@ -60,6 +60,8 @@ for row in csv_content[30:40]:
     sql.insert_push('GPA', row['Self-Reported GPA'])
     sql.insert_push('level', row['Level In School'])
     sql.insert_execute('student')
+    # The clear can be ignored, since in next iteration, all the values will be assigned a new value
+    sql.clear()
 
     # query = "INSERT INTO `student` (`name`, `gender`, `race`, `email`,`Major`,`studentNumber`,`GPA`,`level`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);"
     # cursor.execute(query, (name, gender, race, email, Major, studentNumber, GPA, level))
