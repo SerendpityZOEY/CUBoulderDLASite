@@ -26,6 +26,12 @@ class MysqlUtil(object):
         self.app = app
 
         # MySQL configurations
+<<<<<<< HEAD
+=======
+        app.config['MYSQL_DATABASE_USER'] = 'root'
+        app.config['MYSQL_DATABASE_PASSWORD'] = 'l74z3oC1=1V>5J7'
+        app.config['MYSQL_DATABASE_DB'] = 'SEDB'
+>>>>>>> 4de2fec536772231ee693147d55fc3a0b68bfff5
         app.config['MYSQL_DATABASE_HOST'] = '54.186.181.45'
         app.config['MYSQL_DATABASE_PORT'] = 3306
 
