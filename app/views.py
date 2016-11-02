@@ -82,7 +82,7 @@ def faculty():
 @app.route('/fsubmit', methods=['GET', 'POST'])
 def f_submit():
     print("Enter f_submit")
-    name1 = request.form['name1']
+    fName = request.form['name1']
     print("check 1")
     phone1 = request.form['phone1']
     print("check 2")
@@ -158,22 +158,22 @@ def f_submit():
 
     conn = mysql.connect()
     cursor = conn.cursor()
-    print(name1, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
+    print(fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
           field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5)
-    query = "INSERT INTO `faculty` (`name1`, `phone1`, `email1`, `program1`, `radio0`, `name2`, \
-            `phone2`, `email2`, `program2`, `name3`, `phone3`, `email3`, `field1`, `field2`, \
-            `field3`, `field4`, `major`, `radio1`, `radio2`, `radio3`, `radio4`, `field6`, \
-            `f1`, `f2`, `radio5`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
+    query = "INSERT INTO `faculty` (`name`, `phone`, `email`, `dept`, `EngineerFocus`, `name2`, \
+            `phone2`, `email2`, `dept2`, `sName`, `sPhone`, `sEmail`, `title`, `website`, \
+            `specReq`, `description`, `majorReq`, `supervision`, `supervisionSource`, `nature`, `workAmount`, `preselectStudent`, \
+            `speedType`, `accounting`, `supervisedExp`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
             "%s,%s,%s,%s);"
 
 
     app.logger.info('is sucessfully submitted')
     cursor.execute(query,
-                   (name1, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
+                   (fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
                     field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5))
     conn.commit()
     #submit to project table
-    fetch_id = "SELECT `id` FROM `faculty` WHERE `name1` = name1"
+    fetch_id = "SELECT `id` FROM `faculty` WHERE `name` = \"fName\""
     profId = cursor.execute(fetch_id)
     ProfessorID = int(profId)
     projectName = field1
