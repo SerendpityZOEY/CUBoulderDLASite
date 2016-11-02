@@ -53,9 +53,11 @@ class MysqlUtil:
         finally:
             connection.close()
 
+
     def clear(self):
         """Clear the pushed data"""
         self.data = {}
+
 
 # """ Example """
 # from app import app
