@@ -7,8 +7,6 @@
 .StreamsHero-buttonContainer{
     vertical-align: middle;
     padding-top: 28%;
-    padding-left:30%;
-    padding-right:30%;
 }
 
 .StreamsHero-buttonContainer .Button {
@@ -17,8 +15,6 @@
     font-size: 33px;
     font-weight: 200;
     padding: 10px 35px;
-    margin-right: 15px;
-    margin-left: 15px;
 }
 
 .Button {
