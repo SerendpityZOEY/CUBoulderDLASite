@@ -45,6 +45,7 @@ class MysqlUtil:
         query += "VALUES (" + ("%s," * len(keys))[:-1] + ");"
 
         connection = self.mysql.connect()
+
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query, values)
