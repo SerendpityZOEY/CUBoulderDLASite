@@ -245,6 +245,101 @@
        </div>
    </div>
 
+   <div class="row">
+       <div class="col-md-9 left">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Apprenticeship Information</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                  <label>Have you applied for a Discovery Learning Apprenticeship before?</label><br>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="yes">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="notsure">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="no">No</label>
+              </div>
+
+              <div class="form-group">
+                  <label>Other fall employment planned:</label>
+                  <textarea class="form-control" placeholder="Other fall employment planned:"></textarea>
+              </div>
+
+              <p><strong style="color:red">Please make sure you selected a major before proceeding!</strong></p>
+              <p>Indicate up to five research projects in order of interest:</p>
+              <p><strong style="color:red">Please note that some projects have special requirements that you must meet.</strong></p>
+              <p>To see requirements and longer descriptions of the project, look at the projects available for your major here.</p>
+
+              <div class="form-group">
+                <label><span style="color:red;">* </span>Project1</label>
+                <select name="p1">
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project2</label>
+                <select name="p2">
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project3</label>
+                <select name="p3">
+
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project4</label>
+                <select name="p4">
+
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project5</label>
+                <select name="p5">
+
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="form-group">
+                  <label>Have you had a background check yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label><br>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="yes">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="notsure">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="no">No</label>
+              </div>
+
+              <div class="form-group">
+                  <label>Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes when? (Take
+                      your best guess if you aren't sure.)</label><br>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="yes">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="notsure">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="no">No</label>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Last four digits of your Social Security Number:
+                    (this will only be used to acess your background check information)</label>
+                <input type="text" class="form-control" name="field4" maxlength="4">
+              </div>
+            </form>
+          </div>
+        </div>
+       </div>
+   </div>
+
   <div class="row">
     <div class="col-md-9 left">
      <div class="panel panel-default">
@@ -261,49 +356,7 @@
             <label>Apply Before:(Y/N)</label>
             <input class="form-control" name="apply">
           </div>
-          <div class="form-group">
-            <label>Project1</label>
-            <select name="p1">
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project2</label>
-            <select name="p2">
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project3</label>
-            <select name="p3">
 
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project4</label>
-            <select name="p4">
-
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project5</label>
-            <select name="p5">
-
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
         </form>
       </div>
      </div>
