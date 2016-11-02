@@ -1,7 +1,7 @@
 from flaskext.mysql import MySQL
 
 
-class mysqlUtil:
+class MysqlUtil:
     def __init__(self, app):
         mysql = MySQL()
 
@@ -59,7 +59,7 @@ class mysqlUtil:
 
 # """ Example """
 # from app import app
-# sql = mysqlUtil(app)
+# sql = MysqlUtil(app)
 # sql.insert_push('name', 'peizhe2')
 # sql.insert_push('gender', 'male')
 # sql.insert_execute("student")

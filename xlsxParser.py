@@ -2,7 +2,7 @@ from csv import DictReader
 from app import app
 from flask import render_template, request, json
 from flaskext.mysql import MySQL
-from mysqlUtil import mysqlUtil
+from MysqlUtil import MysqlUtil
 
 csv_content = list(DictReader(open("Students.csv", 'r')))
 
@@ -48,7 +48,7 @@ csv_content = list(DictReader(open("Students.csv", 'r')))
 # cursor.callproc('sp_createUser', (_name, _gender, _origin, _race))
 # data = cursor.fetchall()
 
-sql = mysqlUtil(app)
+sql = MysqlUtil(app)
 
 for row in csv_content[30:40]:
     sql.insert_push('name', row['Name'])
