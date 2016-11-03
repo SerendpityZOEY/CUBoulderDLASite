@@ -34,7 +34,7 @@ def project():
     projects = sqlUtil.select_all("SELECT * FROM `project`")
     app.logger.info(projects)
     for pid, pn, major, prid, link, des, req1, req2, req3, req4, req5 in projects:
-        cursor.execute("SELECT name1, program1 FROM faculty WHERE id='%s'"%(prid))
+        self.cursor.execute("SELECT name1, program1 FROM faculty WHERE id='%s'"%(prid))
         professorName, department = cursor.fetchone()
         # professorName, department = sqlUtil.select_one("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         # professorName, department = str(professorName), dic[int(department)]
