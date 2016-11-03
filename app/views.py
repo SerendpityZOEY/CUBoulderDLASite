@@ -5,15 +5,18 @@ from flaskext.mysql import MySQL
 mysql = MySQL()
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'user'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'l74z3oC1=1V>5J7'
-app.config['MYSQL_DATABASE_DB'] = 'SEDB'
+app.config['MYSQL_DATABASE_USER'] = 'developer'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'nvSEXvXXUU9E2QFu'
+app.config['MYSQL_DATABASE_DB'] = 'SETest'
 app.config['MYSQL_DATABASE_HOST'] = '54.186.181.45'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 
 mysql.init_app(app)
 
-
+dic={1:'Aerospace Engineering Sciences', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
+4: 'Civil, Environmental and Architectural Engineering', 5: 'Computer Science', 6: 'Electrical, Computer and Energy Engineering', \
+7: 'Physics', 8: 'Environmental Engineering', 9: 'Mechanical Engineering', \
+10: 'Colorado Space Grant', 11: 'Engineering Education', 12: 'ATLAS'}
 @app.route('/')
 @app.route('/index')
 def index():
@@ -28,9 +31,31 @@ def student():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM `project`")
     data = cursor.fetchall()
-
     return render_template("student.html", data=data)
 
+@app.route('/project', methods=['GET'])
+def project():
+    data=[]
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM `project`")
+    projects = cursor.fetchall()
+    app.logger.info(projects)
+    for pid, pn, major, prid, link, des, req1, req2, req3, req4, req5 in projects:
+        cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
+        professorName, department = cursor.fetchone()
+        professorName, department = str(professorName), dic[int(department)]
+        req = ''
+        for i, r in enumerate((str(req1),str(req2),str(req3),str(req4),str(req5))):
+            if r!='null':
+                if i==0:
+                    req+=r
+                else:
+                    req+', '+r
+
+        data.append([str(pn), professorName, department,str(major),str(link),str(des),req])
+        app.logger.info(data)
+    return render_template("project.html", data=json.dumps(data))
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():

@@ -27,7 +27,7 @@
 
 <div class="container-fluid">
    <div class="row">
-          <div class="sidebar1">
+          <!-- <div class="sidebar1">
             {% for row in data%}
               <a href=#{{ row[0] }} class="btn btn-info" data-toggle="collapse">{{ row[1] }}</a>
               <div id={{ row[0] }} class="collapse">
@@ -42,8 +42,8 @@
                 </ul>
               </div>
             {% endfor %}
-          </div>  
-          <div class="col-md-9 left">
+          </div>   -->
+          <div class="col-md-9 center">
               <h1>Student Application</h1>
               <div class="panel panel-default">
               <div class="panel-heading">
@@ -112,7 +112,7 @@
           </div>
       </div>
    <div class="row">
-       <div class="col-md-9 left">
+       <div class="col-md-9 center">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Boulder Contact Information</h3>
@@ -138,7 +138,7 @@
    </div>
 
    <div class="row">
-       <div class="col-md-9 left">
+       <div class="col-md-9 center">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Summer Contact Information(if different)</h3>
@@ -383,11 +383,11 @@
    </div>
 <!--
   <div class="row">
-    <div class="col-md-9 left">
+    <div class="col-md-9 center">
      <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Projects</h3>
-          </div>
+      </div>
       <div class="panel-body">
         <form>
           <div class="form-group">
@@ -398,7 +398,46 @@
             <label>Apply Before:(Y/N)</label>
             <input class="form-control" name="apply">
           </div>
+          <div>
+            <p>click here to see the full list of projects:<a href="/project">here</a></p>
+          </div>
+          <div class="form-group">
+            <label>Project1</label>
+            <select name="p1">
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project2</label>
+            <select name="p2">
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project3</label>
+            <select name="p3">
 
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project4</label>
+            <select name="p4">
+
+              {% for row in data %}
+                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Project5</label>
+            <select name="p5">
         </form>
       </div>
      </div>
