@@ -49,8 +49,10 @@ csv_content = list(DictReader(open("Students.csv", 'r')))
 # data = cursor.fetchall()
 
 sql = MysqlUtil(app)
+sql.use_account('developer')
+sql.use_database('SETest')
 
-for row in csv_content[40:50]:
+for row in csv_content[0:10]:
     sql.insert_push('name', row['Name'])
     sql.insert_push('gender', row['Gender'])
     sql.insert_push('race', row['Ethnicity'])

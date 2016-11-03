@@ -4,17 +4,12 @@ from flaskext.mysql import MySQL
 import random
 import string
 from hashlib import sha512
+import MysqlUtil
 
-mysql = MySQL()
 
-# MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'user'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'l74z3oC1=1V>5J7'
-app.config['MYSQL_DATABASE_DB'] = 'SEDB'
-app.config['MYSQL_DATABASE_HOST'] = '54.186.181.45'
-app.config['MYSQL_DATABASE_PORT'] = 3306
-
-mysql.init_app(app)
+sqlUtil = MysqlUtil.MysqlUtil(app)
+sqlUtil.use_account('developer')
+sqlUtil.use_database('SETest')
 
 SIMPLE_CHARS = string.ascii_letters + string.digits
 
@@ -27,6 +22,10 @@ def getRandomHash(length=24):
     return hash.hexdigest()[:length]
 
 
+dic={1:'Aerospace Engineering Sciences', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
+4: 'Civil, Environmental and Architectural Engineering', 5: 'Computer Science', 6: 'Electrical, Computer and Energy Engineering', \
+7: 'Physics', 8: 'Environmental Engineering', 9: 'Mechanical Engineering', \
+10: 'Colorado Space Grant', 11: 'Engineering Education', 12: 'ATLAS'}
 @app.route('/')
 @app.route('/index')
 def index():
@@ -37,16 +36,38 @@ def index():
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM `project`")
-    data = cursor.fetchall()
-
+    data = sqlUtil.select_all("SELECT * FROM `project`")
     return render_template("student.html", data=data)
+
+
+@app.route('/project', methods=['GET'])
+def project():
+    data=[]
+    # cursor.execute("SELECT * FROM `project`")
+    # projects = cursor.fetchall()
+    projects = sqlUtil.select_all("SELECT * FROM `project`")
+    app.logger.info(projects)
+    for pid, pn, major, prid, link, des, req1, req2, req3, req4, req5 in projects:
+        # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
+        # professorName, department = cursor.fetchone()
+        professorName, department = sqlUtil.select_one("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
+        professorName, department = str(professorName), dic[int(department)]
+        req = ''
+        for i, r in enumerate((str(req1),str(req2),str(req3),str(req4),str(req5))):
+            if r!='null':
+                if i==0:
+                    req+=r
+                else:
+                    req+', '+r
+
+        data.append([str(pn), professorName, department,str(major),str(link),str(des),req])
+        app.logger.info(data)
+    return render_template("project.html", data=json.dumps(data))
 
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
+<<<<<<< HEAD
     name = request.form['name']
     gender = request.form['optradio']
     origin = request.form['optionsRadios']
@@ -83,6 +104,35 @@ def submit():
     data = cursor.fetchall()
     cursor.close()
     conn.close()
+=======
+    sqlUtil.batch_insert_push({
+        'name':             request.form['name'],
+        'gender':           request.form['gender'],
+        'origin':           request.form['origin'],
+        'race':             request.form['race'],
+        'phoneNumber':      request.form['phone'],
+        'email':            request.form['email'],
+        'Address':          request.form['address'],
+        'Major':            request.form['major'],
+        'studentNumber':    request.form['SN'],
+        'GPA':              request.form['GPA'],
+        'level':            request.form['level'],
+        # 'Date':             request.form['date'],
+        # 'experience':       request.form['experience'],
+        # 'Apply':            request.form['apply'],
+    })
+
+    sqlUtil.insert_execute('student');
+    sqlUtil.clear()
+
+    sqlUtil.insert_push('Sid', request.form['SN'])
+    for i, p in enumerate(['p1', 'p2', 'p3', 'p4', 'p5']):
+        sqlUtil.batch_insert_push({'Priority': i+1, 'ProjectID': (request.form[p])[0]})
+        sqlUtil.insert_execute('application')
+        # Don clear, since we need to reuse 'Sid' field
+    sqlUtil.clear()
+
+>>>>>>> master
     return json.dumps({'message': 'Student info saved successfully !'})
 
 
@@ -130,19 +180,33 @@ def f_submit():
     email3 = request.form['email3']
     print("check 12")
 
-    field1 = request.form['field1']
+    projectTitle = request.form['projectTitle']
     print("check 13")
 
-    field2 = request.form['field2']
+    projectLink = request.form['projectLink']
     print("check 14")
 
-    field3 = request.form['field3']
-    print("check 15")
+    specialReq1 = request.form.get('specialReq1', None)
+    if specialReq1 is None:
+        specialReq1 = "null"
+    specialReq2 = request.form.get('specialReq2', None)
+    if specialReq2 is None:
+        specialReq2 = "null"
+    specialReq3 = request.form.get('specialReq3', None)
+    if specialReq3 is None:
+        specialReq3 = "null"
+    specialReq4 = request.form.get('specialReq4', None)
+    if specialReq4 is None:
+        specialReq4 = "null"
+    specialReq5 = request.form.get('specialReq5', None)
+    if specialReq5 is None:
+        specialReq5 = "null"
 
-    field4 = request.form['field4']
+
+    projectDesc = request.form['projectDesc']
     print("check 16")
 
-    major = request.form.getlist('field5')
+    majorReq = request.form.getlist('majorReq')
     print("check 17")
 
     radio1 = request.form['optradio1']
@@ -157,7 +221,7 @@ def f_submit():
     radio4 = request.form['optradio4']
     print("check 21")
 
-    field6 = request.form['field6']
+    preselectStudent = request.form['preselectStudent']
     print("check 22")
 
     f1 = request.form['f1']
@@ -168,35 +232,40 @@ def f_submit():
 
     radio5 = request.form['optradio5']
     print("check 25")
-
+    
     conn = mysql.connect()
     cursor = conn.cursor()
     print(fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
-          field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5)
+          projectTitle, projectLink, specialReq1, projectDesc, majorReq, radio1, radio2, radio3, radio4,
+          preselectStudent, f1, f2, radio5)
     query = "INSERT INTO `faculty` (`name`, `phone`, `email`, `dept`, `EngineerFocus`, `name2`, \
             `phone2`, `email2`, `dept2`, `sName`, `sPhone`, `sEmail`, `title`, `website`, \
-            `specReq`, `description`, `majorReq`, `supervision`, `supervisionSource`, `nature`, `workAmount`, `preselectStudent`, \
-            `speedType`, `accounting`, `supervisedExp`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
-            "%s,%s,%s,%s);"
+            `specReq`, `specReq2`, `specReq3`, `specReq4`, `specReq5`, `description`, `majorReq`, `supervision`, \
+            `supervisionSource`, `nature`, `workAmount`, `preselectStudent`, \
+            `speedType`, `accounting`, `supervisedExp`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, \
+            %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
 
 
     app.logger.info('is sucessfully submitted')
     cursor.execute(query,
                    (fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
-                    field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5))
+                    projectTitle, projectLink, specialReq1, specialReq2, specialReq3, specialReq4, specialReq5,
+                    projectDesc, majorReq, radio1, radio2, radio3, radio4,
+                    preselectStudent, f1, f2, radio5))
     conn.commit()
     #submit to project table
-    fetch_id = "SELECT `id` FROM `faculty` WHERE `name` = \"fName\""
-    profId = cursor.execute(fetch_id)
+    # fetch_id = "SELECT `id` FROM `faculty` WHERE `name` = \"fName\""
+    # profId = cursor.execute(fetch_id)
+    profId = sqlUtil.select_all("SELECT `id` FROM `faculty` WHERE `name` = \"fName\"")
     ProfessorID = int(profId)
-    projectName = field1
-    webLink = field2
-    req1 = field3
-    completeDescription = field4
-    req2 = "null"
-    req3 = "null"
-    req4 = "null"
-    req5 = "null"
+    projectName = projectTitle
+    webLink = projectLink
+    req1 = specialReq1
+    completeDescription = projectDesc
+    req2 = specialReq2
+    req3 = specialReq3
+    req4 = specialReq4
+    req5 = specialReq5
     project_query = "INSERT INTO `project` (`projectName`, `ProfessorID`, `webLink`, \
                     `completeDescription`, `req1`, `req2`, `req3`, `req4`, `req5`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
     print(ProfessorID)
