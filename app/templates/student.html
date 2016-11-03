@@ -26,7 +26,7 @@
 
 <div class="container-fluid">
    <div class="row">
-          <div class="sidebar1">
+          <!-- <div class="sidebar1">
             {% for row in data%}
               <a href=#{{ row[0] }} class="btn btn-info" data-toggle="collapse">{{ row[1] }}</a>
               <div id={{ row[0] }} class="collapse">
@@ -41,8 +41,8 @@
                 </ul>
               </div>
             {% endfor %}
-          </div>  
-          <div class="col-md-9 left">
+          </div>   -->
+          <div class="col-md-9 center">
               <h1>Student Application</h1>
               <div class="panel panel-default">
               <div class="panel-heading">
@@ -111,7 +111,7 @@
           </div>
       </div>
    <div class="row">
-       <div class="col-md-9 left">
+       <div class="col-md-9 center">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Contact Information</h3>
@@ -136,7 +136,7 @@
        </div>
    </div>
    <div class="row">
-       <div class="col-md-9 left">
+       <div class="col-md-9 center">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Education</h3>
@@ -196,11 +196,11 @@
        </div>
    </div>
   <div class="row">
-    <div class="col-md-9 left">
+    <div class="col-md-9 center">
      <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Projects</h3>
-          </div>
+      </div>
       <div class="panel-body">
         <form>
           <div class="form-group">
@@ -210,6 +210,9 @@
           <div class="form-group">
             <label>Apply Before:(Y/N)</label>
             <input class="form-control" name="apply">
+          </div>
+          <div>
+            <p>click here to see the full list of projects:<a href="/project">here</a></p>
           </div>
           <div class="form-group">
             <label>Project1</label>
