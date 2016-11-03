@@ -9,9 +9,11 @@ $('#sidebar').affix({
 
 /* activate scrollspy menu */
 var $body   = $(document.body);
+var navHeight = $('.navbar').outerHeight(true) + 10;
 
 $body.scrollspy({
-    target: '#leftCol'
+    target: '#leftCol',
+    offset: navHeight
 });
 
 /* smooth scrolling sections */
