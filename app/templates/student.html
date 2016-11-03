@@ -29,6 +29,7 @@
     <h1>Student Application</h1>
       <div class="col-md-2" id="leftCol">
         <ul class="nav nav-stacked" id="sidebar">
+          <li><a href="#studentInfo">Demographic Info</a></li>
           <li><a href="#boulderInfo">Boulder Contact Info</a></li>
           <li><a href="#summerInfo">Summer Contact Info</a></li>
           <li><a href="#academicInfo">Academic Info</a></li>
@@ -39,6 +40,75 @@
       </div>
 
 <div class="col-md-10">
+   <div class="row" id="studentInfo">
+        <div class="col-md-10 center">
+               <div class="panel panel-default">
+               <div class="panel-heading">
+                 <h3 class="panel-title">Demographic Information</h3>
+               </div>
+               <div class="panel-body">
+                 <form>
+               <div class="form-group">
+                 <label for="name"><span style="color:red;">* </span>Your Name:</label>
+                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+               </div>
+               <div class="form-group">
+                 <label><span style="color:red;">* </span>Gender:</label>
+                 <label class="radio-inline"><input type="radio" name="optradio" value="male">Male</label>
+                 <label class="radio-inline"><input type="radio" name="optradio" value="female">Female</label>
+               </div>
+               <div class="form-group">
+                   <label>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
+                       American, or Spanish Origin?</label>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="optionsRadios" id="option1" value="yes">
+                         Yes
+                       </label>
+                   </div>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="optionsRadios" id="option2" value="no">
+                         No
+                       </label>
+                   </div>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="optionsRadios" id="option3" value="option3">
+                         I do not wish to provide this information
+                       </label>
+                   </div>
+               </div>
+               <div class="form-group">
+                 <label>Please check your race (select all that apply):</label>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="hello" value="1">American Indian or Alaskan Native</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="hello" value="2">Black or African-American</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="hello" value="3">Native Hawaiian or other Pacific Islander</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="hello" value="4">Asian</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="hello" value="5">White</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="hello" value="6">Other</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="hello" value="7">Do Not Wish to Provide</label>
+                 </div>
+               </div>
+             </form>
+               </div>
+             </div>
+           </div>
+       </div>
+
    <div class="row" id="boulderInfo">
         <div class="col-md-10 center">
         <div class="panel panel-default">
