@@ -110,9 +110,9 @@ class MysqlUtil(object):
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)
-            connection.commit()
-            data = cursor.fetchall()
-            return data
+                connection.commit()
+                data = cursor.fetchall()
+                return data
         finally:
             connection.close()
 
@@ -122,12 +122,12 @@ class MysqlUtil(object):
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)
-            connection.commit()
-            data = cursor.fetchone()
-            return data
+                connection.commit()
+                data = cursor.fetchone()
+                return data
         finally:
             pass
-            # connection.close()
+            connection.close()
 
 
     def clear(self):
