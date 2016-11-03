@@ -180,6 +180,7 @@ def f_submit():
 
     radio5 = request.form['optradio5']
     print("check 25")
+    
     conn = mysql.connect()
     cursor = conn.cursor()
     print(fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
