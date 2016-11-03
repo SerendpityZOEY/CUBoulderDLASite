@@ -1,117 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Student Application</title>
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <script src="../static/js/jquery-3.1.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Form Helpers -->
-    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
-    <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
-    <!-- datatable -->
-    <link rel="stylesheet" type="text/javascript" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    {#    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">#}
+    {#    <link rel="stylesheet" href="../static/css/styles.css">#}
+    {#    <script src="../static/js/jquery-3.1.1.min.js"></script>#}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <style>
-		table, th, td {
-    		border: 1px solid black;
-		}
-		th, td {
-    		padding: 5px;
-    		text-align: left;
-		}
-	</style>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    {#    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>#}
+    {##}
+    {#    <script src="../static/bootstrap/js/bootstrap.min.js"></script>#}
+    {#    <!-- Bootstrap Form Helpers -->#}
+    <!-- datatable -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/javascript"
+          href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    {#        <style>#}
+    {#    		table, th, td {#}
+    {#        		border: 1px solid black;#}
+    {#    		}#}
+    {#    		th, td {#}
+    {#        		padding: 5px;#}
+    {#        		text-align: left;#}
+    {#    		}#}
+    {#    	</style>#}
 </head>
 
 <body>
-	<div class="col-md-3 center">
-		<h1>Projects page</h1>
-	</div>
-	<div class="col-md-6 center">
-		<table cellpadding="3" cellspacing="0" border="0" style="width: 67%; margin: 0 auto 2em auto;">
-			<thead>
-				<tr>
-					<th>Target</th>
-					<th>Search by</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr id="filter_department", data-column="2">
-				<td align="center">Department</td>
-				<td align="center">
-					<select class="column_filter" id="col2_filter">
-                    <option value="0" selected="selected">Please Select</option>
+<div class="col-md-3 center">
+    <h1>Projects page</h1>
+</div>
+<div class="col-md-6 center">
+    <table cellpadding="3" cellspacing="0" border="0" style="width: 67%; margin: 0 auto 2em auto;">
+        <thead>
+        <tr>
+            <th>Target</th>
+            <th>Search by</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="filter_department" , data-column="2">
+            <td align="center">Department</td>
+            <td align="center">
+                <select class="column_filter" id="col2_filter">
+                    <option value=" " selected="selected">Please Select</option>
                     <option value="Aerospace Engineering Sciences" type="text">Aerospace Engineering Sciences</option>
                     <option value="Applied Math" type="text">Applied Math</option>
-                    <option value="Chemical & Biological Engineering" type="text">Chemical & Biological Engineering</option>
-                    <option value="Civil, Environmental and Architectural Engineering" type="text">Civil, Environmental and Architectural Engineering</option>
+                    <option value="Chemical & Biological Engineering" type="text">Chemical & Biological Engineering
+                    </option>
+                    <option value="Civil, Environmental and Architectural Engineering" type="text">Civil, Environmental
+                        and Architectural Engineering
+                    </option>
                     <option value="Computer Science" type="text">Computer Science</option>
-                    <option value="Electrical, Computer and Energy Engineering" type="text">Electrical, Computer and Energy Engineering</option>
+                    <option value="Electrical, Computer and Energy Engineering" type="text">Electrical, Computer and
+                        Energy Engineering
+                    </option>
                     <option value="Physics" type="text">Physics</option>
                     <option value="Environmental Engineering" type="text">Environmental Engineering</option>
                     <option value="Mechanical Engineering" type="text">Mechanical Engineering</option>
                     <option value="Colorado Space Grant" type="text">Colorado Space Grant</option>
                     <option value="Engineering Education" type="text">Engineering Education</option>
                     <option value="ATLAS" type="text">ATLAS</option>
-                  </select>
-				</td>
-				<tr id="filter_major", data-column="3">
-				<td align="center">prefered Major</td>
-				<td align="center">
-					<select class="column_filter" id="col3_filter">
-                    <option value="0" selected="selected">Please Select</option>
+                </select>
+            </td>
+        </tr>
+        <tr id="filter_major" , data-column="3">
+            <td align="center">prefered Major</td>
+            <td align="center">
+                <select class="column_filter" id="col3_filter">
+                    <option value=" " selected="selected">Please Select</option>
                     <option value="Aerospace Engineering" type="text">Aerospace Engineering</option>
                     <option value="Applied Math" type="text">Applied Math</option>
                     <option value="Chemical Engineering" type="text">Chemical Engineering</option>
-                    <option value="Chemical & Biological Engineering" type="text">Chemical & Biological Engineering</option>
+                    <option value="Chemical & Biological Engineering" type="text">Chemical & Biological Engineering
+                    </option>
                     <option value="Environmental Engineering" type="text">Environmental Engineering</option>
                     <option value="Civil Engineering" type="text">Civil Engineering</option>
                     <option value="Architectural Engineering" type="text">Architectural Engineering</option>
                     <option value="Computer Science" type="text">Computer Science</option>
-                    <option value="Electrical, Computer and Energy Engineering" type="text">Electrical, Computer and Energy Engineering</option>
+                    <option value="Electrical, Computer and Energy Engineering" type="text">Electrical, Computer and
+                        Energy Engineering
+                    </option>
                     <option value="Engineering Physics" type="text">Engineering Physics</option>
                     <option value="Mechanical Engineering" type="text">Mechanical Engineering</option>
                     <option value="General Engineering" type="text">General Engineering</option>
                     <option value="Engineering Education" type="text">Engineering Education</option>
                     <option value="ATLAS" type="text">ATLAS</option>
-                  </select>
-				</td>
-			</tbody>
+                </select>
+            </td>
+        </tr>
+        </tbody>
 
-		</table>
-	</div>
-	<div class="col-md-9 center">
-		<table id="project" class="display" width="100%"></table>
-	</div>
+    </table>
+</div>
+<div class="col-md-9 center">
+    <table id="project" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+</div>
 </body>
 
 <script>
-	var dataSet = {{ data|safe }};
-	function filterColumn ( i ) {
-    	$('#project').DataTable().column( i ).search(
-        	$('#col'+i+'_filter').val()
-    	).draw();
-	}
-	$(document).ready(function(){
-		console.log(dataSet)
-    	$('#project').DataTable({
-       		data: dataSet,
-        	columns: [
-           	{ title: "ProjectName" },
-           	{ title: "Professor" },
-           	{ title: "Department" },
-           	{ title: "Prefered Major"},
-           	{ title: "link" },
-           	{ title: "Description" },
-           	{ title: "Requirement" }
-        	]
-    	});
-    	$('select.column_filter').on( 'keyup click change', function () {
-        filterColumn( $(this).parents('tr').attr('data-column') );
-    } );
-	});
+    var dataSet = {{ data|safe }};
+    function filterColumn(i) {
+        $('#project').DataTable().column(i).search(
+                $('#col' + i + '_filter').val()
+        ).draw();
+    }
+    $(document).ready(function () {
+        console.log(dataSet)
+        $('#project').DataTable({
+            data: dataSet,
+            columns: [
+                {title: "ProjectName"},
+                {title: "Professor"},
+                {title: "Department"},
+                {title: "Prefered Major"},
+                {title: "link"},
+                {title: "Description"},
+                {title: "Requirement"}
+            ]
+        });
+        $('select.column_filter').on('keyup click change', function () {
+            filterColumn($(this).parents('tr').attr('data-column'));
+        });
+    });
 </script>
 </html>
