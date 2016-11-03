@@ -1,17 +1,12 @@
 from app import app
 from flask import render_template, request, json
 from flaskext.mysql import MySQL
+import MysqlUtil
 
-mysql = MySQL()
+sqlUtil = MysqlUtil.MysqlUtil(app)
+sqlUtil.use_account('developer')
+sqlUtil.use_database('SETest')
 
-# MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'developer'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'nvSEXvXXUU9E2QFu'
-app.config['MYSQL_DATABASE_DB'] = 'SETest'
-app.config['MYSQL_DATABASE_HOST'] = '54.186.181.45'
-app.config['MYSQL_DATABASE_PORT'] = 3306
-
-mysql.init_app(app)
 
 dic={1:'Aerospace Engineering Sciences', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
 4: 'Civil, Environmental and Architectural Engineering', 5: 'Computer Science', 6: 'Electrical, Computer and Energy Engineering', \
@@ -27,23 +22,21 @@ def index():
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM `project`")
-    data = cursor.fetchall()
+    data = sqlUtil.select_all("SELECT * FROM `project`")
     return render_template("student.html", data=data)
+
 
 @app.route('/project', methods=['GET'])
 def project():
     data=[]
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM `project`")
-    projects = cursor.fetchall()
+    # cursor.execute("SELECT * FROM `project`")
+    # projects = cursor.fetchall()
+    projects = sqlUtil.select_all("SELECT * FROM `project`")
     app.logger.info(projects)
     for pid, pn, major, prid, link, des, req1, req2, req3, req4, req5 in projects:
-        cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
-        professorName, department = cursor.fetchone()
+        # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
+        # professorName, department = cursor.fetchone()
+        professorName, department = sqlUtil.select_one("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         professorName, department = str(professorName), dic[int(department)]
         req = ''
         for i, r in enumerate((str(req1),str(req2),str(req3),str(req4),str(req5))):
@@ -57,44 +50,36 @@ def project():
         app.logger.info(data)
     return render_template("project.html", data=json.dumps(data))
 
+
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
-    name = request.form['name']
-    gender = request.form['optradio']
-    origin = request.form['optionsRadios']
-    race = request.form['hello']
-    phoneNumber = request.form['phone']
-    email = request.form['email']
-    Address = request.form['address']
-    Major = request.form['major']
-    studentNumber = int(request.form['SN'])
-    GPA = float(request.form['GPA'])
-    level = request.form['level']
-    Date = request.form['date']
-    experience = request.form['experience']
-    Apply = request.form['apply']
-    p1 = request.form['p1']
-    p2 = request.form['p2']
-    p3 = request.form['p3']
-    p4 = request.form['p4']
-    p5 = request.form['p5']   
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    query = "INSERT INTO `student` (`name`, `gender`, `origin`, `race`,`phoneNumber`,`email`,`Address`,`Major`,`studentNumber`,`GPA`,`level`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
-    cursor.execute(query,(name,gender,origin,race,phoneNumber,email,Address,Major,studentNumber,GPA,level))
-    query2 = "INSERT INTO `application` (`Sid`, `Priority`, `ProjectID`) VALUES (%s,%s,%s);"
-    cursor.execute(query2,(studentNumber,1,p1[0]))
-    cursor.execute(query2,(studentNumber,2,p2[0]))
-    cursor.execute(query2,(studentNumber,3,p3[0]))
-    cursor.execute(query2,(studentNumber,4,p4[0]))
-    cursor.execute(query2,(studentNumber,5,p5[0]))
-    print(race)
-    print(query)
-    app.logger.info(name + 'is sucessfully submitted')
-    conn.commit()
-    data = cursor.fetchall()
-    cursor.close()
-    conn.close()
+    sqlUtil.batch_insert_push({
+        'name':             request.form['name'],
+        'gender':           request.form['gender'],
+        'origin':           request.form['origin'],
+        'race':             request.form['race'],
+        'phoneNumber':      request.form['phone'],
+        'email':            request.form['email'],
+        'Address':          request.form['address'],
+        'Major':            request.form['major'],
+        'studentNumber':    request.form['SN'],
+        'GPA':              request.form['GPA'],
+        'level':            request.form['level'],
+        # 'Date':             request.form['date'],
+        # 'experience':       request.form['experience'],
+        # 'Apply':            request.form['apply'],
+    })
+
+    sqlUtil.insert_execute('student');
+    sqlUtil.clear()
+
+    sqlUtil.insert_push('Sid', request.form['SN'])
+    for i, p in enumerate(['p1', 'p2', 'p3', 'p4', 'p5']):
+        sqlUtil.batch_insert_push({'Priority': i+1, 'ProjectID': (request.form[p])[0]})
+        sqlUtil.insert_execute('application')
+        # Don clear, since we need to reuse 'Sid' field
+    sqlUtil.clear()
+
     return json.dumps({'message': 'Student info saved successfully !'})
 
 
@@ -216,8 +201,9 @@ def f_submit():
                     preselectStudent, f1, f2, radio5))
     conn.commit()
     #submit to project table
-    fetch_id = "SELECT `id` FROM `faculty` WHERE `name` = \"fName\""
-    profId = cursor.execute(fetch_id)
+    # fetch_id = "SELECT `id` FROM `faculty` WHERE `name` = \"fName\""
+    # profId = cursor.execute(fetch_id)
+    profId = sqlUtil.select_all("SELECT `id` FROM `faculty` WHERE `name` = \"fName\"")
     ProfessorID = int(profId)
     projectName = projectTitle
     webLink = projectLink
