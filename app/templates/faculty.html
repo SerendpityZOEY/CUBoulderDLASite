@@ -157,37 +157,31 @@
 
                   <div class="form-group">
                     <label for="name"><span style="color:red;">* </span>A title/description for the apprenticeship:</label>
-                    <input type="text" class="form-control" name="field1" maxlength="80">
+                    <input type="text" class="form-control" name="projectTitle" maxlength="80">
                     <small id="f1Help" class="form-text text-muted">(This is what students will see in the application, may not exceed 80 characters)</small>
                   </div>
 
                   <div class="form-group">
                     <label for="name">A website link related to your apprenticeship that would provide more information to interested students?</label>
-                    <input type="text" class="form-control" name="field2">
+                    <input type="text" class="form-control" name="projectLink">
                   </div>
 
                   <div class="form-group">
                     <label for="name">Special Requirements that applicants must meet?</label>
-                    <input type="text" class="form-control" name="field3" maxlength="1000">
+                    <div class="input-group" id="field">
+                        <input class="form-control" id="field1" type="text" name="specialReq1" maxlength="1000" placeholder="Special Requirements">
+                          <span class="input-group-btn">
+                            <button id="b1" class="btn add-more btn-success" type="button">+</button>
+                          </span>
+                    </div>
+
                   <small id="f3Help" class="form-text text-muted">(eg: Must have had certain course, certain class standing, available to work in 2 5-hour blocks, etc.)
     (may not exceed 1000 characters)</small>
                   </div>
 
-
-                    <div class="form-group">
-                        <div class="input-group">
-                        <div id="field">
-                          <input class="form-control" id="field1" type="text" placeholder="Type something">
-                            <span class="input-group-btn">
-                                <button id="b1" class="btn add-more btn-success" type="button">+</button>
-                            </span>
-                        </div>
-                        </div>
-                    </div>
-
                   <div class="form-group">
                     <label for="name"><span style="color:red;">* </span>A longer description of the apprenticeship:</label>
-                    <input type="text" class="form-control" name="field4" maxlength="1200">
+                    <input type="text" class="form-control" name="projectDesc" maxlength="1200">
                     <small id="f4Help" class="form-text text-muted">(may not exceed 1200 characters)</small>
                   </div>
 
@@ -204,49 +198,49 @@
                       <div class="row">
                           <div class="col-md-6">
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="0">Aerospace Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="0">Aerospace Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="1">Applied Mathematics</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="1">Applied Mathematics</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="2">Architectural Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="2">Architectural Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="3">Chemical Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="3">Chemical Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="4">Chemical & Biological Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="4">Chemical & Biological Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="5">Civil Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="5">Civil Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="6">Computer Science</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="6">Computer Science</label>
                             </div>
                           </div>
 
                           <div class="col-md-6">
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="7">Electrical Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="7">Electrical Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="8">Electrical and Computer Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="8">Electrical and Computer Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="9">Engineering Physics</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="9">Engineering Physics</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="10">Environmental Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="10">Environmental Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="11">Engineering Plus</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="11">Engineering Plus</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="12">Mechanical Engineering</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="12">Mechanical Engineering</label>
                             </div>
                             <div class="checkbox">
-                              <label><input type="checkbox" class="check" name="field5" value="13">Technology, Arts and Media</label>
+                              <label><input type="checkbox" class="check" name="majorReq" value="13">Technology, Arts and Media</label>
                             </div>
                           </div>
                       </div>
@@ -293,7 +287,7 @@
 
                   <div class="form-group">
                     <label for="name">Name of specific student desired: (if any) – be sure to ask them to apply!</label>
-                    <input type="text" class="form-control" name="field6">
+                    <input type="text" class="form-control" name="preselectStudent">
                   </div>
 
                   </form>
@@ -363,10 +357,11 @@
             var next = 1;
             $(".add-more").click(function(e){
                 e.preventDefault();
+                if(next==5) return;
                 var addto = "#field" + next;
                 var addRemove = "#field" + (next);
                 next = next + 1;
-                var newIn = '<input class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';
+                var newIn = '<input class="input form-control" id="field' + next + '" name="specialReq' + next + '" type="text" maxlength=1000>';
                 var newInput = $(newIn);
                 var removeBtn = '<span class="input-group-btn"><button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field"></span>';
                 var removeButton = $(removeBtn);

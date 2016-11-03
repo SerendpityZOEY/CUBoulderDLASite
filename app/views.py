@@ -117,19 +117,33 @@ def f_submit():
     email3 = request.form['email3']
     print("check 12")
 
-    field1 = request.form['field1']
+    projectTitle = request.form['projectTitle']
     print("check 13")
 
-    field2 = request.form['field2']
+    projectLink = request.form['projectLink']
     print("check 14")
 
-    field3 = request.form['field3']
-    print("check 15")
+    specialReq1 = request.form.get('specialReq1', None)
+    if specialReq1 is None:
+        specialReq1 = "null"
+    specialReq2 = request.form.get('specialReq2', None)
+    if specialReq2 is None:
+        specialReq2 = "null"
+    specialReq3 = request.form.get('specialReq3', None)
+    if specialReq3 is None:
+        specialReq3 = "null"
+    specialReq4 = request.form.get('specialReq4', None)
+    if specialReq4 is None:
+        specialReq4 = "null"
+    specialReq5 = request.form.get('specialReq5', None)
+    if specialReq5 is None:
+        specialReq5 = "null"
 
-    field4 = request.form['field4']
+
+    projectDesc = request.form['projectDesc']
     print("check 16")
 
-    major = request.form.getlist('field5')
+    majorReq = request.form.getlist('majorReq')
     print("check 17")
 
     radio1 = request.form['optradio1']
@@ -144,7 +158,7 @@ def f_submit():
     radio4 = request.form['optradio4']
     print("check 21")
 
-    field6 = request.form['field6']
+    preselectStudent = request.form['preselectStudent']
     print("check 22")
 
     f1 = request.form['f1']
@@ -159,31 +173,35 @@ def f_submit():
     conn = mysql.connect()
     cursor = conn.cursor()
     print(fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
-          field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5)
+          projectTitle, projectLink, specialReq1, projectDesc, majorReq, radio1, radio2, radio3, radio4,
+          preselectStudent, f1, f2, radio5)
     query = "INSERT INTO `faculty` (`name`, `phone`, `email`, `dept`, `EngineerFocus`, `name2`, \
             `phone2`, `email2`, `dept2`, `sName`, `sPhone`, `sEmail`, `title`, `website`, \
-            `specReq`, `description`, `majorReq`, `supervision`, `supervisionSource`, `nature`, `workAmount`, `preselectStudent`, \
-            `speedType`, `accounting`, `supervisedExp`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s," \
-            "%s,%s,%s,%s);"
+            `specReq`, `specReq2`, `specReq3`, `specReq4`, `specReq5`, `description`, `majorReq`, `supervision`, \
+            `supervisionSource`, `nature`, `workAmount`, `preselectStudent`, \
+            `speedType`, `accounting`, `supervisedExp`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, \
+            %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
 
 
     app.logger.info('is sucessfully submitted')
     cursor.execute(query,
                    (fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
-                    field1, field2, field3, field4, major, radio1, radio2, radio3, radio4, field6, f1, f2, radio5))
+                    projectTitle, projectLink, specialReq1, specialReq2, specialReq3, specialReq4, specialReq5,
+                    projectDesc, majorReq, radio1, radio2, radio3, radio4,
+                    preselectStudent, f1, f2, radio5))
     conn.commit()
     #submit to project table
     fetch_id = "SELECT `id` FROM `faculty` WHERE `name` = \"fName\""
     profId = cursor.execute(fetch_id)
     ProfessorID = int(profId)
-    projectName = field1
-    webLink = field2
-    req1 = field3
-    completeDescription = field4
-    req2 = "null"
-    req3 = "null"
-    req4 = "null"
-    req5 = "null"
+    projectName = projectTitle
+    webLink = projectLink
+    req1 = specialReq1
+    completeDescription = projectDesc
+    req2 = specialReq2
+    req3 = specialReq3
+    req4 = specialReq4
+    req5 = specialReq5
     project_query = "INSERT INTO `project` (`projectName`, `ProfessorID`, `webLink`, \
                     `completeDescription`, `req1`, `req2`, `req3`, `req4`, `req5`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);"
     print(ProfessorID)
