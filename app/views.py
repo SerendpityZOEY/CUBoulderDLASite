@@ -1,25 +1,11 @@
 from app import app
 from flask import render_template, request, json
 from flaskext.mysql import MySQL
-import random
-import string
-from hashlib import sha512
 import MysqlUtil
-
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
 sqlUtil.use_database('SETest')
-
-SIMPLE_CHARS = string.ascii_letters + string.digits
-
-def getRandomString(length=24):
-    return ''.join(random.choice(SIMPLE_CHARS) for i in xrange(length))
-
-def getRandomHash(length=24):
-    hash = sha512()
-    hash.update(getRandomString())
-    return hash.hexdigest()[:length]
 
 
 dic={1:'Aerospace Engineering Sciences', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
@@ -67,44 +53,6 @@ def project():
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
-<<<<<<< HEAD
-    name = request.form['name']
-    gender = request.form['optradio']
-    origin = request.form['optionsRadios']
-    race = request.form['hello']
-    phoneNumber = request.form['phone']
-    email = request.form['email']
-    Address = request.form['address']
-    Major = request.form['major']
-    studentNumber = int(request.form['SN'])
-    GPA = float(request.form['GPA'])
-    level = request.form['level']
-    Date = request.form['date']
-    experience = request.form['experience']
-    Apply = request.form['apply']
-    p1 = request.form['p1']
-    p2 = request.form['p2']
-    p3 = request.form['p3']
-    p4 = request.form['p4']
-    p5 = request.form['p5']
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    query = "INSERT INTO `student` (`name`, `gender`, `origin`, `race`,`phoneNumber`,`email`,`Address`,`Major`,`studentNumber`,`GPA`,`level`) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
-    cursor.execute(query,(name,gender,origin,race,phoneNumber,email,Address,Major,studentNumber,GPA,level))
-    query2 = "INSERT INTO `application` (`Sid`, `Priority`, `ProjectID`) VALUES (%s,%s,%s);"
-    cursor.execute(query2,(studentNumber,1,p1[0]))
-    cursor.execute(query2,(studentNumber,2,p2[0]))
-    cursor.execute(query2,(studentNumber,3,p3[0]))
-    cursor.execute(query2,(studentNumber,4,p4[0]))
-    cursor.execute(query2,(studentNumber,5,p5[0]))
-    print(race)
-    print(query)
-    app.logger.info(name + 'is sucessfully submitted')
-    conn.commit()
-    data = cursor.fetchall()
-    cursor.close()
-    conn.close()
-=======
     sqlUtil.batch_insert_push({
         'name':             request.form['name'],
         'gender':           request.form['gender'],
@@ -132,7 +80,6 @@ def submit():
         # Don clear, since we need to reuse 'Sid' field
     sqlUtil.clear()
 
->>>>>>> master
     return json.dumps({'message': 'Student info saved successfully !'})
 
 
