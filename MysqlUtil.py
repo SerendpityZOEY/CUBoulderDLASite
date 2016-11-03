@@ -16,6 +16,11 @@ class MysqlUtil(object):
     __metaclass__ = Singleton
 
     def __init__(self, app):
+        """Initialize the instance
+
+        Args:
+            app: the app object import from 'app' library
+        """
         mysql = MySQL()
 
         # Members variables initialization
@@ -75,6 +80,17 @@ class MysqlUtil(object):
         """
         self.data[field_name] = record_value
 
+
+    def batch_insert_push(self, batch_data):
+        """Insert all the pairs in a batch
+
+        Args:
+            batch_data (dict): a dictionary of all the key(db field) and value(record value) pairs
+
+        """
+        data = self.data
+        for key, value in batch_data.items():
+            data[key] = value
 
     def insert_execute(self, table_name):
         """Concatenate to get a query string and execute the inserting
