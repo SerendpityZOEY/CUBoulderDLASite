@@ -2,10 +2,21 @@ from app import app
 from flask import render_template, request, json
 from flaskext.mysql import MySQL
 import MysqlUtil
+import random
+import string
+from hashlib import sha512
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
 sqlUtil.use_database('SETest')
+
+SIMPLE_CHARS = string.ascii_letters + string.digits
+def getRandomString(length=24):
+    return ''.join(random.choice(SIMPLE_CHARS) for i in xrange(length))
+def getRandomHash(length=24):
+    hash = sha512()
+    hash.update(getRandomString())
+    return hash.hexdigest()[:length]
 
 
 dic={1:'Aerospace Engineering Sciences', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
