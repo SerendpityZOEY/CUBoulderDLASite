@@ -37,7 +37,7 @@ def project():
         # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         # professorName, department = cursor.fetchone()
         professorName, department = sqlUtil.select_one("SELECT `name`, `dept` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
-        professorName, department = str(professorName), dic[str(department)]
+        professorName, department = str(professorName), str(dic[int(department))]
         req = ''
         for i, r in enumerate((str(req1),str(req2),str(req3),str(req4),str(req5))):
             if r!='null':
