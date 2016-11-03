@@ -50,7 +50,7 @@ class MysqlUtil(object):
             -1: if the username not found in the lookup dictionary
         """
         if username not in self.password.keys():
-            print "Invalid Username"
+            print ("Invalid Username")
             username = 'user'
         self.app.config['MYSQL_DATABASE_USER'] = username
         self.app.config['MYSQL_DATABASE_PASSWORD'] = self.password[username]
