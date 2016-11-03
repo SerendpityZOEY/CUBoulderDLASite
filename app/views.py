@@ -67,7 +67,7 @@ def submit():
         'level':            request.form['level'],
         # 'Date':             request.form['date'],
         # 'experience':       request.form['experience'],
-
+        # 'Apply':            request.form['apply'],
     })
 
     sqlUtil.insert_execute('student');
