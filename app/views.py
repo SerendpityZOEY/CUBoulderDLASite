@@ -36,7 +36,7 @@ def project():
     for pid, pn, major, prid, link, des, req1, req2, req3, req4, req5 in projects:
         # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         # professorName, department = cursor.fetchone()
-        professorName, department = sqlUtil.select_one("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
+        professorName, department = sqlUtil.select_one("SELECT 'name1', `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         professorName, department = str(professorName), dic[int(department)]
         req = ''
         for i, r in enumerate((str(req1),str(req2),str(req3),str(req4),str(req5))):
@@ -179,7 +179,7 @@ def f_submit():
 
     radio5 = request.form['optradio5']
     print("check 25")
-    
+
     conn = mysql.connect()
     cursor = conn.cursor()
     print(fName, phone1, email1, program1, radio0, name2, phone2, email2, program2, name3, phone3, email3,
