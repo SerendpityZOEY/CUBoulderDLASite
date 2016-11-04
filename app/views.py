@@ -64,6 +64,7 @@ def project():
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
+    sn =  request.form['SN']
     sqlUtil.batch_insert_push({
         'name':             request.form['name'],
         'gender':           request.form['gender'],
@@ -188,8 +189,9 @@ def f_submit():
     f2 = request.form['f2']
     print("check 24")
 
-    radio5 = request.form['optradio5']
-    print("check 25")
+    # radio5 = request.form['optradio5']
+    # print("check 25")
+
 
     conn = mysql.connect()
     cursor = conn.cursor()
