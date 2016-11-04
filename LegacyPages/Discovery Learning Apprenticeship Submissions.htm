@@ -1,0 +1,926 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0059)http://engineering.colorado.edu/surveys/dla/submission.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">
+    function autotab(original, destination) {
+        if (original.getAttribute && original.value.length == original.getAttribute("maxlength"))
+            destination.focus()
+    }
+</script>
+
+
+<title>
+	Discovery Learning Apprenticeship Submissions
+</title><link type="text/css" rel="stylesheet" href="./Discovery Learning Apprenticeship Submissions_files/default.css"><link href="http://engineering.colorado.edu/surveys/dla/favicon.ico" type="image/x-icon" rel="SHORTCUT ICON"><link href="http://engineering.colorado.edu/surveys/dla/favicon.ico" type="image/x-icon" rel="ICON">
+        
+        
+    <script type="text/javascript" language="JavaScript">
+      function textCounter(field, cntfield, maxlimit) {
+            if (field.value.length > maxlimit) {
+            field.value = field.value.substring(0, maxlimit);
+         }
+            else {
+            cntfield.value = maxlimit -
+        field.value.length;
+        }
+    }
+    </script>
+       
+        
+    <script type="text/javascript" language="javascript">
+        // function saves scroll position
+    function fScroll(val)
+        {
+            var hidScroll = document.getElementById('hidScroll');
+            hidScroll.value = val.scrollTop;
+        }
+        // function moves scroll position to saved value
+    function fScrollMove(what)
+        {
+            var hidScroll = document.getElementById('hidScroll');
+            document.getElementById(what).scrollTop = hidScroll.value;
+        }
+    </script>
+    
+    
+   <script language="JavaScript">
+        function disableEnterKey(e) {
+            var key;
+            if (window.event)
+                key = window.event.keyCode; //IE
+            else
+                key = e.which; //firefox     
+
+            return (key != 13);
+        }
+    </script>
+    
+        <style type="text/css">
+            .style1
+            {
+                color: white;
+                font-weight: bold;
+            }
+            .style2
+            {
+                color: red;
+                font-weight: bold;
+            }
+            .style3
+            {
+                color: #FF0000;
+            }
+            </style>
+    
+<style>#cVim-link-container, .cVim-link-hint, #cVim-command-bar, #cVim-command-bar-mode, #cVim-command-bar-input, #cVim-command-bar-search-results, .cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right, #cVim-hud, #cVim-status-bar {
+  font-family: Helvetica, Helvetica Neue, Neue, sans-serif, monospace, Arial;
+  font-size: 10pt !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#cVim-link-container {
+  position: absolute;
+  pointer-events: none;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  z-index: 2147483647;
+}
+
+.cVim-link-hint {
+  color: #302505 !important;
+  background-color: #ffd76e !important;
+  border-radius: 2px !important;
+  padding: 2px !important;
+  font-size: 8pt !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: 1px solid #ad810c;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.25) !important;
+  position: absolute !important;
+}
+
+.cVim-link-hint_match {
+  color: #777;
+  text-transform: uppercase !important;
+}
+
+#cVim-command-bar {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  display: none;
+  box-sizing: content-box !important;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  left: 0 !important;
+  width: 100% !important;
+  height: 20px !important;
+}
+
+#cVim-command-bar-mode {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box !important;
+  padding-left: 2px !important;
+  height: 100% !important;
+  width: 10px !important;
+  padding-top: 2px !important;
+  color: #888 !important;
+}
+
+#cVim-command-bar-input {
+  background-color: #1b1d1e !important;
+  color: #bbb !important;
+  height: 100% !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: calc(100% - 10px) !important;
+  position: absolute !important;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100% !important;
+  overflow: hidden;
+  z-index: 2147483647 !important;
+  left: 0;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.4);
+  background-color: #1c1c1c;
+}
+
+.cVim-completion-item, .cVim-completion-item .cVim-full, .cVim-completion-item .cVim-left, .cVim-completion-item .cVim-right {
+  text-overflow: ellipsis;
+  padding: 1px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cVim-completion-item:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+.cVim-completion-item {
+  width: 100%; left: 0;
+  color: #bcbcbc;
+}
+
+.cVim-completion-item .cVim-left {
+  color: #fff;
+  width: 37%;
+}
+
+.cVim-completion-item .cVim-right {
+  font-style: italic;
+  color: #888;
+  width: 57%;
+}
+
+#cVim-hud {
+  background-color: rgba(28,28,28,0.9);
+  position: fixed !important;
+  transition: right 0.2s ease-out;
+  z-index: 24724289;
+}
+
+#cVim-hud span {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #8f8f8f;
+  font-size: 10pt;
+}
+
+#cVim-frames-outline {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999999999;
+  box-sizing: border-box;
+  border: 3px solid yellow;
+}
+</style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body onkeypress="return disableKeyPress(event)" onload="fScrollMove(&#39;div_scroll&#39;);" onunload="document.forms(0).submit()" ;="">
+    <form name="form1" method="post" action="http://engineering.colorado.edu/surveys/dla/submission.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5MDg3MTY1NjEPZBYCAgQPZBYWAgkPD2QWAh4Hb25rZXl1cAUnYXV0b3RhYih0ZXh0YmxkcnBob25lMSwgdGV4dGJsZHJwaG9uZTIpZAILDw9kFgIfAAUmYXV0b3RhYih0ZXh0YmxkcnBob25lMix0ZXh0YmxkcnBob25lMylkAiMPD2QWAh8ABS1hdXRvdGFiKHRleHRibGRycGhvbmUxYWx0LCB0ZXh0YmxkcnBob25lMmFsdClkAiUPD2QWAh8ABSxhdXRvdGFiKHRleHRibGRycGhvbmUyYWx0LHRleHRibGRycGhvbmUzYWx0KWQCNw8PZBYCHwAFJ2F1dG90YWIodGV4dEdyYWRwaG9uZTEsIHRleHRHcmFkcGhvbmUyKWQCOQ8PZBYCHwAFJmF1dG90YWIodGV4dEdyYWRwaG9uZTIsdGV4dEdyYWRwaG9uZTMpZAJHDw9kFggeBG5hbWUFD3RleHREZXNjcmlwdGlvbh4Hb25LZXlVcAUodGV4dENvdW50ZXIodGV4dERlc2NyaXB0aW9uLHJlbUxlbjEsODApOx4Jb25LZXlEb3duBSh0ZXh0Q291bnRlcih0ZXh0RGVzY3JpcHRpb24scmVtTGVuMSw4MCk7HgpvbktleVByZXNzBSh0ZXh0Q291bnRlcih0ZXh0RGVzY3JpcHRpb24scmVtTGVuMSw4MCk7ZAJNDw9kFggfAQUXdGV4dFNwZWNpYWxSZXF1aXJlbWVudHMfAgUydGV4dENvdW50ZXIodGV4dFNwZWNpYWxSZXF1aXJlbWVudHMscmVtTGVuMywxMDAwKTsfAwUydGV4dENvdW50ZXIodGV4dFNwZWNpYWxSZXF1aXJlbWVudHMscmVtTGVuMywxMDAwKTsfBAUydGV4dENvdW50ZXIodGV4dFNwZWNpYWxSZXF1aXJlbWVudHMscmVtTGVuMywxMDAwKTtkAk8PD2QWCB8BBRN0ZXh0TG9uZ0Rlc2NyaXB0aW9uHwIFLnRleHRDb3VudGVyKHRleHRMb25nRGVzY3JpcHRpb24scmVtTGVuMiwxMjAwKTsfAwUudGV4dENvdW50ZXIodGV4dExvbmdEZXNjcmlwdGlvbixyZW1MZW4yLDEyMDApOx8EBS50ZXh0Q291bnRlcih0ZXh0TG9uZ0Rlc2NyaXB0aW9uLHJlbUxlbjIsMTIwMCk7ZAJvDxBkZBYAZAJzDxBkZBYAZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WEQUIY2hlY2tBbGwFD2xpc3RTdHVkTWFqb3IkMAUPbGlzdFN0dWRNYWpvciQxBQ9saXN0U3R1ZE1ham9yJDIFD2xpc3RTdHVkTWFqb3IkMwUPbGlzdFN0dWRNYWpvciQ0BQ9saXN0U3R1ZE1ham9yJDUFD2xpc3RTdHVkTWFqb3IkNgUPbGlzdFN0dWRNYWpvciQ3BQ9saXN0U3R1ZE1ham9yJDgFD2xpc3RTdHVkTWFqb3IkOQUQbGlzdFN0dWRNYWpvciQxMAUQbGlzdFN0dWRNYWpvciQxMQUQbGlzdFN0dWRNYWpvciQxMgUQbGlzdFN0dWRNYWpvciQxMwUQbGlzdFN0dWRNYWpvciQxMwUOY2hlY2tTcGVlZFR5cGXkzH1dH6OpfTDZ9ACA6qKFItXyGg==">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Discovery Learning Apprenticeship Submissions_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./Discovery Learning Apprenticeship Submissions_files/WebResource(1).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="539227F0">
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0">
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWXgKD4cOVAgKfxYJyAvqk+sEEAvqk7sEEAvqk8sEEArmEsvUNArudycEOAoGEgKoIAvLI+Y0BApbSkOkGAonFwp4IAvadvd8OAqeuw6kBAoaokrMBAqeug6sCAsid9d8OAu/cp8gKAqeuq9QGArbb258GAs2ntpkLAs+ntpkLAsLInPcHAq+xi4QFAq2k5eoKAq2k2ecKAq2k3egKApvy79kEAoXO+rYIAr/Xs90OAsybyvoHAqiBox4Ct5bx6Q4CyM6OqAgCmf3w3gcCuPuhxAcCmf2w3AQC9s7GqAgC0Y+UvwwCmf2YIwKIiOhoAuCKts8KAvjvxKwJAvjv0KwJAvjvzKwJAtiY+5UJApKa4cQNAtGuzKQGAvyDqtgEAqHAvIADArWLlJYHAsb0wugOApewnKgNAuHd4P0IAu6q1L4NApCih74KAomU8tMHAquLpdMEAuHdoJULArKZur0HAuHdtPADAs2C2NIBAuHd+N4JAvzG/pIDAuHdjLoCAr+tkJwJArqg5LQOAvekmOYGAsGmoYkJAtXo1MECApL4oscHAtPVnJcJAu/J5eQJAt+9rlgC7aHVsQwCzI2KhwICqdbLvwsCyvKorAgC6JHp0AUCv7WH1wwCrbnj9gMC4NjBtQICxN+tsAkC7ZL22AcCn4Kn/wcCyKbJ+A4CxfLWswkC2Nv3wQkC0rTPsAoCnNKs1QYC+fawmAUC8LvUpgcC8rvUpgcC/9T+yAsCvMOEtgR9Ux5sAIjcLMuSwY4sxb1BleLGtA==">
+</div>
+    <table cellpadding="2" cellspacing="0" class="standard" width="800">
+        <tbody><tr>
+                    <td bgcolor="#000099" colspan="2">
+                        <span style="font-family: Arial"></span>
+                        <h3 style="text-align: center">
+                            <span style="color: white; font-family: Arial">Discovery Learning Apprenticeship Submission</span></h3>
+                    </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>
+                <br>
+                </strong><p><strong>
+                    </strong>Thanks for your interest in submitting one or more projects for the 
+                    Discovery Learning Apprenticeship program. Please complete all required fields, 
+                    which are marked with a red asterisk (<span class="style2">*</span>). You will 
+                    receive a confirmation after you enter your project indicating that your project 
+                    has been received. You may re-enter the application if you have more than one 
+                    project to advertise. If you have a correction or change to your project, if you 
+                    have trouble with this application or if you have questions, please contact 
+                    Sharon Anderson at
+					<a target="_blank" style="color: rgb(17, 85, 204); font-family: Calibri, sans-serif; font-size: 14.4444446563721px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);" href="mailto:sharon.e.anderson@colorado.edu">
+					sharon.e.anderson@colorado.edu</a>.</p>
+                <br>
+    <span id="labelMessage1" style="color:Red;font-weight:bold;"></span>
+                <br>
+        <span id="labelMessage2" style="color:Red;font-weight:bold;"></span>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td width="200" bgcolor="#000099" class="style1">
+                Faculty Member Info</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr class="d0">
+            <td width="200" valign="top">
+                <span class="style2">*</span>
+                Faculty name:</td>
+            <td valign="top">
+                <input name="textName" type="text" id="textName" onkeypress="return disableEnterKey(event)">
+                <span id="RequiredFieldValidator1" style="color:Red;visibility:hidden;"><strong>You must enter your name.</strong></span>
+            </td>
+        </tr>
+        <tr class="d1">
+            <td width="200" valign="top">
+                Faculty phone number:</td>
+            <td>
+               ( <input name="textbldrphone1" type="text" maxlength="3" size="2" id="textbldrphone1" onkeyup="autotab(textbldrphone1, textbldrphone2)" style="width:26px;">
+                ) <input name="textbldrphone2" type="text" maxlength="3" size="2" id="textbldrphone2" onkeyup="autotab(textbldrphone2,textbldrphone3)" style="width:26px;">
+                - <input name="textbldrphone3" type="text" maxlength="4" size="4" id="textbldrphone3" onkeypress="return disableEnterKey(event)" style="width:36px;">
+                        <span id="RegularExpressionValidator1" style="color:Red;visibility:hidden;"><strong>You must enter a valid area code.</strong></span>
+                        <span id="RegularExpressionValidator4" style="color:Red;visibility:hidden;"><strong>You must enter a valid phone prefix.</strong></span>
+                        <span id="RegularExpressionValidator9" style="color:Red;visibility:hidden;"><strong>You must enter a valid phone number.</strong></span>
+                        </td>
+        </tr>
+        <tr class="d0">
+            <td width="200" valign="top">
+                <span class="style2">*</span> Faculty email address:</td>
+            <td>
+                <input name="textEmail" type="text" maxlength="50" size="30" id="textEmail" onkeypress="return disableEnterKey(event)">
+                <span id="RequiredFieldValidator2" style="color:Red;visibility:hidden;"><strong>You must enter your email.</strong></span>
+                            <span id="RegularExpressionValidator6" style="color:Red;display:none;"><br>That is not a valid e-mail address. Please try again.</span>
+                </td>
+        </tr>
+        <tr class="d1">
+            <td valign="top">
+                <span class="style2">* </span>Faculty department/program:</td>
+            <td valign="top">
+                <select name="listMajor" id="listMajor">
+	<option value="0">Please Select</option>
+	<option value="AES">Aerospace Engineering Sciences</option>
+	<option value="APPM">Applied Math</option>
+	<option value="CHBE">Chemical &amp; Biological Engineering</option>
+	<option value="CEAE">Civil, Environmental and Architectural Engineering</option>
+	<option value="CS">Computer Science</option>
+	<option value="ECEE">Electrical, Computer and Energy Engineering</option>
+	<option value="PHYS">Physics</option>
+	<option value="EVEN">Environmental Engineering</option>
+	<option value="ME">Mechanical Engineering</option>
+	<option value="CSGC">Colorado Space Grant</option>
+	<option value="EnEd">Engineering Education</option>
+	<option value="ATLS">ATLAS</option>
+
+</select>
+                <span id="RequiredFieldValidator3" style="color:Red;visibility:hidden;"><strong>You must enter your department/program.</strong></span>
+                </td>
+        </tr>
+        <tr class="d1">
+            <td valign="top">
+                Does this project have a focus on Engineering for Developing Communities?</td>
+            <td valign="top">
+                <table id="radioFocusDevCom" border="0">
+	<tbody><tr>
+		<td><input id="radioFocusDevCom_0" type="radio" name="radioFocusDevCom" value="1"><label for="radioFocusDevCom_0">Yes</label></td><td><input id="radioFocusDevCom_1" type="radio" name="radioFocusDevCom" value="3" checked="checked"><label for="radioFocusDevCom_1">No</label></td>
+	</tr>
+</tbody></table>
+                </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td bgcolor="#000099" class="style1">
+                Second Faculty Member (Optional)</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr class="d0">
+            <td valign="top">
+                Faculty name:</td>
+            <td valign="top">
+                <input name="textNameAlt" type="text" id="textNameAlt" onkeypress="return disableEnterKey(event)">
+                </td>
+        </tr>
+        <tr class="d1" valign="top">
+            <td valign="top">
+                Faculty phone number:</td>
+            <td valign="top">
+                &nbsp;(<input name="textbldrphone1alt" type="text" maxlength="3" size="2" id="textbldrphone1alt" onkeyup="autotab(textbldrphone1alt, textbldrphone2alt)" style="width:26px;">
+                ) 
+                <input name="textbldrphone2alt" type="text" maxlength="3" size="2" id="textbldrphone2alt" onkeyup="autotab(textbldrphone2alt,textbldrphone3alt)" style="width:26px;">
+                - 
+                <input name="textbldrphone3alt" type="text" maxlength="4" size="4" id="textbldrphone3alt" onkeypress="return disableEnterKey(event)">
+                        <span id="RegularExpressionValidator10" style="color:Red;visibility:hidden;"><strong>You must enter a valid area code.</strong></span>
+                        <span id="RegularExpressionValidator11" style="color:Red;visibility:hidden;"><strong>You must enter a valid phone prefix.</strong></span>
+                        <span id="RegularExpressionValidator12" style="color:Red;visibility:hidden;"><strong>You must enter a valid phone number.</strong></span>
+                        </td>
+        </tr>
+        <tr class="d0">
+            <td valign="top">
+                Faculty email address:</td>
+            <td valign="top">
+                <input name="textEmailalt" type="text" maxlength="50" size="30" id="textEmailalt" onkeypress="return disableEnterKey(event)">
+                            <span id="RegularExpressionValidator16" style="color:Red;display:none;"><br>That is not a valid e-mail address. Please try again.</span>
+                </td>
+        </tr>
+        <tr class="d1">
+            <td valign="top">
+            Faculty department/program:</td>
+            <td valign="top">
+                <select name="listMajoralt" id="listMajoralt">
+	<option value="0">Please Select</option>
+	<option value="AES">Aerospace Engineering Sciences</option>
+	<option value="APPM">Applied Math</option>
+	<option value="CHBE">Chemical &amp; Biological Engineering</option>
+	<option value="CEAE">Civil, Environmental and Architectural Engineering</option>
+	<option value="CS">Computer Science</option>
+	<option value="ECEE">Electrical, Computer and Energy Engineering</option>
+	<option value="PHYS">Physics</option>
+	<option value="EVEN">Environmental Engineering</option>
+	<option value="ME">Mechanical Engineering</option>
+	<option value="CSGC">Colorado Space Grant</option>
+	<option value="EnEd">Engineering Education</option>
+	<option value="ATLS">ATLAS</option>
+
+</select>
+                </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td width="200" bgcolor="#000099" class="style1">
+                Grad Student/Post Doc Info (Optional)</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr class="d0">
+            <td valign="top">
+                Grad Student/Post Doc name:</td>
+            <td valign="top">
+                <input name="textGradName" type="text" id="textGradName" onkeypress="return disableEnterKey(event)">
+                </td>
+        </tr>
+        <tr class="d1">
+            <td valign="top">
+                Grad Student/Post Doc phone number:</td>
+            <td valign="top">
+               ( 
+                <input name="textGradphone1" type="text" maxlength="3" size="2" id="textGradphone1" onkeyup="autotab(textGradphone1, textGradphone2)" style="width:26px;">
+                ) 
+                <input name="textGradphone2" type="text" maxlength="3" size="2" id="textGradphone2" onkeyup="autotab(textGradphone2,textGradphone3)" style="width:26px;">
+                - 
+                <input name="textGradphone3" type="text" maxlength="4" size="4" id="textGradphone3" style="width:36px;">
+                        <span id="RegularExpressionValidator13" style="color:Red;visibility:hidden;"><strong>You must enter a valid area code.</strong></span>
+                        <span id="RegularExpressionValidator14" style="color:Red;visibility:hidden;"><strong>You must enter a valid phone prefix.</strong></span>
+                        <span id="RegularExpressionValidator15" style="color:Red;visibility:hidden;"><strong>You must enter a valid phone number.</strong></span>
+                        </td>
+        </tr>
+        <tr class="d0">
+            <td valign="top">
+                Grad Student/Post Doc email address:</td>
+            <td valign="top">
+                <input name="textGradEmail" type="text" maxlength="50" size="30" id="textGradEmail" onkeypress="return disableEnterKey(event)">
+                            <span id="RegularExpressionValidator17" style="color:Red;display:none;"><br>That is not a valid e-mail address. Please try again.</span>
+                </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td bgcolor="#000099" class="style1">
+                Apprenticeship Information</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr class="d1">
+            <td valign="top">
+                <span class="style2">* </span>A title/description for the apprenticeship:<br>
+                (This is what students will see in the application, may not exceed 80 
+                characters)</td>
+            <td>
+                <textarea name="textDescription" rows="2" cols="60" id="textDescription" onkeyup="textCounter(textDescription,remLen1,80);" onkeydown="textCounter(textDescription,remLen1,80);" onkeypress="textCounter(textDescription,remLen1,80);"></textarea>
+                <br>
+<input type="text" name="remLen1" id="remLen1" size="3" maxlength="3" value="80">
+<span id="RequiredFieldValidator5" style="color:Red;visibility:hidden;"><strong>You must enter a description.</strong></span>
+            </td>
+        </tr>
+        <tr class="d0">
+            <td valign="top">
+                A website link related to your apprenticeship that would provide more 
+                information to interested students?</td>
+            <td valign="top">
+                <input name="textWeb" type="text" size="79" id="textWeb" onkeypress="return disableEnterKey(event)">
+            </td>
+        </tr>
+        <tr class="d1">
+            <td valign="top">
+                Special Requirements that applicants must meet?<br>
+                (eg: Must have had certain course, certain class standing, available to work 
+                in 2 5-hour blocks, etc.)<br>
+                (may not exceed 1000 characters)</td>
+            <td valign="top">
+                <textarea name="textSpecialRequirements" rows="5" cols="60" id="textSpecialRequirements" onkeyup="textCounter(textSpecialRequirements,remLen3,1000);" onkeydown="textCounter(textSpecialRequirements,remLen3,1000);" onkeypress="textCounter(textSpecialRequirements,remLen3,1000);"></textarea>
+                <br>
+<input type="text" name="remLen3" id="remLen3" size="6" maxlength="3" value="1000"></td>
+        </tr>
+        <tr class="d0">
+            <td valign="top">
+                <span class="style2">*</span>
+                A longer description of the apprenticeship:<br>
+                (may not exceed 1200 characters)</td>
+            <td valign="top">
+                <textarea name="textLongDescription" rows="5" cols="60" id="textLongDescription" onkeyup="textCounter(textLongDescription,remLen2,1200);" onkeydown="textCounter(textLongDescription,remLen2,1200);" onkeypress="textCounter(textLongDescription,remLen2,1200);"></textarea>
+                <br>
+<input type="text" name="remLen2" id="remLen2" size="6" maxlength="3" value="1200"><span id="RequiredFieldValidator14" style="color:Red;visibility:hidden;"><strong>You must enter a longer description.</strong></span>
+            </td>
+        </tr>
+                <tr class="d1">
+            <td valign="top">
+                <span class="style2">* </span>From what areas do you wish to recruit students?<br>
+                <br>
+                (check all that apply)<br>
+                <br>
+                <input id="checkAll" type="checkbox" name="checkAll" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;checkAll\&#39;,\&#39;\&#39;)&#39;, 0)"><label for="checkAll">Select / Deselect All</label>
+                <span class="style3"><strong>
+                <br>
+                <br>
+                PLEASE NOTE: Only students from majors you select 
+                will be allowed to apply for this project.</strong></span></td>
+            <td valign="top">
+                <table id="listStudMajor" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+	<tbody><tr>
+		<td><input id="listStudMajor_0" type="checkbox" name="listStudMajor$0"><label for="listStudMajor_0">Aerospace Engineering</label></td><td><input id="listStudMajor_7" type="checkbox" name="listStudMajor$7"><label for="listStudMajor_7">Electrical Engineering</label></td>
+	</tr><tr>
+		<td><input id="listStudMajor_1" type="checkbox" name="listStudMajor$1"><label for="listStudMajor_1">Applied Mathematics</label></td><td><input id="listStudMajor_8" type="checkbox" name="listStudMajor$8"><label for="listStudMajor_8">Electrical and Computer Engineering</label></td>
+	</tr><tr>
+		<td><input id="listStudMajor_2" type="checkbox" name="listStudMajor$2"><label for="listStudMajor_2">Architectural Engineering</label></td><td><input id="listStudMajor_9" type="checkbox" name="listStudMajor$9"><label for="listStudMajor_9">Engineering Physics</label></td>
+	</tr><tr>
+		<td><input id="listStudMajor_3" type="checkbox" name="listStudMajor$3"><label for="listStudMajor_3">Chemical Engineering</label></td><td><input id="listStudMajor_10" type="checkbox" name="listStudMajor$10"><label for="listStudMajor_10">Environmental Engineering</label></td>
+	</tr><tr>
+		<td><input id="listStudMajor_4" type="checkbox" name="listStudMajor$4"><label for="listStudMajor_4">Chemical &amp; Biological Engineering</label></td><td><input id="listStudMajor_11" type="checkbox" name="listStudMajor$11"><label for="listStudMajor_11">Engineering Plus</label></td>
+	</tr><tr>
+		<td><input id="listStudMajor_5" type="checkbox" name="listStudMajor$5"><label for="listStudMajor_5">Civil Engineering</label></td><td><input id="listStudMajor_12" type="checkbox" name="listStudMajor$12"><label for="listStudMajor_12">Mechanical Engineering</label></td>
+	</tr><tr>
+		<td><input id="listStudMajor_6" type="checkbox" name="listStudMajor$6"><label for="listStudMajor_6">Computer Science</label></td><td><input id="listStudMajor_13" type="checkbox" name="listStudMajor$13"><label for="listStudMajor_13">Technology, Arts and Media</label></td>
+	</tr>
+</tbody></table>
+                </td>
+        </tr>
+
+         <tr class="d0">
+            <td valign="top">
+                <span class="style2">* </span>Amount of supervision required/interaction available:</td>
+            <td valign="top">
+                <table id="radioAmountSup" border="0">
+	<tbody><tr>
+		<td><input id="radioAmountSup_0" type="radio" name="radioAmountSup" value="Very little supervision; student will need to work largely independently"><label for="radioAmountSup_0">Very little supervision; student will need to work largely independently</label></td>
+	</tr><tr>
+		<td><input id="radioAmountSup_1" type="radio" name="radioAmountSup" value="Moderate amount of supervision and interaction with others"><label for="radioAmountSup_1">Moderate amount of supervision and interaction with others</label></td>
+	</tr><tr>
+		<td><input id="radioAmountSup_2" type="radio" name="radioAmountSup" value="Good deal of supervision; student will work as an integral part of a research team"><label for="radioAmountSup_2">Good deal of supervision; student will work as an integral part of a research team</label></td>
+	</tr>
+</tbody></table>
+                    </td>
+        </tr>
+                <tr class="d1">
+            <td valign="top">
+                <span class="style2">* </span>Supervision provided by:</td>
+            <td valign="top">
+                <table id="radioSupProv" border="0">
+	<tbody><tr>
+		<td><input id="radioSupProv_0" type="radio" name="radioSupProv" value="Supervision primarily by faculty supervisor"><label for="radioSupProv_0">Supervision primarily by faculty supervisor</label></td>
+	</tr><tr>
+		<td><input id="radioSupProv_1" type="radio" name="radioSupProv" value="Supervision primarily by graduate students"><label for="radioSupProv_1">Supervision primarily by graduate students</label></td>
+	</tr><tr>
+		<td><input id="radioSupProv_2" type="radio" name="radioSupProv" value="Supervision primarily a combination of faculty and graduate students"><label for="radioSupProv_2">Supervision primarily a combination of faculty and graduate students</label></td>
+	</tr>
+</tbody></table>
+                    </td>
+        </tr>
+                <tr class="d0">
+            <td valign="top">
+                <span class="style2">* </span>Nature of work:</td>
+            <td valign="top">
+                <table id="radioNattyWo" border="0">
+	<tbody><tr>
+		<td><input id="radioNattyWo_0" type="radio" name="radioNattyWo" value="Nature of work is primarily theoretical, most work on paper/electronic medium"><label for="radioNattyWo_0">Nature of work is primarily theoretical, most work on paper/electronic medium</label></td>
+	</tr><tr>
+		<td><input id="radioNattyWo_1" type="radio" name="radioNattyWo" value="Nature of work is primarily experimental, requiring hands-on work in a lab"><label for="radioNattyWo_1">Nature of work is primarily experimental, requiring hands-on work in a lab</label></td>
+	</tr><tr>
+		<td><input id="radioNattyWo_2" type="radio" name="radioNattyWo" value="Nature of work is primarily field based, requiring hands-on work in the field"><label for="radioNattyWo_2">Nature of work is primarily field based, requiring hands-on work in the field</label></td>
+	</tr><tr>
+		<td><input id="radioNattyWo_3" type="radio" name="radioNattyWo" value="Nature of work is primarily computer-related, involving coding/analysis"><label for="radioNattyWo_3">Nature of work is primarily computer-related, involving coding/analysis</label></td>
+	</tr><tr>
+		<td><input id="radioNattyWo_4" type="radio" name="radioNattyWo" value="Nature of work is a combination of several types of work."><label for="radioNattyWo_4">Nature of work is a combination of several types of work.</label></td>
+	</tr><tr>
+		<td><input id="radioNattyWo_5" type="radio" name="radioNattyWo" value="Other"><label for="radioNattyWo_5">other, specify:</label></td>
+	</tr>
+</tbody></table>
+                <input name="textNattyWo" type="text" id="textNattyWo" onkeypress="return disableEnterKey(event)" style="width:375px;">
+                    </td>
+        </tr>
+                <tr class="d1">
+            <td valign="top">
+                <span class="style2">* </span>Amount of prior work conducted in association with this project:</td>
+            <td valign="top">
+                <table id="radioAmountPri" border="0">
+	<tbody><tr>
+		<td><input id="radioAmountPri_0" type="radio" name="radioAmountPri" value="No prior work; student will be starting from basic idea"><label for="radioAmountPri_0">No prior work; student will be starting from basic idea</label></td>
+	</tr><tr>
+		<td><input id="radioAmountPri_1" type="radio" name="radioAmountPri" value="Some prior work; student will build on work of others"><label for="radioAmountPri_1">Some prior work; student will build on work of others</label></td>
+	</tr><tr>
+		<td><input id="radioAmountPri_2" type="radio" name="radioAmountPri" value="Well-established body of work; student will refine/improved upon efforts of others"><label for="radioAmountPri_2">Well-established body of work; student will refine/improved upon efforts of others</label></td>
+	</tr><tr>
+		<td><input id="radioAmountPri_3" type="radio" name="radioAmountPri" value="Other"><label for="radioAmountPri_3">other, specify:</label></td>
+	</tr>
+</tbody></table>
+                <input name="textAmountPro" type="text" id="textAmountPro" onkeypress="return disableEnterKey(event)" style="width:375px;">
+                    </td>
+        </tr>
+
+        <tr class="d0">
+            <td valign="top">
+                Name of specific student desired: (if any) – be sure to ask them to apply!</td>
+            <td valign="top">
+                <input name="textStudName" type="text" id="textStudName" onkeypress="return disableEnterKey(event)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td bgcolor="#000099" class="style1">
+                Finances</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr class="d0">
+            <td valign="top">
+                <span class="style2">* </span>What speed type will you use for your 50% match of the funding? 
+                (should be in the form XXXXXXXX, all numbers)</td>
+            <td valign="top">
+                <input name="textSpeedType" type="text" maxlength="8" id="textSpeedType" onkeypress="return disableEnterKey(event)">
+&nbsp;or
+                <input id="checkSpeedType" type="checkbox" name="checkSpeedType"><label for="checkSpeedType"> Not Sure</label>
+                <br>
+                <span id="RegularExpressionValidator19" style="color:Red;visibility:hidden;"><strong>You must enter a valid speed type.</strong></span>
+            </td>
+        </tr>
+        <tr class="d1">
+            <td>
+                <span class="style2">* </span>Accounting contact for your project:</td>
+            <td>
+                <input name="textAccounting" type="text" id="textAccounting" onkeypress="return disableEnterKey(event)">
+                <span id="RequiredFieldValidator16" style="color:Red;visibility:hidden;"><strong>You must enter an accounting contact.</strong></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td bgcolor="#000099" class="style1">
+                Other</td>
+            <td valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr class="d0">
+            <td>
+                Have you supervised a Discovery Learning Apprentice in the past?<br>
+                (<i>this question intended for the faculty supervisor, not the graduate student 
+                or post-doc)</i></td>
+            <td valign="top">
+                <table id="radioDLsupervisor" border="0">
+	<tbody><tr>
+		<td><input id="radioDLsupervisor_0" type="radio" name="radioDLsupervisor" value="1" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;radioDLsupervisor$0\&#39;,\&#39;\&#39;)&#39;, 0)"><label for="radioDLsupervisor_0">Yes</label></td><td><input id="radioDLsupervisor_1" type="radio" name="radioDLsupervisor" value="3" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;radioDLsupervisor$1\&#39;,\&#39;\&#39;)&#39;, 0)"><label for="radioDLsupervisor_1">No</label></td>
+	</tr>
+</tbody></table>
+            </td>
+        </tr>
+        <tr class="d0">
+            <td>
+                
+            </td>
+            <td valign="top">
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;&nbsp;</td>
+            <td>
+        &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+        <span>Please ensure that <strong>all</strong>
+            information is correct before submitting your project. You will <strong>not be able
+                to return</strong> to this page to make changes or corrections. Once you are
+            sure everything is correct, you may proceed.</span></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="Submit" value="Submit Request" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Submit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Submit">
+                <br>
+    <span id="labelMessage3" style="color:Red;font-weight:bold;"></span>
+                <br>
+    <span id="labelMessage4" style="color:Red;font-weight:bold;"></span>
+
+                <br>
+                <span id="RequiredFieldValidator7" style="color:Red;visibility:hidden;"><strong>You must enter your name.</strong></span>
+                <br>
+                <span id="RequiredFieldValidator8" style="color:Red;visibility:hidden;"><strong>You must enter your email.</strong></span>
+                <br>
+                            <span id="RegularExpressionValidator18" style="color:Red;display:none;">That is not a valid e-mail address. Please try again.</span>
+                <br>
+                <span id="RequiredFieldValidator9" style="color:Red;visibility:hidden;"><strong>You must enter your department.</strong></span>
+                <br>
+                <span id="RequiredFieldValidator10" style="color:Red;visibility:hidden;"><strong>You must enter a description.</strong></span>
+                <br>
+                <span id="RequiredFieldValidator15" style="color:Red;visibility:hidden;"><strong>You must enter a longer description.</strong></span>
+                <br>
+                <span id="RegularExpressionValidator20" style="color:Red;visibility:hidden;"><strong>You must enter a valid speed type.</strong></span>
+                <br>
+                <span id="RequiredFieldValidator17" style="color:Red;visibility:hidden;"><strong>You must enter an accounting contact.</strong></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        </tbody></table>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("RequiredFieldValidator1"), document.getElementById("RegularExpressionValidator1"), document.getElementById("RegularExpressionValidator4"), document.getElementById("RegularExpressionValidator9"), document.getElementById("RequiredFieldValidator2"), document.getElementById("RegularExpressionValidator6"), document.getElementById("RequiredFieldValidator3"), document.getElementById("RegularExpressionValidator10"), document.getElementById("RegularExpressionValidator11"), document.getElementById("RegularExpressionValidator12"), document.getElementById("RegularExpressionValidator16"), document.getElementById("RegularExpressionValidator13"), document.getElementById("RegularExpressionValidator14"), document.getElementById("RegularExpressionValidator15"), document.getElementById("RegularExpressionValidator17"), document.getElementById("RequiredFieldValidator5"), document.getElementById("RequiredFieldValidator14"), document.getElementById("RegularExpressionValidator19"), document.getElementById("RequiredFieldValidator16"), document.getElementById("RequiredFieldValidator7"), document.getElementById("RequiredFieldValidator8"), document.getElementById("RegularExpressionValidator18"), document.getElementById("RequiredFieldValidator9"), document.getElementById("RequiredFieldValidator10"), document.getElementById("RequiredFieldValidator15"), document.getElementById("RegularExpressionValidator20"), document.getElementById("RequiredFieldValidator17"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var RequiredFieldValidator1 = document.all ? document.all["RequiredFieldValidator1"] : document.getElementById("RequiredFieldValidator1");
+RequiredFieldValidator1.controltovalidate = "textName";
+RequiredFieldValidator1.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator1.initialvalue = "";
+var RegularExpressionValidator1 = document.all ? document.all["RegularExpressionValidator1"] : document.getElementById("RegularExpressionValidator1");
+RegularExpressionValidator1.controltovalidate = "textbldrphone1";
+RegularExpressionValidator1.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator1.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator4 = document.all ? document.all["RegularExpressionValidator4"] : document.getElementById("RegularExpressionValidator4");
+RegularExpressionValidator4.controltovalidate = "textbldrphone2";
+RegularExpressionValidator4.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator4.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator4.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator9 = document.all ? document.all["RegularExpressionValidator9"] : document.getElementById("RegularExpressionValidator9");
+RegularExpressionValidator9.controltovalidate = "textbldrphone3";
+RegularExpressionValidator9.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator9.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator9.validationexpression = "\\d+\\.?\\d*";
+var RequiredFieldValidator2 = document.all ? document.all["RequiredFieldValidator2"] : document.getElementById("RequiredFieldValidator2");
+RequiredFieldValidator2.controltovalidate = "textEmail";
+RequiredFieldValidator2.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator2.initialvalue = "";
+var RegularExpressionValidator6 = document.all ? document.all["RegularExpressionValidator6"] : document.getElementById("RegularExpressionValidator6");
+RegularExpressionValidator6.controltovalidate = "textEmail";
+RegularExpressionValidator6.errormessage = "<br>That is not a valid e-mail address. Please try again.";
+RegularExpressionValidator6.display = "Dynamic";
+RegularExpressionValidator6.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator6.validationexpression = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+var RequiredFieldValidator3 = document.all ? document.all["RequiredFieldValidator3"] : document.getElementById("RequiredFieldValidator3");
+RequiredFieldValidator3.controltovalidate = "listMajor";
+RequiredFieldValidator3.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator3.initialvalue = "0";
+var RegularExpressionValidator10 = document.all ? document.all["RegularExpressionValidator10"] : document.getElementById("RegularExpressionValidator10");
+RegularExpressionValidator10.controltovalidate = "textbldrphone1alt";
+RegularExpressionValidator10.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator10.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator10.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator11 = document.all ? document.all["RegularExpressionValidator11"] : document.getElementById("RegularExpressionValidator11");
+RegularExpressionValidator11.controltovalidate = "textbldrphone2alt";
+RegularExpressionValidator11.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator11.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator11.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator12 = document.all ? document.all["RegularExpressionValidator12"] : document.getElementById("RegularExpressionValidator12");
+RegularExpressionValidator12.controltovalidate = "textbldrphone3alt";
+RegularExpressionValidator12.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator12.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator12.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator16 = document.all ? document.all["RegularExpressionValidator16"] : document.getElementById("RegularExpressionValidator16");
+RegularExpressionValidator16.controltovalidate = "textEmailalt";
+RegularExpressionValidator16.errormessage = "<br>That is not a valid e-mail address. Please try again.";
+RegularExpressionValidator16.display = "Dynamic";
+RegularExpressionValidator16.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator16.validationexpression = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+var RegularExpressionValidator13 = document.all ? document.all["RegularExpressionValidator13"] : document.getElementById("RegularExpressionValidator13");
+RegularExpressionValidator13.controltovalidate = "textGradphone1";
+RegularExpressionValidator13.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator13.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator13.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator14 = document.all ? document.all["RegularExpressionValidator14"] : document.getElementById("RegularExpressionValidator14");
+RegularExpressionValidator14.controltovalidate = "textGradphone2";
+RegularExpressionValidator14.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator14.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator14.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator15 = document.all ? document.all["RegularExpressionValidator15"] : document.getElementById("RegularExpressionValidator15");
+RegularExpressionValidator15.controltovalidate = "textGradphone3";
+RegularExpressionValidator15.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator15.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator15.validationexpression = "\\d+\\.?\\d*";
+var RegularExpressionValidator17 = document.all ? document.all["RegularExpressionValidator17"] : document.getElementById("RegularExpressionValidator17");
+RegularExpressionValidator17.controltovalidate = "textGradEmail";
+RegularExpressionValidator17.errormessage = "<br>That is not a valid e-mail address. Please try again.";
+RegularExpressionValidator17.display = "Dynamic";
+RegularExpressionValidator17.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator17.validationexpression = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+var RequiredFieldValidator5 = document.all ? document.all["RequiredFieldValidator5"] : document.getElementById("RequiredFieldValidator5");
+RequiredFieldValidator5.controltovalidate = "textDescription";
+RequiredFieldValidator5.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator5.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator5.initialvalue = "";
+var RequiredFieldValidator14 = document.all ? document.all["RequiredFieldValidator14"] : document.getElementById("RequiredFieldValidator14");
+RequiredFieldValidator14.controltovalidate = "textLongDescription";
+RequiredFieldValidator14.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator14.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator14.initialvalue = "";
+var RegularExpressionValidator19 = document.all ? document.all["RegularExpressionValidator19"] : document.getElementById("RegularExpressionValidator19");
+RegularExpressionValidator19.controltovalidate = "textSpeedType";
+RegularExpressionValidator19.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator19.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator19.validationexpression = "\\d{8}";
+var RequiredFieldValidator16 = document.all ? document.all["RequiredFieldValidator16"] : document.getElementById("RequiredFieldValidator16");
+RequiredFieldValidator16.controltovalidate = "textAccounting";
+RequiredFieldValidator16.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator16.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator16.initialvalue = "";
+var RequiredFieldValidator7 = document.all ? document.all["RequiredFieldValidator7"] : document.getElementById("RequiredFieldValidator7");
+RequiredFieldValidator7.controltovalidate = "textName";
+RequiredFieldValidator7.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator7.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator7.initialvalue = "";
+var RequiredFieldValidator8 = document.all ? document.all["RequiredFieldValidator8"] : document.getElementById("RequiredFieldValidator8");
+RequiredFieldValidator8.controltovalidate = "textEmail";
+RequiredFieldValidator8.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator8.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator8.initialvalue = "";
+var RegularExpressionValidator18 = document.all ? document.all["RegularExpressionValidator18"] : document.getElementById("RegularExpressionValidator18");
+RegularExpressionValidator18.controltovalidate = "textEmail";
+RegularExpressionValidator18.errormessage = "That is not a valid e-mail address. Please try again.";
+RegularExpressionValidator18.display = "Dynamic";
+RegularExpressionValidator18.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator18.validationexpression = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+var RequiredFieldValidator9 = document.all ? document.all["RequiredFieldValidator9"] : document.getElementById("RequiredFieldValidator9");
+RequiredFieldValidator9.controltovalidate = "listMajor";
+RequiredFieldValidator9.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator9.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator9.initialvalue = "0";
+var RequiredFieldValidator10 = document.all ? document.all["RequiredFieldValidator10"] : document.getElementById("RequiredFieldValidator10");
+RequiredFieldValidator10.controltovalidate = "textDescription";
+RequiredFieldValidator10.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator10.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator10.initialvalue = "";
+var RequiredFieldValidator15 = document.all ? document.all["RequiredFieldValidator15"] : document.getElementById("RequiredFieldValidator15");
+RequiredFieldValidator15.controltovalidate = "textLongDescription";
+RequiredFieldValidator15.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator15.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator15.initialvalue = "";
+var RegularExpressionValidator20 = document.all ? document.all["RegularExpressionValidator20"] : document.getElementById("RegularExpressionValidator20");
+RegularExpressionValidator20.controltovalidate = "textSpeedType";
+RegularExpressionValidator20.errormessage = "RegularExpressionValidator";
+RegularExpressionValidator20.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator20.validationexpression = "\\d{8}";
+var RequiredFieldValidator17 = document.all ? document.all["RequiredFieldValidator17"] : document.getElementById("RequiredFieldValidator17");
+RequiredFieldValidator17.controltovalidate = "textAccounting";
+RequiredFieldValidator17.errormessage = "RequiredFieldValidator";
+RequiredFieldValidator17.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator17.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+    
+</body><div id="cVim-status-bar" style="top: 0px;"></div><iframe src="./Discovery Learning Apprenticeship Submissions_files/cmdline_frame.html" id="cVim-command-frame"></iframe></html>
