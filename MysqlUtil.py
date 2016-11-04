@@ -82,6 +82,7 @@ class MysqlUtil(object):
         for key, value in batch_data.items():
             data[key] = value
 
+
     def insert_execute(self, table_name):
         """Concatenate to get a query string and execute the inserting
         Args:
@@ -126,7 +127,6 @@ class MysqlUtil(object):
                 data = cursor.fetchone()
                 return data
         finally:
-            pass
             connection.close()
 
 
