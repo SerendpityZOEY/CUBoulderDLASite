@@ -1,22 +1,31 @@
-create table student(
+create table STUDENT(
    -- ID
    S_Id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 
-   -- Primary Faculty Info
-   name varchar(255) NOT NULL default 'Firstname Lastname',
-   gender tinyint(3) UNSIGNED NOT NULL default 0,
-   origin varchar(30) NOT NULL default 'Yes',
-   race varchar(10) NOT NULL default 'Asian',
-   phoneNumber varchar(20) default NULL default '(111)-222-3333',
-   email varchar(255) NOT NULL default '@colorado.edu',
-   Address varchar(100) NOT NULL default '0',
-   Major tinyint(3) UNSIGNED NOT NULL default 0,
-   studentNumber int(10) NOT NULL default 0,
-   GPA varchar(5) NOT NULL default '0.0',
-   level varchar(10) NOT NULL default ' ',
-   graduationDate date NOT NULL default CURRENT_DATE
-   researchExperience tinyint(1),
-   appliedBefore tinyint(1)
+   -- Student Info
+   Name varchar(255) NOT NULL default '',
+   Gender tinyint(3) UNSIGNED NOT NULL default 0,
+   Origin tinyint(3) NOT NULL default 0,
+   Race varchar(20) NOT NULL default '',
+   Phone varchar(20) default NULL default '',
+   Email varchar(100) NOT NULL default '',
+   Address varchar(100) NOT NULL default '',
+   SumPhone varchar(20) default NULL,
+   SumEmail varchar(100) default NULL,
+   SumAddress varchar(100) default NULL,
+   PrimaryMajor tinyint(3) UNSIGNED NOT NULL default 0,
+   SecondaryMajor tinyint(3) default 0,
+   StudentNumber int(11) NOT NULL default 0,
+   GPA varchar(5) NOT NULL default '',
+   Level tinyint(3) NOT NULL default 0,
+   GraduationDate date NOT NULL default CURRENT_DATE
+   ResearchExperience boolean default NULL,
+   AppliedBefore tinyint(3) UNSIGNED default NULL
+   EmploymentPlanned varchar(1000) default NULL,
+   BackgroundCheck tinyint(3) default NULL,
+   Discrimination tinyint(3) default NULL,
+   SSN smallint(5) default NULL,
+   Skills varchar(1000) default NULL
 
    PRIMARY KEY (S_Id)
 );
