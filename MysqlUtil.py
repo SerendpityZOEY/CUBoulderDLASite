@@ -134,6 +134,18 @@ class MysqlUtil(object):
             connection.close()
 
 
+    def select_one(self, query):
+        connection = self.mysql.connect()
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(query)
+                connection.commit()
+                data = cursor.fetchone()
+                return data
+        finally:
+            connection.close()
+
+
     def clear(self):
         """Clear the pushed data"""
         self.data = {}
