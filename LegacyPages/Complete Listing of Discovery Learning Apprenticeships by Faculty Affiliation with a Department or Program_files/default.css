@@ -1,0 +1,41 @@
+﻿body {
+    background-color: #FFFFFF;
+    margin-left: 2%; 
+    margin-right: 2%;
+    margin-top: 0; margin-bottom: 0; 
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: left;
+    vertical-align: top;
+}
+
+tr.d0 td {
+	background-color: #C1F3F4;
+}
+
+tr.d1 td {
+	background-color: #EDFCFC;
+}
+
+table.standard {
+    vertical-align: top;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 800;
+}
+
+table.narrow {
+    vertical-align: top;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 600;
+}
+
+p {
+    margin-top: 0; margin-bottom: 0; 
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    text-align: left;
+}

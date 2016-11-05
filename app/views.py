@@ -57,13 +57,14 @@ def project():
                 else:
                     req+', '+r
 
-        data.append([str(pn), professorName, department,str(major),str(link),str(des),req])
+        data.append([str(pn), professorName, department, str(link) if link is not None else "",str(des),req])
         app.logger.info(data)
     return render_template("project.html", data=json.dumps(data))
 
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
+    sn =  request.form['SN']
     sqlUtil.batch_insert_push({
         'name':             request.form['name'],
         'gender':           request.form['gender'],
@@ -155,6 +156,7 @@ def f_submit():
     sqlUtil.clear()
 
     app.logger.info('is sucessfully submitted')
+
 
     print("check")
 

@@ -54,27 +54,27 @@
                </div>
                <div class="form-group">
                  <label><span style="color:red;">* </span>Gender:</label>
-                 <label class="radio-inline"><input type="radio" name="optradio" value="male">Male</label>
-                 <label class="radio-inline"><input type="radio" name="optradio" value="female">Female</label>
+                 <label class="radio-inline"><input type="radio" name="gender" value="male">Male</label>
+                 <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
                </div>
                <div class="form-group">
                    <label>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
                        American, or Spanish Origin?</label>
                    <div class="form-check">
                      <label class="form-check-label">
-                         <input type="radio" class="form-check-input" name="optionsRadios" id="option1" value="yes">
+                         <input type="radio" class="form-check-input" name="origin" id="option1" value="yes">
                          Yes
                        </label>
                    </div>
                    <div class="form-check">
                      <label class="form-check-label">
-                         <input type="radio" class="form-check-input" name="optionsRadios" id="option2" value="no">
+                         <input type="radio" class="form-check-input" name="origin" id="option2" value="no">
                          No
                        </label>
                    </div>
                    <div class="form-check">
                      <label class="form-check-label">
-                         <input type="radio" class="form-check-input" name="optionsRadios" id="option3" value="option3">
+                         <input type="radio" class="form-check-input" name="origin" id="option3" value="option3">
                          I do not wish to provide this information
                        </label>
                    </div>
@@ -82,25 +82,25 @@
                <div class="form-group">
                  <label>Please check your race (select all that apply):</label>
                  <div class="checkbox">
-                   <label><input type="checkbox" name="hello" value="1">American Indian or Alaskan Native</label>
+                   <label><input type="checkbox" name="race" value="1">American Indian or Alaskan Native</label>
                  </div>
                  <div class="checkbox">
-                   <label><input type="checkbox" name="hello" value="2">Black or African-American</label>
+                   <label><input type="checkbox" name="race" value="2">Black or African-American</label>
                  </div>
                  <div class="checkbox">
-                   <label><input type="checkbox" name="hello" value="3">Native Hawaiian or other Pacific Islander</label>
+                   <label><input type="checkbox" name="race" value="3">Native Hawaiian or other Pacific Islander</label>
                  </div>
                  <div class="checkbox">
-                   <label><input type="checkbox" name="hello" value="4">Asian</label>
+                   <label><input type="checkbox" name="race" value="4">Asian</label>
                  </div>
                  <div class="checkbox">
-                   <label><input type="checkbox" name="hello" value="5">White</label>
+                   <label><input type="checkbox" name="race" value="5">White</label>
                  </div>
                  <div class="checkbox">
-                   <label><input type="checkbox" name="hello" value="6">Other</label>
+                   <label><input type="checkbox" name="race" value="6">Other</label>
                  </div>
                  <div class="checkbox">
-                   <label><input type="checkbox" name="hello" value="7">Do Not Wish to Provide</label>
+                   <label><input type="checkbox" name="race" value="7">Do Not Wish to Provide</label>
                  </div>
                </div>
              </form>
@@ -172,6 +172,7 @@
             <small>Please carefully enter your academic information. If you are still open option, indicate which major you plan to enter.</small>
                   <div class="row">
                       <div class="col-md-6">
+                          <form>
                           <div class="form-group">
                             <label for="address"><span style="color:red;">* </span>Primary Major</label>
                             <textarea class="form-control" name="major" type="text"></textarea>
@@ -185,9 +186,11 @@
                             <label><span style="color:red;">* </span>StudentNumber:</label>
                             <input class="form-control" type="number" min="0" name="SN">
                           </div>
+                          </form>
                       </div>
 
                       <div class="col-md-6">
+                          <form>
                           <div class="form-group">
                             <label><span style="color:red;">* </span>GPA:</label>
                             <input class="form-control" name="GPA" type="number" min="0" step="any">
@@ -197,7 +200,7 @@
                             <label><span style="color:red;">* </span>Level: (freshman, Sophomore, Junior, Senior, Other)</label>
                             <input class="form-control" name="level" type="text">
                           </div>
-
+                        </form>
                           <div class="input-group date" data-provide="datepicker">
                             <label><span style="color:red;">* </span>Graduation Date</label>
                             <div class="bfh-datepicker" data-format="y-m-d" data-date="today">
