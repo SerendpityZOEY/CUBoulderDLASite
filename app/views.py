@@ -43,7 +43,7 @@ def project():
     # cursor.execute("SELECT * FROM `project`")
     # projects = cursor.fetchall()
     projects = sqlUtil.select_all("SELECT * FROM `project`")
-    app.logger.info(projects)
+    #app.logger.info(projects)
     for pid, pn, major, prid, link, des, req1, req2, req3, req4, req5 in projects:
         # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         # professorName, department = cursor.fetchone()
@@ -58,7 +58,7 @@ def project():
                     req+', '+r
 
         data.append([str(pn), professorName, department, str(link) if link is not None else "",str(des),req])
-        app.logger.info(data)
+        #app.logger.info(data)
     return render_template("project.html", data=json.dumps(data))
 
 
