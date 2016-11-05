@@ -118,24 +118,15 @@ class MysqlUtil(object):
             connection.close()
 
 
-    def select_one(self, retCol, table, col, colVal):
+    def select_one(self, *args):
         connection = self.mysql.connect()
-        query = "SELECT " + "`" + retCol + "`"
-        query += " FROM " + "`"+ table + "` "
-        query += "WHERE " + "`" + col + "`"+" = \""+str(colVal)+"\";"
-        print(query)
-        try:
-            with connection.cursor() as cursor:
-                cursor.execute(query)
-                connection.commit()
-                data = cursor.fetchone()
-                return data
-        finally:
-            connection.close()
-
-
-    def select_one(self, query):
-        connection = self.mysql.connect()
+        if len(args) > 1:
+            retCol, table, col, colVal = args
+            query = "SELECT " + "`" + retCol + "`"
+            query += " FROM " + "`"+ table + "` "
+            query += "WHERE " + "`" + col + "`"+" = \""+str(colVal)+"\";"
+        else:
+            query = args[0]
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)
