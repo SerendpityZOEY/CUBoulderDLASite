@@ -118,8 +118,12 @@ class MysqlUtil(object):
             connection.close()
 
 
-    def select_one(self, query):
+    def select_one(self, retCol, table, col, colVal):
         connection = self.mysql.connect()
+        query = "SELECT " + "`" + retCol + "`"
+        query += " FROM " + "`"+ table + "` "
+        query += "WHERE " + "`" + col + "`"+" = \""+str(colVal)+"\";"
+        print(query)
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)

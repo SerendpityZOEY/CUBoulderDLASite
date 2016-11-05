@@ -161,7 +161,7 @@ def f_submit():
     print("check")
 
     fName = request.form['name1']
-    profId = sqlUtil.select_one("SELECT `id` FROM `faculty` WHERE `name` = \"fName\"")
+    profId = sqlUtil.select_one('id', 'faculty', 'name', fName)
     print(profId)
     sqlUtil.batch_insert_push({
         'projectName':             request.form['projectTitle'],
