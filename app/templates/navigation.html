@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lookup Student Application</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Form Helpers -->
+    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png" />
+    <style>
+      .sidebar1 {
+      float: right;
+      width: 25%;
+      padding-bottom: 10px;
+      background-color: #eee;
+      }
+    body {
+        background-color:#fff8e1;
+    }
+    </style>
+</head>
+<body>
+    <script src="../static/js/script.js"></script>
+
+<div class="container-fluid">
+    <h1 id="top">Lookup Student Application</h1>
+
+
+<div class="col-md-10">
+   <div class="row" id="studentInfo">
+        <div class="col-md-10 center">
+               <div class="panel panel-default">
+               <div class="panel-heading">
+                 <h3 class="panel-title">Lookup Information</h3>
+               </div>
+               <div class="panel-body">
+                 <form action="/lookup" method="post">
+               <div class="form-group">
+                 <label for="studentID"><span style="color:red;">* </span>Your Student ID:</label>
+                 <input type="text" class="form-control" id="studentID" name="studentID" placeholder="Enter Student ID">
+               </div>
+               <button type="submit" class="btn btn-primary" id="lookup">Submit</button>
+             </form>
+               </div>
+             </div>
+           </div>
+       </div>
+
+</div>
+
+
+  </div>
+
+    <script src="../static/js/sideBar.js"></script>
+
+</body>
+</html>

@@ -100,6 +100,31 @@ def faculty():
     app.logger.info('waiting for input in teacher page')
     return render_template("faculty.html")
 
+@app.route('/navigation')
+def navigation():
+    app.logger.info('waiting for input for student id')
+    return render_template("navigation.html")
+
+@app.route('/lookup', methods = ['GET', 'POST'])
+def lookup():
+    studentID = request.form['studentID']
+    print("The student ID '" + studentID + "'")
+
+    data=[]
+
+    studentID, studentName, gender, origin, race, phoneNumber, email, address, major, studentNumber, GPA, level, graduateDate, researchExperience, appliedBefore = sqlUtil.select_one("SELECT * FROM `student` WHERE `studentID`='{studentID}'".format(studentID=studentID))
+    projectTitles = sqlUtil.select_all("SELECT * FROM `application` WHERE `Sid`='{studentID}'".format(studentID=studentID))
+
+    project_list = []
+
+    for Aid, Sid, Priority, P_Id in projectTitles:
+
+        project_title = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{P_Id}'".format(P_Id=P_Id))
+        project_list.append("{}+{}".format(project_title, Priority))
+    print("Project_list: {}".format(project_list))
+    data.append([studentName, gender, origin, race, phoneNumber, email, address, major, studentNumber, GPA, level, graduateDate, researchExperience, appliedBefore, project_list])
+
+    return render_template("display.html", data=json.dumps(data))
 
 @app.route('/fsubmit', methods=['GET', 'POST'])
 def f_submit():
