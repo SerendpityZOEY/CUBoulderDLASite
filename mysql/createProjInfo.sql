@@ -41,4 +41,5 @@ create table PROJECT_INFO(
 
 
     PRIMARY KEY (P_Id)
-);
+    
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
