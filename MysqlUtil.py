@@ -122,8 +122,15 @@ class MysqlUtil(object):
             connection.close()
 
 
-    def select_one(self, query):
+    def select_one(self, *args):
         connection = self.mysql.connect()
+        if len(args) > 1:
+            retCol, table, col, colVal = args
+            query = "SELECT " + "`" + retCol + "`"
+            query += " FROM " + "`"+ table + "` "
+            query += "WHERE " + "`" + col + "`"+" = \""+str(colVal)+"\";"
+        else:
+            query = args[0]
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query)

@@ -22,6 +22,15 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/javascript"
           href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <style>
+		table{
+		  margin: 0 auto;
+		  width: 100%;
+		  clear: both;
+		  border-collapse: collapse;
+		  table-layout: fixed; 
+		  word-wrap:break-word; 		}
+   </style>
     {#        <style>#}
     {#    		table, th, td {#}
     {#        		border: 1px solid black;#}
@@ -100,7 +109,7 @@
 
     </table>
 </div>
-<div class="col-md-9 center">
+<div class="col-md-11 center">
     <table id="project" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
 </div>
 </body>
@@ -113,19 +122,19 @@
         ).draw();
     }
     $(document).ready(function () {
-        console.log(dataSet)
-        $('#project').DataTable({
+        var dataTable = $('#project').DataTable({
             data: dataSet,
             columns: [
-                {title: "ProjectName"},
-                {title: "Professor"},
-                {title: "Department"},
-{#                {title: "Prefered Major"},#}
-                {title: "link"},
-                {title: "Description"},
-                {title: "Requirement"}
+                {"title": "ProjectName"},
+                {"title": "Contact Info"},
+                {"title": "Department"},
+                {"title": "link" },
+                {"title": "Description", "width": "35%"},
+                {"title": "Requirement"},
+                {"title": "prefered Major"}
             ]
         });
+        dataTable.columns.adjust().draw();
         $('select.column_filter').on('keyup click change', function () {
             filterColumn($(this).parents('tr').attr('data-column'));
         });
