@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Application</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Form Helpers -->
+    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png" />
+    <style>
+      .sidebar1 {
+      float: right;
+      width: 25%;
+      padding-bottom: 10px;
+      background-color: #eee;
+      }
+    body {
+        background-color:#fff8e1;
+    }
+    </style>
+</head>
+<body>
+    <script src="../static/js/script.js"></script>
+
+<div class="container-fluid">
+    <h1 id="top">Student Application</h1>
+      <div class="col-md-2" id="leftCol">
+        <ul class="nav nav-stacked" id="sidebar">
+          <li><a href="#studentInfo">Demographic Info</a></li>
+          <li><a href="#boulderInfo">Boulder Contact Info</a></li>
+          <li><a href="#summerInfo">Summer Contact Info</a></li>
+          <li><a href="#academicInfo">Academic Info</a></li>
+          <li><a href="#apprInfo">Apprenticeship Info</a></li>
+          <li><a href="#files">Skills, Resume, and Cover Letter</a></li>
+          <li><a href="#top">Back to Top</a></li>
+        </ul>
+      </div>
+
+<div class="col-md-10">
+   <div class="row" id="studentInfo">
+        <div class="col-md-10 center">
+               <div class="panel panel-default">
+               <div class="panel-heading">
+                 <h3 class="panel-title">Demographic Information</h3>
+               </div>
+               <div class="panel-body">
+                 <form>
+               <div class="form-group">
+                 <label for="name"><span style="color:red;">* </span>Your Name:</label>
+                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" disabled="disabled">
+               </div>
+               <div class="form-group">
+                 <label><span style="color:red;">* </span>Gender:</label>
+                 <label class="radio-inline"><input type="radio" name="gender" id="r1Gender" value="male" disabled="disabled">Male</label>
+                 <label class="radio-inline"><input type="radio" name="gender" id="r2Gender" value="female" disabled="disabled">Female</label>
+               </div>
+               <div class="form-group">
+                   <label>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
+                       American, or Spanish Origin?</label>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="origin" id="option1" value="yes" disabled="disabled">
+                         Yes
+                       </label>
+                   </div>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="origin" id="option2" value="no" disabled="disabled">
+                         No
+                       </label>
+                   </div>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="origin" id="option3" value="option3" disabled="disabled">
+                         I do not wish to provide this information
+                       </label>
+                   </div>
+               </div>
+               <div class="form-group">
+                 <label>Please check your race (select all that apply):</label>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" id="r1" value="1" disabled="disabled">American Indian or Alaskan Native</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" id="r2" value="2" disabled="disabled">Black or African-American</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" id="r3" value="3" disabled="disabled">Native Hawaiian or other Pacific Islander</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" id="r4" value="4" disabled="disabled">Asian</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" id="r5" value="5" disabled="disabled">White</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" id="r6" value="6" disabled="disabled">Other</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" id="r7" value="7" disabled="disabled">Do Not Wish to Provide</label>
+                 </div>
+               </div>
+             </form>
+               </div>
+             </div>
+           </div>
+       </div>
+
+   <div class="row" id="boulderInfo">
+        <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Boulder Contact Information</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="address"><span style="color:red;">* </span>Boulder Address: (street, city, state, zip)</label>
+                <textarea class="form-control" name="address" id="address" rows="3" type="text" disabled="disabled"></textarea>
+              </div>
+              <div class="form-group">
+                <label><span style="color:red;">* </span>Phone:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone" id="phone" disabled="disabled">
+              </div>
+                <div class="form-group">
+                  <label><span style="color:red;">* </span>Email:</label>
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email" disabled="disabled">
+                </div>
+            </form>
+          </div>
+        </div>
+       </div>
+   </div>
+
+   <div class="row" id="summerInfo">
+       <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Summer Contact Information(if different)</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="address">Summer Address: (street, city, state, zip)</label>
+                <textarea class="form-control" name="address" rows="3" type="text" disabled="disabled"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Summer Phone:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone" disabled="disabled">
+              </div>
+                <div class="form-group">
+                  <label>Summer Email:</label>
+                  <input type="text" class="form-control" name="email" placeholder="Email" disabled="disabled">
+                </div>
+            </form>
+          </div>
+        </div>
+       </div>
+   </div>
+
+
+   <div class="row" id="academicInfo">
+       <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Academic Information</h3>
+          </div>
+          <div class="panel-body">
+            <small>Please carefully enter your academic information. If you are still open option, indicate which major you plan to enter.</small>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <form>
+                          <div class="form-group">
+                            <label for="address"><span style="color:red;">* </span>Primary Major</label>
+                            <textarea class="form-control" name="major" id="major" type="text" disabled="disabled"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="address">Secondary Major</label>
+                              <small>If you have a <strong>double major</strong>. Do not select a minor here.</small>
+                            <textarea class="form-control" name="major" type="text" disabled="disabled"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label><span style="color:red;">* </span>StudentNumber:</label>
+                            <input class="form-control" type="number" id="number" min="0" name="SN" disabled="disabled">
+                          </div>
+                          </form>
+                      </div>
+
+                      <div class="col-md-6">
+                          <form>
+                          <div class="form-group">
+                            <label><span style="color:red;">* </span>GPA:</label>
+                            <input class="form-control" name="GPA" id="GPA" type="number" min="0" step="any" disabled="disabled">
+                          </div>
+
+                          <div class="form-group">
+                            <label><span style="color:red;">* </span>Level: (freshman, Sophomore, Junior, Senior, Other)</label>
+                            <input class="form-control" name="level" id="level" type="text" disabled="disabled">
+                          </div>
+                        </form>
+                          <div class="input-group date" data-provide="datepicker">
+                            <label><span style="color:red;">* </span>Graduation Date</label>
+                            <div class="bfh-datepicker" data-format="y-m-d" data-date="today">
+                              <div class="input-prepend bfh-datepicker-toggle" data-toggle="bfh-datepicker">
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                                <input type="text" id="date" name="date" class="input-medium" readonly>
+                              </div>
+                              <div class="bfh-datepicker-calendar">
+                                <table class="calendar table table-bordered">
+                                  <thead>
+                                    <tr class="months-header">
+                                      <th class="month" colspan="4">
+                                        <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
+                                        <span></span>
+                                        <a class="next" href="#"><i class="icon-chevron-right"></i></a>
+                                      </th>
+                                      <th class="year" colspan="3">
+                                        <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
+                                        <span></span>
+                                        <a class="next" href="#"><i class="icon-chevron-right"></i></a>
+                                      </th>
+                                    </tr>
+                                    <tr class="days-header">
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+
+                      <div class="form-group">
+                        <label>Do you have previous research experience?</label><br>
+                        <label class="radio-inline"><input type="radio" name="researchExp" id="research1" value="yes" disabled="disabled">Yes</label>
+                        <label class="radio-inline"><input type="radio" name="researchExp" id="research2" value="no" disabled="disabled">No(This will not affect your eligibility!)</label>
+                      </div>
+
+                      </div>
+                  </div>
+
+          </div>
+        </div>
+       </div>
+   </div>
+
+   <div class="row" id="apprInfo">
+       <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Apprenticeship Information</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                  <label>Have you applied for a Discovery Learning Apprenticeship before?</label><br>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore1" value="yes" disabled="disabled">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore2" value="notsure" disabled="disabled">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore3" value="no" disabled="disabled">No</label>
+              </div>
+
+              <div class="form-group">
+                  <label>Other fall employment planned:</label>
+                  <textarea class="form-control" placeholder="Other fall employment planned:" disabled="disabled"></textarea>
+              </div>
+
+              <p><strong style="color:red">Please make sure you selected a major before proceeding!</strong></p>
+              <p>Indicate up to five research projects in order of interest:</p>
+              <p><strong style="color:red">Please note that some projects have special requirements that you must meet.</strong></p>
+              <p>To see requirements and longer descriptions of the project, look at the projects available for your major here.</p><a href='/project'>projects</a>
+
+              <div class="form-group">
+                <label><span style="color:red;">* </span>Project1</label>
+                <select name="p1" id="p1" disabled="disabled">
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project2</label>
+                <select name="p2" id="p2" disabled="disabled">
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project3</label>
+                <select name="p3" id="p3" disabled="disabled">
+
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project4</label>
+                <select name="p4" id="p4" disabled="disabled">
+
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project5</label>
+                <select name="p5" id="p5" disabled="disabled">
+
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="form-group">
+                  <label>Have you had a background check yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label><br>
+                  <label class="radio-inline"><input type="radio" name="backCheck" value="yes" disabled="disabled">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="backCheck" value="notsure" disabled="disabled">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="backCheck" value="no" disabled="disabled">No</label>
+              </div>
+
+              <div class="form-group">
+                  <label>Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes when? (Take
+                      your best guess if you aren't sure.)</label><br>
+                  <label class="radio-inline"><input type="radio" name="training" value="yes" disabled="disabled">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="training" value="notsure" disabled="disabled">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="training" value="no" disabled="disabled">No</label>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Last four digits of your Social Security Number:
+                    (this will only be used to acess your background check information)</label>
+                <input type="text" class="form-control" name="field4" maxlength="4">
+              </div>
+            </form>
+          </div>
+        </div>
+       </div>
+   </div>
+
+   <div class="row" id="files">
+       <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Skills, Resume, and Cover Letter</h3>
+          </div>
+          <div class="panel-body">
+              <p>Please list the three skills or qualifications that you feel make you a great candidate for the
+                  positions you selected:
+(Could be knowledge of a programming language, knowledge of a field, courses taken, personal characteristics, etc.
+                  If appropriate, note your match to requirements in job description. Please note responses are limited
+                  to 75 characters.)</p>
+            <form>
+              <div class="form-group">
+                <label>1. </label>
+                <textarea class="form-control" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
+              </div>
+              <div class="form-group">
+                <label>2. </label>
+                <textarea class="form-control" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
+              </div>
+              <div class="form-group">
+                <label>3. </label>
+                <textarea class="form-control" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
+              </div>
+              <p>To complete the application, you must submit a resume and a cover letter. You can submit both using
+                  the form below. Please use either the pdf format or a text document. To improve your chances of
+                  being selected for an apprenticeship, please take the time to construct a well-written cover letter
+                  and resume.</p>
+
+              <label class="control-label">Resume:</label>
+                <input id="input-1" type="file" class="file" disabled="disabled">
+              <label class="control-label">Cover letter:</label>
+                <input id="input-2" type="file" class="file" disabled="disabled">
+            </form>
+          </div>
+        </div>
+       </div>
+   </div>
+</div>
+
+  </div>
+
+    <script src="../static/js/sideBar.js"></script>
+
+</body>
+<script>
+// $('.datepicker').datepicker();
+Mycomponet = '{{data[0]}}'
+  $(document).ready(console.log(Mycomponet))
+
+  function display_studentRecord(data) {
+
+    var name = data[0][0];
+    var gender = data[0][1];
+    var origin = data[0][2];
+    var race = data[0][3];
+    var phoneNumber = data[0][4];
+    var email = data[0][5];
+    var address = data[0][6];
+    var major = data[0][7];
+    var studentNumber = data[0][8];
+    var GPA = data[0][9];
+    var level = data[0][10];
+    var graduateDate = data[0][11];
+    var researchExperience = data[0][12];
+    var appliedBefore = data[0][13];
+
+    var projectList = data[0][14];
+
+    var projectValues, projectTitle, priority;
+    for(i=0;i<projectList.length; i++){
+      if(projectList[i] != null){
+      projectValues = projectList[i].split('+');
+      projectTitle = projectValues[0];
+      priority = projectValues[1];
+
+      if(priority == 1){
+        var opt= document.getElementById('p1').options[0];
+        var title1 = projectTitle.replace('(','');
+        var title2 = title1.replace('\'','');
+        var title3 = title2.replace('\'','');
+        var title4 = title3.replace(')','');
+        var title5 = title4.replace(/,/g , " ");
+
+        opt.value =  title5;
+        opt.text = title5;
+      }
+
+      else if(priority == 2){
+        var opt= document.getElementById('p2').options[0];
+        var title1 = projectTitle.replace('(','');
+        var title2 = title1.replace('\'','');
+        var title3 = title2.replace('\'','');
+        var title4 = title3.replace(')','');
+        var title5 = title4.replace(/,/g , " ");
+
+        opt.value =  title5;
+        opt.text = title5;
+      }
+
+      else if(priority == 3){
+        var opt= document.getElementById('p3').options[0];
+        var title1 = projectTitle.replace('(','');
+        var title2 = title1.replace('\'','');
+        var title3 = title2.replace('\'','');
+        var title4 = title3.replace(')','');
+        var title5 = title4.replace(/,/g , " ");
+
+        opt.value =  title5;
+        opt.text = title5;
+      }
+      else if(priority == 4){
+        var opt= document.getElementById('p4').options[0];
+        var title1 = projectTitle.replace('(','');
+        var title2 = title1.replace('\'','');
+        var title3 = title2.replace('\'','');
+        var title4 = title3.replace(')','');
+        var title5 = title4.replace(/,/g , " ");
+
+        opt.value =  title5;
+        opt.text = title5;
+      }
+
+      else if(priority == 5){
+        var opt= document.getElementById('p5').options[0];
+        var title1 = projectTitle.replace('(','');
+        var title2 = title1.replace('\'','');
+        var title3 = title2.replace('\'','');
+        var title4 = title3.replace(')','');
+        var title5 = title4.replace(/,/g , " ");
+
+        opt.value =  title5;
+        opt.text = title5;
+      }
+
+
+
+
+     }
+    }
+
+    document.getElementById("name").value = name;
+
+    if (document.getElementById('r1Gender').value == gender) {
+      document.getElementById('r1Gender').checked = true;
+    }
+    else{
+      document.getElementById('r2Gender').checked = true;
+    }
+
+    if (document.getElementById('option1').value == origin) {
+      document.getElementById('option1').checked = true;
+    }
+    else if (document.getElementById('option2').value == origin){
+      document.getElementById('option2').checked = true;
+    }
+    else{
+      document.getElementById('option3').checked = true;
+    }
+
+
+      for(i=1; i<=7;i++){
+        if(document.getElementById('r'+i).value == race)
+        document.getElementById('r'+i).checked = true;
+
+      }
+
+
+      if (0 == researchExperience) {
+        document.getElementById('research1').checked = true;
+      }
+      else if (1 == researchExperience){
+        document.getElementById('research2').checked = true;
+      }
+
+      if (0 == appliedBefore) {
+        document.getElementById('appliedBefore1').checked = true;
+      }
+      else if (1 == appliedBefore){
+        document.getElementById('appliedBefore2').checked = true;
+      }
+      else if(2 == appliedBefore){
+        document.getElementById('appliedBefore2').checked = true;
+      }
+
+
+      document.getElementById("address").value = address;
+      document.getElementById("phone").value = phoneNumber;
+      document.getElementById("major").value = major;
+      document.getElementById("number").value = studentNumber;
+      document.getElementById("GPA").value = GPA;
+      document.getElementById("level").value = level;
+      document.getElementById("date").value = graduateDate;
+
+
+      $('.datepicker').datepicker('update', '');
+
+
+
+  }
+  display_studentRecord({{ data|safe }})
+</script>
+</html>
