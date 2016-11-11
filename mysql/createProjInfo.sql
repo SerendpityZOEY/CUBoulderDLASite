@@ -21,11 +21,11 @@ create table PROJECT_INFO(
 
     -- Apprenticeship Info
     ProjName varchar(80) NOT NULL default '',
-    LongDesc varchar(1200) NOT NULL default '',
+    LongDesc varchar(2000) NOT NULL default '',
     WebLink varchar(255) default NULL,
     -- Mandatory Special Requirement
     ManReqs varchar(1000) default NULL,
-    -- Optional Sepcial Requirement 
+    -- Optional Special Requirement
     OptReqs varchar(1000) default NULL,
     StuMajors varchar(100) NOT NULL default '',
     AmtOfSup tinyint(3) UNSIGNED NOT NULL default 0,
@@ -39,7 +39,11 @@ create table PROJECT_INFO(
     AcctContace varchar(255) NOT NULL default '',
     DidSup boolean NOT NULL default 0,
 
-
     PRIMARY KEY (P_Id)
     
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    INDEX (PFDept),
+
+    FOREIGN KEY (PFDept) REFERENCES DEPT(D_Id) ON UPDATE CASCADE ON DELETE RESTRICT,
+
+    
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
