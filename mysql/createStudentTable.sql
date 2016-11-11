@@ -28,4 +28,4 @@ create table STUDENT(
    Skills varchar(1000) default NULL,
 
    PRIMARY KEY (S_Id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

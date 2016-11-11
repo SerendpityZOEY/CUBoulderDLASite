@@ -33,7 +33,7 @@ def index():
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    data = sqlUtil.select_all("SELECT * FROM `project`")
+    data = sqlUtil.select_all("SELECT `P_Id`,`ProjName` FROM `PROJECT_INFO`")
     return render_template("student.html", data=data)
 
 
@@ -42,22 +42,35 @@ def project():
     data=[]
     # cursor.execute("SELECT * FROM `project`")
     # projects = cursor.fetchall()
-    projects = sqlUtil.select_all("SELECT * FROM `project`")
-    #app.logger.info(projects)
-    for pid, pn, major, prid, link, des, req1, req2, req3, req4, req5 in projects:
+    projects = sqlUtil.select_all("SELECT `PFName`,`PFPhone`,`PFEmail`,`PFDept`,`SFName`,`SFPhone`,`SFEmail`,`GradName`,`GradPhone`,`GradEmail`,`ProjName`,`LongDesc`,`WebLink`,`ManReqs`,`OptReqs`,`StuMajors` FROM `PROJECT_INFO`")
+    app.logger.info(projects)
+    for PFName, PFPhone, PFEmail, PFDept, SFName, SFPhone, SFEmail,GradName, GradPhone, GradEmail, ProjName, LongDesc, WebLink, ManReqs, OptReqs, StuMajors in projects:
         # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         # professorName, department = cursor.fetchone()
-        professorName, department = sqlUtil.select_one("SELECT `name`, `dept` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
-        professorName, department = str(professorName), dic[int(department)]
-        req = ''
-        for i, r in enumerate((str(req1),str(req2),str(req3),str(req4),str(req5))):
-            if r!='null':
-                if i==0:
-                    req+=r
-                else:
-                    req+', '+r
+        contact = PFName+':'+PFPhone+'\n'+PFEmail+'\n'
+        if SFName:
+            if SFPhone and SFEmail:
+                contact += SFName+':'+SFPhone+'\n'+SFEmail+'\n'
+            elif SFPhone and not SFEmail:
+                contact += SFName+':'+SFPhone+'\n'
+            elif not SFPhone and SFEmail:
+                contact += SFName+':'+SFEmail+'\n'
+        if GradName:
+            if GradPhone and GradEmail:
+                contact += GradName+':'+GradPhone+'\n'+GradEmail+'\n'
+            elif GradPhone and not GradEmail:
+                contact += GradName+':'+GradPhone+'\n'
+            elif GradPhone and not GradEmail:
+                contact += GradName+':'+GradEmail+'\n'
+        Req = ''
+        for i, r in enumerate(ManReqs.split(';')):
+            Req=Req+str(i+1)+'.'+r+'\n'
+        if OptReqs:
+            Req+='Nice to have:\n'
+            for i, r in enumerate(OptReqs.split(';')):
+                Req=Req+str(i+1)+'.'+r+'\n'
 
-        data.append([str(pn), professorName, department, str(link) if link is not None else "",str(des),req])
+        data.append([str(ProjName), contact, dic[int(PFDept)], str(WebLink) if WebLink is not None else "",str(LongDesc),Req, str(StuMajors)])
         #app.logger.info(data)
     return render_template("project.html", data=json.dumps(data))
 

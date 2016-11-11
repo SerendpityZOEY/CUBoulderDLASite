@@ -97,13 +97,17 @@ class MysqlUtil(object):
 
         connection = self.mysql.connect()
 
+        insert_id = 0
         try:
             with connection.cursor() as cursor:
                 cursor.execute(query, values)
+                insert_id = cursor.lastrowid
             connection.commit()
 
         finally:
             connection.close()
+
+        return insert_id
 
 
     def select_all(self, query):
