@@ -24,11 +24,11 @@ RevStus     ,varchar(500),Desired/Reserved Students,preselectStudent,SSN        
 SpeedType   ,varchar(255),Speed Type of finance,f1,Skills              ,varchar(255),,,,,
 AcctContace ,varchar(255),Accounting contact ,f2,,,,,,,
 DidSup      ,tinyint(1),Supervised before?,optradio5,,,,,,,
-specReq,text,Dynamic field for up to five special req,specialReq1,,,,,,,
-specReq2,text,,specialReq2,,,,,,,
-specReq3,text,,specialReq3,,,,,,Mandatory: NOT NULL,
-specReq4,text,,specialReq4,,,,,,,
-specReq5,text,,specialReq5,,,,,,two options radio,tinyint(1)
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,Mandatory: NOT NULL,
+,,,,,,,,,,
+,,,,,,,,,two options radio,tinyint(1)
 ,,,,,,,,,multiple options radio,tinyint(3)
 ,,,,,,,,,multiple options with user input,varchar
 ,,,,,,,,,"string of list separated with "";""",varchar
