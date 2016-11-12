@@ -19,10 +19,15 @@ def getRandomHash(length=24):
     return hash.hexdigest()[:length]
 
 
-dic={1:'Aerospace Engineering Sciences', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
+dic={1:'Aerospace Engineering', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
 4: 'Civil, Environmental and Architectural Engineering', 5: 'Computer Science', 6: 'Electrical, Computer and Energy Engineering', \
 7: 'Physics', 8: 'Environmental Engineering', 9: 'Mechanical Engineering', \
 10: 'Colorado Space Grant', 11: 'Engineering Education', 12: 'ATLAS'}
+
+majordict = {0:'Aerospace Engineering', 1:'Applied Math', 2:'Architectural Engineering', 3: 'Chemical Engineering', \
+4: 'Chemical & Biological Engineering', 5: 'Civil Engineering', 6: 'Computer Science', \
+7: 'Electrical Engineering', 8: 'Electrical and Computer Engineering', 9: 'Engineering Physics', \
+10: 'Environmental Engineering', 11: 'Engineering Plus', 12: 'Mechanical Engineering', 13: 'Technology, Arts and Media'}
 @app.route('/')
 @app.route('/index')
 def index():
@@ -43,7 +48,7 @@ def project():
     # cursor.execute("SELECT * FROM `project`")
     # projects = cursor.fetchall()
     projects = sqlUtil.select_all("SELECT `PFName`,`PFPhone`,`PFEmail`,`PFDept`,`SFName`,`SFPhone`,`SFEmail`,`GradName`,`GradPhone`,`GradEmail`,`ProjName`,`LongDesc`,`WebLink`,`ManReqs`,`OptReqs`,`StuMajors` FROM `PROJECT_INFO`")
-    app.logger.info(projects)
+    # app.logger.info(projects)
     for PFName, PFPhone, PFEmail, PFDept, SFName, SFPhone, SFEmail,GradName, GradPhone, GradEmail, ProjName, LongDesc, WebLink, ManReqs, OptReqs, StuMajors in projects:
         # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
         # professorName, department = cursor.fetchone()
@@ -63,14 +68,17 @@ def project():
             elif GradPhone and not GradEmail:
                 contact += GradName+':'+GradEmail+'\n'
         Req = ''
-        for i, r in enumerate(ManReqs.split(';')):
+        for i, r in enumerate(ManReqs.rstrip(';').split(';')):
             Req=Req+str(i+1)+'.'+r+'\n'
         if OptReqs:
             Req+='Nice to have:\n'
-            for i, r in enumerate(OptReqs.split(';')):
+            for i, r in enumerate(OptReqs.rstrip(';').split(';')):
                 Req=Req+str(i+1)+'.'+r+'\n'
-
-        data.append([str(ProjName), contact, dic[int(PFDept)], str(WebLink) if WebLink is not None else "",str(LongDesc),Req, str(StuMajors)])
+        app.logger.info(StuMajors)
+        Maj = ''
+        for i, m in enumerate(StuMajors.split(';')):
+            Maj=Maj+majordict[int(m)]+','
+        data.append([str(ProjName), contact, dic[int(PFDept)], str(WebLink) if WebLink is not None else "",str(LongDesc),Req, Maj])
         #app.logger.info(data)
     return render_template("project.html", data=json.dumps(data))
 
@@ -145,75 +153,70 @@ def f_submit():
 
     specialReq1 = request.form.get('specialReq1', None)
     if specialReq1 is None:
-        specialReq1 = "null"
+        specialReq1 = ""
     specialReq2 = request.form.get('specialReq2', None)
     if specialReq2 is None:
-        specialReq2 = "null"
+        specialReq2 = ""
     specialReq3 = request.form.get('specialReq3', None)
     if specialReq3 is None:
-        specialReq3 = "null"
+        specialReq3 = ""
     specialReq4 = request.form.get('specialReq4', None)
     if specialReq4 is None:
-        specialReq4 = "null"
+        specialReq4 = ""
     specialReq5 = request.form.get('specialReq5', None)
     if specialReq5 is None:
-        specialReq5 = "null"
-
+        specialReq5 = ""
+    Manreqs = specialReq1+';'+specialReq2+';'+specialReq3+';'+specialReq4+';'+specialReq5
     sqlUtil.batch_insert_push({
-        'name':             request.form['name1'],
-        'phone':           request.form['phone1'],
-        'email':           request.form['email1'],
-        'dept':             request.form['program1'],
-        'EngineerFocus':      request.form['optradio'],
-        'name2':            request.form['name2'],
-        'phone2':          request.form['phone2'],
-        'email2':            request.form['email2'],
-        'dept2':    request.form['program2'],
-        'sName':              request.form['name3'],
-        'sPhone':            request.form['phone3'],
-        'sEmail':             request.form['email3'],
-        'title':       request.form['projectTitle'],
-        'website':            request.form['projectLink'],
-        'specReq': specialReq1,
-        'specReq2': specialReq2,
-        'specReq3': specialReq3,
-        'specReq4': specialReq4,
-        'specReq5': specialReq5,
-        'description': request.form['projectDesc'],
-        'majorReq': request.form.getlist('majorReq'),
-        'supervision': request.form['optradio1'],
-        'supervisionSource': request.form['optradio2'],
-        'nature': request.form['optradio3'],
-        'workAmount': request.form['optradio4'],
-        'preselectStudent': request.form['preselectStudent'],
-        'speedType': request.form['f1'],
-        'accounting': request.form['f2'],
-        'supervisedExp': request.form['optradio5'],
+        'PFName':             str(request.form['name1']),
+        'PFPhone':           str(request.form['phone1']),
+        'PFEmail':           str(request.form['email1']),
+        'PFDept':             str(request.form['program1']),
+        'HasFocus':      str(request.form['optradio']),
+        'SFName':            str(request.form['name2']),
+        'SFPhone':          str(request.form['phone2']),
+        'SFEmail':            str(request.form['email2']),
+        'GradName':              str(request.form['name3']),
+        'GradPhone':            str(request.form['phone3']),
+        'GradEmail':             str(request.form['email3']),
+        'ProjName':       str(request.form['projectTitle']),
+        'LongDesc': str(request.form['projectDesc']),
+        'WebLink':            str(request.form['projectLink']),
+        'ManReqs':            str(Manreqs),
+        'StuMajors': ';'.join(request.form.getlist('majorReq')),
+        'AmtOfSup': request.form['optradio1'],
+        'SupBy': request.form['optradio2'],
+        'NatureOfWork': request.form['optradio3'],
+        'AmtOfPreWork': request.form['optradio4'],
+        'RevStus': str(request.form['preselectStudent']),
+        'SpeedType': str(request.form['f1']),
+        'AcctContace': str(request.form['f2']),
+        'DidSup': request.form['optradio5']
     })
-    sqlUtil.insert_execute('faculty')
+    sqlUtil.insert_execute('PROJECT_INFO')
     sqlUtil.clear()
 
     app.logger.info('is sucessfully submitted')
 
 
-    print("check")
+    # print("check")
 
-    fName = request.form['name1']
-    profId = sqlUtil.select_one('id', 'faculty', 'name', fName)
-    print(profId)
-    sqlUtil.batch_insert_push({
-        'projectName':             request.form['projectTitle'],
-        'ProfessorID':           profId,
-        'webLink':           request.form['projectLink'],
-        'completeDescription':             request.form['projectDesc'],
-        'req1':      specialReq1,
-        'req2':            specialReq2,
-        'req3':          specialReq3,
-        'req4':          specialReq4,
-        'req5':    specialReq5
-    })
+    # fName = request.form['name1']
+    # profId = sqlUtil.select_one('id', 'faculty', 'name', fName)
+    # print(profId)
+    # sqlUtil.batch_insert_push({
+    #     'projectName':             request.form['projectTitle'],
+    #     'ProfessorID':           profId,
+    #     'webLink':           request.form['projectLink'],
+    #     'completeDescription':             request.form['projectDesc'],
+    #     'req1':      specialReq1,
+    #     'req2':            specialReq2,
+    #     'req3':          specialReq3,
+    #     'req4':          specialReq4,
+    #     'req5':    specialReq5
+    # })
 
-    sqlUtil.insert_execute('project')
-    sqlUtil.clear()
+    # sqlUtil.insert_execute('project')
+    # sqlUtil.clear()
 
     return json.dumps({'message': 'Faculty info saved successfully !'})
