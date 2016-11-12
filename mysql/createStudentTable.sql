@@ -14,11 +14,11 @@ create table STUDENT(
     SumEmail varchar(100) default NULL,
     SumAddress varchar(100) default NULL,
     PrimaryMajor tinyint(3) UNSIGNED NOT NULL default 0,
-    SecondaryMajor tinyint(3) default 0,
+    SecondaryMajor tinyint(3) UNSIGNED default 0,
     StudentNumber int(11) NOT NULL default 0,
     GPA varchar(5) NOT NULL default '',
     Level tinyint(3) NOT NULL default 0,
-    GraduationDate date NOT NULL default '2016-01-01',
+    GraduationDate date NOT NULL default '2016-12-00',
     ResearchExperience boolean default NULL,
     AppliedBefore tinyint(3) UNSIGNED default NULL,
     EmploymentPlanned varchar(1000) default NULL,
@@ -27,11 +27,11 @@ create table STUDENT(
     SSN smallint(5) default NULL,
     Skills varchar(1000) default NULL,
 
-    PRIMARY KEY (S_Id)
+    PRIMARY KEY (S_Id),
 
-    INDEX (PrimaryMajor, SecondaryMajor),
+    INDEX (PrimaryMajor, SecondaryMajor), 
 
     FOREIGN KEY (PrimaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (SecondaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (SecondaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

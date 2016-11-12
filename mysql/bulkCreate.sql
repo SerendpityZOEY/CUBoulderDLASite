@@ -1,8 +1,9 @@
-DROP TABLE APPLICATION
-DROP TABLE STUDENT
-DROP TABLE PROJECT_INFO
-DROP MAJOR
-DROP DEPT
+DROP TABLE IF EXISTS APPLICATION;
+DROP TABLE IF EXISTS STUDENT;
+DROP TABLE IF EXISTS PROJECT_INFO;
+DROP TABLE IF EXISTS MAJOR;
+DROP TABLE IF EXISTS DEPT;
+
 create table DEPT(
     -- ID
     D_Id tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -11,19 +12,25 @@ create table DEPT(
     Acronym varchar(10) NOT NULL default "",
     FullName varchar(100) NOT NULL default "",
 
-    PRIMARY KEY (M_Id)
+    PRIMARY KEY (D_Id)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-ALTER TABLE DEPT AUTO_INCREMENT = 1;
 
 INSERT INTO DEPT 
     (D_Id, Acronym, FullName)
 VALUES 
-(0, 'ERROR', 'Not A Valid Major Or Not Selected')
-(1, 'AES', 'Aerospace Engineering Sciences'),
-(2, 'APPM', 'Applied Mathematics');
+(1,  "AES" , "Aerospace Engineering Sciences"),
+(2,  "APPM", "Applied Math"),
+(3,  "CHBE", "Chemical and Biological Engineering"),
+(4,  "CEAE", "Civil, Environmental and Architectural Engineering"),
+(5,  "CS"  , "Computer Science"),
+(6,  "ECEE", "Electrical, Computer and Energy Engineering"),
+(7,  "PHYS", "Physics"),
+(8,  "EVEN", "Environmental Engineering"),
+(9,  "ME"  , "Mechanical Engineering"),
+(10, "CSGC", "Colorado Space Grant"),
+(11, "EnEd", "Engineering Education"),
+(12, "ATLS", "ATLAS");
 create table MAJOR(
     -- ID
     M_Id tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -37,14 +44,23 @@ create table MAJOR(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-ALTER TABLE MAJOR AUTO_INCREMENT = 1;
-
 INSERT INTO MAJOR 
     (M_Id, Acronym, FullName)
 VALUES 
-(1, 'AES', 'Aerospace Engineering Sciences'),
-(2, 'APPM', 'Applied Mathematics');
+(1,  "ASEN", "Aerospace Engineering"),
+(2,  "AMEN", "Applied Mathematics"),
+(3,  "AREN", "Architectural Engineering"),
+(4,  "CHEN", "Chemical Engineering"),
+(5,  "CBEN", "Chemical and Biological Engineering"),
+(6,  "CVEN", "Civil Engineering"),
+(7,  "CSEN", "Computer Science"),
+(8,  "EEEN", "Electrical Engineering"),
+(9,  "ECEN", "Electrical and Computer Engineering"),
+(10, "EPEN", "Engineering Physics"),
+(11, "EVEN", "Environmental Engineering"),
+(12, "GEEN", "Engineering Plus"),
+(13, "MCEN", "Mechanical Engineering"),
+(14, "TMEN", "Technology, Arts, and Media");
 create table PROJECT_INFO(
     -- ID
     P_Id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -86,14 +102,15 @@ create table PROJECT_INFO(
     AcctContace varchar(255) NOT NULL default '',
     DidSup boolean NOT NULL default 0,
 
-    PRIMARY KEY (P_Id)
-    
+    PRIMARY KEY (P_Id),
+
     INDEX (PFDept),
 
-    FOREIGN KEY (PFDept) REFERENCES DEPT(D_Id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (PFDept) REFERENCES DEPT(D_Id) ON UPDATE CASCADE ON DELETE RESTRICT
 
     
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;create table STUDENT(
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+create table STUDENT(
     -- ID
     S_Id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 
@@ -109,11 +126,11 @@ create table PROJECT_INFO(
     SumEmail varchar(100) default NULL,
     SumAddress varchar(100) default NULL,
     PrimaryMajor tinyint(3) UNSIGNED NOT NULL default 0,
-    SecondaryMajor tinyint(3) default 0,
+    SecondaryMajor tinyint(3) UNSIGNED default 0,
     StudentNumber int(11) NOT NULL default 0,
     GPA varchar(5) NOT NULL default '',
     Level tinyint(3) NOT NULL default 0,
-    GraduationDate date NOT NULL default '2016-01-01',
+    GraduationDate date NOT NULL default '2016-12-00',
     ResearchExperience boolean default NULL,
     AppliedBefore tinyint(3) UNSIGNED default NULL,
     EmploymentPlanned varchar(1000) default NULL,
@@ -122,14 +139,15 @@ create table PROJECT_INFO(
     SSN smallint(5) default NULL,
     Skills varchar(1000) default NULL,
 
-    PRIMARY KEY (S_Id)
+    PRIMARY KEY (S_Id),
 
-    INDEX (PrimaryMajor, SecondaryMajor),
+    INDEX (PrimaryMajor, SecondaryMajor), 
 
     FOREIGN KEY (PrimaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (SecondaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (SecondaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;create table APPLICATION(
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+create table APPLICATION(
     -- ID
     A_Id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 

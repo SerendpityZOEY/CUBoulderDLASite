@@ -6,30 +6,22 @@ from MysqlUtil import MysqlUtil
 
 csv_content = list(DictReader(open("Projects.csv", 'r')))
 
-major = {
-    'AES': 1,
-    'APPM': 2,
-    'CHBE': 3,
-    'CEAE': 4,
-    'CS': 5,
-    'ECEE': 6,
-    # 'PHYS': 7, We don't know the acronyms for physics
-    'EVEN': 8,
-    'ME': 9,
-    'CSGC': 10,
-    'EnEd': 11,
-    'ATLAS': 12,
-}
 
 sql = MysqlUtil(app)
 sql.use_account('developer')
 sql.use_database('NewSE')
+
+DEPT = sql.select_all("select * from DEPT;")
+DEPT_Dict = {}
+for item in DEPT:
+    DEPT_Dict[item[1]] = item[0]
+
 for row in csv_content:
     sql.batch_insert_push({
         "PFName":            row['PrimaryPrFirst'] + ' ' + row['PrimaryPrLast'],
         "PFPhone":           row['PrimaryPrPhone'],
         "PFEmail":           row['PrimaryPrMail'],
-        "PFDept":            major[row['']],
+        "PFDept":            DEPT_Dict[row['']],
         # "HasFocus":          row[''],
         "SFName":            row['SecondPrFirst'] + ' ' + row['SecondPrLast'],
         "SFPhone":           row['SecondPrPhone'],

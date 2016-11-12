@@ -11,11 +11,20 @@ create table MAJOR(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-ALTER TABLE MAJOR AUTO_INCREMENT = 1;
-
 INSERT INTO MAJOR 
     (M_Id, Acronym, FullName)
 VALUES 
-(1, 'AES', 'Aerospace Engineering Sciences'),
-(2, 'APPM', 'Applied Mathematics');
+(1,  "ASEN", "Aerospace Engineering"),
+(2,  "AMEN", "Applied Mathematics"),
+(3,  "AREN", "Architectural Engineering"),
+(4,  "CHEN", "Chemical Engineering"),
+(5,  "CBEN", "Chemical and Biological Engineering"),
+(6,  "CVEN", "Civil Engineering"),
+(7,  "CSEN", "Computer Science"),
+(8,  "EEEN", "Electrical Engineering"),
+(9,  "ECEN", "Electrical and Computer Engineering"),
+(10, "EPEN", "Engineering Physics"),
+(11, "EVEN", "Environmental Engineering"),
+(12, "GEEN", "Engineering Plus"),
+(13, "MCEN", "Mechanical Engineering"),
+(14, "TMEN", "Technology, Arts, and Media");

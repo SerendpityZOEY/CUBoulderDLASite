@@ -39,11 +39,11 @@ create table PROJECT_INFO(
     AcctContace varchar(255) NOT NULL default '',
     DidSup boolean NOT NULL default 0,
 
-    PRIMARY KEY (P_Id)
-    
+    PRIMARY KEY (P_Id),
+
     INDEX (PFDept),
 
-    FOREIGN KEY (PFDept) REFERENCES DEPT(D_Id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (PFDept) REFERENCES DEPT(D_Id) ON UPDATE CASCADE ON DELETE RESTRICT
 
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
