@@ -74,11 +74,11 @@ def project():
             Req+='Nice to have:\n'
             for i, r in enumerate(OptReqs.rstrip(';').split(';')):
                 Req=Req+str(i+1)+'.'+r+'\n'
-        app.logger.info(StuMajors)
-        Maj = ''
-        for i, m in enumerate(StuMajors.split(';')):
-            Maj=Maj+majordict[int(m)]+','
-        data.append([str(ProjName), contact, dic[int(PFDept)], str(WebLink) if WebLink is not None else "",str(LongDesc),Req, Maj])
+        #app.logger.info(StuMajors)
+        #Maj = ''
+        #for i, m in enumerate(StuMajors.split(';')):
+            #Maj=Maj+majordict[int(m)]+','
+        data.append([ProjName, contact, dic[int(PFDept)], WebLink if WebLink is not None else u"", LongDesc, Req])#, Maj])
         #app.logger.info(data)
     return render_template("project.html", data=json.dumps(data))
 
