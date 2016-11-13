@@ -39,7 +39,8 @@ def index():
 def student():
     app.logger.info('waiting for input in student page')
     data = sqlUtil.select_all("SELECT `P_Id`,`ProjName` FROM `PROJECT_INFO`")
-    return render_template("student.html", data=data)
+    majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
+    return render_template("student.html", data=data, majors=majors)
 
 
 @app.route('/project', methods=['GET'])
