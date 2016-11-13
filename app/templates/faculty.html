@@ -172,15 +172,14 @@
 
                   <div class="form-group">
                     <label for="name">Mandantory Requirements</label>
-                    <div class="input-group" id="field">
-                        <input class="form-control" id="field1" type="text" name="specialReq1" maxlength="1000" placeholder="Special Requirements">
+                  <small id="f3Help" class="form-text text-muted">(eg: Must have had certain course, certain class standing, available to work in 2 5-hour blocks, etc.)
+    (may not exceed 1000 characters)</small>
+                    <div class="input-group" id="field1">
+                        <input class="form-control" type="text" id="req" name="specialReq1" maxlength="1000" placeholder="Special Requirements">
                           <span class="input-group-btn">
                             <button id="b1" class="btn add-more btn-success" type="button">+</button>
                           </span>
                     </div>
-
-                  <small id="f3Help" class="form-text text-muted">(eg: Must have had certain course, certain class standing, available to work in 2 5-hour blocks, etc.)
-    (may not exceed 1000 characters)</small>
                   </div>
 
                   <div class="form-group">
@@ -361,25 +360,24 @@
             var next = 1;
             $(".add-more").click(function(e){
                 e.preventDefault();
-                if(next==5) return;
                 var addto = "#field" + next;
                 var addRemove = "#field" + (next);
                 next = next + 1;
-                var newIn = '<input class="input form-control" id="field' + next + '" name="specialReq' + next + '" type="text" maxlength=1000>';
+                var removeBtn = '<span class="input-group-btn"><button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></span>';
+                var newIn = '<div class="input-group" id="field' + next +'"' +'><input class="form-control"'+ 'id="req' + (next+1) + '"' +'name="specialReq' + next + '" type="text" maxlength=1000>'+removeBtn+'</div>';
                 var newInput = $(newIn);
-                var removeBtn = '<span class="input-group-btn"><button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field"></span>';
                 var removeButton = $(removeBtn);
                 $(addto).after(newInput);
-                $(addRemove).after(removeButton);
+
                 $("#field" + next).attr('data-source',$(addto).attr('data-source'));
                 $("#count").val(next);
 
                     $('.remove-me').click(function(e){
                         e.preventDefault();
-                        var fieldNum = this.id.charAt(this.id.length-1);
+                        var fieldNum = parseInt(this.id.charAt(this.id.length-1))+1;
                         var fieldID = "#field" + fieldNum;
-                        $(this).remove();
                         $(fieldID).remove();
+                        $(this).remove();
                     });
             });
 
