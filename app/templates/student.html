@@ -13,6 +13,9 @@
     <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
     <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
     <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png" />
+    <!--Bootstrap validator-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+
     <style>
       .sidebar1 {
       float: right;
@@ -50,10 +53,10 @@
                  <h3 class="panel-title">Demographic Information</h3>
                </div>
                <div class="panel-body">
-                 <form>
+                 <form data-toggle="validator" role="form">
                <div class="form-group">
                  <label for="name"><span style="color:red;">* </span>Your Name:</label>
-                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
                </div>
                <div class="form-group">
                  <label><span style="color:red;">* </span>Gender:</label>
@@ -61,7 +64,7 @@
                  <label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
                </div>
                <div class="form-group">
-                   <label>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
+                   <label><span style="color:red;">* </span>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
                        American, or Spanish Origin?</label>
                    <div class="form-check">
                      <label class="form-check-label">
@@ -83,7 +86,7 @@
                    </div>
                </div>
                <div class="form-group">
-                 <label>Please check your race (select all that apply):</label>
+                 <label><span style="color:red;">* </span>Please check your race (select all that apply):</label>
                  <div class="checkbox">
                    <label><input type="checkbox" name="race" value="1">American Indian or Alaskan Native</label>
                  </div>
@@ -119,18 +122,21 @@
             <h3 class="panel-title">Boulder Contact Information</h3>
           </div>
           <div class="panel-body">
-            <form>
+            <form data-toggle="validator" role="form">
               <div class="form-group">
-                <label for="address"><span style="color:red;">* </span>Boulder Address: (street, city, state, zip)</label>
-                <textarea class="form-control" name="address" rows="3" type="text"></textarea>
+                <label for="address"><span style="color:red;">* </span>Boulder Address:</label>
+                <textarea class="form-control" name="address" rows="3" type="text"
+                          placeholder="street, city, state, zip" required></textarea>
               </div>
               <div class="form-group">
                 <label><span style="color:red;">* </span>Phone:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone">
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone" required>
               </div>
                 <div class="form-group">
-                  <label><span style="color:red;">* </span>Email:</label>
-                  <input type="text" class="form-control" name="email" placeholder="Email">
+                  <label class="control-label"><span style="color:red;">* </span>Email:</label>
+                  <input type="email" class="form-control" name="email" placeholder="Email"
+                         data-error="Email address is invalid" required>
+                   <div class="help-block with-errors"></div>
                 </div>
             </form>
           </div>
@@ -175,10 +181,11 @@
             <small>Please carefully enter your academic information. If you are still open option, indicate which major you plan to enter.</small>
                   <div class="row">
                       <div class="col-md-6">
-                          <form>
+                          <form data-toggle="validator" role="form">
                           <div class="form-group">
                             <label><span style="color:red;">* </span>Primary Major</label>
-                            <select name="major">
+                            <select class="form-control" name="major">
+                              <option value="0" selected="selected">Please Select</option>
                               {% for row in majors %}
                                 <option value={{ row[0] }} type="number">{{ row[2] }}</option>
                               {% endfor %}
@@ -187,7 +194,8 @@
                           <div class="form-group">
                               <label for="address">Secondary Major</label>
                               <small>If you have a <strong>double major</strong>. Do not select a minor here.</small><br>
-                            <select name="major2">
+                            <select class="form-control" name="major2">
+                              <option value="0" selected="selected">Please Select</option>
                               {% for row in majors %}
                                 <option value={{ row[0] }} type="number">{{ row[2] }}</option>
                               {% endfor %}
@@ -196,7 +204,8 @@
 
                           <div class="form-group">
                             <label><span style="color:red;">* </span>StudentNumber:</label>
-                            <input class="form-control" type="text" min="0" name="SN" data-buttons="false">
+                            <input class="form-control" type="text" min="0" name="SN" data-buttons="false"
+                                   minlength="9" maxlength="9" required>
                           </div>
                           </form>
                       </div>
@@ -206,7 +215,7 @@
                           <div class="form-group">
                             <label><span style="color:red;">* </span>GPA:</label>
                             <input type="number" class="form-control"
-                                   name="GPA" min="0.0" step="0.001" max="4.0">
+                                   name="GPA" min="0.0" step="0.001" max="4.0" required>
                           </div>
 
                           <div class="form-group">
@@ -294,7 +303,8 @@
 
               <div class="form-group">
                 <label><span style="color:red;">* </span>Project1</label>
-                <select name="p1">
+                <select class="form-control" name="p1" required>
+                  <option value="0" selected="selected">Please Select</option>
                   {% for row in data %}
                     <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                   {% endfor %}
@@ -302,7 +312,8 @@
               </div>
               <div class="form-group">
                 <label>Project2</label>
-                <select name="p2">
+                <select class="form-control" name="p2">
+                <option value="0" selected="selected">Please Select</option>
                   {% for row in data %}
                     <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                   {% endfor %}
@@ -310,8 +321,8 @@
               </div>
               <div class="form-group">
                 <label>Project3</label>
-                <select name="p3">
-
+                <select class="form-control" name="p3">
+                <option value="0" selected="selected">Please Select</option>
                   {% for row in data %}
                     <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                   {% endfor %}
@@ -319,8 +330,8 @@
               </div>
               <div class="form-group">
                 <label>Project4</label>
-                <select name="p4">
-
+                <select class="form-control" name="p4">
+                <option value="0" selected="selected">Please Select</option>
                   {% for row in data %}
                     <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                   {% endfor %}
@@ -328,8 +339,8 @@
               </div>
               <div class="form-group">
                 <label>Project5</label>
-                <select name="p5">
-
+                <select class="form-control" name="p5">
+                <option value="0" selected="selected">Please Select</option>
                   {% for row in data %}
                     <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                   {% endfor %}
@@ -404,69 +415,6 @@
    </div>
 </div>
 
-<!--
-  <div class="row">
-    <div class="col-md-9 center">
-     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Projects</h3>
-      </div>
-      <div class="panel-body">
-        <form>
-          <div class="form-group">
-            <label for="address">Research Experience</label>
-            <textarea class="form-control" name="experience"></textarea>
-          </div>
-          <div class="form-group">
-            <label>Apply Before:(Y/N)</label>
-            <input class="form-control" name="apply">
-          </div>
-          <div>
-            <p>click here to see the full list of projects:<a href="/project">here</a></p>
-          </div>
-          <div class="form-group">
-            <label>Project1</label>
-            <select name="p1">
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project2</label>
-            <select name="p2">
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project3</label>
-            <select name="p3">
-
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project4</label>
-            <select name="p4">
-
-              {% for row in data %}
-                <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Project5</label>
-            <select name="p5">
-        </form>
-      </div>
-     </div>
-
-    </div>
-    -->
   </div>
 
     <script src="../static/js/sideBar.js"></script>

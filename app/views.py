@@ -34,6 +34,9 @@ def index():
     return render_template("index.html",
                            title='Home')
 
+@app.route('/test')
+def test():
+    return render_template("test.html")
 
 @app.route('/student')
 def student():
