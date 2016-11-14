@@ -13,6 +13,8 @@ create table APPLICATION(
     -- Optional Special Requirement Check
     OptReqsCheck varchar(20) NOT NULL default '',
 
+    Secret varchar(16) NOT NULL default '',
+
     PRIMARY KEY (A_Id),
 
     INDEX (S_Id),
