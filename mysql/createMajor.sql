@@ -3,8 +3,8 @@ create table MAJOR(
     M_Id tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
 
     -- Student Info
-    Acronym varchar(10) NOT NULL default "",
-    FullName varchar(100) NOT NULL default "",
+    Acronym varchar(10) NOT NULL DEFAULT "",
+    FullName varchar(100) NOT NULL DEFAULT "",
 
 
     PRIMARY KEY (M_Id)
@@ -12,14 +12,14 @@ create table MAJOR(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-ALTER TABLE MAJOR AUTO_INCREMENT = 0;
+-- SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE MAJOR AUTO_INCREMENT = 1;
 
 
 INSERT INTO MAJOR 
     (M_Id, Acronym, FullName)
 VALUES 
-(0,  "ZERO", "Not Selected Or Error"),
+-- (0,  "ZERO", "Not Selected Or Error"),
 (1,  "ASEN", "Aerospace Engineering"),
 (2,  "AMEN", "Applied Mathematics"),
 (3,  "AREN", "Architectural Engineering"),

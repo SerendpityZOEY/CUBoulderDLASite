@@ -3,20 +3,20 @@ create table DEPT(
     D_Id tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
 
     -- Student Info
-    Acronym varchar(10) NOT NULL default "",
-    FullName varchar(100) NOT NULL default "",
+    Acronym varchar(10) NOT NULL DEFAULT "",
+    FullName varchar(100) NOT NULL DEFAULT "",
 
     PRIMARY KEY (D_Id)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-ALTER TABLE DEPT AUTO_INCREMENT = 0;
+-- SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE DEPT AUTO_INCREMENT = 1;
 
 INSERT INTO DEPT 
     (D_Id, Acronym, FullName)
 VALUES 
-(0,  "ZERO", "Not Selected Or Error"),
+-- (0,  "ZERO", "Not Selected Or Error"),
 (1,  "AES" , "Aerospace Engineering Sciences"),
 (2,  "APPM", "Applied Math"),
 (3,  "CHBE", "Chemical and Biological Engineering"),
