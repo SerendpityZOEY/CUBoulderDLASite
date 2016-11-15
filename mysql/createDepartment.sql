@@ -10,9 +10,13 @@ create table DEPT(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE DEPT AUTO_INCREMENT = 0;
+
 INSERT INTO DEPT 
     (D_Id, Acronym, FullName)
 VALUES 
+(0,  "ZERO", "Not Selected Or Error"),
 (1,  "AES" , "Aerospace Engineering Sciences"),
 (2,  "APPM", "Applied Math"),
 (3,  "CHBE", "Chemical and Biological Engineering"),

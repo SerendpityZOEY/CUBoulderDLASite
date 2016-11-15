@@ -14,9 +14,12 @@ create table APPLICATION(
     OptReqsCheck varchar(20) NOT NULL default '',
 
     Secret varchar(16) NOT NULL default '',
+    CreatedTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    LastUpdatedTime TIMESTAMP NOT NULL DEFAULT '1970-01-02 15:04:05',
+    -- LastUpdatedTime TIMESTAMP NOT NULL CURRENT_TIMESTAMP,
 
     PRIMARY KEY (A_Id),
-
+ 
     INDEX (S_Id),
     INDEX (Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id),
 

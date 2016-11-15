@@ -16,9 +16,13 @@ create table DEPT(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE DEPT AUTO_INCREMENT = 0;
+
 INSERT INTO DEPT 
     (D_Id, Acronym, FullName)
 VALUES 
+(0,  "ZERO", "Not Selected Or Error"),
 (1,  "AES" , "Aerospace Engineering Sciences"),
 (2,  "APPM", "Applied Math"),
 (3,  "CHBE", "Chemical and Biological Engineering"),
@@ -44,9 +48,15 @@ create table MAJOR(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE MAJOR AUTO_INCREMENT = 0;
+
+
 INSERT INTO MAJOR 
     (M_Id, Acronym, FullName)
 VALUES 
+(0,  "ZERO", "Not Selected Or Error"),
 (1,  "ASEN", "Aerospace Engineering"),
 (2,  "AMEN", "Applied Mathematics"),
 (3,  "AREN", "Architectural Engineering"),
@@ -102,6 +112,7 @@ create table PROJECT_INFO(
     AcctContace varchar(255) NOT NULL default '',
     DidSup boolean NOT NULL default 0,
 
+
     PRIMARY KEY (P_Id),
 
     INDEX (PFDept),
@@ -110,6 +121,14 @@ create table PROJECT_INFO(
 
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE PROJECT_INFO AUTO_INCREMENT = 0;
+
+INSERT INTO PROJECT_INFO 
+    (P_Id)
+VALUES 
+    (0);
 create table STUDENT(
     -- ID
     S_Id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -139,6 +158,7 @@ create table STUDENT(
     SSN smallint(5) default NULL,
     Skills varchar(1000) default NULL,
 
+
     PRIMARY KEY (S_Id),
 
     INDEX (PrimaryMajor, SecondaryMajor), 
@@ -147,6 +167,14 @@ create table STUDENT(
     FOREIGN KEY (SecondaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE STUDENT AUTO_INCREMENT = 0;
+
+INSERT INTO STUDENT 
+    (S_Id)
+VALUES 
+    (0) ;
 create table APPLICATION(
     -- ID
     A_Id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -163,9 +191,12 @@ create table APPLICATION(
     OptReqsCheck varchar(20) NOT NULL default '',
 
     Secret varchar(16) NOT NULL default '',
+    CreatedTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    LastUpdatedTime TIMESTAMP NOT NULL DEFAULT '1970-01-02 15:04:05',
+    -- LastUpdatedTime TIMESTAMP NOT NULL CURRENT_TIMESTAMP,
 
     PRIMARY KEY (A_Id),
-
+ 
     INDEX (S_Id),
     INDEX (Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id),
 

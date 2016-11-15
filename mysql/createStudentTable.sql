@@ -27,6 +27,7 @@ create table STUDENT(
     SSN smallint(5) default NULL,
     Skills varchar(1000) default NULL,
 
+
     PRIMARY KEY (S_Id),
 
     INDEX (PrimaryMajor, SecondaryMajor), 
@@ -35,3 +36,11 @@ create table STUDENT(
     FOREIGN KEY (SecondaryMajor) REFERENCES MAJOR(M_Id) ON UPDATE CASCADE ON DELETE RESTRICT
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE STUDENT AUTO_INCREMENT = 0;
+
+INSERT INTO STUDENT 
+    (S_Id)
+VALUES 
+    (0) ;

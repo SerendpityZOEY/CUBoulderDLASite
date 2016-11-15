@@ -11,9 +11,15 @@ create table MAJOR(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE MAJOR AUTO_INCREMENT = 0;
+
+
 INSERT INTO MAJOR 
     (M_Id, Acronym, FullName)
 VALUES 
+(0,  "ZERO", "Not Selected Or Error"),
 (1,  "ASEN", "Aerospace Engineering"),
 (2,  "AMEN", "Applied Mathematics"),
 (3,  "AREN", "Architectural Engineering"),

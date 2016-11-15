@@ -39,6 +39,7 @@ create table PROJECT_INFO(
     AcctContace varchar(255) NOT NULL default '',
     DidSup boolean NOT NULL default 0,
 
+
     PRIMARY KEY (P_Id),
 
     INDEX (PFDept),
@@ -47,3 +48,11 @@ create table PROJECT_INFO(
 
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SET SESSION SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ALTER TABLE PROJECT_INFO AUTO_INCREMENT = 0;
+
+INSERT INTO PROJECT_INFO 
+    (P_Id)
+VALUES 
+    (0);
