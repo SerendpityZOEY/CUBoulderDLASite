@@ -74,8 +74,8 @@
                     </div>
                   <div class="form-group">
                     <label>Does this project have a focus on Engineering for Developing Communities?</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" value="y">Yes</label>
-                    <label class="radio-inline"><input type="radio" name="optradio" value="n">No</label>
+                    <label class="radio-inline"><input type="radio" name="HasFocus" value="y">Yes</label>
+                    <label class="radio-inline"><input type="radio" name="HasFocus" value="n">No</label>
                   </div>
                 </form>
 
@@ -257,39 +257,39 @@
 
                   <div class="form-group">
                     <label><span style="color:red;">* </span>Amount of supervision required/interaction available:</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio1" value="0">Very little supervision; student will need to work largely independently</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio1" value="1">Moderate amount of supervision and interaction with others</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio1" value="2">Good deal of supervision; student will work as an integral part of a research team</label>
+                    <label class="radio-inline"><input type="radio" name="AmtOfSup" value="0">Very little supervision; student will need to work largely independently</label><br>
+                    <label class="radio-inline"><input type="radio" name="AmtOfSup" value="1">Moderate amount of supervision and interaction with others</label><br>
+                    <label class="radio-inline"><input type="radio" name="AmtOfSup" value="2">Good deal of supervision; student will work as an integral part of a research team</label>
                   </div>
 
                    <div class="form-group">
                     <label><span style="color:red;">* </span>Supervision provided by:</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio2" value="0">Supervision primarily by faculty supervisor</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio2" value="1">Supervision primarily by graduate students</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio2" value="2">Supervision primarily a combination of faculty and graduate students</label>
+                    <label class="radio-inline"><input type="radio" name="SupBy" value="0">Supervision primarily by faculty supervisor</label><br>
+                    <label class="radio-inline"><input type="radio" name="SupBy" value="1">Supervision primarily by graduate students</label><br>
+                    <label class="radio-inline"><input type="radio" name="SupBy" value="2">Supervision primarily a combination of faculty and graduate students</label>
                   </div>
 
 
                    <div class="form-group">
                     <label><span style="color:red;">* </span>Nature of work:</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio3" value="0">Nature of work is primarily theoretical, most work on paper/electronic medium</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio3" value="1">Nature of work is primarily experimental, requiring hands-on work in a lab</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio3" value="2">Nature of work is primarily field based, requiring hands-on work in the field</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio3" value="3">Nature of work is primarily computer-related, involving coding/analysis</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio3" value="4">Nature of work is a combination of several types of work.</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio3" value="5">other, specify:</label>
-                    <input type="text" class="form-control" name="optradio3">
+                    <label class="radio-inline"><input type="radio" name="NatureOfWork" value="0">Nature of work is primarily theoretical, most work on paper/electronic medium</label><br>
+                    <label class="radio-inline"><input type="radio" name="NatureOfWork" value="1">Nature of work is primarily experimental, requiring hands-on work in a lab</label><br>
+                    <label class="radio-inline"><input type="radio" name="NatureOfWork" value="2">Nature of work is primarily field based, requiring hands-on work in the field</label><br>
+                    <label class="radio-inline"><input type="radio" name="NatureOfWork" value="3">Nature of work is primarily computer-related, involving coding/analysis</label><br>
+                    <label class="radio-inline"><input type="radio" name="NatureOfWork" value="4">Nature of work is a combination of several types of work.</label><br>
+                    <label class="radio-inline"><input type="radio" name="NatureOfWork" value="5">other, specify:</label>
+                    <input type="text" class="form-control" name="NatureOfWork">
 
                   </div>
 
 
                    <div class="form-group">
                     <label><span style="color:red;">* </span>Amount of prior work conducted in association with this project:</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio4" value="0">No prior work; student will be starting from basic idea</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio4" value="1">Some prior work; student will build on work of others</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio4" value="2">Well-established body of work; student will refine/improved upon efforts of others</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio4" value="3">other, specify:</label>
-                    <input type="text" class="form-control" name="optradio4">
+                    <label class="radio-inline"><input type="radio" name="AmtOfPreWork" value="0">No prior work; student will be starting from basic idea</label><br>
+                    <label class="radio-inline"><input type="radio" name="AmtOfPreWork" value="1">Some prior work; student will build on work of others</label><br>
+                    <label class="radio-inline"><input type="radio" name="AmtOfPreWork" value="2">Well-established body of work; student will refine/improved upon efforts of others</label><br>
+                    <label class="radio-inline"><input type="radio" name="AmtOfPreWork" value="3">other, specify:</label>
+                    <input type="text" class="form-control" name="AmtOfPreWork">
                   </div>
 
 
@@ -314,13 +314,13 @@
                     <form data-toggle="validator" role="form">
                   <div class="form-group">
                     <label for="name"><span style="color:red;">* </span>What speed type will you use for your 50% match of the funding? </label>
-                    <input type="text" class="form-control" name="f1" required>
+                    <input type="text" class="form-control" name="SpeedType" required>
                     <small class="form-text text-muted">(should be in the form XXXXXXXX, all numbers)</small>
 
                   </div>
                   <div class="form-group">
                     <label for="name"><span style="color:red;">* </span>Accounting contact for your project:</label>
-                    <input type="text" class="form-control" name="f2" required>
+                    <input type="text" class="form-control" name="AcctContace" required>
                   </div>
                 </form>
                   </div>
@@ -338,8 +338,8 @@
                     <form>
                   <div class="form-group">
                     <label>Have you supervised a Discovery Learning Apprentice in the past?</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio5" value="y">Yes</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio5" value="n">No</label><br>
+                    <label class="radio-inline"><input type="radio" name="DidSup" value="y">Yes</label><br>
+                    <label class="radio-inline"><input type="radio" name="DidSup" value="n">No</label><br>
                     <small class="form-text text-muted">(this question intended for the faculty supervisor, not the graduate student or post-doc)</small>
 
                   </div>

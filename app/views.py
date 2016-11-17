@@ -176,7 +176,7 @@ def f_submit():
         'PFPhone':           str(request.form['phone1']),
         'PFEmail':           str(request.form['email1']),
         'PFDept':             str(request.form['program1']),
-        'HasFocus':      str(request.form['optradio']),
+        'HasFocus':      str(request.form['HasFocus']),
         'SFName':            str(request.form['name2']),
         'SFPhone':          str(request.form['phone2']),
         'SFEmail':            str(request.form['email2']),
@@ -188,14 +188,14 @@ def f_submit():
         'WebLink':            str(request.form['projectLink']),
         'ManReqs':            str(Manreqs),
         'StuMajors': ';'.join(request.form.getlist('majorReq')),
-        'AmtOfSup': request.form['optradio1'],
-        'SupBy': request.form['optradio2'],
-        'NatureOfWork': request.form['optradio3'],
-        'AmtOfPreWork': request.form['optradio4'],
+        'AmtOfSup': request.form['AmtOfSup'],
+        'SupBy': request.form['SupBy'],
+        'NatureOfWork': request.form['NatureOfWork'],
+        'AmtOfPreWork': request.form['AmtOfPreWork'],
         'RevStus': str(request.form['preselectStudent']),
-        'SpeedType': str(request.form['f1']),
-        'AcctContace': str(request.form['f2']),
-        'DidSup': request.form['optradio5']
+        'SpeedType': str(request.form['SpeedType']),
+        'AcctContace': str(request.form['AcctContace']),
+        'DidSup': request.form['DidSup']
     })
     sqlUtil.insert_execute('PROJECT_INFO')
     sqlUtil.clear()
