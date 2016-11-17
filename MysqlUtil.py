@@ -89,6 +89,8 @@ class MysqlUtil(object):
             table_name (string): name of the table to be inserted into:
         Raises:
             Error: raise error if creating new cursor fails
+        Returns:
+            insert_id: the new auto increased id got with this insert command
         """
         keys, values = zip(*self.data.items())
         query = "INSERT INTO `" + table_name + "`"
