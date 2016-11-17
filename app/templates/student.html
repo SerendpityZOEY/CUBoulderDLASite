@@ -55,8 +55,10 @@
                <div class="panel-body">
                  <form data-toggle="validator" role="form">
                <div class="form-group">
-                 <label for="name"><span style="color:red;">* </span>Your Name:</label>
-                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                 <label class="control-label"><span style="color:red;">* </span>Your Name:</label>
+                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
+                        data-error="This field is required" required>
+                   <div class="help-block with-errors"></div>
                </div>
                <div class="form-group">
                  <label><span style="color:red;">* </span>Gender:</label>
@@ -124,7 +126,7 @@
           <div class="panel-body">
             <form data-toggle="validator" role="form">
               <div class="form-group">
-                <label for="address"><span style="color:red;">* </span>Boulder Address:</label>
+                <label class="control-label" for="address"><span style="color:red;">* </span>Boulder Address:</label>
                 <input class="form-control" name="address" type="text"
                           placeholder="street, city, state, zip"
                        data-error="This field is required" required>
@@ -208,7 +210,7 @@
                           </div>
 
                           <div class="form-group">
-                            <label><span style="color:red;">* </span>StudentNumber:</label>
+                            <label class="control-label"><span style="color:red;">* </span>Student Number:</label>
                             <input class="form-control" type="text" min="0" name="SN" data-buttons="false"
                                    minlength="9" maxlength="9" data-error="This field is required" required>
                             <div class="help-block with-errors"></div>

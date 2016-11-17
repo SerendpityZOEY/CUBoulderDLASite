@@ -40,15 +40,17 @@
                   <div class="panel-body">
                     <form data-toggle="validator" role="form">
                   <div class="form-group">
-                    <label for="name"><span style="color:red;">* </span>Faculty Name:</label>
-                    <input type="text" class="form-control" id="name" name="name1" placeholder="Enter Name" required>
+                    <label class="control-label" for="name"><span style="color:red;">* </span>Faculty Name:</label>
+                    <input type="text" class="form-control" id="name" name="name1" placeholder="Enter Name"
+                           data-error="This field is required" required>
+                   <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label>Faculty Phone Number:</label>
                     <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone1">
                   </div>
                   <div class="form-group">
-                    <label><span style="color:red;">* </span>Faculty email address:</label>
+                    <label class="control-label"><span style="color:red;">* </span>Faculty email address:</label>
                     <input type="email" class="form-control" id="email" name="email1" placeholder="Enter Email"
                            data-error="Email address is invalid" required>
                     <div class="help-block with-errors"></div>
@@ -165,9 +167,11 @@
                   <form data-toggle="validator" role="form">
 
                   <div class="form-group">
-                    <label for="name"><span style="color:red;">* </span>A title/description for the apprenticeship:</label>
-                    <input type="text" class="form-control" name="projectTitle" maxlength="80" required>
+                    <label class="control-label" for="name"><span style="color:red;">* </span>A title/description for the apprenticeship:</label>
+                    <input type="text" class="form-control" name="projectTitle" maxlength="80"
+                           data-error="This field is required" required>
                     <small id="f1Help" class="form-text text-muted">(This is what students will see in the application, may not exceed 80 characters)</small>
+                    <div class="help-block with-errors"></div>
                   </div>
 
                   <div class="form-group">
@@ -188,9 +192,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="name"><span style="color:red;">* </span>A longer description of the apprenticeship:</label>
-                    <textarea type="text" rows="3" class="form-control" name="projectDesc" maxlength="1200" required></textarea>
+                    <label class="control-label"><span style="color:red;">* </span>A longer description of the apprenticeship:</label>
+                    <textarea type="text" rows="3" class="form-control" name="projectDesc" maxlength="1200"
+                              data-error="This field is required" required></textarea>
                     <small id="f4Help" class="form-text text-muted">(may not exceed 1200 characters)</small>
+                    <div class="help-block with-errors"></div>
                   </div>
 
                   <div class="form-group">
@@ -313,14 +319,17 @@
                   <div class="panel-body">
                     <form data-toggle="validator" role="form">
                   <div class="form-group">
-                    <label for="name"><span style="color:red;">* </span>What speed type will you use for your 50% match of the funding? </label>
-                    <input type="text" class="form-control" name="SpeedType" required>
+                    <label class="control-label"><span style="color:red;">* </span>What speed type will you use for your 50% match of the funding? </label>
+                    <input type="text" class="form-control" name="SpeedType"
+                           data-error="This field is required" required>
                     <small class="form-text text-muted">(should be in the form XXXXXXXX, all numbers)</small>
-
+                    <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
-                    <label for="name"><span style="color:red;">* </span>Accounting contact for your project:</label>
-                    <input type="text" class="form-control" name="AcctContace" required>
+                    <label class="control-label"><span style="color:red;">* </span>Accounting contact for your project:</label>
+                    <input type="text" class="form-control" name="AcctContace"
+                           data-error="This field is required" required>
+                    <div class="help-block with-errors"></div>
                   </div>
                 </form>
                   </div>
