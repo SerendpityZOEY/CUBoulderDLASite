@@ -249,16 +249,18 @@
                       </select>
                           </div>
 
-                          <div class="input-group date">
+                          <div class="form-group date">
                             <label><span style="color:red;">* </span>Graduation Date</label>
                           <span class="add-on"><i class="icon-calendar"></i></span>
-                          <input type="text" class="form-control form-control-1 input-sm from" placeholder="Graduation Date" id="graduation">
+                          <input type="text" class="form-control" placeholder="Graduation Date" id="graduation">
                           </div>
+
                       <div class="form-group">
                         <label>Do you have previous research experience?</label><br>
                         <label class="radio-inline"><input type="radio" name="researchExp" value="yes">Yes</label>
                         <label class="radio-inline"><input type="radio" name="researchExp" value="no">No(This will not affect your eligibility!)</label>
                       </div>
+
                         </form>
 
 
@@ -418,16 +420,16 @@
 // $('.datepicker').datepicker();
 Mycomponet = '{{data[0]}}'
   $(document).ready(console.log(Mycomponet))
-var startDate = new Date();
+
+var graduateDate = new Date();
 
     $('#graduation').datepicker({
     autoclose: true,
     minViewMode: 1,
     format: 'mm/yyyy'
     }).on('changeDate', function(selected){
-        startDate = new Date(selected.date.valueOf());
-        startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-        $('.to').datepicker('setStartDate', startDate);
+        graduateDate = new Date(selected.date.valueOf());
+        graduateDate.setDate(graduateDate.getDate(new Date(selected.date.valueOf())));
     });
 </script>
 </html>
