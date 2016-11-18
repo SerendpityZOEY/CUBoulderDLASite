@@ -1,6 +1,10 @@
 /**
  * Created by yue on 10/7/16.
  */
+
+$(document).ready(function () {
+    $('#f1').validator()
+})
 $(function() {
     $('#form1').click(function() {
 /*

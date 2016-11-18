@@ -7,6 +7,9 @@
     <!--Bootstrap validator-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
 </head>
 <body>
     <script src="../static/js/script.js"></script>
@@ -58,10 +61,11 @@
                     <div class="help-block with-errors"></div>
                   </div>
 
+                <div class="form-group has-feedback">
                   <div class="dropdown">
-                      <label><span style="color:red;">* </span>Faculty Department/Program:</label>
-                      <select class="form-control" name="program1">
-                        <option value="0" selected="selected">Please Select</option>
+                      <label class="control-label"><span style="color:red;">* </span>Faculty Department/Program:</label>
+                      <select class="form-control" name="program1" required>
+                        <option selected disabled value="">Please Select</option>
                         <option value="1">Aerospace Engineering Sciences</option>
                         <option value="2">Applied Math</option>
                         <option value="3">Chemical & Biological Engineering</option>
@@ -75,7 +79,9 @@
                         <option value="11">Engineering Education</option>
                         <option value="12">ATLAS</option>
                       </select>
+                  <div class="help-block with-errors"></div>
                     </div>
+                </div>
                   <div class="form-group">
                     <label>Does this project have a focus on Engineering for Developing Communities?</label>
                     <label class="radio-inline"><input type="radio" name="HasFocus" value="y">Yes</label>
@@ -110,10 +116,11 @@
                     <input type="text" class="form-control" name="email2" placeholder="Enter Email">
                   </div>
 
+
                   <div class="dropdown">
                       <label>Faculty Department/Program:</label>
                       <select class="form-control" name="program2">
-                        <option value="0" selected="selected">Please Select</option>
+                        <option selected disabled value="">Please Select</option>
                         <option value="1">Aerospace Engineering Sciences</option>
                         <option value="2">Applied Math</option>
                         <option value="3">Chemical & Biological Engineering</option>
@@ -128,6 +135,7 @@
                         <option value="12">ATLAS</option>
                       </select>
                     </div>
+                  <!--<button class="btn btn-default">Send</button>-->
                 </form>
                   </div>
                 </div>
@@ -358,7 +366,6 @@
                   </div>
                 </form>
                 <button type="submit" class="btn btn-primary" id="form2">Submit</button>
-
                   </div>
                 </div>
               </div>
@@ -376,6 +383,15 @@
 
         $(document).ready(function(){
             var next = 1;
+            /*
+            var idGroup = [];
+            var anyBoxesChecked = [];
+            var maxReq = 5;
+            for (var i = 0; i < maxReq; i++) {
+                anyBoxesChecked.push(false);
+                idGroup.push(i+1);
+            }
+            */
             $(".add-more").click(function(e){
                 e.preventDefault();
                 var addto = "#field" + next;
@@ -402,7 +418,20 @@
 
 
         });
+
+
+        //Dropdown Validator
+        $.fn.validator.Constructor.INPUT_SELECTOR = ':input:not([type="submit"], button):enabled';
+        $('form').validator({
+          delay: 200,
+          focus: false,
+          feedback: {
+            success: 'glyphicon-ok-sign',
+            error: 'glyphicon-exclamation-sign'
+          }
+        });
     </script>
+
     <script src="../static/js/sideBar.js"></script>
 
 </body>
