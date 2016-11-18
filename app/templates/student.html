@@ -452,18 +452,38 @@
             </div>
         </div>
 
-        <div class="row" id="files">
+        <div class="row" id="studentSecret">
             <div class="col-md-10 center">
-                <div class="text-center">
-                        <button type="button" class="btn btn-primary btn-lg btn-space" id="stuSubmit">Submit</button>
-                        <button type="button" class="btn btn-default btn-lg btn-space">Cancel</button>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Application Secret</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="studentSecret"><span style="color:red;">* </span>Your Secret:</label>
+                                <input type="password" data-minlength="6" class="form-control" id="studentSecret" name="studentSecret"
+                                       placeholder="Enter Secret" required>
+                                <div class="help-block">Minimum of 6 characters</div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <div class="row" id="files">
+            <div class="col-md-10 center">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-lg btn-space" id="stuSubmit">Submit</button>
+                    <button type="button" class="btn btn-default btn-lg btn-space">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="../static/js/sideBar.js"></script>
+</div>
+
+<script src="../static/js/sideBar.js"></script>
 
 </body>
 <script>

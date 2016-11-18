@@ -4,19 +4,22 @@ from flaskext.mysql import MySQL
 import MysqlUtil
 import random
 import string
+import uuid
+import hashlib
 from hashlib import sha512
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
 sqlUtil.use_database('SETest')
 
-SIMPLE_CHARS = string.ascii_letters + string.digits
-def getRandomString(length=24):
-    return ''.join(random.choice(SIMPLE_CHARS) for i in xrange(length))
-def getRandomHash(length=24):
-    hash = sha512()
-    hash.update(getRandomString())
-    return hash.hexdigest()[:length]
+
+def hash_secret(password):
+    # uuid is used to generate a random number
+    salt = uuid.uuid4().hex
+    return hashlib.sha256(salt.encode() + password.encode()).hexdigest() + ':' + salt
+def check_secret(hashed_password, user_password):
+    password, salt = hashed_password.split(':')
+    return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()
 
 
 dic={1:'Aerospace Engineering', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
@@ -90,6 +93,10 @@ def project():
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
     sn =  request.form['SN']
+    studentSecret = request.form['studentSecret']
+    hashed_secret = hash_secret(studentSecret)
+
+
     sqlUtil.batch_insert_push({
         'name':             request.form['name'],
         'gender':           request.form['gender'],
@@ -112,7 +119,7 @@ def submit():
 
     sqlUtil.insert_push('Sid', request.form['SN'])
     for i, p in enumerate(['p1', 'p2', 'p3', 'p4', 'p5']):
-        sqlUtil.batch_insert_push({'Priority': i+1, 'ProjectID': (request.form[p])[0]})
+        sqlUtil.batch_insert_push({'Priority': i+1, 'ProjectID': (request.form[p])[0], 'Secret': hashed_secret})
         sqlUtil.insert_execute('application')
         # Don clear, since we need to reuse 'Sid' field
     sqlUtil.clear()
@@ -136,12 +143,17 @@ def faculty():
 @app.route('/navigation')
 def navigation():
     app.logger.info('waiting for input for student id')
-    return render_template("navigation.html")
+    data = None
+    return render_template("navigation.html", data=data)
 
 @app.route('/lookup', methods = ['GET', 'POST'])
 def lookup():
     studentID = request.form['studentID']
-    print("The student ID '" + studentID + "'")
+    studentSecret = request.form['studentSecret']
+    #print("The student ID '" + studentID + "'")
+    hashed_secret = hash_secret(studentSecret)
+    #print("The hash '" + hashed_secret + "'")
+
 
     data=[]
 
@@ -149,15 +161,24 @@ def lookup():
     projectTitles = sqlUtil.select_all("SELECT * FROM `application` WHERE `Sid`='{studentID}'".format(studentID=studentID))
 
     project_list = []
+    checkSecret = False
+    for Aid, Sid, Priority, P_Id, Secret in projectTitles:
+        if not check_secret(Secret, studentSecret):
+            print ("Not YaaaaaaaaaY")
+            break
 
-    for Aid, Sid, Priority, P_Id in projectTitles:
-
+        checkSecret = True
         project_title = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{P_Id}'".format(P_Id=P_Id))
         project_list.append("{}+{}".format(project_title, Priority))
-    print("Project_list: {}".format(project_list))
-    data.append([studentName, gender, origin, race, phoneNumber, email, address, major, studentNumber, GPA, level, graduateDate, researchExperience, appliedBefore, project_list])
 
-    return render_template("display.html", data=json.dumps(data))
+    print("Project_list: {}".format(project_list))
+    if checkSecret:
+       data.append([studentName, gender, origin, race, phoneNumber, email, address, major, studentNumber, GPA, level, graduateDate, researchExperience, appliedBefore, project_list])
+       return render_template("display.html", data=json.dumps(data))
+    else:
+       message = "Wrong Secret"
+
+       return render_template("navigation.html", message=message)
 
 @app.route('/fsubmit', methods=['GET', 'POST'])
 def f_submit():
