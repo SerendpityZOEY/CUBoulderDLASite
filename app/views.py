@@ -15,11 +15,11 @@ sqlUtil.use_database('SETest')
 
 def hash_secret(password):
     # uuid is used to generate a random number
-    salt = uuid.uuid4().hex
-    return hashlib.sha256(salt.encode() + password.encode()).hexdigest() + ':' + salt
+    salt = uuid.uuid4().hex[:8]
+    return hashlib.sha256(salt.encode() + password.encode()).hexdigest()[:8] + ':' + salt
 def check_secret(hashed_password, user_password):
     password, salt = hashed_password.split(':')
-    return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()
+    return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()[:8]
 
 
 dic={1:'Aerospace Engineering', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
@@ -96,7 +96,6 @@ def submit():
     studentSecret = request.form['studentSecret']
     hashed_secret = hash_secret(studentSecret)
 
-
     sqlUtil.batch_insert_push({
         'name':             request.form['name'],
         'gender':           request.form['gender'],
@@ -144,7 +143,7 @@ def lookup():
     studentSecret = request.form['studentSecret']
     #print("The student ID '" + studentID + "'")
     hashed_secret = hash_secret(studentSecret)
-    #print("The hash '" + hashed_secret + "'")
+    print("The hash '" + hashed_secret + "'")
 
 
     data=[]
