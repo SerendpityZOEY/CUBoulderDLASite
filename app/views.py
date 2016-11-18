@@ -8,7 +8,7 @@ from hashlib import sha512
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
-sqlUtil.use_database('SETest')
+sqlUtil.use_database('NewSE')
 
 SIMPLE_CHARS = string.ascii_letters + string.digits
 def getRandomString(length=24):
@@ -89,32 +89,46 @@ def project():
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
-    sn =  request.form['SN']
     sqlUtil.batch_insert_push({
-        'name':             request.form['name'],
-        'gender':           request.form['gender'],
-        'origin':           request.form['origin'],
-        'race':             request.form['race'],
-        'phoneNumber':      request.form['phone'],
-        'email':            request.form['email'],
+        'Name':             request.form['name'],
+        'Gender':           request.form['gender'],
+        'Origin':           request.form['origin'],
+        'Race':             request.form['race'],
+        'Phone':             request.form['phone'],
+        'Email':            request.form['email'],
         'Address':          request.form['address'],
-        'Major':            request.form['major'],
+        'SumPhone':      request.form['Sumphone'],
+        'SumEmail':            request.form['Sumemail'],
+        'SumAddress':          request.form['Sumaddress'],
+        'PrimaryMajor':            request.form['major'],
+        'SecondaryMajor':            request.form['major2'] if int(request.form['major2'])!=0 else None,
         'studentNumber':    request.form['SN'],
-        'GPA':              request.form['GPA'],
+        'GPA':              str(request.form['GPA']),
         'level':            request.form['level'],
-        # 'Date':             request.form['date'],
-        # 'experience':       request.form['experience'],
-        # 'Apply':            request.form['apply'],
+        # 'GraduationDate':             request.form['date'],
+        'ResearchExperience':     request.form['researchExp'],  
+        'AppliedBefore':            request.form['appliedBefore'],
+        'EmploymentPlanned':            request.form['plan'],
+        'BackgroundCheck':            request.form['backCheck'],
+        'Discrimination':             request.form['discrimination'],
+        'SSN':                        request.form['SSN']
     })
 
-    sqlUtil.insert_execute('student')
+    sid = sqlUtil.insert_execute('STUDENT')
     sqlUtil.clear()
-
-    sqlUtil.insert_push('Sid', request.form['SN'])
-    for i, p in enumerate(['p1', 'p2', 'p3', 'p4', 'p5']):
-        sqlUtil.batch_insert_push({'Priority': i+1, 'ProjectID': (request.form[p])[0]})
-        sqlUtil.insert_execute('application')
-        # Don clear, since we need to reuse 'Sid' field
+    sqlUtil.batch_insert_push({
+            'S_Id': sid,
+            'Pr1_P_Id': request.form['p1'],
+            'Pr2_P_Id': request.form['p2'] if int(request.form['p2'])!=0 else None,
+            'Pr3_P_Id': request.form['p3'] if int(request.form['p3'])!=0 else None,
+            'Pr4_P_Id': request.form['p4'] if int(request.form['p4'])!=0 else None,
+            'Pr5_P_Id': request.form['p5'] if int(request.form['p5'])!=0 else None
+    })
+    sqlUtil.insert_execute('APPLICATION')
+    # for i, p in enumerate(['p1', 'p2', 'p3', 'p4', 'p5']):
+    #     sqlUtil.batch_insert_push({'Priority': i+1, 'ProjectID': (request.form[p])[0]})
+    #     sqlUtil.insert_execute('application')
+    #     # Don clear, since we need to reuse 'Sid' field
     sqlUtil.clear()
 
     return json.dumps({'message': 'Student info saved successfully !'})
