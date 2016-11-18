@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, json
+from flask import render_template, request, json, redirect, url_for
 from flaskext.mysql import MySQL
 import MysqlUtil
 import random
@@ -117,8 +117,16 @@ def submit():
         # Don clear, since we need to reuse 'Sid' field
     sqlUtil.clear()
 
-    return json.dumps({'message': 'Student info saved successfully !'})
+    return url_for('success')
 
+
+@app.route('/success')
+def success():
+    return render_template("Success.html")
+
+@app.route('/error')
+def error():
+    return render_template("Error.html")
 
 @app.route('/faculty')
 def faculty():

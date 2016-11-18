@@ -35,3 +35,7 @@ h1{
     color: #ffffff;
     background-color: transparent;
 }
+
+.btn-space {
+    margin-right: 30px;
+}
