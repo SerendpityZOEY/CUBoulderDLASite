@@ -3,7 +3,7 @@
  */
 
 var i = 0;
-var trueArr = Array(7).fill(false)
+var trueArr = Array(8).fill(false)
 var pushed = false
 $(document).ready(function () {
     $('form').validator().on('submit', function (e) {
@@ -35,7 +35,7 @@ $(document).ready(function () {
                     // console.log($('form').serialize());
                     // console.log(error);
                     // alert("information miss!");
-                    window.location.href = "";
+                    window.location.href = "error";
                 }
             });
             pushed = true
@@ -49,23 +49,4 @@ $(function () {
     });
 });
 
-$(function () {
-    $('#form2').click(function () {
 
-        $.ajax({
-            url: '/fsubmit',
-            data: $('form').serialize(),
-            type: 'POST',
-            success: function (response) {
-                console.log(response);
-                alert("succesfully added!");
-                window.location = "/";
-            },
-            error: function (error) {
-                console.log($('form').serialize());
-                console.log(error);
-                alert("information miss!");
-            }
-        });
-    });
-});

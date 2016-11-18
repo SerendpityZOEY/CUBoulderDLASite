@@ -253,4 +253,5 @@ def f_submit():
     # sqlUtil.insert_execute('project')
     # sqlUtil.clear()
 
-    return json.dumps({'message': 'Faculty info saved successfully !'})
+    # return json.dumps({'message': 'Faculty info saved successfully !'})
+    return url_for('success')
