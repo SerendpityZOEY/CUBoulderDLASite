@@ -15,6 +15,9 @@
     <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png" />
     <!--Bootstrap validator-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <!--jQuery Validator-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js"></script>
 
     <style>
       .sidebar1 {
@@ -53,7 +56,7 @@
                  <h3 class="panel-title">Demographic Information</h3>
                </div>
                <div class="panel-body">
-                 <form data-toggle="validator" role="form">
+                 <form data-toggle="validator" role="form" id="checkboxForm">
                <div class="form-group">
                  <label class="control-label"><span style="color:red;">* </span>Your Name:</label>
                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
@@ -110,6 +113,7 @@
                  <div class="checkbox">
                    <label><input type="checkbox" name="race" value="7">Do Not Wish to Provide</label>
                  </div>
+                 <div class="help-block with-errors"></div>
                </div>
              </form>
                </div>
@@ -133,9 +137,9 @@
                    <div class="help-block with-errors"></div>
               </div>
               <div class="form-group">
-                <label><span style="color:red;">* </span>Phone:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone"
-                       data-error="This field is required" required>
+                <label><span style="color:red;">* </span>Phone:</label>+1
+                <input type="text" class="input-medium bfh-phone" data-format="ddd-ddd-dddd" name="phone"
+                       data-error="Invalid Input" minlength="12" maxlength="12" required>
                    <div class="help-block with-errors"></div>
 
               </div>
@@ -164,8 +168,10 @@
                 <input class="form-control" name="address" type="text" placeholder="street, city, state, zip">
               </div>
               <div class="form-group">
-                <label>Summer Phone:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone">
+                <label>Summer Phone:</label>+1
+                <input type="text" class="input-medium bfh-phone" data-format="ddd-ddd-dddd"
+                       data-error="Invalid Input" minlength="12" maxlength="12" name="phone">
+                   <div class="help-block with-errors"></div>
               </div>
                 <div class="form-group">
                   <label>Summer Email:</label>
@@ -212,7 +218,8 @@
                           <div class="form-group">
                             <label class="control-label"><span style="color:red;">* </span>Student Number:</label>
                             <input class="form-control" type="text" min="0" name="SN" data-buttons="false"
-                                   minlength="9" maxlength="9" data-error="This field is required" required>
+                                   minlength="9" maxlength="9" pattern="^[0-9]{9}$"
+                                   data-error="Invalid Input" required>
                             <div class="help-block with-errors"></div>
                           </div>
                           </form>

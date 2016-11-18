@@ -3,7 +3,23 @@
  */
 $(function() {
     $('#form1').click(function() {
-
+/*
+        $('#checkboxForm').validate({
+            rules: {
+                'race': {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 2
+                }
+            },
+            messages: {
+                'race': {
+                  required: "Please check at least 1 option.",
+                  minlength: "Please check at least {0} option."
+                }
+            }
+        });
+*/
         $.ajax({
             url: '/submit',
             data: $('form').serialize(),
