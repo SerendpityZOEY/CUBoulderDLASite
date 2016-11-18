@@ -15,11 +15,13 @@ sqlUtil.use_database('SETest')
 
 def hash_secret(password):
     # uuid is used to generate a random number
-    salt = uuid.uuid4().hex[:8]
-    return hashlib.sha256(salt.encode() + password.encode()).hexdigest()[:8] + ':' + salt
+    salt = uuid.uuid4().hex[:16]
+    return hashlib.sha256(salt.encode() + password.encode()).hexdigest()[:16] + salt
 def check_secret(hashed_password, user_password):
-    password, salt = hashed_password.split(':')
-    return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()[:8]
+    password = hashed_password[:16]
+    salt = hashed_password[16:32]
+
+    return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()[:16]
 
 
 dic={1:'Aerospace Engineering', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
