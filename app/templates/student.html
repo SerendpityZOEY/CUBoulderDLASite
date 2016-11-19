@@ -73,8 +73,10 @@
                             </div>
                             <div class="form-group">
                                 <label><span style="color:red;">* </span>Gender:</label>
-                                <label class="radio-inline"><input type="radio" name="gender" value="male" required>Male</label>
-                                <label class="radio-inline"><input type="radio" name="gender" value="female" required>Female</label>
+                                <label class="radio-inline"><input type="radio" name="gender" value=0
+                                                                   required>Male</label>
+                                <label class="radio-inline"><input type="radio" name="gender" value=1
+                                                                   required>Female</label>
                             </div>
                             <div class="form-group">
                                 <label><span style="color:red;">* </span>Are you Hispanic, Chicano, Mexican, Latino,
@@ -82,22 +84,22 @@
                                     American, or Spanish Origin?</label>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="origin" id="option1"
-                                               value="yes" required>
+                                        <input type="radio" class="form-check-input" name="origin" id="option1" value=0
+                                               required>
                                         Yes
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="origin" id="option2"
-                                               value="no" required>
+                                        <input type="radio" class="form-check-input" name="origin" id="option1" value=1
+                                               required>
                                         No
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="origin" id="option3"
-                                               value="option3" required>
+                                        <input type="radio" class="form-check-input" name="origin" id="option1" value=2
+                                               required>
                                         I do not wish to provide this information
                                     </label>
                                 </div>
@@ -182,18 +184,18 @@
                         <form>
                             <div class="form-group">
                                 <label for="address">Summer Address:</label>
-                                <input class="form-control" name="address" type="text"
+                                <input class="form-control" name="Sumaddress" type="text"
                                        placeholder="street, city, state, zip">
                             </div>
                             <div class="form-group">
                                 <label>Summer Phone:</label>+1
                                 <input type="text" class="input-medium bfh-phone" data-format="ddd-ddd-dddd"
-                                       data-error="Invalid Input" minlength="12" maxlength="12" name="phone">
+                                       data-error="Invalid Input" minlength="12" maxlength="12" name="Sumphone">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <label>Summer Email:</label>
-                                <input type="text" class="form-control" name="email" placeholder="Email">
+                                <input type="text" class="form-control" name="Sumemail" placeholder="Email">
                             </div>
                         </form>
                     </div>
@@ -234,7 +236,7 @@
                                         </small>
                                         <br>
                                         <select class="form-control" name="major2">
-                                            <option value="0" selected="selected">Please Select</option>
+                                            <option value="" selected="selected">Please Select</option>
                                             {% for row in majors %}
                                                 <option value={{ row[0] }} type="number">{{ row[2] }}</option>
                                             {% endfor %}
@@ -265,11 +267,11 @@
                                             Sophomore, Junior, Senior, Other)</label>
                                         <select class="form-control" name="level" required>
                                             <option selected disabled value="">Please Select</option>
-                                            <option value="Freshman">Freshman</option>
-                                            <option value="Sophomore">Sophomore</option>
-                                            <option value="Junior">Junior</option>
-                                            <option value="Senior">Senior</option>
-                                            <option value="5Senior">5th Year Senior</option>
+                                            <option value=0>Freshman</option>
+                                            <option value=1>Sophomore</option>
+                                            <option value=2>Junior</option>
+                                            <option value=3>Senior</option>
+                                            <option value=4>5th Year Senior</option>
                                         </select>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -277,14 +279,14 @@
                                     <div class="form-group date">
                                         <label><span style="color:red;">* </span>Graduation Date</label>
                                         <span class="add-on"><i class="icon-calendar"></i></span>
-                                        <input type="text" class="form-control" placeholder="Graduation Date"
+                                        <input type="text" name="date" class="form-control" placeholder="Graduation Date"
                                                id="graduation">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Do you have previous research experience?</label><br>
-                                        <label class="radio-inline"><input type="radio" name="researchExp" value="yes">Yes</label>
-                                        <label class="radio-inline"><input type="radio" name="researchExp" value="no">No(This
+                                        <label class="radio-inline"><input type="radio" name="researchExp" value=0>Yes</label>
+                                        <label class="radio-inline"><input type="radio" name="researchExp" value=1>No(This
                                             will not affect your eligibility!)</label>
                                     </div>
                                 </form>
@@ -309,16 +311,16 @@
                             <div class="form-group">
                                 <label>Have you applied for a Discovery Learning Apprenticeship before?</label><br>
                                 <label class="radio-inline"><input type="radio" name="appliedBefore"
-                                                                   value="yes">Yes</label>
-                                <label class="radio-inline"><input type="radio" name="appliedBefore" value="notsure">Not
-                                    Sure</label>
+                                                                   value=0>Yes</label>
                                 <label class="radio-inline"><input type="radio" name="appliedBefore"
-                                                                   value="no">No</label>
+                                                                   value=1>No</label>
+                                <label class="radio-inline"><input type="radio" name="appliedBefore" value=2>Not
+                                    Sure</label>
                             </div>
 
                             <div class="form-group">
                                 <label>Other fall employment planned:</label>
-                                <textarea class="form-control" placeholder="Other fall employment planned:"></textarea>
+                                <textarea class="form-control" name="plan" placeholder="Other fall employment planned:"></textarea>
                             </div>
 
                             <p><strong style="color:red">Please make sure you selected a major before
@@ -343,7 +345,7 @@
                             <div class="form-group">
                                 <label>Project2</label>
                                 <select class="form-control" name="p2">
-                                    <option value="0" selected="selected">Please Select</option>
+                                    <option value="" selected="selected">Please Select</option>
                                     {% for row in data %}
                                         <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                                     {% endfor %}
@@ -352,7 +354,7 @@
                             <div class="form-group">
                                 <label>Project3</label>
                                 <select class="form-control" name="p3">
-                                    <option value="0" selected="selected">Please Select</option>
+                                    <option value="" selected="selected">Please Select</option>
                                     {% for row in data %}
                                         <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                                     {% endfor %}
@@ -361,7 +363,7 @@
                             <div class="form-group">
                                 <label>Project4</label>
                                 <select class="form-control" name="p4">
-                                    <option value="0" selected="selected">Please Select</option>
+                                    <option value="" selected="selected">Please Select</option>
                                     {% for row in data %}
                                         <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                                     {% endfor %}
@@ -370,7 +372,7 @@
                             <div class="form-group">
                                 <label>Project5</label>
                                 <select class="form-control" name="p5">
-                                    <option value="0" selected="selected">Please Select</option>
+                                    <option value="" selected="selected">Please Select</option>
                                     {% for row in data %}
                                         <option value={{ row[0] }} type="number">{{ row[1] }}</option>
                                     {% endfor %}
@@ -380,25 +382,25 @@
                             <div class="form-group">
                                 <label>Have you had a background check yet (at CU)? If yes when? (Take your best guess
                                     if you aren't sure.)</label><br>
-                                <label class="radio-inline"><input type="radio" name="backCheck" value="yes">Yes</label>
-                                <label class="radio-inline"><input type="radio" name="backCheck" value="notsure">Not
+                                <label class="radio-inline"><input type="radio" name="backCheck" value=0>Yes</label>
+                                <label class="radio-inline"><input type="radio" name="backCheck" value=1>No</label>
+                                <label class="radio-inline"><input type="radio" name="backCheck" value=2>Not
                                     Sure</label>
-                                <label class="radio-inline"><input type="radio" name="backCheck" value="no">No</label>
                             </div>
 
                             <div class="form-group">
                                 <label>Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes
                                     when? (Take
                                     your best guess if you aren't sure.)</label><br>
-                                <label class="radio-inline"><input type="radio" name="training" value="yes">Yes</label>
-                                <label class="radio-inline"><input type="radio" name="training" value="notsure">Not Sure</label>
-                                <label class="radio-inline"><input type="radio" name="training" value="no">No</label>
+                                <label class="radio-inline"><input type="radio" name="discrimination" value=0>Yes</label>
+                                <label class="radio-inline"><input type="radio" name="discrimination" value=1>No</label>
+                                <label class="radio-inline"><input type="radio" name="discrimination" value=2>Not Sure</label>
                             </div>
 
                             <div class="form-group">
                                 <label for="name">Last four digits of your Social Security Number:
                                     (this will only be used to acess your background check information)</label>
-                                <input type="password" class="form-control" name="field4" maxlength="4">
+                                <input type="password" class="form-control" name="SSN" maxlength="4">
                             </div>
                         </form>
                     </div>
@@ -424,15 +426,15 @@
                         <form>
                             <div class="form-group">
                                 <label>1. </label>
-                                <textarea class="form-control" rows="2" type="text" maxlength="75"></textarea>
+                                <textarea class="form-control" name="skill1" rows="2" maxlength="75" ></textarea>
                             </div>
                             <div class="form-group">
                                 <label>2. </label>
-                                <textarea class="form-control" rows="2" type="text" maxlength="75"></textarea>
+                                <textarea class="form-control" name="skill2" rows="2" maxlength="75"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>3. </label>
-                                <textarea class="form-control" rows="2" type="text" maxlength="75"></textarea>
+                                <textarea class="form-control" name="skill3" rows="2" maxlength="75"></textarea>
                             </div>
                             <p>To complete the application, you must submit a resume and a cover letter. You can submit
                                 both using
@@ -462,7 +464,8 @@
                         <form>
                             <div class="form-group">
                                 <label for="studentSecret"><span style="color:red;">* </span>Your Secret:</label>
-                                <input type="password" data-minlength="6" class="form-control" id="studentSecret" name="studentSecret"
+                                <input type="password" data-minlength="6" class="form-control" id="studentSecret"
+                                       name="studentSecret"
                                        placeholder="Enter Secret" required>
                                 <div class="help-block">Minimum of 6 characters</div>
                             </div>
@@ -501,7 +504,7 @@
     $('#graduation').datepicker({
         autoclose: true,
         minViewMode: 1,
-        format: 'mm/yyyy'
+        format: 'yyyy-mm'
     }).on('changeDate', function (selected) {
         graduateDate = new Date(selected.date.valueOf());
         graduateDate.setDate(graduateDate.getDate(new Date(selected.date.valueOf())));

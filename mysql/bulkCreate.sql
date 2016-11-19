@@ -190,7 +190,7 @@ create table APPLICATION(
     -- Optional Special Requirement Check
     OptReqsCheck varchar(20) NOT NULL DEFAULT '',
 
-    Secret varchar(16) NOT NULL DEFAULT '',
+    Secret varchar(32) NOT NULL DEFAULT '',
     CreatedTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     LastUpdatedTime TIMESTAMP NOT NULL DEFAULT '1970-01-02 15:04:05',
     -- LastUpdatedTime TIMESTAMP NOT NULL CURRENT_TIMESTAMP,

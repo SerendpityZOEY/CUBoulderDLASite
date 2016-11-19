@@ -92,7 +92,7 @@ class MysqlUtil(object):
         Returns:
             insert_id: the new auto increased id got with this insert command
         """
-        keys, values = zip(*self.data.items())
+        keys, values = zip(*[(k, v) for k, v in self.data.iteritems() if v is not None])
         query = "INSERT INTO `" + table_name + "`"
         query += " (`" + "`,`".join(keys) + "`) "
         query += "VALUES (" + ("%s," * len(keys))[:-1] + ");"
