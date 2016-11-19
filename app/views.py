@@ -25,20 +25,6 @@ def check_secret(hashed_password, user_password):
 
     return password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest()[:16]
 
-
-dic = {1: 'Aerospace Engineering', 2: 'Applied Math', 3: 'Chemical & Biological Engineering', \
-       4: 'Civil, Environmental and Architectural Engineering', 5: 'Computer Science',
-       6: 'Electrical, Computer and Energy Engineering', \
-       7: 'Physics', 8: 'Environmental Engineering', 9: 'Mechanical Engineering', \
-       10: 'Colorado Space Grant', 11: 'Engineering Education', 12: 'ATLAS'}
-
-majordict = {0: 'Aerospace Engineering', 1: 'Applied Math', 2: 'Architectural Engineering', 3: 'Chemical Engineering', \
-             4: 'Chemical & Biological Engineering', 5: 'Civil Engineering', 6: 'Computer Science', \
-             7: 'Electrical Engineering', 8: 'Electrical and Computer Engineering', 9: 'Engineering Physics', \
-             10: 'Environmental Engineering', 11: 'Engineering Plus', 12: 'Mechanical Engineering',
-             13: 'Technology, Arts and Media'}
-
-
 @app.route('/')
 @app.route('/index')
 def index():
@@ -62,6 +48,7 @@ def student():
 @app.route('/project', methods=['GET'])
 def project():
     data = []
+    dic = dict(sqlUtil.select_all("SELECT `D_Id`, `FullName` FROM `DEPT`"))
     # cursor.execute("SELECT * FROM `project`")
     # projects = cursor.fetchall()
     projects = sqlUtil.select_all(
@@ -97,7 +84,7 @@ def project():
                 # for i, m in enumerate(StuMajors.split(';')):
                 # Maj=Maj+majordict[int(m)]+','
         data.append(
-            [ProjName, contact, dic[int(PFDept)], WebLink if WebLink is not None else u"", LongDesc, Req])  # , Maj])
+            [ProjName, contact, dic[PFDept], WebLink if WebLink is not None else u"", LongDesc, Req])  # , Maj])
         # app.logger.info(data)
     return render_template("project.html", data=json.dumps(data))
 
