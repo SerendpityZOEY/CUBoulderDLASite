@@ -44,24 +44,8 @@ $(document).ready(function () {
 })
 $(function () {
     $('#stuSubmit').click(function () {
-        // i = 0;
-        // $('form').submit();
-        $.ajax({
-            url: '/submit',
-            data: $('form').serialize(),
-            type: 'POST',
-            success: function (response) {
-                // console.log(response);
-                // alert("succesfully added!");
-                window.location.href = response;
-            },
-            error: function (error) {
-                // console.log($('form').serialize());
-                // console.log(error);
-                // alert("information miss!");
-                window.location.href = "error";
-            }
-        });
+        i = 0;
+        $('form').submit();
     });
 });
 
