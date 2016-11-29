@@ -12,7 +12,6 @@
     <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet">
     <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
     {#    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>#}
     {##}
@@ -22,6 +21,8 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/javascript"
           href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
     <style>
 		table{
 		  margin: 0 auto;
@@ -43,10 +44,16 @@
 </head>
 
 <body>
-<div class="col-md-3 center">
-    <h1>Projects page</h1>
+<div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-10 center">
+        <h1>Projects page</h1>
+    </div>
 </div>
-<div class="col-md-6 center">
+
+<div class="row">
+    <div class="col-md-10 center">
     <table cellpadding="3" cellspacing="0" border="0" style="width: 67%; margin: 0 auto 2em auto;">
         <thead>
         <tr>
@@ -56,7 +63,7 @@
         </thead>
         <tbody>
         <tr id="filter_department" , data-column="2">
-            <td align="center">Department</td>
+            <td>Department</td>
             <td align="center">
                 <select class="column_filter" id="col2_filter">
                     <option value=" " selected="selected">Please Select</option>
@@ -81,7 +88,7 @@
             </td>
         </tr>
         <tr id="filter_major" , data-column="3">
-            <td align="center">prefered Major</td>
+            <td>prefered Major</td>
             <td align="center">
                 <select class="column_filter" id="col3_filter">
                     <option value=" " selected="selected">Please Select</option>
@@ -109,8 +116,13 @@
 
     </table>
 </div>
+</div>
+
+<div class="row">
 <div class="col-md-11 center">
     <table id="project" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+</div>
+</div>
 </div>
 </body>
 

@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <script src="../static/js/script.js"></script>
+    <script src="../static/js/studentPage.js"></script>
 
 <div class="container-fluid">
     <h1 id="top">Lookup Student Application</h1>
@@ -45,6 +45,15 @@
                  <label for="studentID"><span style="color:red;">* </span>Your Student ID:</label>
                  <input type="text" class="form-control" id="studentID" name="studentID" placeholder="Enter Student ID">
                </div>
+               <div class="form-group">
+                 <label for="studentSecret"><span style="color:red;">* </span>Your Secret:</label>
+                 <input type="text" class="form-control" id="studentSecret" name="studentSecret" placeholder="Enter Secret" required>
+               </div>
+               <div class="form-group">
+                 {% if message is not none %}
+                 <label style="color:red;">{{message}}</label>
+                 {%endif %}
+             </div>
                <button type="submit" class="btn btn-primary" id="lookup">Submit</button>
              </form>
                </div>
@@ -57,7 +66,13 @@
 
   </div>
 
-    <script src="../static/js/sideBar.js"></script>
+    <script src="../static/js/sideBar.js">
+
+    $(document).ready(console.log(message))
+    Mycomponet = '{{message}}'
+
+
+    </script>
 
 </body>
 </html>
