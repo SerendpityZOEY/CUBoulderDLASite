@@ -270,4 +270,13 @@ def f_submit():
 
 @app.route('/matrix')
 def matrix():
-    return render_template("matrix.html")
+    applications = sqlUtil.select_all("SELECT `A_Id`,`S_Id` FROM `APPLICATION`")
+    students = []
+    for A_Id, S_Id in applications:
+        row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`, `Phone`, \
+                                 `Email`, `Address`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
+                                  `GraduationDate`, `ResearchExperience` \
+                                  FROM `STUDENT` WHERE `S_Id`=" + str(S_Id))
+        students.append(row[0])
+    print(students)
+    return render_template("matrix.html", students=json.dumps(students))

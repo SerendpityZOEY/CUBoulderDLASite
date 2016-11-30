@@ -2,9 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Matrix</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Form Helpers -->
+    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png"/>
+    <!--Bootstrap DatePicker-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css"
+          rel="stylesheet" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!--Bootstrap validator-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <!--jQuery Validator-->
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js"></script>
+    -->
+    <script src="../static/dynatable/jquery.dynatable.js"></script>
+    <link rel="stylesheet" href="../static/dynatable/jquery.dynatable.css">
+    <style>
+        .sidebar1 {
+            float: right;
+            width: 25%;
+            padding-bottom: 10px;
+            background-color: #eee;
+        }
+
+        body {
+            background-color: #fff8e1;
+        }
+    </style>
 </head>
 <body>
+
+<div class="container-fluid">
+    <h1>Matrix</h1>
+    <div class="row">
+        <div class="col-md-10 center">
+	<table id="my-final-table">
+      <thead>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Origin</th>
+        <th>Race</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Primary Major</th>
+        <th>Student Number</th>
+        <th>GPA</th>
+        <th>Level</th>
+        <th>Graduation Date</th>
+        <th>Research Experience</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+        </div>
+    </div>
+</div>
+<script>
+    var dataSet = {{ students|safe }};
+    var myRecords = []
+    for(var i=0;i<dataSet.length;i++){
+        var obj = {
+            name: dataSet[i][0],
+            gender: dataSet[i][1],
+            origin: dataSet[i][2],
+            race: dataSet[i][3],
+            phone: dataSet[i][4],
+            email: dataSet[i][5],
+            address: dataSet[i][6],
+            primarymajor: dataSet[i][7],
+            studentnumber: dataSet[i][8],
+            gpa: dataSet[i][9],
+            level: dataSet[i][10],
+            graduationdate: dataSet[i][11],
+            researchexperience: dataSet[i][12]
+        }
+        myRecords.push(obj)
+    }
+
+    $(document).ready(function() {
+
+      $('#my-final-table').dynatable({
+        dataset: {
+          records: myRecords
+        }
+      })
+
+    })
+</script>
 
 </body>
 </html>
