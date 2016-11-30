@@ -266,3 +266,8 @@ def f_submit():
 
     # return json.dumps({'message': 'Faculty info saved successfully !'})
     return url_for('success')
+
+
+@app.route('/matrix')
+def matrix():
+    return render_template("matrix.html")
