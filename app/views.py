@@ -32,17 +32,17 @@ def index():
                            title='Home')
 
 
-@app.route('/test')
-def test():
-    return render_template("test.xml")
+@app.route('/navigation')
+def navigation():
+    return render_template("navigation.html")
 
 
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    data = sqlUtil.select_all("SELECT `P_Id`,`ProjName` FROM `PROJECT_INFO`")
+    data = sqlUtil.select_all("SELECT `PFDept`,`ProjName` FROM `PROJECT_INFO`")
     majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
-    return render_template("student.html", data=data, majors=majors)
+    return render_template("student.html", data=json.dumps(data), majors=majors)
 
 
 @app.route('/project', methods=['GET'])
@@ -153,13 +153,6 @@ def error():
 def faculty():
     # app.logger.info('waiting for input in teacher page')
     return render_template("faculty.html")
-
-
-@app.route('/navigation')
-def navigation():
-    # app.logger.info('waiting for input for student id')
-    data = None
-    return render_template("navigation.html", data=data)
 
 
 @app.route('/lookup', methods=['GET', 'POST'])

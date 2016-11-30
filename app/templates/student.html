@@ -221,7 +221,7 @@
                                     <div class="form-group has-feedback">
                                         <label class="control-label"><span style="color:red;">* </span>Primary
                                             Major</label>
-                                        <select class="form-control" name="major" required>
+                                        <select class="form-control" name="major" id="major" required onchange="getMajor(this);">
                                             <option selected disabled value="">Please Select</option>
                                             {% for row in majors %}
                                                 <option value={{ row[0] }}>{{ row[2] }}</option>
@@ -333,49 +333,34 @@
 
                             <div class="form-group has-feedback">
                                 <label class="control-label"><span style="color:red;">* </span>Project1</label>
-                                <select class="form-control" name="p1" required>
-                                    <option selected disabled value="">Please Select</option>
-                                    {% for row in data %}
-                                        <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-                                    {% endfor %}
+                                <select class="form-control" name="p1" id ="p1" required>
+                                    <option value="" selected="selected">Please Select</option>
                                 </select>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Project2</label>
-                                <select class="form-control" name="p2">
+                                <select class="form-control" name="p2" id="p2">
                                     <option value="" selected="selected">Please Select</option>
-                                    {% for row in data %}
-                                        <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Project3</label>
-                                <select class="form-control" name="p3">
+                                <select class="form-control" name="p3" id="p3">
                                     <option value="" selected="selected">Please Select</option>
-                                    {% for row in data %}
-                                        <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Project4</label>
-                                <select class="form-control" name="p4">
+                                <select class="form-control" name="p4" id="p4">
                                     <option value="" selected="selected">Please Select</option>
-                                    {% for row in data %}
-                                        <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Project5</label>
-                                <select class="form-control" name="p5">
+                                <select class="form-control" name="p5" id="p5">
                                     <option value="" selected="selected">Please Select</option>
-                                    {% for row in data %}
-                                        <option value={{ row[0] }} type="number">{{ row[1] }}</option>
-                                    {% endfor %}
                                 </select>
                             </div>
 
@@ -493,7 +478,6 @@
     // $('.datepicker').datepicker();
     Mycomponet = '{{data[0]}}'
 
-    $(document).ready(console.log(Mycomponet))
     /*
      ====================
      Date Picker
@@ -524,5 +508,65 @@
             error: 'glyphicon-exclamation-sign'
         }
     });
+
+    /*
+     ====================
+     Update Dropdown
+     ====================
+     */
+    var onchangeListener = false;
+    if(!onchangeListener){
+        var projects = {{ data|safe }};
+        var s1 = document.getElementById("p1");
+        var s2 = document.getElementById("p2");
+        var s3 = document.getElementById("p3");
+        var s4 = document.getElementById("p4");
+        var s5 = document.getElementById("p5");
+        for(var times = 0;times<5;times++){
+            projects.forEach(function(line,index){
+                var s = eval('s'+(times+1));
+                var option = document.createElement("option");
+                option.value = line[0];
+                option.textContent = line[1];
+                s.appendChild(option);
+            })
+        }
+    }
+
+    function getMajor(selected)
+    {
+        //alert(selected.value);
+        onchangeListener = true;
+        var studentMajor = selected.value;
+        var projects = {{ data|safe }};
+        var s1 = document.getElementById("p1");
+        var s2 = document.getElementById("p2");
+        var s3 = document.getElementById("p3");
+        var s4 = document.getElementById("p4");
+        var s5 = document.getElementById("p5");
+        var len = s1.options.length;
+        var par;
+        for(var times = 0;times<5;times++){
+            for (var i=len; i>1; i--) {
+                var s = eval('s'+(times+1));
+                par = s.options[i - 1].parentNode;
+                par.removeChild(s.options[i - 1]);
+            }
+        }
+        for(var times = 0;times<5;times++){
+            projects.forEach(function(line,index){
+                if(line[0]==studentMajor){
+                    var s = eval('s'+(times+1));
+                    var option = document.createElement("option");
+                    option.value = line[0];
+                    option.textContent = line[1];
+                    //console.log(option);
+                    s.appendChild(option);
+                }
+            })
+        }
+    }
+
+
 </script>
 </html>
