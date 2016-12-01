@@ -51,17 +51,17 @@ def index():
                            title='Home')
 
 
-@app.route('/test')
-def test():
-    return render_template("test.xml")
+@app.route('/navigation')
+def navigation():
+    return render_template("navigation.html")
 
 
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    data = sqlUtil.select_all("SELECT `P_Id`,`ProjName` FROM `PROJECT_INFO`")
+    data = sqlUtil.select_all("SELECT `PFDept`,`ProjName` FROM `PROJECT_INFO`")
     majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
-    return render_template("student.html", data=data, majors=majors)
+    return render_template("student.html", data=json.dumps(data), majors=majors)
 
 
 @app.route('/project', methods=['GET'])
@@ -206,13 +206,6 @@ def faculty():
     return render_template("faculty.html")
 
 
-@app.route('/navigation')
-def navigation():
-    # app.logger.info('waiting for input for student id')
-    data = None
-    return render_template("navigation.html", data=data)
-
-
 @app.route('/lookup', methods=['GET', 'POST'])
 def lookup():
     studentID = request.form['studentID']
@@ -324,3 +317,29 @@ def f_submit():
 
     # return json.dumps({'message': 'Faculty info saved successfully !'})
     return url_for('success')
+
+
+@app.route('/matrix')
+def matrix():
+    applications = sqlUtil.select_all("SELECT `A_Id`,`S_Id` FROM `APPLICATION`")
+    students = []
+    dicts = {}
+    for A_Id, S_Id in applications:
+        row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`, `Phone`, \
+                                 `Email`, `Address`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
+                                  , `ResearchExperience` \
+                                  FROM `STUDENT` WHERE `S_Id`=" + str(S_Id))
+        projectInd = sqlUtil.select_all("SELECT `Pr1_P_Id`, `Pr2_P_Id`, `Pr3_P_Id`, `Pr4_P_Id`, `Pr5_P_Id` \
+                                  FROM `APPLICATION` WHERE `A_Id`="+str(A_Id))
+        projects = getDetail(projectInd)
+        students.append(row[0]+(S_Id,))
+        dicts[S_Id] = json.dumps(projects)
+    return render_template("matrix.html", students=json.dumps(students), projects=json.dumps(dicts))
+
+def getDetail(projectId):
+    list = ()
+    for i in projectId[0]:
+        if i is not None:
+            project = sqlUtil.select_one("ProjName", "PROJECT_INFO", "P_Id", i)
+            list+=(project,)
+    return list

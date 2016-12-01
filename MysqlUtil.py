@@ -130,7 +130,7 @@ class MysqlUtil(object):
             retCol, table, col, colVal = args
             query = "SELECT " + "`" + retCol + "`"
             query += " FROM " + "`"+ table + "` "
-            query += "WHERE " + "`" + col + "`"+" = \""+str(colVal)+"\";"
+            query += "WHERE " + "`" + col + "`"+ " = \"" + str(colVal) + "\";"
         else:
             query = args[0]
         try:
@@ -141,7 +141,6 @@ class MysqlUtil(object):
                 return data
         finally:
             connection.close()
-
 
     def clear(self):
         """Clear the pushed data"""

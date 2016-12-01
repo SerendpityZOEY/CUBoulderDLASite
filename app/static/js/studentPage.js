@@ -2,6 +2,20 @@
  * Created by yue on 10/7/16.
  */
 
+bootstrap_alert = function () {
+}
+bootstrap_alert.warning = function (message, alert, timeout) {
+    $('<div id="floating_alert" class="alert alert-' + alert + ' fade in" role="alert">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + message + '&nbsp;&nbsp;</div>').appendTo('body');
+
+
+    setTimeout(function () {
+        $(".alert").alert('close');
+    }, timeout);
+
+}
+
+
 var i = 0;
 var trueArr = Array(8).fill(false)
 var pushed = false
@@ -20,6 +34,10 @@ $(document).ready(function () {
             trueArr[i++] = true
             console.log(trueArr)
             // everything looks good!
+        }
+        if (trueArr.includes(false)) {
+            bootstrap_alert.warning('You have some fields not filled correctly, please check the required fields!</strong>', 'danger', 10000);
+            $(window).scrollTop($('#floating_alert').offset().top)
         }
         if (!trueArr.includes(false) && !pushed) {
             $.ajax({
@@ -46,6 +64,7 @@ $(function () {
     $('#stuSubmit').click(function () {
         i = 0;
         $('form').submit();
+
     });
 });
 

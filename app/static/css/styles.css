@@ -1,11 +1,11 @@
 .center {
-     float: none;
-     margin-left: auto;
-     margin-right: auto;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.centered{
-    text-align:center
+.centered {
+    text-align: center
 }
 
 .centered .btn-primary {
@@ -13,21 +13,23 @@
 }
 
 #card {
-  position: absolute;
-  top: 50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    margin:0;
+    max-height: 650px;
+    transform: translate(-50%, -50%);
 }
 
-h1{
-    text-align:center;
+h1 {
+    text-align: center;
 }
+
 /*Navbar*/
-.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a {
     color: #cfb87c;
 }
 
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
     color: #fff;
 }
 
@@ -38,4 +40,16 @@ h1{
 
 .btn-space {
     margin-right: 30px;
+}
+
+#floating_alert {
+    position: absolute;
+    top: 0px;
+    display: table;
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    z-index: 5000;
+    font-size: large;
 }
