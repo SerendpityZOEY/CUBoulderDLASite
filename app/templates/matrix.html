@@ -28,6 +28,7 @@
     -->
     <script src="../static/dynatable/jquery.dynatable.js"></script>
     <link rel="stylesheet" href="../static/dynatable/jquery.dynatable.css">
+    
     <style>
         .sidebar1 {
             float: right;
@@ -60,8 +61,8 @@
         <th>Student Number</th>
         <th>GPA</th>
         <th>Level</th>
-        <th>Graduation Date</th>
         <th>Research Experience</th>
+        <th>Projects</th>
       </thead>
       <tbody>
       </tbody>
@@ -71,8 +72,12 @@
 </div>
 <script>
     var dataSet = {{ students|safe }};
+    var projDict = {{ projects|safe }};
     var myRecords = []
     for(var i=0;i<dataSet.length;i++){
+        var projString = projDict[dataSet[i][12]];
+        var inputStr = projString.substring(2,projString.length-2);
+        var projList = formatList(inputStr.split('], ['))
         var obj = {
             name: dataSet[i][0],
             gender: dataSet[i][1],
@@ -85,10 +90,18 @@
             studentnumber: dataSet[i][8],
             gpa: dataSet[i][9],
             level: dataSet[i][10],
-            graduationdate: dataSet[i][11],
-            researchexperience: dataSet[i][12]
+            researchexperience: dataSet[i][11],
+            projects: projList.join('\n')
         }
         myRecords.push(obj)
+    }
+
+    function formatList(strs){
+        var retList = [];
+        for(var i=0;i<strs.length;i++){
+            retList.push(strs[i].substring(1,strs[i].length-1))
+        }
+        return retList;
     }
 
     $(document).ready(function() {

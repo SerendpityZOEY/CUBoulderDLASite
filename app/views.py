@@ -272,11 +272,23 @@ def f_submit():
 def matrix():
     applications = sqlUtil.select_all("SELECT `A_Id`,`S_Id` FROM `APPLICATION`")
     students = []
+    dicts = {}
     for A_Id, S_Id in applications:
         row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`, `Phone`, \
                                  `Email`, `Address`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
-                                  `GraduationDate`, `ResearchExperience` \
+                                  , `ResearchExperience` \
                                   FROM `STUDENT` WHERE `S_Id`=" + str(S_Id))
-        students.append(row[0])
-    print(students)
-    return render_template("matrix.html", students=json.dumps(students))
+        projectInd = sqlUtil.select_all("SELECT `Pr1_P_Id`, `Pr2_P_Id`, `Pr3_P_Id`, `Pr4_P_Id`, `Pr5_P_Id` \
+                                  FROM `APPLICATION` WHERE `A_Id`="+str(A_Id))
+        projects = getDetail(projectInd)
+        students.append(row[0]+(S_Id,))
+        dicts[S_Id] = json.dumps(projects)
+    return render_template("matrix.html", students=json.dumps(students), projects=json.dumps(dicts))
+
+def getDetail(projectId):
+    list = ()
+    for i in projectId[0]:
+        if i is not None:
+            project = sqlUtil.select_one("ProjName", "PROJECT_INFO", "P_Id", i)
+            list+=(project,)
+    return list
