@@ -283,7 +283,7 @@ def matrix():
         projects = getDetail(projectInd)
         students.append(row[0]+(S_Id,))
         dicts[S_Id] = json.dumps(projects)
-    return render_template("matrix.html", students=json.dumps(students), projects=json.dumps(dicts))
+    return render_template("matrix.html", students=students, projects=json.dumps(dicts))
 
 def getDetail(projectId):
     list = ()

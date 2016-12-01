@@ -71,10 +71,12 @@
     </div>
 </div>
 <script>
-    var dataSet = {{ students|safe }};
+    var dataSet = {{ students|tojson }};
     var projDict = {{ projects|safe }};
     var myRecords = []
     for(var i=0;i<dataSet.length;i++){
+        console.log(dataSet[i])
+        //process project name
         var projString = projDict[dataSet[i][12]];
         var inputStr = projString.substring(2,projString.length-2);
         var projList = formatList(inputStr.split('], ['))
@@ -86,11 +88,11 @@
             phone: dataSet[i][4],
             email: dataSet[i][5],
             address: dataSet[i][6],
-            primarymajor: dataSet[i][7],
-            studentnumber: dataSet[i][8],
+            primaryMajor: dataSet[i][7].toString(),
+            studentNumber: dataSet[i][8].toString(),
             gpa: dataSet[i][9],
             level: dataSet[i][10],
-            researchexperience: dataSet[i][11],
+            researchExperience: dataSet[i][11],
             projects: projList.join('\n')
         }
         myRecords.push(obj)
