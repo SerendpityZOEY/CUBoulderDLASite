@@ -274,7 +274,7 @@ def matrix():
     students = []
     dicts = {}
     for A_Id, S_Id in applications:
-        row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`, `Phone`, \
+        row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Phone`, \
                                  `Email`, `Address`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
                                   , `ResearchExperience` \
                                   FROM `STUDENT` WHERE `S_Id`=" + str(S_Id))
@@ -292,3 +292,7 @@ def getDetail(projectId):
             project = sqlUtil.select_one("ProjName", "PROJECT_INFO", "P_Id", i)
             list+=(project,)
     return list
+
+@app.route('/detail')
+def detail():
+    return render_template("projdetail.html")

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Matrix</title>
+    <title>Details</title>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/styles.css">
     <script src="../static/js/jquery-3.1.1.min.js"></script>
@@ -43,76 +43,6 @@
     </style>
 </head>
 <body>
-
-<div class="container-fluid">
-    <h1>Matrix</h1>
-    <div class="row">
-        <div class="col-md-10 center">
-	<table id="my-final-table" class="table-striped">
-      <thead>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Primary Major</th>
-        <th>Student Number</th>
-        <th>GPA</th>
-        <th>Level</th>
-        <th>Research Experience</th>
-        <th>Projects</th>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-        </div>
-    </div>
-</div>
-<script>
-    var dataSet = {{ students|tojson }};
-    var projDict = {{ projects|safe }};
-    var myRecords = []
-    for(var i=0;i<dataSet.length;i++){
-        console.log(dataSet[i])
-        //process project name
-        var projString = projDict[dataSet[i][10]];
-        var inputStr = projString.substring(2,projString.length-2);
-        var projList = formatList(inputStr.split('], ['))
-        var obj = {
-            name: dataSet[i][0],
-            race: dataSet[i][1],
-            phone: dataSet[i][2],
-            email: dataSet[i][3],
-            address: dataSet[i][4],
-            primaryMajor: dataSet[i][5],
-            studentNumber: dataSet[i][6],
-            gpa: dataSet[i][7],
-            level: dataSet[i][8],
-            researchExperience: dataSet[i][9],
-            projects: projList.join('\n')
-        }
-        myRecords.push(obj)
-    }
-
-    function formatList(strs){
-        var retList = [];
-        for(var i=0;i<strs.length;i++){
-            var proj = (i+1).toString() +'<a href="/detail">'+strs[i].substring(1,strs[i].length-1)+'</a>'+'<br>';
-            retList.push(proj)
-        }
-        return retList;
-    }
-
-    $(document).ready(function() {
-
-      $('#my-final-table').dynatable({
-        dataset: {
-          records: myRecords
-        }
-      })
-
-    })
-</script>
 
 </body>
 </html>
