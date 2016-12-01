@@ -132,7 +132,7 @@ def submit():
         'EmploymentPlanned':            request.form['plan'],
         'BackgroundCheck':            request.form['backCheck'],
         'Discrimination':             request.form['discrimination'],
-        'SSN':                        request.form['SSN']
+        'SSN':                        request.form['SSN'],
         'Name': None if request.form.get('name', "") == "" else request.form['name'],
         'Gender': request.form.get('gender', None),
         'Origin': request.form.get('origin', None),
