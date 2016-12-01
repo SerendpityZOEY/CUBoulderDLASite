@@ -14,8 +14,9 @@
 
 #card {
     position: absolute;
-    top: 50%;
     left: 50%;
+    margin:0;
+    max-height: 650px;
     transform: translate(-50%, -50%);
 }
 
