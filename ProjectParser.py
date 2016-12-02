@@ -9,7 +9,7 @@ csv_content = list(DictReader(open("Projects.csv", 'r')))
 
 sql = MysqlUtil(app)
 sql.use_account('developer')
-sql.use_database('NewSE')
+sql.use_database('SEDB')
 
 DEPT = sql.select_all("select * from DEPT;")
 DEPT_Dict = {}
