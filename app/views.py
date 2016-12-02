@@ -293,6 +293,14 @@ def getDetail(projectId):
             list+=(project,)
     return list
 
-@app.route('/detail')
+
+@app.route('/detail', methods=['GET', "POST"])
 def detail():
-    return render_template("projdetail.html")
+    test = {'name':'hey'}
+    if request.method == 'POST':
+        test = request.json
+        print('--',test)
+        return render_template("projdetail.html", data=test)
+    else:
+        print('get',test)
+        return render_template("projdetail.html", data=test)

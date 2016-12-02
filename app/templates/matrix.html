@@ -30,13 +30,6 @@
     <link rel="stylesheet" href="../static/dynatable/jquery.dynatable.css">
 
     <style>
-        .sidebar1 {
-            float: right;
-            width: 25%;
-            padding-bottom: 10px;
-            background-color: #eee;
-        }
-
         body {
             background-color: #fff8e1;
         }
@@ -48,6 +41,18 @@
     <h1>Matrix</h1>
     <div class="row">
         <div class="col-md-10 center">
+        <div>
+        Level:
+        <select id="search-level" name="level">
+          <option value="">All</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        </div>
+
+    <br>
 	<table id="my-final-table" class="table-striped">
       <thead>
         <th>Name</th>
@@ -65,6 +70,7 @@
       <tbody>
       </tbody>
     </table>
+
         </div>
     </div>
 </div>
@@ -80,7 +86,7 @@
         var projList = formatList(inputStr.split('], ['))
         var obj = {
             name: dataSet[i][0],
-            race: dataSet[i][1],
+            gender: dataSet[i][1],
             phone: dataSet[i][2],
             email: dataSet[i][3],
             address: dataSet[i][4],
@@ -97,20 +103,51 @@
     function formatList(strs){
         var retList = [];
         for(var i=0;i<strs.length;i++){
-            var proj = (i+1).toString() +'<a href="/detail">'+strs[i].substring(1,strs[i].length-1)+'</a>'+'<br>';
+            var proj = (i+1).toString() +'<a href="/detail" onclick="theFunction();">'+strs[i].substring(1,strs[i].length-1)+'</a>'+'<br>';
             retList.push(proj)
         }
         return retList;
     }
 
+    function theFunction () {
+        var data = {
+            'foo' : 'foo',
+            'bar' : 'bar',
+            'fo_' : 42
+        }
+        $.ajax({
+            type : "POST",
+            url : '/detail',
+            data: JSON.stringify(data, null, '\t'),
+            contentType: 'application/json;charset=UTF-8',
+            success: function(result) {
+                alert("success")
+                console.log(result);
+            },
+             error: function (error) {
+                alert("post failed!");
+            }
+        });
+        // return true or false, depending on whether you want to allow the `href` property to follow through or not
+    }
+
     $(document).ready(function() {
 
       $('#my-final-table').dynatable({
-        dataset: {
-          records: myRecords
-        }
-      })
-
+          dataset: {
+              records: myRecords,
+              //perPageDefault: 3,
+              //perPageOptions: [3, 6]
+          },
+          features: {
+            paginate: true,
+            recordCount: true,
+            sorting: true
+          },
+          inputs: {
+              queries: $('#search-level')
+          }
+      });
     })
 </script>
 
