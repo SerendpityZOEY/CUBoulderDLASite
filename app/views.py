@@ -107,7 +107,7 @@ def submit():
         'studentNumber': None if request.form.get('SN', "") == "" else request.form['SN'],
         'GPA': None if request.form.get('GPA', "") == "" else request.form['GPA'],
         'level': request.form.get('level', None),
-        'GraduationDate': None if request.form.get('date', "") == "" else request.form['date'] + '-00',
+        'GraduationDate': None if request.form.get('date', "") == "" else request.form['date'] + '-01',
         'ResearchExperience': request.form.get('researchExp', None),
         'AppliedBefore': request.form.get('appliedBefore', None),
         'EmploymentPlanned': None if request.form.get('plan', "") == "" else request.form['plan'],
