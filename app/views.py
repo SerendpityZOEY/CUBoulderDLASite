@@ -107,7 +107,7 @@ def submit():
         'studentNumber': None if request.form.get('SN', "") == "" else request.form['SN'],
         'GPA': None if request.form.get('GPA', "") == "" else request.form['GPA'],
         'level': request.form.get('level', None),
-        'GraduationDate': None if request.form.get('date', "") == "" else request.form['date'] + '-00',
+        'GraduationDate': None if request.form.get('date', "") == "" else request.form['date'] + '-01',
         'ResearchExperience': request.form.get('researchExp', None),
         'AppliedBefore': request.form.get('appliedBefore', None),
         'EmploymentPlanned': None if request.form.get('plan', "") == "" else request.form['plan'],
@@ -157,7 +157,7 @@ def faculty():
 
 @app.route('/lookup', methods=['GET', 'POST'])
 def lookup():
-    studentID = request.form['studentID']
+    studentNumber = request.form['studentID']
     studentSecret = request.form['studentSecret']
     # print("The student ID '" + studentID + "'")
     hashed_secret = hash_secret(studentSecret)
@@ -165,32 +165,47 @@ def lookup():
 
     data = []
 
-    studentID, studentName, gender, origin, race, phoneNumber, email, address, major, studentNumber, GPA, level, graduateDate, researchExperience, appliedBefore = sqlUtil.select_one(
-        "SELECT * FROM `student` WHERE `studentID`='{studentID}'".format(studentID=studentID))
-    projectTitles = sqlUtil.select_all(
-        "SELECT * FROM `application` WHERE `Sid`='{studentID}'".format(studentID=studentID))
+    studentID, studentName, gender, origin, race, phoneNumber, email, address, sumPhone, sumEmail, sumAddress, major, secondaryMajor, studentNumber, GPA, level, GraduationDate, researchExperience, appliedBefore, employmentPlanned, backgroundCheck, discrimination, ssn, skills = sqlUtil.select_one(
+        "SELECT * FROM `STUDENT` WHERE `StudentNumber`='{studentNumber}'".format(studentNumber=studentNumber))
+    print("graduateDate: {}".format(GraduationDate))
+    #projectTitles = sqlUtil.select_all(
+    #    "SELECT * FROM `APPLICATION` WHERE `S_Id`='{studentID}'".format(studentID=studentID))
 
-    project_list = []
-    checkSecret = False
-    for Aid, Sid, Priority, P_Id, Secret in projectTitles:
-        if not check_secret(Secret, studentSecret):
-            print ("Not YaaaaaaaaaY")
-            break
+    #Aid, Sid, Priority, P_Id, Secret
+    A_Id, S_Id, Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id, OptReqsCheck, Secret, createdTime, lastUpdatedTime = sqlUtil.select_one(
+        "SELECT * FROM `APPLICATION` WHERE `S_Id`='{studentID}'".format(studentID=studentID))
 
-        checkSecret = True
-        project_title = sqlUtil.select_one(
-            "SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{P_Id}'".format(P_Id=P_Id))
-        project_list.append("{}+{}".format(project_title, Priority))
+    print("lastUpdatedTime: {}".format(lastUpdatedTime))
 
-    print("Project_list: {}".format(project_list))
-    if checkSecret:
-        data.append([studentName, gender, origin, race, phoneNumber, email, address, major, studentNumber, GPA, level,
-                     graduateDate, researchExperience, appliedBefore, project_list])
-        return render_template("display.html", data=json.dumps(data))
-    else:
-        message = "Wrong Secret"
+    majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
 
-        return render_template("navigation.html", message=message)
+    #project_list = []
+    #checkSecret = False
+    #for Aid, Sid, Priority, P_Id, Secret in projectTitles:
+    if  not check_secret(Secret, studentSecret):
+       print (" YaaaaaaaaaY")
+       #break
+
+       #checkSecret = True
+       #project_title = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{P_Id}'".format(P_Id=P_Id))
+       project_title1 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr1_P_Id}'".format(Pr1_P_Id=Pr1_P_Id))
+       project_title2 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr2_P_Id}'".format(Pr2_P_Id=Pr2_P_Id))
+       project_title3 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr3_P_Id}'".format(Pr3_P_Id=Pr3_P_Id))
+       project_title4 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr4_P_Id}'".format(Pr4_P_Id=Pr4_P_Id))
+       project_title5 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr5_P_Id}'".format(Pr5_P_Id=Pr5_P_Id))
+
+
+
+    #project_list.append("{}+{}".format(project_title, Priority))
+    #print("Project_list: {}".format(project_list))
+
+    #if checkSecret:
+       data.append([studentName, gender, origin, race, phoneNumber, email, address, sumPhone, sumEmail, sumAddress, major, secondaryMajor,  studentNumber, GPA, level, GraduationDate, researchExperience, appliedBefore, employmentPlanned, backgroundCheck, discrimination, ssn, skills, project_title1, project_title2, project_title3, project_title4, project_title5])
+       return render_template("display.html", data=json.dumps(data), majors=json.dumps(majors))
+
+    message = "Wrong Secret"
+
+    return render_template("navigation.html", message=message)
 
 
 @app.route('/fsubmit', methods=['GET', 'POST'])

@@ -13,6 +13,13 @@
     <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
     <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
     <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png" />
+    <!--Bootstrap DatePicker-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css"
+          rel="stylesheet" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!--Bootstrap validator-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
     <style>
       .sidebar1 {
       float: right;
@@ -57,27 +64,27 @@
                </div>
                <div class="form-group">
                  <label><span style="color:red;">* </span>Gender:</label>
-                 <label class="radio-inline"><input type="radio" name="gender" id="r1Gender" value="male" disabled="disabled">Male</label>
-                 <label class="radio-inline"><input type="radio" name="gender" id="r2Gender" value="female" disabled="disabled">Female</label>
+                 <label class="radio-inline"><input type="radio" name="gender" id="r1Gender" value=0 disabled="disabled">Male</label>
+                 <label class="radio-inline"><input type="radio" name="gender" id="r2Gender" value=1 disabled="disabled">Female</label>
                </div>
                <div class="form-group">
                    <label>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
                        American, or Spanish Origin?</label>
                    <div class="form-check">
                      <label class="form-check-label">
-                         <input type="radio" class="form-check-input" name="origin" id="option1" value="yes" disabled="disabled">
+                         <input type="radio" class="form-check-input" name="origin" id="option1" value="0" disabled="disabled">
                          Yes
                        </label>
                    </div>
                    <div class="form-check">
                      <label class="form-check-label">
-                         <input type="radio" class="form-check-input" name="origin" id="option2" value="no" disabled="disabled">
+                         <input type="radio" class="form-check-input" name="origin" id="option2" value="1" disabled="disabled">
                          No
                        </label>
                    </div>
                    <div class="form-check">
                      <label class="form-check-label">
-                         <input type="radio" class="form-check-input" name="origin" id="option3" value="option3" disabled="disabled">
+                         <input type="radio" class="form-check-input" name="origin" id="option3" value="2" disabled="disabled">
                          I do not wish to provide this information
                        </label>
                    </div>
@@ -130,7 +137,7 @@
               </div>
                 <div class="form-group">
                   <label><span style="color:red;">* </span>Email:</label>
-                  <input type="text" class="form-control" name="email" id="email" placeholder="Email" disabled="disabled">
+                  <input type="text" class="form-control" name="email1" id="email1" placeholder="Email" disabled="disabled">
                 </div>
             </form>
           </div>
@@ -148,15 +155,15 @@
             <form>
               <div class="form-group">
                 <label for="address">Summer Address: (street, city, state, zip)</label>
-                <textarea class="form-control" name="address" rows="3" type="text" disabled="disabled"></textarea>
+                <textarea class="form-control" name="sumAddress" id="sumAddress" rows="3" type="text" disabled="disabled"></textarea>
               </div>
               <div class="form-group">
                 <label>Summer Phone:</label>
-                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone" disabled="disabled">
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="sumPhone" id="sumPhone" disabled="disabled">
               </div>
                 <div class="form-group">
                   <label>Summer Email:</label>
-                  <input type="text" class="form-control" name="email" placeholder="Email" disabled="disabled">
+                  <input type="text" class="form-control" name="sumEmail" id="sumEmail" placeholder="Email" disabled="disabled">
                 </div>
             </form>
           </div>
@@ -183,7 +190,7 @@
                           <div class="form-group">
                             <label for="address">Secondary Major</label>
                               <small>If you have a <strong>double major</strong>. Do not select a minor here.</small>
-                            <textarea class="form-control" name="major" type="text" disabled="disabled"></textarea>
+                            <textarea class="form-control" name="secondaryMajor" id="secondaryMajor" type="text" disabled="disabled"></textarea>
                           </div>
                           <div class="form-group">
                             <label><span style="color:red;">* </span>StudentNumber:</label>
@@ -199,43 +206,25 @@
                             <input class="form-control" name="GPA" id="GPA" type="number" min="0" step="any" disabled="disabled">
                           </div>
 
-                          <div class="form-group">
-                            <label><span style="color:red;">* </span>Level: (freshman, Sophomore, Junior, Senior, Other)</label>
-                            <input class="form-control" name="level" id="level" type="text" disabled="disabled">
-                          </div>
+                             <div class="form-group has-feedback">
+                                  <label class="control-label"><span style="color:red;">* </span>Level: (freshman,Sophomore, Junior, Senior, Other)</label>
+                                  <select class="form-control" name="level" id="level" required>
+                                         <option  disabled value="">Please Select</option>
+                                         <option value=0>Freshman</option>
+                                         <option value=1>Sophomore</option>
+                                         <option value=2>Junior</option>
+                                         <option value=3>Senior</option>
+                                         <option value=4>5th Year Senior</option>
+                                  </select>
+                                <div class="help-block with-errors"></div>
+                             </div>
                         </form>
-                          <div class="input-group date" data-provide="datepicker">
+                        <div class="form-group date">
                             <label><span style="color:red;">* </span>Graduation Date</label>
-                            <div class="bfh-datepicker" data-format="y-m-d" data-date="today">
-                              <div class="input-prepend bfh-datepicker-toggle" data-toggle="bfh-datepicker">
-                                <span class="add-on"><i class="icon-calendar"></i></span>
-                                <input type="text" id="date" name="date" class="input-medium" readonly>
-                              </div>
-                              <div class="bfh-datepicker-calendar">
-                                <table class="calendar table table-bordered">
-                                  <thead>
-                                    <tr class="months-header">
-                                      <th class="month" colspan="4">
-                                        <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
-                                        <span></span>
-                                        <a class="next" href="#"><i class="icon-chevron-right"></i></a>
-                                      </th>
-                                      <th class="year" colspan="3">
-                                        <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
-                                        <span></span>
-                                        <a class="next" href="#"><i class="icon-chevron-right"></i></a>
-                                      </th>
-                                    </tr>
-                                    <tr class="days-header">
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-
+                            <span class="add-on"><i class="icon-calendar"></i></span>
+                            <input type="text" name="date"  class="form-control" placeholder="Graduation Date"
+                                   id="graduation">
+                        </div>
                       <div class="form-group">
                         <label>Do you have previous research experience?</label><br>
                         <label class="radio-inline"><input type="radio" name="researchExp" id="research1" value="yes" disabled="disabled">Yes</label>
@@ -260,14 +249,17 @@
             <form>
               <div class="form-group">
                   <label>Have you applied for a Discovery Learning Apprenticeship before?</label><br>
-                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore1" value="yes" disabled="disabled">Yes</label>
-                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore2" value="notsure" disabled="disabled">Not Sure</label>
-                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore3" value="no" disabled="disabled">No</label>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore1"
+                                                     value=0>Yes</label>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore2"
+                                                     value=1>No</label>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" id="appliedBefore3" value=2>Not
+                      Sure</label>
               </div>
 
               <div class="form-group">
                   <label>Other fall employment planned:</label>
-                  <textarea class="form-control" placeholder="Other fall employment planned:" disabled="disabled"></textarea>
+                  <textarea class="form-control" name="employmentPlanned" id="employmentPlanned" placeholder="Other fall employment planned:" disabled="disabled"></textarea>
               </div>
 
               <p><strong style="color:red">Please make sure you selected a major before proceeding!</strong></p>
@@ -321,23 +313,23 @@
 
               <div class="form-group">
                   <label>Have you had a background check yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label><br>
-                  <label class="radio-inline"><input type="radio" name="backCheck" value="yes" disabled="disabled">Yes</label>
-                  <label class="radio-inline"><input type="radio" name="backCheck" value="notsure" disabled="disabled">Not Sure</label>
-                  <label class="radio-inline"><input type="radio" name="backCheck" value="no" disabled="disabled">No</label>
+                  <label class="radio-inline"><input type="radio" name="backgroundCheck1" id="backgroundCheck1" value="yes" disabled="disabled">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="backgroundCheck2" id="backgroundCheck2" value="notsure" disabled="disabled">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="backgroundCheck3" id="backgroundCheck3" value="no" disabled="disabled">No</label>
               </div>
 
               <div class="form-group">
                   <label>Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes when? (Take
                       your best guess if you aren't sure.)</label><br>
-                  <label class="radio-inline"><input type="radio" name="training" value="yes" disabled="disabled">Yes</label>
-                  <label class="radio-inline"><input type="radio" name="training" value="notsure" disabled="disabled">Not Sure</label>
-                  <label class="radio-inline"><input type="radio" name="training" value="no" disabled="disabled">No</label>
+                  <label class="radio-inline"><input type="radio" name="discrimination1" id="discrimination1" value="yes" disabled="disabled">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="discrimination2" id="discrimination2" value="notsure" disabled="disabled">Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="discrimination3" id="discrimination3" value="no" disabled="disabled">No</label>
               </div>
 
               <div class="form-group">
                 <label for="name">Last four digits of your Social Security Number:
                     (this will only be used to acess your background check information)</label>
-                <input type="text" class="form-control" name="field4" maxlength="4">
+                <input type="text" class="form-control" name="ssn" id="ssn" maxlength="4">
               </div>
             </form>
           </div>
@@ -360,15 +352,15 @@
             <form>
               <div class="form-group">
                 <label>1. </label>
-                <textarea class="form-control" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
+                <textarea class="form-control" name="skill1" id="skill1" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
               </div>
               <div class="form-group">
                 <label>2. </label>
-                <textarea class="form-control" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
+                <textarea class="form-control" name="skill2" id="skill2" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
               </div>
               <div class="form-group">
                 <label>3. </label>
-                <textarea class="form-control" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
+                <textarea class="form-control" name="skill3" id="skill3" rows="2" type="text" maxlength="75" disabled="disabled"></textarea>
               </div>
               <p>To complete the application, you must submit a resume and a cover letter. You can submit both using
                   the form below. Please use either the pdf format or a text document. To improve your chances of
@@ -396,7 +388,26 @@
 Mycomponet = '{{data[0]}}'
   $(document).ready(console.log(Mycomponet))
 
-  function display_studentRecord(data) {
+  /*
+   ====================
+   Date Picker
+   ====================
+   */
+/*  var graduateDate = new Date();
+
+  $('#graduation').datepicker({
+      autoclose: true,
+      minViewMode: 1,
+      format: 'yyyy-mm-dd'
+  }).on('changeDate', function (selected) {
+      graduateDate = new Date(selected.date.valueOf());
+      graduateDate.setDate(graduateDate.getDate(new Date(selected.date.valueOf())));
+  });*/
+
+
+  function display_studentRecord(data, majors) {
+
+    console.log("data: " + data)
 
     var name = data[0][0];
     var gender = data[0][1];
@@ -405,87 +416,57 @@ Mycomponet = '{{data[0]}}'
     var phoneNumber = data[0][4];
     var email = data[0][5];
     var address = data[0][6];
-    var major = data[0][7];
-    var studentNumber = data[0][8];
-    var GPA = data[0][9];
-    var level = data[0][10];
-    var graduateDate = data[0][11];
-    var researchExperience = data[0][12];
-    var appliedBefore = data[0][13];
+    var sumPhone = data[0][7];
+    var sumEmail = data[0][8];
+    var sumAddress = data[0][9];
 
-    var projectList = data[0][14];
+    var major = data[0][10];
+    var secondaryMajor = data[0][11];
 
-    var projectValues, projectTitle, priority;
-    for(i=0;i<projectList.length; i++){
-      if(projectList[i] != null){
-      projectValues = projectList[i].split('+');
-      projectTitle = projectValues[0];
-      priority = projectValues[1];
+    var studentNumber = data[0][12];
+    var GPA = data[0][13];
+    var level = data[0][14];
+    var graduateDate = data[0][15];
 
-      if(priority == 1){
-        var opt= document.getElementById('p1').options[0];
-        var title1 = projectTitle.replace('(','');
-        var title2 = title1.replace('\'','');
-        var title3 = title2.replace('\'','');
-        var title4 = title3.replace(')','');
-        var title5 = title4.replace(/,/g , " ");
+    var researchExperience = data[0][16];
+    var appliedBefore = data[0][17];
 
-        opt.value =  title5;
-        opt.text = title5;
-      }
+    var employmentPlanned = data[0][18];
+    var backgroundCheck = data[0][19];
+    var discrimination = data[0][20];
+    var ssn = data[0][21];
+    var skills = data[0][22];
 
-      else if(priority == 2){
-        var opt= document.getElementById('p2').options[0];
-        var title1 = projectTitle.replace('(','');
-        var title2 = title1.replace('\'','');
-        var title3 = title2.replace('\'','');
-        var title4 = title3.replace(')','');
-        var title5 = title4.replace(/,/g , " ");
+    var project_title1 = data[0][23];
+    var project_title2 = data[0][24];
+    var project_title3 = data[0][25];
+    var project_title4 = data[0][26];
+    var project_title5 = data[0][27];
 
-        opt.value =  title5;
-        opt.text = title5;
-      }
+    var opt1= document.getElementById('p1').options[0];
+    opt1.value =  project_title1;
+    opt1.text = project_title1;
 
-      else if(priority == 3){
-        var opt= document.getElementById('p3').options[0];
-        var title1 = projectTitle.replace('(','');
-        var title2 = title1.replace('\'','');
-        var title3 = title2.replace('\'','');
-        var title4 = title3.replace(')','');
-        var title5 = title4.replace(/,/g , " ");
-
-        opt.value =  title5;
-        opt.text = title5;
-      }
-      else if(priority == 4){
-        var opt= document.getElementById('p4').options[0];
-        var title1 = projectTitle.replace('(','');
-        var title2 = title1.replace('\'','');
-        var title3 = title2.replace('\'','');
-        var title4 = title3.replace(')','');
-        var title5 = title4.replace(/,/g , " ");
-
-        opt.value =  title5;
-        opt.text = title5;
-      }
-
-      else if(priority == 5){
-        var opt= document.getElementById('p5').options[0];
-        var title1 = projectTitle.replace('(','');
-        var title2 = title1.replace('\'','');
-        var title3 = title2.replace('\'','');
-        var title4 = title3.replace(')','');
-        var title5 = title4.replace(/,/g , " ");
-
-        opt.value =  title5;
-        opt.text = title5;
-      }
+    var opt2= document.getElementById('p2').options[0];
+    opt2.value =  project_title2;
+    opt2.text = project_title2;
 
 
+    var opt3= document.getElementById('p3').options[0];
+    opt3.value =  project_title3;
+    opt3.text = project_title3;
 
 
-     }
-    }
+    var opt4= document.getElementById('p4').options[0];
+    opt4.value =  project_title4;
+    opt4.text = project_title4;
+
+
+    var opt5= document.getElementById('p5').options[0];
+    opt5.value =  project_title5;
+    opt5.text = project_title5;
+
+
 
     document.getElementById("name").value = name;
 
@@ -502,16 +483,19 @@ Mycomponet = '{{data[0]}}'
     else if (document.getElementById('option2').value == origin){
       document.getElementById('option2').checked = true;
     }
-    else{
+    else if (document.getElementById('option3').value == origin) {
       document.getElementById('option3').checked = true;
     }
 
+    raceArray = race.split(',');
 
-      for(i=1; i<=7;i++){
-        if(document.getElementById('r'+i).value == race)
-        document.getElementById('r'+i).checked = true;
-
+    for(i=0; i<7;i++){
+      if(raceArray[i] != null)
+      {
+        document.getElementById('r' + raceArray[i] ).checked = true;
+        console.log('r' + raceArray[i]);
       }
+    }
 
 
       if (0 == researchExperience) {
@@ -531,21 +515,97 @@ Mycomponet = '{{data[0]}}'
         document.getElementById('appliedBefore2').checked = true;
       }
 
-
       document.getElementById("address").value = address;
       document.getElementById("phone").value = phoneNumber;
-      document.getElementById("major").value = major;
+      document.getElementById("email1").value = email;
+
+  for(i=0; i<14;i++){
+        if(major == majors[i][0])
+        {
+          document.getElementById("major").value = majors[i][2];
+        }
+        if(secondaryMajor == majors[i][0])
+        {
+        document.getElementById("secondaryMajor").value = majors[i][2];
+        }
+      }
+
+      document.getElementById("sumAddress").value = sumAddress;
+      document.getElementById("sumPhone").value = sumPhone;
+      document.getElementById("sumEmail").value = sumEmail;
+
       document.getElementById("number").value = studentNumber;
       document.getElementById("GPA").value = GPA;
-      document.getElementById("level").value = level;
-      document.getElementById("date").value = graduateDate;
 
 
-      $('.datepicker').datepicker('update', '');
+
+      document.getElementById('level').value=level;
+
+
+
+    //  document.getElementById("date").value = graduateDate;
+    //$('#graduation').datepicker("setDate", graduateDate );
+    $("#graduation").datepicker("update", graduateDate);
+
+
+/*
+    $('#graduation').datepicker({
+        "setDate": graduateDate,
+        "autoclose": true,
+        "format": 'yyyy-mm-dd'
+
+}); */
+
+/*   $('#graduation').datepicker({
+        setDate: graduateDate,
+        autoclose: true,
+        minViewMode: 1,
+        format: 'yyyy-mm-dd'
+    }); */
+
+    console.log("date: " + graduateDate)
+
+
+      document.getElementById("employmentPlanned").value = employmentPlanned;
+
+      if (0 == backgroundCheck) {
+        document.getElementById('backgroundCheck1').checked = true;
+      }
+      else if (1 == backgroundCheck){
+        document.getElementById('backgroundCheck2').checked = true;
+      }
+      else if(2 == backgroundCheck){
+        document.getElementById('backgroundCheck').checked = true;
+      }
+
+      if (0 == discrimination) {
+        document.getElementById('discrimination1').checked = true;
+      }
+      else if (1 == discrimination){
+        document.getElementById('discrimination2').checked = true;
+      }
+      else if(2 == discrimination){
+        document.getElementById('discrimination3').checked = true;
+      }
+
+      document.getElementById("ssn").value = ssn;
+
+      if(skills=!null){
+      var skillArray = skills.split('^;$');
+      skill1 = skillArray[0];
+      skill2 = skillArray[1];
+      skill3 = skillArray[0];
+
+      document.getElementById("skill1").value = skill1;
+      document.getElementById("skill2").value = skill2;
+      document.getElementById("skill3").value = skill3;
+    }
+
+
 
 
 
   }
-  display_studentRecord({{ data|safe }})
+  display_studentRecord({{ data|safe }}, {{ majors|safe}})
 </script>
 </html>
