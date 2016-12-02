@@ -149,7 +149,7 @@ create table STUDENT(
     StudentNumber int(11) NOT NULL DEFAULT 0,
     GPA varchar(5) NOT NULL DEFAULT '',
     Level tinyint(3) NOT NULL DEFAULT 0,
-    GraduationDate date NOT NULL DEFAULT '2016-12-00',
+    GraduationDate date NOT NULL DEFAULT '2016-12-01',
     ResearchExperience boolean DEFAULT NULL,
     AppliedBefore tinyint(3) UNSIGNED DEFAULT NULL,
     EmploymentPlanned varchar(1000) DEFAULT NULL,
@@ -175,6 +175,7 @@ ALTER TABLE STUDENT AUTO_INCREMENT = 1;
     -- (S_Id)
 -- VALUES 
     -- (0) ;
+
 create table APPLICATION(
     -- ID
     A_Id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
