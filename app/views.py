@@ -281,6 +281,7 @@ def matrix():
     applications = sqlUtil.select_all("SELECT `A_Id`,`S_Id` FROM `APPLICATION`")
     students = []
     for A_Id, S_Id in applications:
+
         row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`,\
                                  `Email`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
                                   , `ResearchExperience` \
@@ -296,15 +297,18 @@ def matrix():
     p_id_name = sqlUtil.select_all("SELECT `P_Id`, `ProjName` FROM `PROJECT_INFO`")
     return render_template("matrix.html", students=json.dumps(students), s_id_name=s_id_name, p_id_name=p_id_name, major=major)
 
+
 def getDetail(projectId):
     list = []
     for i in projectId[0]:
         if i is not None:
             project = sqlUtil.select_one("ProjName", "PROJECT_INFO", "P_Id", i)
+
             list.append(project[0])
         else:
             list.append('')
     return list
+
 @app.route('/assign', methods=['POST'])
 def assign():
     sid = request.form['student']

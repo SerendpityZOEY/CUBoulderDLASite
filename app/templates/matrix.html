@@ -22,16 +22,38 @@
     <link rel="stylesheet" type="text/javascript"
           href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/table.css">
 
     <style>
+        body {
+            background-color: #fff8e1;
+        }
         table{
           margin: 0 auto;
           width: 100%;
           clear: both;
           border-collapse: collapse;
           table-layout: fixed; 
-          word-wrap:break-word;         }
+          word-wrap:break-word;}
+        th{
+            background-color: #000;
+            color:#fff;
+        }
+        select, .dataTables_wrapper div.dataTables_filter input{
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
    </style>
+
     {#        <style>#}
     {#          table, th, td {#}
     {#              border: 1px solid black;#}
@@ -44,7 +66,9 @@
 </head>
 <body>
 <div class="col-md-10 center">
-    <table>
+            <h1>Matrix</h1>
+            <h2 class="center">Select a Filter</h2>
+    <table class="table">
         <thead>
         <tr>
             <th>Target</th>
@@ -54,8 +78,8 @@
         <tbody>
             <tr id="gender" , data-column="1">
                 <td>Gender</td>
-                <td align="center">
-                    <select class="column_filter" id="col1_filter">
+                <td>
+                    <select class="column_filter form-control" id="col1_filter">
                         <option value="" selected="selected">Please Select</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -64,8 +88,8 @@
             </tr>
             <tr id="race" , data-column="3">
                 <td>Race</td>
-                <td align="center">
-                    <select class="column_filter" id="col3_filter">
+                <td>
+                    <select class="column_filter form-control" id="col3_filter">
                         <option value="" selected="selected">Please Select</option>
                         <option value="American Indian or Alaskan">American Indian or Alaskan</option>
                         <option value="Black or African-American">Black or African-American</option>
@@ -78,8 +102,8 @@
             </tr>
             <tr id="major" , data-column="5">
                 <td>Major</td>
-                <td align="center">
-                    <select class="column_filter" id="col5_filter">
+                <td>
+                    <select class="column_filter form-control" id="col5_filter">
                         <option value="" selected="selected">Please Select</option>
                         {% for row in major %}
                         <option value={{ row[1] }}>{{ row[1] }}</option>
@@ -89,8 +113,8 @@
             </tr>
             <tr id="year" , data-column="8">
                 <td>Level</td>
-                <td align="center">
-                    <select class="column_filter" id="col8_filter">
+                <td>
+                    <select class="column_filter form-control" id="col8_filter">
                         <option value="" selected="selected">Please Select</option>
                         <option value="freshman">Freshman</option>
                         <option value="sophomore">Sophomore</option>
@@ -102,8 +126,8 @@
             </tr>
             <tr id="Re" , data-column="9">
                 <td>Research Exp</td>
-                <td align="center">
-                    <select class="column_filter" id="col9_filter">
+                <td>
+                    <select class="column_filter form-control" id="col9_filter">
                         <option value="" selected="selected">Please Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -113,25 +137,31 @@
         </tbody>
     </table>
 </div>
-<form action="assign" role="form" id="f1" method="post">
-    <label class="control-label"><span style="color:red;"></span>Student</label>
-    <input type="text" list="student" name="student">
-    <datalist id="student">
-        {% for row in s_id_name %}
-        <option value={{ row[0] }}>{{ row[1] }}</option>
-        {% endfor %}
-    </datalist>
-    <label class="control-label"><span style="color:red;">* </span>Project</label>
-    <input list="project" name="project">
-    <datalist id="project">   
-        {% for row in p_id_name %}
-        <option value={{ row[0] }}>{{ row[1] }}</option>
-        {% endfor %}
-    </datalist>
-    <input type="submit" value="Assign">
-</form>
+
 
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 center">
+            <form action="assign" role="form" id="f1" method="post">
+                <label class="control-label"><span style="color:red;"></span>Student</label>
+                <input type="text" list="student" name="student">
+                <datalist id="student">
+                    {% for row in s_id_name %}
+                    <option value={{ row[0] }}>{{ row[1] }}</option>
+                    {% endfor %}
+                </datalist>
+                <label class="control-label"><span style="color:red;">* </span>Project</label>
+                <input list="project" name="project">
+                <datalist id="project">
+                    {% for row in p_id_name %}
+                    <option value={{ row[0] }}>{{ row[1] }}</option>
+                    {% endfor %}
+                </datalist>
+                <input type="submit" value="Assign">
+            </form>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-11 center">
             <table id="student_info" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
@@ -173,6 +203,7 @@
             filterColumn($(this).parents('tr').attr('data-column'));
         });
     });
+
 </script>
 
 </body>
