@@ -148,7 +148,7 @@ def submit():
         'studentNumber': None if request.form.get('SN', "") == "" else request.form['SN'],
         'GPA': None if request.form.get('GPA', "") == "" else request.form['GPA'],
         'level': request.form.get('level', None),
-        'GraduationDate': None if request.form.get('date', "") == "" else request.form['date'] + '-00',
+        'GraduationDate': None if request.form.get('date', "") == "" else request.form['date'] + '-01',
         'ResearchExperience': request.form.get('researchExp', None),
         'AppliedBefore': request.form.get('appliedBefore', None),
         'EmploymentPlanned': None if request.form.get('plan', "") == "" else request.form['plan'],
@@ -321,25 +321,52 @@ def f_submit():
 
 @app.route('/matrix')
 def matrix():
+    gender_dic = {0:'male', 1:'female'}
+    origin_dic = {0:'yes', 1:'no', 2:'N/A'} 
+    race_dic = {1:'American Indian or Alaskan',2:'Black or African-American',3:'Native Hawaiian or other Pacific Islander',\
+    4:'Asian',5:'White',6:'Other',7:'N/A'}
+    major = sqlUtil.select_all("SELECT `M_Id`, `Acronym` FROM `MAJOR`")
+    major_dic = dict(major)
+    level_dic = {1:'freshman', 2:'sophomore', 3:'junior', 4:'senior', 5:'fifth'}
+    re_dic = {0:'No',1:'Yes',None:''}
     applications = sqlUtil.select_all("SELECT `A_Id`,`S_Id` FROM `APPLICATION`")
     students = []
-    dicts = {}
     for A_Id, S_Id in applications:
-        row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`, `Phone`, \
-                                 `Email`, `Address`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
+        row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`,\
+                                 `Email`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
                                   , `ResearchExperience` \
                                   FROM `STUDENT` WHERE `S_Id`=" + str(S_Id))
         projectInd = sqlUtil.select_all("SELECT `Pr1_P_Id`, `Pr2_P_Id`, `Pr3_P_Id`, `Pr4_P_Id`, `Pr5_P_Id` \
                                   FROM `APPLICATION` WHERE `A_Id`="+str(A_Id))
         projects = getDetail(projectInd)
-        students.append(row[0]+(S_Id,))
-        dicts[S_Id] = json.dumps(projects)
-    return render_template("matrix.html", students=json.dumps(students), projects=json.dumps(dicts))
+        row=list(row[0])
+        row[1],row[2], row[5], row[8], row[9] = gender_dic[row[1]], origin_dic[row[2]], major_dic[row[5]], level_dic[row[8]], re_dic[row[9]]
+        row[3] = ', '.join([race_dic[int(r)] for r in row[3].split(',')])
+        students.append(row+projects)
+    s_id_name = sqlUtil.select_all("SELECT `S_Id`, `Name` FROM `STUDENT`")
+    p_id_name = sqlUtil.select_all("SELECT `P_Id`, `ProjName` FROM `PROJECT_INFO`")
+    return render_template("matrix.html", students=json.dumps(students), s_id_name=s_id_name, p_id_name=p_id_name, major=major)
 
 def getDetail(projectId):
-    list = ()
+    list = []
     for i in projectId[0]:
         if i is not None:
             project = sqlUtil.select_one("ProjName", "PROJECT_INFO", "P_Id", i)
-            list+=(project,)
+            list.append(project[0])
+        else:
+            list.append('')
     return list
+@app.route('/assign', methods=['POST'])
+def assign():
+    sid = request.form['student']
+    pid = request.form['project']
+    app.logger.info(type(sid))
+    app.logger.info(pid)
+    if sid and pid:
+        sqlUtil.insert_push('S_Id',int(sid))
+        sqlUtil.insert_push('P_Id',int(pid))
+        sqlUtil.insert_execute('ASSIGNED')
+        sqlUtil.clear()
+    return redirect(request.referrer)
+
+
