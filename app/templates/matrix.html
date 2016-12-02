@@ -2,117 +2,177 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Matrix</title>
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <script src="../static/js/jquery-3.1.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Form Helpers -->
-    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <title>Student Applications</title>
+    {#    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">#}
+    {#    <link rel="stylesheet" href="../static/css/styles.css">#}
+    {#    <script src="../static/js/jquery-3.1.1.min.js"></script>#}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.3.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet">
     <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
-    <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png"/>
-    <!--Bootstrap DatePicker-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css"
-          rel="stylesheet" media="screen">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-
-    <!--Bootstrap validator-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
-    <!--jQuery Validator-->
-    <!--
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js"></script>
-    -->
-    <script src="../static/dynatable/jquery.dynatable.js"></script>
-    <link rel="stylesheet" href="../static/dynatable/jquery.dynatable.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    {#    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>#}
+    {##}
+    {#    <script src="../static/bootstrap/js/bootstrap.min.js"></script>#}
+    {#    <!-- Bootstrap Form Helpers -->#}
+    <!-- datatable -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/javascript"
+          href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
 
     <style>
-        .sidebar1 {
-            float: right;
-            width: 25%;
-            padding-bottom: 10px;
-            background-color: #eee;
-        }
-
-        body {
-            background-color: #fff8e1;
-        }
-    </style>
+        table{
+          margin: 0 auto;
+          width: 100%;
+          clear: both;
+          border-collapse: collapse;
+          table-layout: fixed; 
+          word-wrap:break-word;         }
+   </style>
+    {#        <style>#}
+    {#          table, th, td {#}
+    {#              border: 1px solid black;#}
+    {#          }#}
+    {#          th, td {#}
+    {#              padding: 5px;#}
+    {#              text-align: left;#}
+    {#          }#}
+    {#      </style>#}
 </head>
 <body>
+<div class="col-md-10 center">
+    <table>
+        <thead>
+        <tr>
+            <th>Target</th>
+            <th>Search by</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="gender" , data-column="1">
+                <td>Gender</td>
+                <td align="center">
+                    <select class="column_filter" id="col1_filter">
+                        <option value="" selected="selected">Please Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="race" , data-column="3">
+                <td>Race</td>
+                <td align="center">
+                    <select class="column_filter" id="col3_filter">
+                        <option value="" selected="selected">Please Select</option>
+                        <option value="American Indian or Alaskan">American Indian or Alaskan</option>
+                        <option value="Black or African-American">Black or African-American</option>
+                        <option value="Native Hawaiian or other Pacific Islander">Native Hawaiian or other Pacific Islander</option>
+                        <option value="Asian">Asian</option>
+                        <option value="White">White</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="major" , data-column="5">
+                <td>Major</td>
+                <td align="center">
+                    <select class="column_filter" id="col5_filter">
+                        <option value="" selected="selected">Please Select</option>
+                        {% for row in major %}
+                        <option value={{ row[1] }}>{{ row[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr id="year" , data-column="8">
+                <td>Level</td>
+                <td align="center">
+                    <select class="column_filter" id="col8_filter">
+                        <option value="" selected="selected">Please Select</option>
+                        <option value="freshman">Freshman</option>
+                        <option value="sophomore">Sophomore</option>
+                        <option value="junior">Junior</option>
+                        <option value="senior">Senior</option>
+                        <option value="fifth">Fifth year</option>
+                    </select>
+                </td>
+            </tr>
+            <tr id="Re" , data-column="9">
+                <td>Research Exp</td>
+                <td align="center">
+                    <select class="column_filter" id="col9_filter">
+                        <option value="" selected="selected">Please Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<form action="assign" role="form" id="f1" method="post">
+    <label class="control-label"><span style="color:red;"></span>Student</label>
+    <input type="text" list="student" name="student">
+    <datalist id="student">
+        {% for row in s_id_name %}
+        <option value={{ row[0] }}>{{ row[1] }}</option>
+        {% endfor %}
+    </datalist>
+    <label class="control-label"><span style="color:red;">* </span>Project</label>
+    <input list="project" name="project">
+    <datalist id="project">   
+        {% for row in p_id_name %}
+        <option value={{ row[0] }}>{{ row[1] }}</option>
+        {% endfor %}
+    </datalist>
+    <input type="submit" value="Assign">
+</form>
 
 <div class="container-fluid">
-    <h1>Matrix</h1>
     <div class="row">
-        <div class="col-md-10 center">
-	<table id="my-final-table" class="table-striped">
-      <thead>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Origin</th>
-        <th>Race</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Primary Major</th>
-        <th>Student Number</th>
-        <th>GPA</th>
-        <th>Level</th>
-        <th>Research Experience</th>
-        <th>Projects</th>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+        <div class="col-md-11 center">
+            <table id="student_info" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
         </div>
     </div>
 </div>
+</body>
 <script>
     var dataSet = {{ students|safe }};
-    var projDict = {{ projects|safe }};
-    var myRecords = []
-    for(var i=0;i<dataSet.length;i++){
-        var projString = projDict[dataSet[i][12]];
-        var inputStr = projString.substring(2,projString.length-2);
-        var projList = formatList(inputStr.split('], ['))
-        var obj = {
-            name: dataSet[i][0],
-            gender: dataSet[i][1],
-            origin: dataSet[i][2],
-            race: dataSet[i][3],
-            phone: dataSet[i][4],
-            email: dataSet[i][5],
-            address: dataSet[i][6],
-            primarymajor: dataSet[i][7],
-            studentnumber: dataSet[i][8],
-            gpa: dataSet[i][9],
-            level: dataSet[i][10],
-            researchexperience: dataSet[i][11],
-            projects: projList.join('\n')
-        }
-        myRecords.push(obj)
+    function filterColumn(i) {
+        $('#student_info').DataTable().column(i).search(
+                $('#col' + i + '_filter').val()
+        ).draw();
     }
-
-    function formatList(strs){
-        var retList = [];
-        for(var i=0;i<strs.length;i++){
-            retList.push(strs[i].substring(1,strs[i].length-1))
-        }
-        return retList;
-    }
-
-    $(document).ready(function() {
-
-      $('#my-final-table').dynatable({
-        dataset: {
-          records: myRecords
-        }
-      })
-
-    })
+    $(document).ready(function () {
+        var dataTable = $('#student_info').DataTable({
+            "scrollX": true,
+            data: dataSet,
+            columns: [
+                {"title": "name"},
+                {"title": "gender"},
+                {"title": "origin"},
+                {"title": "race" },
+                {"title": "email"},
+                {"title": "major"},
+                {"title": "student number"},
+                {"title": "GPA"},
+                {"title": "level"},
+                {"title": "research Experience"},
+                {"title": "1th Project"},
+                {"title": "2th Project"},
+                {"title": "3th Project"},
+                {"title": "4th Project"},
+                {"title": "5th Project"}
+            ]
+        });
+        dataTable.columns.adjust().draw();
+        $('select.column_filter').on('keyup click change', function () {
+            filterColumn($(this).parents('tr').attr('data-column'));
+        });
+    });
 </script>
 
 </body>
