@@ -12,25 +12,6 @@ sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
 sqlUtil.use_database('NewSE')
 
-SIMPLE_CHARS = string.ascii_letters + string.digits
-def getRandomString(length=24):
-    return ''.join(random.choice(SIMPLE_CHARS) for i in xrange(length))
-def getRandomHash(length=24):
-    hash = sha512()
-    hash.update(getRandomString())
-    return hash.hexdigest()[:length]
-
-
-dic={1:'Aerospace Engineering', 2:'Applied Math', 3: 'Chemical & Biological Engineering', \
-4: 'Civil, Environmental and Architectural Engineering', 5: 'Computer Science', 6: 'Electrical, Computer and Energy Engineering', \
-7: 'Physics', 8: 'Environmental Engineering', 9: 'Mechanical Engineering', \
-10: 'Colorado Space Grant', 11: 'Engineering Education', 12: 'ATLAS'}
-
-majordict = {0:'Aerospace Engineering', 1:'Applied Math', 2:'Architectural Engineering', 3: 'Chemical Engineering', \
-4: 'Chemical & Biological Engineering', 5: 'Civil Engineering', 6: 'Computer Science', \
-7: 'Electrical Engineering', 8: 'Electrical and Computer Engineering', 9: 'Engineering Physics', \
-10: 'Environmental Engineering', 11: 'Engineering Plus', 12: 'Mechanical Engineering', 13: 'Technology, Arts and Media'}
-
 
 def hash_secret(password):
     # uuid is used to generate a random number
@@ -111,28 +92,6 @@ def project():
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
     sqlUtil.batch_insert_push({
-        'Name':             request.form['name'],
-        'Gender':           request.form['gender'],
-        'Origin':           request.form['origin'],
-        'Race':             request.form['race'],
-        'Phone':             request.form['phone'],
-        'Email':            request.form['email'],
-        'Address':          request.form['address'],
-        'SumPhone':      request.form['Sumphone'],
-        'SumEmail':            request.form['Sumemail'],
-        'SumAddress':          request.form['Sumaddress'],
-        'PrimaryMajor':            request.form['major'],
-        'SecondaryMajor':            request.form['major2'] if int(request.form['major2'])!=0 else None,
-        'studentNumber':    request.form['SN'],
-        'GPA':              str(request.form['GPA']),
-        'level':            request.form['level'],
-        # 'GraduationDate':             request.form['date'],
-        'ResearchExperience':     request.form['researchExp'],  
-        'AppliedBefore':            request.form['appliedBefore'],
-        'EmploymentPlanned':            request.form['plan'],
-        'BackgroundCheck':            request.form['backCheck'],
-        'Discrimination':             request.form['discrimination'],
-        'SSN':                        request.form['SSN'],
         'Name': None if request.form.get('name', "") == "" else request.form['name'],
         'Gender': request.form.get('gender', None),
         'Origin': request.form.get('origin', None),
@@ -162,16 +121,6 @@ def submit():
     sid = sqlUtil.insert_execute('STUDENT')
     sqlUtil.clear()
     sqlUtil.batch_insert_push({
-            'S_Id': sid,
-            'Pr1_P_Id': request.form['p1'],
-            'Pr2_P_Id': request.form['p2'] if int(request.form['p2'])!=0 else None,
-            'Pr3_P_Id': request.form['p3'] if int(request.form['p3'])!=0 else None,
-            'Pr4_P_Id': request.form['p4'] if int(request.form['p4'])!=0 else None,
-            'Pr5_P_Id': request.form['p5'] if int(request.form['p5'])!=0 else None
-    })
-    sqlUtil.insert_execute('APPLICATION')
-    # for i, p in enumerate(['p1', 'p2', 'p3', 'p4', 'p5']):
-    #     sqlUtil.batch_insert_push({'Priority': i+1, 'ProjectID': (request.form[p])[0]})
         'S_Id': sid,
         'Pr1_P_Id': None if request.form.get('p1', "") == "" else request.form['p1'],
         'Pr2_P_Id': None if request.form.get('p2', "") == "" else request.form['p2'],
