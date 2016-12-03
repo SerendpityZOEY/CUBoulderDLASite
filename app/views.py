@@ -179,15 +179,9 @@ def lookup():
 
     majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
 
-    #project_list = []
-    #checkSecret = False
-    #for Aid, Sid, Priority, P_Id, Secret in projectTitles:
-    if  not check_secret(Secret, studentSecret):
+    if   check_secret(Secret, studentSecret):
        print (" YaaaaaaaaaY")
-       #break
 
-       #checkSecret = True
-       #project_title = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{P_Id}'".format(P_Id=P_Id))
        project_title1 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr1_P_Id}'".format(Pr1_P_Id=Pr1_P_Id))
        project_title2 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr2_P_Id}'".format(Pr2_P_Id=Pr2_P_Id))
        project_title3 = sqlUtil.select_one("SELECT `ProjName` FROM `PROJECT_INFO` WHERE `P_Id`='{Pr3_P_Id}'".format(Pr3_P_Id=Pr3_P_Id))
@@ -196,10 +190,6 @@ def lookup():
 
 
 
-    #project_list.append("{}+{}".format(project_title, Priority))
-    #print("Project_list: {}".format(project_list))
-
-    #if checkSecret:
        data.append([studentName, gender, origin, race, phoneNumber, email, address, sumPhone, sumEmail, sumAddress, major, secondaryMajor,  studentNumber, GPA, level, GraduationDate, researchExperience, appliedBefore, employmentPlanned, backgroundCheck, discrimination, ssn, skills, project_title1, project_title2, project_title3, project_title4, project_title5])
        return render_template("display.html", data=json.dumps(data), majors=json.dumps(majors))
 
