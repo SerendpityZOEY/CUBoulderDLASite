@@ -2,11 +2,12 @@
  * Created by yue on 10/7/16.
  */
 
-bootstrap_alert = function () {
-}
-bootstrap_alert.warning = function (message, alert, timeout) {
+
+bootstrap_alert = function (message, alert, timeout) {
     $('<div id="floating_alert" class="alert alert-' + alert + ' fade in" role="alert">' +
         '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + message + '&nbsp;&nbsp;</div>').appendTo('body');
+                
+
 
 
     setTimeout(function () {
@@ -36,10 +37,12 @@ $(document).ready(function () {
             // everything looks good!
         }
         if (trueArr.includes(false)) {
-            bootstrap_alert.warning('You have some fields not filled correctly, please check the required fields!</strong>', 'danger', 10000);
-            $(window).scrollTop($('#floating_alert').offset().top)
+            setTimeout(function(){
+                bootstrap_alert('You have some fields not filled correctly, please check the required fields!</strong>', 'danger', 10000);
+            }, 1000)
         }
         if (!trueArr.includes(false) && !pushed) {
+            $(".alert").alert('close');
             $.ajax({
                 url: '/submit',
                 data: $('form').serialize(),
@@ -62,6 +65,7 @@ $(document).ready(function () {
 })
 $(function () {
     $('#stuSubmit').click(function () {
+        $("html, body").animate({ scrollTop: 0 },"slow");
         i = 0;
         $('form').submit();
 
