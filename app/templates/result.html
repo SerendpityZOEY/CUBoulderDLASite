@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assigned Results</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Form Helpers -->
+    <link href="../static/BootstrapFormHelpers/dist/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png"/>
+    <!--Bootstrap DatePicker-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css"
+          rel="stylesheet" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/javascript"
+          href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+    <style>
+        .sidebar1 {
+            float: right;
+            width: 25%;
+            padding-bottom: 10px;
+            background-color: #eee;
+        }
+
+        body {
+            background-color: #fff8e1;
+        }
+    </style>
+</head>
+<body>
+<h1>Assigned Results</h1>
+<div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-10 center">
+        <table id="project" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+    </div>
+</div>
+
+</div>
+
+<script>
+    var dataSet = {{ data|safe }}
+
+    $(document).ready(function () {
+        var dataTable = $('#project').DataTable({
+            data: dataSet,
+            columns: [
+                {"title": "Student Name"},
+                {"title": "Assigned Projects"},
+            ]
+        });
+        dataTable.columns.adjust().draw();
+
+    });
+</script>
+</body>
+</html>
