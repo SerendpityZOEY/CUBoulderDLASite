@@ -47,19 +47,45 @@
 
 </div>
 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Projects List</h4>
+        </div>
+        <div class="modal-body">
+          {% for row in projects %}
+           <p>{{ row[1] }}</p>
+          {% endfor %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 <script>
     var dataSet = {{ data|safe }}
-
     $(document).ready(function () {
         var dataTable = $('#project').DataTable({
             data: dataSet,
             columns: [
                 {"title": "Student Name"},
-                {"title": "Assigned Projects"},
+                {"title": "Assigned Project"},
             ]
         });
         dataTable.columns.adjust().draw();
 
+        $('#project tbody').on('click', 'tr', function () {
+            var data = dataTable.row( this ).data();
+            //alert( 'You clicked on '+data[0]+'\'s row' );
+            $("#myModal").modal();
+        } );
     });
 </script>
 </body>

@@ -338,6 +338,6 @@ def results():
 
     for i in data:
         res.append([stuDict[i[0]], projDict[i[1]]])
-    return render_template("result.html", data=json.dumps(res))
+    return render_template("result.html", data=json.dumps(res), projects=projects)
 
 
