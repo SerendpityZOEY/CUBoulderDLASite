@@ -432,14 +432,20 @@
 
                             <label class="control-label">Resume:</label>
                             <input type="file" id="file-chooser" /><br>
+                            <div>
                             <button id="upload-button" type="button" class="btn btn-default btn-sm">Upload</button>
-                            <div id="results"></div>
+                            <span id="results" style="color:green"></span>
+                            </div>
+
 
                             <br>
                             <label class="control-label">Cover letter:</label>
                             <input type="file" id="cl-file-chooser"><br>
+                            <div>
                             <button id="upload-button-cl" type="button" class="btn btn-default btn-sm">Upload</button>
-                            <div id="results-cl"></div>
+                            <span id="results-cl" style="color:green"></span>
+                            </div>
+
 
                         </form>
                     </div>
@@ -655,6 +661,7 @@
                     results.innerHTML = 'ERROR: ' + err;
                 } else {
                     console.log('Upload Success');
+                    results.innerHTML = 'Upload Success';
                     listObjs();
                 }
             });
@@ -674,7 +681,7 @@
                 data.Contents.forEach(function(obj) {
                     objKeys += obj.Key + "<br>";
                 });
-                results.innerHTML = objKeys;
+                //results.innerHTML = objKeys;
             }
         });
     }
@@ -702,6 +709,7 @@
                     results_cl.innerHTML = 'ERROR: ' + err;
                 } else {
                     console.log('Upload Success');
+                    results_cl.innerHTML = 'Upload Success';
                 }
             });
         } else {
