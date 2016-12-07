@@ -55,6 +55,100 @@
             <li><a href="#files">Skills, Resume, and Cover Letter</a></li>
             <li><a href="#top">Back to Top</a></li>
         </ul>
+      </div>
+
+<div class="col-md-10">
+   <div class="row" id="studentInfo">
+        <div class="col-md-10 center">
+               <div class="panel panel-default">
+               <div class="panel-heading">
+                 <h3 class="panel-title">Demographic Information</h3>
+               </div>
+               <div class="panel-body">
+                 <form data-toggle="validator" role="form">
+               <div class="form-group">
+                 <label for="name"><span style="color:red;">* </span>Your Name:</label>
+                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+               </div>
+               <div class="form-group">
+                 <label><span style="color:red;">* </span>Gender:</label>
+                 <label class="radio-inline"><input type="radio" name="gender" value=0>Male</label>
+                 <label class="radio-inline"><input type="radio" name="gender" value=1>Female</label>
+               </div>
+               <div class="form-group">
+                   <label><span style="color:red;">* </span>Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central
+                       American, or Spanish Origin?</label>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="origin" id="option1" value=0>
+                         Yes
+                       </label>
+                   </div>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="origin" id="option2" value=1>
+                         No
+                       </label>
+                   </div>
+                   <div class="form-check">
+                     <label class="form-check-label">
+                         <input type="radio" class="form-check-input" name="origin" id="option3" value=2>
+                         I do not wish to provide this information
+                       </label>
+                   </div>
+               </div>
+               <div class="form-group">
+                 <label><span style="color:red;">* </span>Please check your race (select all that apply):</label>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" value="1">American Indian or Alaskan Native</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" value="2">Black or African-American</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" value="3">Native Hawaiian or other Pacific Islander</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" value="4">Asian</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" value="5">White</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" value="6">Other</label>
+                 </div>
+                 <div class="checkbox">
+                   <label><input type="checkbox" name="race" value="7">Do Not Wish to Provide</label>
+                 </div>
+               </div>
+             </form>
+               </div>
+             </div>
+           </div>
+       </div>
+
+   <div class="row" id="boulderInfo">
+        <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Boulder Contact Information</h3>
+          </div>
+          <div class="panel-body">
+            <form data-toggle="validator" role="form">
+              <div class="form-group">
+                <label for="address"><span style="color:red;">* </span>Boulder Address:</label>
+                <textarea class="form-control" name="address" rows="3" type="text"
+                          placeholder="street, city, state, zip" required></textarea>
+              </div>
+              <div class="form-group">
+                <label><span style="color:red;">* </span>Phone:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="phone" required>
+              </div>
+                <div class="form-group">
+                  <label class="control-label"><span style="color:red;">* </span>Email:</label>
+                  <input type="email" class="form-control" name="email" placeholder="Email"
+                         data-error="Email address is invalid" required>
+                   <div class="help-block with-errors"></div>
     </div>
 
     <div class="col-md-10">
@@ -138,6 +232,28 @@
                 </div>
             </div>
         </div>
+       </div>
+   </div>
+
+   <div class="row" id="summerInfo">
+       <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Summer Contact Information(if different)</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="address">Summer Address: (street, city, state, zip)</label>
+                <textarea class="form-control" name="Sumaddress" rows="3" type="text"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Summer Phone:</label>
+                <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" name="Sumphone">
+              </div>
+                <div class="form-group">
+                  <label>Summer Email:</label>
+                  <input type="text" class="form-control" name="Sumemail" placeholder="Email">
 
         <div class="row" id="boulderInfo">
             <div class="col-md-10 center">
@@ -174,6 +290,110 @@
                 </div>
             </div>
         </div>
+       </div>
+   </div>
+
+
+   <div class="row" id="academicInfo">
+       <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Academic Information</h3>
+          </div>
+          <div class="panel-body">
+            <small>Please carefully enter your academic information. If you are still open option, indicate which major you plan to enter.</small>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <form data-toggle="validator" role="form">
+                          <div class="form-group">
+                            <label><span style="color:red;">* </span>Primary Major</label>
+                            <select class="form-control" name="major">
+                              <option value=0 type="number">Please Select</option>
+                              {% for row in majors %}
+                                <option value={{ row[0] }} type="number">{{ row[2] }}</option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                          <div class="form-group">
+                              <label for="address">Secondary Major</label>
+                              <small>If you have a <strong>double major</strong>. Do not select a minor here.</small><br>
+                            <select class="form-control" name="major2">
+                              <option value=0 type="number">Please Select</option>
+                              {% for row in majors %}
+                                <option value={{ row[0] }} type="number">{{ row[2] }}</option>
+                              {% endfor %}
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <label><span style="color:red;">* </span>StudentNumber:</label>
+                            <input class="form-control" type="number" min="0" name="SN" data-buttons="false"
+                                   minlength="9" maxlength="9" required>
+                          </div>
+                          </form>
+                      </div>
+
+                      <div class="col-md-6">
+                          <form>
+                          <div class="form-group">
+                            <label><span style="color:red;">* </span>GPA:</label>
+                            <input type="number" class="form-control" placeholder="x.xxxx"
+                                   name="GPA" min="0.0" step="0.001" max="4.0" required>
+                          </div>
+
+                          <div class="form-group">
+                            <label><span style="color:red;">* </span>Level: (freshman, Sophomore, Junior, Senior, Other)</label>
+                      <select class="form-control" name="level">
+                        <option value="0" selected="selected">Please Select</option>
+                        <option value="Freshman">Freshman</option>
+                        <option value="Sophomore">Sophomore</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                        <option value="5Senior">5th Year Senior</option>
+                      </select>
+                          </div>
+                        </form>
+                        <form>
+                          <div class="input-group date" data-provide="datepicker">
+                            <label><span style="color:red;">* </span>Graduation Date</label>
+                            <div class="bfh-datepicker" data-format="y-m" data-date="today">
+                              <div class="input-prepend bfh-datepicker-toggle" data-toggle="bfh-datepicker">
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                                <input type="text" name="date" class="input-medium" readonly>
+                              </div>
+                              <div class="bfh-datepicker-calendar">
+                                <table class="calendar table table-bordered">
+                                  <thead>
+                                    <tr class="months-header">
+                                      <th class="month" colspan="4">
+                                        <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
+                                        <span></span>
+                                        <a class="next" href="#"><i class="icon-chevron-right"></i></a>
+                                      </th>
+                                      <th class="year" colspan="3">
+                                        <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
+                                        <span></span>
+                                        <a class="next" href="#"><i class="icon-chevron-right"></i></a>
+                                      </th>
+                                    </tr>
+                                    <tr class="days-header">
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                          </form>
+                      <form>
+                        <div class="form-group">
+                          <label>Do you have previous research experience?</label><br>
+                          <label class="radio-inline"><input type="radio" name="researchExp" value='yes'>Yes</label>
+                          <label class="radio-inline"><input type="radio" name="researchExp" value='no' checked >No(This will not affect your eligibility!)</label>
+                        </div>
+                      </form>
+
 
         <div class="row" id="summerInfo">
             <div class="col-md-10 center">
@@ -300,6 +520,102 @@
                 </div>
             </div>
         </div>
+       </div>
+   </div>
+
+   <div class="row" id="apprInfo">
+       <div class="col-md-10 center">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Apprenticeship Information</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                  <label>Have you applied for a Discovery Learning Apprenticeship before?</label><br>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" value="yes">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" value="notsure" checked>Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="appliedBefore" value="no">No</label>
+              </div>
+
+              <div class="form-group">
+                  <label><span style="color:red;">* </span>Other fall employment planned:</label>
+                  <textarea class="form-control" placeholder="Other fall employment planned:" name="plan" ></textarea>
+              </div>
+
+              <p><strong style="color:red">Please make sure you selected a major before proceeding!</strong></p>
+              <p>Indicate up to five research projects in order of interest:</p>
+              <p><strong style="color:red">Please note that some projects have special requirements that you must meet.</strong></p>
+              <p>To see requirements and longer descriptions of the project, look at the projects available for your major here.</p><a href='/project'>projects</a>
+
+              <div class="form-group">
+                <label><span style="color:red;">* </span>Project1</label>
+                <select class="form-control" name="p1" required>
+                  <option value=0 selected="selected">Please Select</option>
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project2</label>
+                <select class="form-control" name="p2">
+                <option value=0 selected="selected">Please Select</option>
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project3</label>
+                <select class="form-control" name="p3">
+                <option value=0 selected="selected">Please Select</option>
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project4</label>
+                <select class="form-control" name="p4">
+                <option value=0 selected="selected">Please Select</option>
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Project5</label>
+                <select class="form-control" name="p5">
+                <option value="0" selected="selected">Please Select</option>
+                  {% for row in data %}
+                    <option value={{ row[0] }} type="number">{{ row[1] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="form-group">
+                  <label>Have you had a background check yet (at CU)? If yes when? (Take your best guess if you aren't sure.)</label><br>
+                  <label class="radio-inline"><input type="radio" name="backCheck" value="yes">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="backCheck" value="notsure" checked>Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="backCheck" value="no">No</label>
+              </div>
+
+              <div class="form-group">
+                  <label>Have you had Discrimination and Harassment Awareness training yet (at CU)? If yes when? (Take
+                      your best guess if you aren't sure.)</label><br>
+                  <label class="radio-inline"><input type="radio" name="discrimination" value="yes">Yes</label>
+                  <label class="radio-inline"><input type="radio" name="discrimination" value="notsure" checked>Not Sure</label>
+                  <label class="radio-inline"><input type="radio" name="discrimination" value="no">No</label>
+              </div>
+
+              <div class="form-group">
+                <label for="name"><span style="color:red;">* </span>Last four digits of your Social Security Number:
+                    (this will only be used to acess your background check information)</label>
+                <input type="password" class="form-control" name="SSN" maxlength="4">
+              </div>
+            </form>
+          </div>
 
         <div class="row" id="apprInfo">
             <div class="col-md-10 center">
