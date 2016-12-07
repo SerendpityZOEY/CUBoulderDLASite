@@ -191,7 +191,21 @@
                 {"title": "GPA"},
                 {"title": "level"},
                 {"title": "research Experience"},
-                {"title": "1th Project"},
+                {"title": "1th Project",
+                     "render" : function(data, type, row, meta){
+                        if(type === 'display'){
+                           return $('<a>')
+                              .attr('href', '/detail')
+                              .text(data)
+                              .wrap('<div></div>')
+                              .parent()
+                              .html();
+
+                        } else {
+                           return data;
+                        }
+                     }
+                },
                 {"title": "2th Project"},
                 {"title": "3th Project"},
                 {"title": "4th Project"},
@@ -201,6 +215,24 @@
         dataTable.columns.adjust().draw();
         $('select.column_filter').on('keyup click change', function () {
             filterColumn($(this).parents('tr').attr('data-column'));
+        });
+
+        $("a").on("click", function(){
+            var projName = $(this).closest("td").text();
+            alert(projName)
+            $.ajax({
+                url: '/detail',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(projName),
+                type: 'POST',
+                success: function (response) {
+                    alert(response);
+                    console.log(projName)
+                },
+                error: function (error) {
+                    window.location.href = "error";
+                }
+            });
         });
     });
 

@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, json, redirect, url_for
+from flask import render_template, request, json, redirect, url_for, jsonify
 from flaskext.mysql import MySQL
 import MysqlUtil
 import random
@@ -323,3 +323,8 @@ def assign():
     return redirect(request.referrer)
 
 
+@app.route('/detail', methods=['GET', 'POST'])
+def detail():
+    my_var = request.json
+    print('--->',str(my_var))
+    return render_template('projdetail.html')
