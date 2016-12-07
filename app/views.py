@@ -308,10 +308,9 @@ def getDetail(projectId):
     for i in projectId[0]:
         if i is not None:
             project = sqlUtil.select_one("ProjName", "PROJECT_INFO", "P_Id", i)
-            list+=(project,)
-    return list
 
             list.append(project[0])
+
         else:
             list.append('')
     return list
