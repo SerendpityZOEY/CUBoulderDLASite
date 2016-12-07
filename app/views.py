@@ -40,7 +40,7 @@ def navigation():
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    data = sqlUtil.select_all("SELECT `PFDept`,`ProjName` FROM `PROJECT_INFO`")
+    data = sqlUtil.select_all("SELECT `StuMajors`,`ProjName` FROM `PROJECT_INFO`")
     majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
     return render_template("student.html", data=json.dumps(data), majors=majors)
 

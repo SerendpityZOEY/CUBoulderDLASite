@@ -236,7 +236,7 @@
                                         <small>If you have a <strong>double major</strong>. Do not select a minor here.
                                         </small>
                                         <br>
-                                        <select class="form-control" name="major2">
+                                        <select class="form-control" name="major2" onchange="getSecondMajor(this);">
                                             <option value="" selected="selected">Please Select</option>
                                             {% for row in majors %}
                                                 <option value={{ row[0] }} type="number">{{ row[2] }}</option>
@@ -432,14 +432,20 @@
 
                             <label class="control-label">Resume:</label>
                             <input type="file" id="file-chooser" /><br>
+                            <div>
                             <button id="upload-button" type="button" class="btn btn-default btn-sm">Upload</button>
-                            <div id="results"></div>
+                            <span id="results" style="color:green"></span>
+                            </div>
+
 
                             <br>
                             <label class="control-label">Cover letter:</label>
                             <input type="file" id="cl-file-chooser"><br>
+                            <div>
                             <button id="upload-button-cl" type="button" class="btn btn-default btn-sm">Upload</button>
-                            <div id="results-cl"></div>
+                            <span id="results-cl" style="color:green"></span>
+                            </div>
+
 
                         </form>
                     </div>
@@ -522,7 +528,9 @@
      Update Dropdown
      ====================
      */
+    //get all majors
     var onchangeListener = false;
+    var studentMajor = "";
     if(!onchangeListener){
         var projects = {{ data|safe }};
         var s1 = document.getElementById("p1");
@@ -541,17 +549,18 @@
         }
     }
 
+    //get preferred major
     function getMajor(selected)
     {
-        //alert(selected.value);
         onchangeListener = true;
-        var studentMajor = selected.value;
+        studentMajor = selected.value;
         var projects = {{ data|safe }};
         var s1 = document.getElementById("p1");
         var s2 = document.getElementById("p2");
         var s3 = document.getElementById("p3");
         var s4 = document.getElementById("p4");
         var s5 = document.getElementById("p5");
+
         var len = s1.options.length;
         var par;
         for(var times = 0;times<5;times++){
@@ -575,6 +584,38 @@
         }
     }
 
+    function getSecondMajor(selected){
+        var secMajor = selected.value;
+        //console.log('sec',secMajor);
+        var projects = {{ data|safe }};
+        var s1 = document.getElementById("p1");
+        var s2 = document.getElementById("p2");
+        var s3 = document.getElementById("p3");
+        var s4 = document.getElementById("p4");
+        var s5 = document.getElementById("p5");
+
+        var len = s1.options.length;
+        var par;
+        for(var times = 0;times<5;times++){
+            for (var i=len; i>1; i--) {
+                var s = eval('s'+(times+1));
+                par = s.options[i - 1].parentNode;
+                par.removeChild(s.options[i - 1]);
+            }
+        }
+        for(var times = 0;times<5;times++){
+            projects.forEach(function(line,index){
+                if(line[0]==secMajor || line[0]==studentMajor){
+                    var s = eval('s'+(times+1));
+                    var option = document.createElement("option");
+                    option.value = line[0];
+                    option.textContent = line[1];
+                    //console.log(option);
+                    s.appendChild(option);
+                }
+            })
+        }
+    }
 
 </script>
 
@@ -620,6 +661,7 @@
                     results.innerHTML = 'ERROR: ' + err;
                 } else {
                     console.log('Upload Success');
+                    results.innerHTML = 'Upload Success';
                     listObjs();
                 }
             });
@@ -639,7 +681,7 @@
                 data.Contents.forEach(function(obj) {
                     objKeys += obj.Key + "<br>";
                 });
-                results.innerHTML = objKeys;
+                //results.innerHTML = objKeys;
             }
         });
     }
@@ -654,7 +696,7 @@
         if (file) {
 
             results_cl.innerHTML = '';
-            var objKey = 'coverletter/' + file.name;
+            var objKey = 'coverletters/' + file.name;
             var params = {
                 Key: objKey,
                 ContentType: file.type,
@@ -667,6 +709,7 @@
                     results_cl.innerHTML = 'ERROR: ' + err;
                 } else {
                     console.log('Upload Success');
+                    results_cl.innerHTML = 'Upload Success';
                 }
             });
         } else {
