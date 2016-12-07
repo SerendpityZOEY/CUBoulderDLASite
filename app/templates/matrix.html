@@ -105,9 +105,6 @@
                 <td>
                     <select class="column_filter form-control" id="col5_filter">
                         <option value="" selected="selected">Please Select</option>
-                        <!-- {% for row in major %}
-                        <option value={{ row[1] }}>{{ row[1] }}</option>
-                        {% endfor %} -->
                     </select>
                 </td>
             </tr>
@@ -146,16 +143,10 @@
                 <label class="control-label"><span style="color:red;"></span>Student</label>
                 <input type="text" list="student" name="student">
                 <datalist id="student">
-                    <!-- {% for row in s_id_name %}
-                    <option value={{ row[0] }}>{{ row[1] }}</option>
-                    {% endfor %} -->
                 </datalist>
                 <label class="control-label"><span style="color:red;">* </span>Project</label>
                 <input list="project" name="project">
                 <datalist id="project">
-                    <!-- {% for row in p_id_name %}
-                    <option value={{ row[0] }}>{{ row[1] }}</option>
-                    {% endfor %} -->
                 </datalist>
                 <input type="submit" value="Assign">
             </form>
@@ -189,10 +180,6 @@
         }
         for (var i=0;i<major.length;i++){
             $('#col5_filter').append('<option value='+major[i][1]+'>'+major[i][1]+'</option>');
-            // var option = document.creatElement("option");
-            // option.text = major[i][1];
-            // option.value = major[i][1];
-            // select.appendChild(option);
         }
         var dataTable = $('#student_info').DataTable({
             "scrollX": true,
