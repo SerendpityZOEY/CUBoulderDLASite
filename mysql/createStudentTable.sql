@@ -16,7 +16,7 @@ create table STUDENT(
     PrimaryMajor tinyint(3) UNSIGNED NOT NULL,
     SecondaryMajor tinyint(3) UNSIGNED DEFAULT NULL,
     StudentNumber int(11) NOT NULL DEFAULT 0,
-    GPA varchar(5) NOT NULL DEFAULT '',
+    GPA float NOT NULL DEFAULT 0.0,
     Level tinyint(3) NOT NULL DEFAULT 0,
     GraduationDate date NOT NULL DEFAULT '2016-12-01',
     ResearchExperience boolean DEFAULT NULL,
