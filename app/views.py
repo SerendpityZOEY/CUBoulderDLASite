@@ -49,6 +49,8 @@ def student():
 def project():
     data = []
     dic = dict(sqlUtil.select_all("SELECT `D_Id`, `FullName` FROM `DEPT`"))
+    major = sqlUtil.select_all("SELECT `M_Id`, `FullName` FROM `MAJOR`")
+    dic_M = dict(major)
     # cursor.execute("SELECT * FROM `project`")
     # projects = cursor.fetchall()
     projects = sqlUtil.select_all(
@@ -80,13 +82,14 @@ def project():
             for i, r in enumerate(OptReqs.rstrip(';').split(';')):
                 Req = Req + str(i + 1) + '.' + r + '\n'
                 # app.logger.info(StuMajors)
-                # Maj = ''
-                # for i, m in enumerate(StuMajors.split(';')):
-                # Maj=Maj+majordict[int(m)]+','
+                Maj = ''
+                if StuMajors!='':
+                    for i, m in enumerate(StuMajors.split(';')):
+                        Maj=Maj+dic_M[int(m)]+','
         data.append(
-            [ProjName, contact, dic[PFDept], WebLink if WebLink is not None else u"", LongDesc, Req])  # , Maj])
+            [ProjName, contact, dic[PFDept], WebLink if WebLink is not None else u"", LongDesc, Req, Maj])
         # app.logger.info(data)
-    return render_template("project.html", data=json.dumps(data))
+    return render_template("project.html", data=json.dumps(data), major=json.dumps(major))
 
 
 @app.route('/submit', methods=['GET', 'POST'])
@@ -295,7 +298,7 @@ def matrix():
         students.append(row+projects)
     s_id_name = sqlUtil.select_all("SELECT `S_Id`, `Name` FROM `STUDENT`")
     p_id_name = sqlUtil.select_all("SELECT `P_Id`, `ProjName` FROM `PROJECT_INFO`")
-    return render_template("matrix.html", students=json.dumps(students), s_id_name=s_id_name, p_id_name=p_id_name, major=major)
+    return render_template("matrix.html", students=json.dumps(students), s_id_name=json.dumps(s_id_name), p_id_name=json.dumps(p_id_name), major=json.dumps(major))
 
 
 def getDetail(projectId):
