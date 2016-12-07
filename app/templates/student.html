@@ -26,6 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js"></script>
     -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
     <style>
         .sidebar1 {
             float: right;
@@ -746,9 +747,16 @@
                                 and resume.</p>
 
                             <label class="control-label">Resume:</label>
-                            <input id="input-1" type="file" class="file">
+                            <input type="file" id="file-chooser" /><br>
+                            <button id="upload-button" type="button" class="btn btn-default btn-sm">Upload</button>
+                            <div id="results"></div>
+
+                            <br>
                             <label class="control-label">Cover letter:</label>
-                            <input id="input-2" type="file" class="file">
+                            <input type="file" id="cl-file-chooser"><br>
+                            <button id="upload-button-cl" type="button" class="btn btn-default btn-sm">Upload</button>
+                            <div id="results-cl"></div>
+
                         </form>
                     </div>
                 </div>
@@ -883,6 +891,104 @@
         }
     }
 
+
+</script>
+
+<script type="text/javascript">
+    AWS.config.region = 'us-west-2'; // 1. Enter your region
+
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'us-west-2:3eca9deb-761c-4b69-a99c-5ebd71c05ede' // 2. Enter your identity pool
+    });
+
+    AWS.config.credentials.get(function(err) {
+        if (err) alert(err);
+        console.log(AWS.config.credentials);
+    });
+
+    var bucketName = 'silkroadcu'; // Enter your bucket name
+    var bucket = new AWS.S3({
+        params: {
+            Bucket: bucketName
+        }
+    });
+
+    var fileChooser = document.getElementById('file-chooser');
+    var button = document.getElementById('upload-button');
+    var results = document.getElementById('results');
+    button.addEventListener('click', function() {
+
+        var file = fileChooser.files[0];
+
+        if (file) {
+
+            results.innerHTML = '';
+            var objKey = 'resumes/' + file.name;
+            var params = {
+                Key: objKey,
+                ContentType: file.type,
+                Body: file,
+                ACL: 'public-read'
+            };
+
+            bucket.putObject(params, function(err, data) {
+                if (err) {
+                    results.innerHTML = 'ERROR: ' + err;
+                } else {
+                    console.log('Upload Success');
+                    listObjs();
+                }
+            });
+        } else {
+            results.innerHTML = 'Nothing to upload.';
+        }
+    }, false);
+    function listObjs() {
+        var prefix = 'resumes';
+        bucket.listObjects({
+            Prefix: prefix
+        }, function(err, data) {
+            if (err) {
+                results.innerHTML = 'ERROR: ' + err;
+            } else {
+                var objKeys = "";
+                data.Contents.forEach(function(obj) {
+                    objKeys += obj.Key + "<br>";
+                });
+                results.innerHTML = objKeys;
+            }
+        });
+    }
+
+    var clChooser = document.getElementById('cl-file-chooser');
+    var button_cl = document.getElementById('upload-button-cl');
+    var results_cl = document.getElementById('results-cl');
+    button_cl.addEventListener('click', function() {
+
+        var file = clChooser.files[0];
+
+        if (file) {
+
+            results_cl.innerHTML = '';
+            var objKey = 'coverletter/' + file.name;
+            var params = {
+                Key: objKey,
+                ContentType: file.type,
+                Body: file,
+                ACL: 'public-read'
+            };
+
+            bucket.putObject(params, function(err, data) {
+                if (err) {
+                    results_cl.innerHTML = 'ERROR: ' + err;
+                } else {
+                    console.log('Upload Success');
+                }
+            });
+        } else {
+            results_cl.innerHTML = 'Nothing to upload.';
+        }
+    }, false);
 
 </script>
 </html>
