@@ -144,6 +144,15 @@ class MysqlUtil(object):
         finally:
             connection.close()
 
+    def update_one(self, query):
+        connection = self.mysql.connect()
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(query)
+                connection.commit()
+        finally:
+            connection.close()
+
     def select_one(self, *args):
         connection = self.mysql.connect()
         if len(args) > 1:

@@ -321,4 +321,30 @@ def assign():
         sqlUtil.clear()
     return redirect(request.referrer)
 
+@app.route('/results')
+def results():
+    data = sqlUtil.select_all("SELECT `S_Id`,`P_Id` FROM `ASSIGNED`")
+    students = sqlUtil.select_all("SELECT `S_Id`, `Name` FROM STUDENT")
+    projects = sqlUtil.select_all("SELECT `P_Id`, `ProjName` FROM `PROJECT_INFO`")
+    stuDict = dict()
+    projDict = dict()
+    res = []
+    for person in students:
+        stuDict[person[0]] = person[1]
+
+    for proj in projects:
+        projDict[proj[0]] = proj[1]
+
+    for i in data:
+        res.append([i[0], stuDict[i[0]], projDict[i[1]]])
+    return render_template("result.html", data=json.dumps(res), projects=projects)
+
+@app.route('/update', methods=['POST'])
+def update():
+    res = request.json
+    print('update',res['S_Id'],'P_Id',res['P_Id'])
+    sqlUtil.update_one("UPDATE `ASSIGNED` SET `P_Id`="+ str(res['P_Id']) +" WHERE `S_Id`="+str(res['S_Id']))
+    return render_template("result.html")
+
+
 
