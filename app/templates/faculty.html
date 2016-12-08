@@ -19,6 +19,25 @@
         background-color: #fff8e1;
     }
 </style>
+
+<nav class="navbar navbar-default" style="background-color: #000000">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index">HOME</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/faculty">Post a project</a></li>
+                <li><a href="/matrix">Applications Matrix</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
 <div class="container-fluid">
     <h1 id="top">Discovery Learning Apprenticeship Submission</h1>
 
@@ -201,16 +220,21 @@
 
                             <div class="form-group">
                                 <label for="name">Mandantory Requirements</label>
+
+                                <button id="b1" class="btn add-more btn-success" type="button">+</button>
+                                <button class="btn btn-danger remove-me" type="button">-</button>
+                                <small><strong>(Note: Click + if you want to add more requirements)</strong></small>
+                                <br>
                                 <small id="f3Help" class="form-text text-muted">(eg: Must have had certain course,
                                     certain class standing, available to work in 2 5-hour blocks, etc.)
                                     (may not exceed 1000 characters)
                                 </small>
-                                <div class="input-group" id="field1">
+                                <div class="form-group" id="field1">
                                     <input class="form-control" type="text" id="req" name="specialReq1" maxlength="1000"
-                                           placeholder="Special Requirements">
-                                    <span class="input-group-btn">
-                            <button id="b1" class="btn add-more btn-success" type="button">+</button>
-                          </span>
+                                           placeholder="Special Requirement 1">
+                                    <!--<span class="input-group-btn">
+                                    <button id="b1" class="btn add-more btn-success" type="button">+</button>
+                                    </span>-->
                                 </div>
                             </div>
 
@@ -442,6 +466,7 @@
 
     $(document).ready(function () {
         var next = 1;
+        var count = 1;
         /*
          var idGroup = [];
          var anyBoxesChecked = [];
@@ -452,28 +477,42 @@
          }
          */
         $(".add-more").click(function (e) {
+            console.log('count', count)
             e.preventDefault();
-            var addto = "#field" + next;
-            var addRemove = "#field" + (next);
-            next = next + 1;
-            var removeBtn = '<span class="input-group-btn"><button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></span>';
-            var newIn = '<div class="input-group" id="field' + next + '"' + '><input class="form-control"' + 'id="req' + (next + 1) + '"' + 'name="specialReq' + next + '" type="text" maxlength=1000>' + removeBtn + '</div>';
-            var newInput = $(newIn);
-            var removeButton = $(removeBtn);
-            $(addto).after(newInput);
+            if(count<5){
+                var addto = "#field" + count;
+                next = next + 1;
+                var removeBtn = '<span class="input-group-btn"><button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></span>';
+                var newIn = '<div class="form-group" id="field' + next + '"' + '><input class="form-control"' +
+                        'id="req' + next + '"' + 'name="specialReq' + next + '" type="text" maxlength=1000 ' +
+                        'placeholder="Special Requirement '+ next +'">' + '</div>';
+                console.log('newIn', newIn)
+                var newInput = $(newIn);
+                var removeButton = $(removeBtn);
+                $(addto).after(newInput);
+                //$("#field" + next).attr('data-source', $(addto).attr('data-source'));
+                count+=1;
+            }
 
-            $("#field" + next).attr('data-source', $(addto).attr('data-source'));
-            $("#count").val(next);
 
-            $('.remove-me').click(function (e) {
-                e.preventDefault();
-                var fieldNum = parseInt(this.id.charAt(this.id.length - 1)) + 1;
-                var fieldID = "#field" + fieldNum;
-                $(fieldID).remove();
-                $(this).remove();
-            });
+            //$("#count").val(next);
         });
 
+        $('.remove-me').click(function (e) {
+            e.preventDefault();
+            if(count>1){
+                //var fieldNum = parseInt(this.id.charAt(this.id.length - 1)) + 1;
+                var fieldID = "#field" + count;
+                $(fieldID).remove();
+                console.log('count-', count, 'field id', fieldID)
+                count-=1;
+                next-=1;
+            }
+
+            if(count<=0){
+                count = 1;
+            }
+        });
 
     });
 
