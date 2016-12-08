@@ -645,13 +645,13 @@
 
     //Func for dynamic checklist
     function display(val){
-        console.log(val)
-        document.getElementById('p1req').innerHTML = '';
+        console.log(val) //stuMajor of selected project
+        document.getElementById('p1req').innerHTML = ''; //clear previous content
         var projects = {{ data|safe }};
 
         var c = document.getElementById('p1req');
         c.innerHTML += '<br>'+"Mandatory Requirements:"+'<br>';
-        projects.forEach(function(line, index){
+        projects.forEach(function(line, index){  //line[0-3] = stuMajor, projName, ManReq, OptReq
             if(line[0]==val){
                 var manreqs = line[2].split('$;^');
                 var optreqs = line[3].split('$;^');
