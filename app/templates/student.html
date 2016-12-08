@@ -608,7 +608,7 @@
         }
         for(var times = 0;times<5;times++){
             projects.forEach(function(line,index){
-                if(line[0]==studentMajor){
+                if(line[0].includes(studentMajor)){
                     var s = eval('s'+(times+1));
                     var option = document.createElement("option");
                     option.value = line[0];
@@ -641,7 +641,7 @@
         }
         for(var times = 0;times<5;times++){
             projects.forEach(function(line,index){
-                if(line[0]==secMajor || line[0]==studentMajor){
+                if(line[0].includes(secMajor) || line[0].includes(studentMajor)){
                     var s = eval('s'+(times+1));
                     var option = document.createElement("option");
                     option.value = line[0];
