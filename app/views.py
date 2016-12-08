@@ -49,6 +49,8 @@ def student():
 def project():
     data = []
     dic = dict(sqlUtil.select_all("SELECT `D_Id`, `FullName` FROM `DEPT`"))
+    major = sqlUtil.select_all("SELECT `M_Id`, `FullName` FROM `MAJOR`")
+    dic_M = dict(major)
     # cursor.execute("SELECT * FROM `project`")
     # projects = cursor.fetchall()
     projects = sqlUtil.select_all(
@@ -80,13 +82,14 @@ def project():
             for i, r in enumerate(OptReqs.rstrip(';').split(';')):
                 Req = Req + str(i + 1) + '.' + r + '\n'
                 # app.logger.info(StuMajors)
-                # Maj = ''
-                # for i, m in enumerate(StuMajors.split(';')):
-                # Maj=Maj+majordict[int(m)]+','
+                Maj = ''
+                if StuMajors!='':
+                    for i, m in enumerate(StuMajors.split(';')):
+                        Maj=Maj+dic_M[int(m)]+','
         data.append(
-            [ProjName, contact, dic[PFDept], WebLink if WebLink is not None else u"", LongDesc, Req])  # , Maj])
+            [ProjName, contact, dic[PFDept], WebLink if WebLink is not None else u"", LongDesc, Req, Maj])
         # app.logger.info(data)
-    return render_template("project.html", data=json.dumps(data))
+    return render_template("project.html", data=json.dumps(data), major=json.dumps(major))
 
 
 @app.route('/submit', methods=['GET', 'POST'])
@@ -283,34 +286,29 @@ def matrix():
     major_dic = dict(major)
     level_dic = {1:'freshman', 2:'sophomore', 3:'junior', 4:'senior', 5:'fifth'}
     re_dic = {0:'No',1:'Yes',None:''}
-    applications = sqlUtil.select_all("SELECT `A_Id`,`S_Id` FROM `APPLICATION`")
-    students = []
-    for A_Id, S_Id in applications:
 
-        row = sqlUtil.select_all("SELECT `Name`, `Gender`, `Origin`, `Race`,\
+    applications = sqlUtil.select_all("SELECT `S_Id`, `Pr1_P_Id`, `Pr2_P_Id`, `Pr3_P_Id`, `Pr4_P_Id`, `Pr5_P_Id` FROM `APPLICATION`")
+    student_info = sqlUtil.select_all("SELECT `S_Id`, `Name`, `Gender`, `Origin`, `Race`,\
                                  `Email`, `PrimaryMajor`, `StudentNumber`, `GPA`, `Level`\
-                                  , `ResearchExperience` \
-                                  FROM `STUDENT` WHERE `S_Id`=" + str(S_Id))
-        projectInd = sqlUtil.select_all("SELECT `Pr1_P_Id`, `Pr2_P_Id`, `Pr3_P_Id`, `Pr4_P_Id`, `Pr5_P_Id` \
-                                  FROM `APPLICATION` WHERE `A_Id`="+str(A_Id))
-        projects = getDetail(projectInd)
-        row=list(row[0])
+                                  , `ResearchExperience` FROM `STUDENT`")
+    student_info = dict((e[0],e[1:]) for e in student_info)
+    project = sqlUtil.select_all("SELECT `P_Id`,`ProjName` FROM `PROJECT_INFO`")
+    project_name = dict(project)
+    students = []
+    for application in applications:
+        row = list(student_info[application[0]])
+        projects = getDetail(application[1:], project_name)
         row[1],row[2], row[5], row[8], row[9] = gender_dic[row[1]], origin_dic[row[2]], major_dic[row[5]], level_dic[row[8]], re_dic[row[9]]
         row[3] = ', '.join([race_dic[int(r)] for r in row[3].split(',')])
         students.append(row+projects)
-    s_id_name = sqlUtil.select_all("SELECT `S_Id`, `Name` FROM `STUDENT`")
-    p_id_name = sqlUtil.select_all("SELECT `P_Id`, `ProjName` FROM `PROJECT_INFO`")
-    return render_template("matrix.html", students=json.dumps(students), s_id_name=s_id_name, p_id_name=p_id_name, major=major)
+    return render_template("matrix.html", students=json.dumps(students), s_id_name=json.dumps([(e[0],e[1][0]) for e in student_info.items()]), p_id_name=json.dumps(project), major=json.dumps(major))
 
 
-def getDetail(projectId):
+def getDetail(projectId, dic):
     list = []
-    for i in projectId[0]:
+    for i in projectId:
         if i is not None:
-            project = sqlUtil.select_one("ProjName", "PROJECT_INFO", "P_Id", i)
-
-            list.append(project[0])
-
+            list.append(dic[i])
         else:
             list.append('')
     return list
@@ -327,3 +325,32 @@ def assign():
         sqlUtil.insert_execute('ASSIGNED')
         sqlUtil.clear()
     return redirect(request.referrer)
+
+@app.route('/results')
+def results():
+    data = sqlUtil.select_all("SELECT `S_Id`,`P_Id` FROM `ASSIGNED`")
+    students = sqlUtil.select_all("SELECT `S_Id`, `Name` FROM STUDENT")
+    projects = sqlUtil.select_all("SELECT `P_Id`, `ProjName` FROM `PROJECT_INFO`")
+    stuDict = dict()
+    projDict = dict()
+    res = []
+    for person in students:
+        stuDict[person[0]] = person[1]
+
+    for proj in projects:
+        projDict[proj[0]] = proj[1]
+
+    for i in data:
+        res.append([i[0], stuDict[i[0]], projDict[i[1]]])
+    return render_template("result.html", data=json.dumps(res), projects=projects)
+
+@app.route('/update', methods=['POST'])
+def update():
+    res = request.json
+    print('update',res['S_Id'],'P_Id',res['P_Id'])
+    sqlUtil.update_one("UPDATE `ASSIGNED` SET `P_Id`="+ str(res['P_Id']) +" WHERE `S_Id`="+str(res['S_Id']))
+    return render_template("result.html")
+
+
+
+>>>>>>> master

@@ -100,3 +100,5 @@ app/__init__.pyc
 
 app/.DS_Store
 app/templates/.DS_Store
+.vscode/
+tags

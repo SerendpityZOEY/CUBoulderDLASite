@@ -105,9 +105,6 @@
                 <td>
                     <select class="column_filter form-control" id="col5_filter">
                         <option value="" selected="selected">Please Select</option>
-                        {% for row in major %}
-                        <option value={{ row[1] }}>{{ row[1] }}</option>
-                        {% endfor %}
                     </select>
                 </td>
             </tr>
@@ -146,16 +143,10 @@
                 <label class="control-label"><span style="color:red;"></span>Student</label>
                 <input type="text" list="student" name="student">
                 <datalist id="student">
-                    {% for row in s_id_name %}
-                    <option value={{ row[0] }}>{{ row[1] }}</option>
-                    {% endfor %}
                 </datalist>
                 <label class="control-label"><span style="color:red;">* </span>Project</label>
                 <input list="project" name="project">
                 <datalist id="project">
-                    {% for row in p_id_name %}
-                    <option value={{ row[0] }}>{{ row[1] }}</option>
-                    {% endfor %}
                 </datalist>
                 <input type="submit" value="Assign">
             </form>
@@ -170,13 +161,26 @@
 </div>
 </body>
 <script>
+    var s_id_name = {{ s_id_name | safe }};
+    var p_id_name = {{ p_id_name | safe }};
+    var major = {{ major| safe }};
     var dataSet = {{ students|safe }};
+    // console.log(p_id_name);
     function filterColumn(i) {
         $('#student_info').DataTable().column(i).search(
                 $('#col' + i + '_filter').val()
         ).draw();
     }
     $(document).ready(function () {
+        for (var i=0;i<s_id_name.length;i++){
+            $('#student').append('<option value='+s_id_name[i][0]+'>'+s_id_name[i][1]+'</option>');
+        }
+        for (var i=0;i<p_id_name.length;i++){
+            $('#project').append('<option value='+p_id_name[i][0]+'>'+p_id_name[i][1]+'</option>');
+        }
+        for (var i=0;i<major.length;i++){
+            $('#col5_filter').append('<option value='+major[i][1]+'>'+major[i][1]+'</option>');
+        }
         var dataTable = $('#student_info').DataTable({
             "scrollX": true,
             data: dataSet,
