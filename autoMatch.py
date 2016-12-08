@@ -7,7 +7,6 @@ import datetime
 from collections import defaultdict
 
 
-
 sql = MysqlUtil(app)
 sql.use_account('developer')
 sql.use_database('NewSE')
@@ -20,50 +19,81 @@ Assigned_P_Ids = set(Assigned_P_Ids)
 # print Assigned_S_Ids
 # print Assigned_P_Ids
 
-"""Firstly select all the students whose GPA is above 3.0"""
-Students = sql.select_all('select `S_Id`, `StudentNumber` from STUDENT where GPA > 3.0')
-StudentDict = defaultdict(lambda: {"S_Id": None}) #This dic is for reserved student mapping (studentNum: S_Id)
-for S_Id, StudentNumber in Students: 
+"""Select all the students whose GPA is above 3.0"""
+Students = sql.select_all(
+    'select `S_Id`, `StudentNumber` from STUDENT where GPA > 3.0')
+# This dic is for reserved student mapping (studentNum: S_Id)
+StudentDict = defaultdict(lambda: {"S_Id": None})
+for S_Id, StudentNumber in Students:
     StudentDict[str(StudentNumber)]["S_Id"] = S_Id
 
 
 """Assign reserved students"""
-ProjectsWithReservation = sql.select_all('select `P_Id`, `RevStus` from PROJECT_INFO where RevStus is not NULL')
+ProjectsWithReservation = sql.select_all(
+    'select `P_Id`, `RevStus` from PROJECT_INFO where RevStus is not NULL')
 for P_Id, RevStuds in ProjectsWithReservation:
     RevStudsLst = RevStuds.split(',')
-    for student in RevStudsLst: 
-        if StudentDict.has_key(student) and StudentDict[student]["S_Id"] not in Assigned_S_Ids:
-            sql.insert_many_push({"S_Id": StudentDict[student]["S_Id"], "P_Id": P_Id})
+    for student in RevStudsLst:
+        if StudentDict.has_key(student.strip()) and StudentDict[student]["S_Id"] not in Assigned_S_Ids:
+            sql.insert_many_push(
+                {"S_Id": StudentDict[student]["S_Id"], "P_Id": P_Id})
             Assigned_S_Ids.add(StudentDict[student]["S_Id"])
             Assigned_P_Ids.add(P_Id)
-if len(sql.data_list) > 0: 
+if len(sql.data_list) > 0:
     sql.insert_many_execute("ASSIGNED")
     sql.clear()
 
-print Assigned_S_Ids
-print Assigned_P_Ids
+# print Assigned_S_Ids
+# print Assigned_P_Ids
 
-"""Get students who graduate one year later"""
+
+"""Get students who graduate one year later and GPA above 3.0"""
 now = datetime.datetime.now()
 date2Compare = now + datetime.timedelta(days=365)
-date2CompareStr = str(date2Compare.year) + "-" + str(date2Compare.month) + "-" + "01" + " 00:00:00"
-Students = sql.select_all('select `S_Id`,`Name`,`Gender`,`Origin`,`Race`,`PrimaryMajor`,`SecondaryMajor`,`GPA`,`level`,`AppliedBefore` from STUDENT where GraduationDate > "{}" and GPA > 3.0'.format(date2CompareStr))
-StudentDict = defaultdict(lambda: {"Projects": []})
-print Students
-# for student in Studens: 
+date2CompareStr = str(date2Compare.year) + "-" + \
+    str(date2Compare.month) + "-" + "01" + " 00:00:00"
+Students = sql.select_all(
+    'select `S_Id`,`Gender`,`Origin`,`PrimaryMajor`,`SecondaryMajor`,`GPA`,`level`,`AppliedBefore` from STUDENT where GraduationDate > "{}" and GPA > 3.0'.format(date2CompareStr))
+StudentDict = defaultdict(lambda: {"Projects": [], "Priority": 0})
+for S_Id, Gender, Origin, PrimaryMajor, SecondaryMajor, GPA, level, AppliedBefore in Students:
+    if S_Id not in Assigned_S_Ids:
+        StudentDict[S_Id]["Gender"] = Gender
+        StudentDict[S_Id]["Origin"] = Origin
+        StudentDict[S_Id]["PrimaryMajor"] = PrimaryMajor
+        StudentDict[S_Id]["SecondaryMajor"] = SecondaryMajor
+        StudentDict[S_Id]["GPA"] = GPA
+        StudentDict[S_Id]["level"] = level
+        StudentDict[S_Id]["AppliedBefore"] = AppliedBefore
 
+print StudentDict
 
 
 """Eliminate Projects no one applied"""
-Applications = sql.select_all("select `S_Id`, `Pr1_P_Id`, `Pr2_P_Id`,`Pr3_P_Id`,`Pr4_P_Id`,`Pr5_P_Id`, `OptReqsCheck` from APPLICATION")
+Applications = sql.select_all(
+    "select `S_Id`, `Pr1_P_Id`, `Pr2_P_Id`,`Pr3_P_Id`,`Pr4_P_Id`,`Pr5_P_Id`, `OptReqsCheck` from APPLICATION")
 AppliedProjects = set()
-for  S_Id, Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id, OptReqsCheck in Applications:
-    StudentDict[S_Id]["Projects"] += Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id
-    AppliedProjects = AppliedProjects.union([Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id])
+for S_Id, Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id, OptReqsCheck in Applications:
+    StudentDict[S_Id][
+        "Projects"] += Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id
+    AppliedProjects = AppliedProjects.union(
+        [Pr1_P_Id, Pr2_P_Id, Pr3_P_Id, Pr4_P_Id, Pr5_P_Id])
     StudentDict[S_Id]["OptReqsCheck"] = OptReqsCheck
-AppliedProjects = [str(x) for x in AppliedProjects - set([None])]
-Projects = sql.select_all("select `P_Id` from PROJECT_INFO where P_Id in (%s)"%(", ".join(AppliedProjects)))
+# Projects = sql.select_all(
+#     "select `P_Id` from PROJECT_INFO where P_Id in (%s)" % (", ".join([str(x) for x in AppliedProjects - set([None])])))
+print '\n\n'
+print StudentDict
 
+
+"""Build priority"""
+for key in StudentDict.iterkeys():
+    if StudentDict[key]["AppliedBefore"] == 0:
+        StudentDict[key]["Priority"] += 1
+    if StudentDict[key]["Gender"] == 1:
+        StudentDict[key]["Priority"] += 1
+    if StudentDict[key]["Origin"] == 0:
+        StudentDict[key]["Priority"] += 1
+    if StudentDict[key]["level"] == 4 or StudentDict[key]["level"] == 5:
+        StudentDict[key]["Priority"] += 1
 
 # now = datetime.datetime.now()
 # date2Compare = now + datetime.timedelta(days=365)
@@ -92,17 +122,12 @@ Projects = sql.select_all("select `P_Id` from PROJECT_INFO where P_Id in (%s)"%(
 # StudentDict
 
 
-
-
-
-
-
 """
 Mandatory:
 Remove all the student GPA < 3.0
 Assign reserved students 
 Elimate project no one applied 
-Student's graduation month must be one year later
+Student's graduation date must be one year later
 
 
 Priority:
