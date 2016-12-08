@@ -76,7 +76,7 @@ bootstrap_alert = function (message, alert, timeout) {
 
 
 var i = 0;
-var trueArr = Array(8).fill(false)
+var trueArr = Array(6).fill(false)
 var pushed = false
 $(document).ready(function () {
     $('form').validator().on('submit', function (e) {
