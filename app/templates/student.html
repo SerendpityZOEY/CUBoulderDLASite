@@ -71,7 +71,7 @@
             <li><a href="#summerInfo">Summer Contact Info</a></li>
             <li><a href="#academicInfo">Academic Info</a></li>
             <li><a href="#apprInfo">Apprenticeship Info</a></li>
-            <li><a href="#files">Skills, Resume, and Cover Letter</a></li>
+            <li><a href="#file">Skills, Resume, and Cover Letter</a></li>
             <li><a href="#top">Back to Top</a></li>
         </ul>
     </div>
@@ -349,19 +349,20 @@
                             <p><strong style="color:red">Please note that some projects have special requirements that
                                 you must meet.</strong></p>
                             <p>To see requirements and longer descriptions of the project, look at the projects
-                                available for your major here.</p><a href='/project'>projects</a>
+                                available for your major here.</p><a href='/project' target="_blank">projects</a>
 
                             <div class="form-group has-feedback">
                                 <label class="control-label"><span style="color:red;">* </span>Project1</label>
-                                <select class="form-control" name="p1" id ="p1" required>
+                                <select class="form-control" name="p1" id ="p1" onchange="display(value)" required>
                                     <option value="" selected="selected">Please Select</option>
                                 </select>
                                 <div class="help-block with-errors"></div>
-                                <div class="form-check">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="" value="">Check if I'm qualified.</label>
-                                </div>
-                                </div>
+                                <div class="form-check"></div>
+                            </div>
+
+                            <label id="p1reqLabel" style="display:none">Please check your qualifications (select all that apply):</label>
+                            <div class="form-group" id='p1req' style="display:none">
+                                <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
@@ -369,36 +370,24 @@
                                 <select class="form-control" name="p2" id="p2">
                                     <option value="" selected="selected">Please Select</option>
                                 </select>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="" value="">Check if I'm qualified.</label>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Project3</label>
                                 <select class="form-control" name="p3" id="p3">
                                     <option value="" selected="selected">Please Select</option>
                                 </select>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="" value="">Check if I'm qualified.</label>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Project4</label>
                                 <select class="form-control" name="p4" id="p4">
                                     <option value="" selected="selected">Please Select</option>
                                 </select>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="" value="">Check if I'm qualified.</label>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Project5</label>
                                 <select class="form-control" name="p5" id="p5">
                                     <option value="" selected="selected">Please Select</option>
                                 </select>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="" value="">Check if I'm qualified.</label>
-                                </div>
                             </div>
 
                             <div class="form-group">
@@ -430,7 +419,7 @@
             </div>
         </div>
 
-        <div class="row" id="files">
+        <div class="row" id="file">
             <div class="col-md-10 center">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -509,6 +498,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row" id="files">
             <div class="col-md-10 center">
                 <div class="text-center">
@@ -608,12 +598,12 @@
         }
         for(var times = 0;times<5;times++){
             projects.forEach(function(line,index){
+                //line is stumajors, projname, req
                 if(line[0].includes(studentMajor)){
                     var s = eval('s'+(times+1));
                     var option = document.createElement("option");
                     option.value = line[0];
                     option.textContent = line[1];
-                    //console.log(option);
                     s.appendChild(option);
                 }
             })
@@ -651,6 +641,57 @@
                 }
             })
         }
+    }
+
+    //Func for dynamic checklist
+    function display(val){
+        console.log(val) //stuMajor of selected project
+        document.getElementById('p1req').innerHTML = ''; //clear previous content
+        var projects = {{ data|safe }};
+
+        var c = document.getElementById('p1req');
+        c.innerHTML += '<br>'+"Mandatory Requirements:"+'<br>';
+        projects.forEach(function(line, index){  //line[0-3] = stuMajor, projName, ManReq, OptReq
+            if(line[0]==val){
+                var manreqs = line[2].split('$;^');
+                var optreqs = line[3].split('$;^');
+
+                for(var i=0;i<manreqs.length;i++){
+                    var label= document.createElement("label");
+                    var description = document.createTextNode(' '+manreqs[i]);
+                    var checkbox = document.createElement("input");
+
+                    checkbox.type = "checkbox";    // make the element a checkbox
+                    checkbox.name = "slct[]";      // give it a name we can check on the server side
+                    checkbox.value = manreqs[i];         // make its value "pair"
+
+                    label.appendChild(checkbox);   // add the box to the element
+                    label.appendChild(description);// add the description to the element
+
+                    // add the label element to your div
+                    c.appendChild(label);
+                }
+
+                c.innerHTML += '<br>'+"Optional Requirements:"+'<br>';
+                for(var i=0;i<optreqs.length;i++){
+                    var label= document.createElement("label");
+                    var description = document.createTextNode(' '+optreqs[i]);
+                    var checkbox = document.createElement("input");
+
+                    checkbox.type = "checkbox";
+                    checkbox.name = "slct[]";
+                    checkbox.value = optreqs[i];
+
+                    label.appendChild(checkbox);
+                    label.appendChild(description);
+
+                    // add the label element to your div
+                    c.appendChild(label);
+                }
+            }
+        });
+        $("#p1req").css("display", "inline");
+        $("#p1reqLabel").css("display", "inline");
     }
 
 </script>
