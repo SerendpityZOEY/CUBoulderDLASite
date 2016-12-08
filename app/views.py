@@ -10,7 +10,7 @@ from hashlib import sha512
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
-sqlUtil.use_database('NewSE')
+sqlUtil.use_database('SETest')
 
 
 def hash_secret(password):
@@ -84,7 +84,7 @@ def project():
                 # app.logger.info(StuMajors)
                 Maj = ''
                 if StuMajors!='':
-                    for i, m in enumerate(StuMajors.split(';')):
+                    for i, m in enumerate(StuMajors.split(',')):
                         Maj=Maj+dic_M[int(m)]+','
         data.append(
             [ProjName, contact, dic[PFDept], WebLink if WebLink is not None else u"", LongDesc, Req, Maj])
