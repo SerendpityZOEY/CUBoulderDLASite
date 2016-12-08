@@ -75,11 +75,11 @@ def project():
             elif GradPhone and not GradEmail:
                 contact += GradName + ':' + GradEmail + '\n'
         Req = ''
-        for i, r in enumerate(ManReqs.rstrip(';').split(';')):
+        for i, r in enumerate(ManReqs.strip().split('$;^')):
             Req = Req + str(i + 1) + '.' + r + '\n'
         if OptReqs:
             Req += 'Nice to have:\n'
-            for i, r in enumerate(OptReqs.rstrip(';').split(';')):
+            for i, r in enumerate(OptReqs.strip().split('$;^')):
                 Req = Req + str(i + 1) + '.' + r + '\n'
                 # app.logger.info(StuMajors)
                 Maj = ''
@@ -222,29 +222,29 @@ def f_submit():
         specialReq5 = ""
     Manreqs = specialReq1 + '$;^' + specialReq2 + '$;^' + specialReq3 + '$;^' + specialReq4 + '$;^' + specialReq5
     sqlUtil.batch_insert_push({
-        'PFName': str(request.form.get('name1')),
-        'PFPhone': str(request.form.get('phone1')),
-        'PFEmail': str(request.form.get('email1')),
-        'PFDept': str(request.form.get('program1')),
-        'HasFocus': str(request.form.get('HasFocus')),
-        'SFName': str(request.form.get('name2')),
-        'SFPhone': str(request.form.get('phone2')),
-        'SFEmail': str(request.form.get('email2')),
-        'GradName': str(request.form.get('name3')),
-        'GradPhone': str(request.form.get('phone3')),
-        'GradEmail': str(request.form.get('email3')),
-        'ProjName': str(request.form.get('projectTitle')),
-        'LongDesc': str(request.form.get('projectDesc')),
-        'WebLink': str(request.form.get('projectLink')),
-        'ManReqs': str(Manreqs),
+        'PFName': request.form.get('name1'),
+        'PFPhone': request.form.get('phone1'),
+        'PFEmail': request.form.get('email1'),
+        'PFDept': request.form.get('program1'),
+        'HasFocus': request.form.get('HasFocus'),
+        'SFName': request.form.get('name2'),
+        'SFPhone': request.form.get('phone2'),
+        'SFEmail': request.form.get('email2'),
+        'GradName': request.form.get('name3'),
+        'GradPhone': request.form.get('phone3'),
+        'GradEmail': request.form.get('email3'),
+        'ProjName': request.form.get('projectTitle'),
+        'LongDesc': request.form.get('projectDesc'),
+        'WebLink': request.form.get('projectLink'),
+        'ManReqs': Manreqs,
         'StuMajors': ','.join(request.form.getlist('majorReq')),
         'AmtOfSup': request.form.get('AmtOfSup'),
         'SupBy': request.form.get('SupBy'),
         'NatureOfWork': request.form.get('NatureOfWork'),
         'AmtOfPreWork': request.form.get('AmtOfPreWork'),
-        'RevStus': str(request.form.get('preselectStudent')),
-        'SpeedType': str(request.form.get('SpeedType')),
-        'AcctContace': str(request.form.get('AcctContace')),
+        'RevStus': request.form.get('preselectStudent'),
+        'SpeedType': request.form.get('SpeedType'),
+        'AcctContace': request.form.get('AcctContace'),
         'DidSup': request.form.get('DidSup')
     })
     sqlUtil.insert_execute('PROJECT_INFO')
