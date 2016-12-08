@@ -5,9 +5,7 @@
     <title>Projects</title>
         <link rel="shortcut icon" href="https://kblainec.files.wordpress.com/2016/06/cuboulder-icon.png"/>
 
-    {#    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">#}
-    {#    <link rel="stylesheet" href="../static/css/styles.css">#}
-    {#    <script src="../static/js/jquery-3.1.1.min.js"></script>#}
+
     <script type="text/javascript" src="//code.jquery.com/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
@@ -15,10 +13,7 @@
     <script src="../static/BootstrapFormHelpers/dist/js/bootstrap-formhelpers.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    {#    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>#}
-    {##}
-    {#    <script src="../static/bootstrap/js/bootstrap.min.js"></script>#}
-    {#    <!-- Bootstrap Form Helpers -->#}
+
     <!-- datatable -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/javascript"
@@ -56,15 +51,7 @@
             border-radius: 4px;
         }
    </style>
-    {#        <style>#}
-    {#    		table, th, td {#}
-    {#        		border: 1px solid black;#}
-    {#    		}#}
-    {#    		th, td {#}
-    {#        		padding: 5px;#}
-    {#        		text-align: left;#}
-    {#    		}#}
-    {#    	</style>#}
+
 </head>
 
 <body>
@@ -80,9 +67,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/student">New Application</a></li>
-                <li><a href="/navigation">Retrieve drafts</a></li>
+                <li><a href="/navigation">View Application</a></li>
                 <li><a href="/project">Projects</a></li>
-                <li><a href="/matrix">Applications Matrix</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -132,7 +118,7 @@
             </td>
         </tr>
         <tr id="filter_major" , data-column="6">
-            <td>prefered Major</td>
+            <td>Prefered Major</td>
             <td align="center">
                 <select class="column_filter" id="col6_filter">
                     <option value=" " selected="selected">Please Select</option>
@@ -157,14 +143,15 @@
     var dataSet = {{ data|safe }};
     var Smajor = {{ major|safe }}
     function filterColumn(i) {
+        var input = $('#col' + i + '_filter').val()
         $('#project').DataTable().column(i).search(
-                $('#col' + i + '_filter').val()
+               input,false, false
         ).draw();
     }
     $(document).ready(function () {
-
         for (var i=0;i<Smajor.length;i++){
-            $('#col6_filter').append('<option value='+Smajor[i][1]+'>'+Smajor[i][1]+'</option>')
+            console.log(Smajor[i][1])
+            $('#col6_filter').append('<option value="'+Smajor[i][1]+'">'+Smajor[i][1]+'</option>')
         }
         var dataTable = $('#project').DataTable({
             data: dataSet,
