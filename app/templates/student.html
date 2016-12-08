@@ -360,7 +360,7 @@
                                 <div class="form-check"></div>
                             </div>
 
-                            <label>Please check your qualifications (select all that apply):</label>
+                            <label id="p1reqLabel" style="display:none">Please check your qualifications (select all that apply):</label>
                             <div class="form-group" id='p1req' style="display:none">
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -689,8 +689,9 @@
                     c.appendChild(label);
                 }
             }
-        })
+        });
         $("#p1req").css("display", "inline");
+        $("#p1reqLabel").css("display", "inline");
     }
 
 </script>
