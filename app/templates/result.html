@@ -89,7 +89,7 @@
 
 <h1>Assigned Results</h1>
     <div class="col-md-10 center" style="padding-left:auto;padding-right:auto;">
-        <button type="button" class="btn btn-default center-block">Auto Assign</button>
+        <button type="button" class="btn btn-default center-block" id="autoAssign">Auto Assign</button>
     </div>
 <div class="container-fluid">
 
@@ -151,6 +151,25 @@
             selectedStu = data[0]
             //$(".modal-title #stuName").val( data[0] );
         } );
+
+        $("#autoAssign").on('click', function(){
+            $.ajax({
+                url: '/autoMatch',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function (response) {
+                    // console.log(response);
+                    // alert("succesfully added!");
+                    window.location.href = response;
+                },
+                error: function (error) {
+                    // console.log($('form').serialize());
+                    // console.log(error);
+                    // alert("information miss!");
+                    window.location.href = "error";
+                }
+            });
+        })
     });
 
     function Update(id){
