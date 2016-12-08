@@ -44,7 +44,7 @@ def navigation():
 def student():
     app.logger.info('waiting for input in student page')
     data = sqlUtil.select_all("SELECT `StuMajors`,`ProjName`, `ManReqs`, `OptReqs` FROM `PROJECT_INFO`")
-    print data
+    # print data
     majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
     return render_template("student.html", data=json.dumps(data), majors=majors)
 
@@ -346,7 +346,7 @@ def results():
         projDict[proj[0]] = proj[1]
 
     for i in data:
-        print(i[0], stuDict[i[0]], projDict[i[1]])
+        # print(i[0], stuDict[i[0]], projDict[i[1]])
         res.append([i[0], stuDict[i[0]], projDict[i[1]]])
     return render_template("result.html", data=json.dumps(res), projects=projects)
 
