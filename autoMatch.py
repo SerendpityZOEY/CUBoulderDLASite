@@ -9,7 +9,7 @@ from collections import defaultdict, Counter
 
 sql = MysqlUtil(app)
 sql.use_account('developer')
-sql.use_database('NewSE')
+sql.use_database('SETest')
 
 
 Assigned = sql.select_all('select `S_Id`,`P_Id` from ASSIGNED')
