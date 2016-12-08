@@ -220,7 +220,7 @@ def f_submit():
     specialReq5 = request.form.get('specialReq5', None)
     if specialReq5 is None:
         specialReq5 = ""
-    Manreqs = specialReq1 + ';' + specialReq2 + ';' + specialReq3 + ';' + specialReq4 + ';' + specialReq5
+    Manreqs = specialReq1 + '$;^' + specialReq2 + '$;^' + specialReq3 + '$;^' + specialReq4 + '$;^' + specialReq5
     sqlUtil.batch_insert_push({
         'PFName': str(request.form.get('name1')),
         'PFPhone': str(request.form.get('phone1')),
@@ -237,7 +237,7 @@ def f_submit():
         'LongDesc': str(request.form.get('projectDesc')),
         'WebLink': str(request.form.get('projectLink')),
         'ManReqs': str(Manreqs),
-        'StuMajors': ';'.join(request.form.getlist('majorReq')),
+        'StuMajors': ','.join(request.form.getlist('majorReq')),
         'AmtOfSup': request.form.get('AmtOfSup'),
         'SupBy': request.form.get('SupBy'),
         'NatureOfWork': request.form.get('NatureOfWork'),
