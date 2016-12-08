@@ -10,7 +10,7 @@ from hashlib import sha512
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
-sqlUtil.use_database('SEDB')
+sqlUtil.use_database('SETest')
 
 
 def hash_secret(password):
@@ -40,7 +40,7 @@ def navigation():
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    data = sqlUtil.select_all("SELECT `StuMajors`,`ProjName` FROM `PROJECT_INFO`")
+    data = sqlUtil.select_all("SELECT `StuMajors`,`ProjName`, `ManReqs`, `OptReqs` FROM `PROJECT_INFO2`")
     majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
     return render_template("student.html", data=json.dumps(data), majors=majors)
 

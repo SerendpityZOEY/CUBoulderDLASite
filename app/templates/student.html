@@ -353,11 +353,16 @@
 
                             <div class="form-group has-feedback">
                                 <label class="control-label"><span style="color:red;">* </span>Project1</label>
-                                <select class="form-control" name="p1" id ="p1" required>
+                                <select class="form-control" name="p1" id ="p1" onchange="display(value)" required>
                                     <option value="" selected="selected">Please Select</option>
                                 </select>
                                 <div class="help-block with-errors"></div>
                                 <div class="form-check">
+                            </div>
+
+                            <label>Please check your qualifications (select all that apply):</label>
+                            <div class="form-group" id='p1req' style="display:none">
+                                <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
@@ -592,12 +597,12 @@
         }
         for(var times = 0;times<5;times++){
             projects.forEach(function(line,index){
+                //line is stumajors, projname, req
                 if(line[0].includes(studentMajor)){
                     var s = eval('s'+(times+1));
                     var option = document.createElement("option");
                     option.value = line[0];
                     option.textContent = line[1];
-                    //console.log(option);
                     s.appendChild(option);
                 }
             })
@@ -635,6 +640,56 @@
                 }
             })
         }
+    }
+
+    //Func for dynamic checklist
+    function display(val){
+        console.log(val)
+        document.getElementById('p1req').innerHTML = '';
+        var projects = {{ data|safe }};
+
+        var c = document.getElementById('p1req');
+        c.innerHTML += '<br>'+"Mandatory Requirements:"+'<br>';
+        projects.forEach(function(line, index){
+            if(line[0]==val){
+                var manreqs = line[2].split('$;^');
+                var optreqs = line[3].split('$;^');
+
+                for(var i=0;i<manreqs.length;i++){
+                    var label= document.createElement("label");
+                    var description = document.createTextNode(' '+manreqs[i]);
+                    var checkbox = document.createElement("input");
+
+                    checkbox.type = "checkbox";    // make the element a checkbox
+                    checkbox.name = "slct[]";      // give it a name we can check on the server side
+                    checkbox.value = manreqs[i];         // make its value "pair"
+
+                    label.appendChild(checkbox);   // add the box to the element
+                    label.appendChild(description);// add the description to the element
+
+                    // add the label element to your div
+                    c.appendChild(label);
+                }
+
+                c.innerHTML += '<br>'+"Optional Requirements:"+'<br>';
+                for(var i=0;i<optreqs.length;i++){
+                    var label= document.createElement("label");
+                    var description = document.createTextNode(' '+optreqs[i]);
+                    var checkbox = document.createElement("input");
+
+                    checkbox.type = "checkbox";
+                    checkbox.name = "slct[]";
+                    checkbox.value = optreqs[i];
+
+                    label.appendChild(checkbox);
+                    label.appendChild(description);
+
+                    // add the label element to your div
+                    c.appendChild(label);
+                }
+            }
+        })
+        $("#p1req").css("display", "inline");
     }
 
 </script>
