@@ -10,7 +10,7 @@ from hashlib import sha512
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
-sqlUtil.use_database('NewSE')
+sqlUtil.use_database('SEDB')
 
 
 def hash_secret(password):
