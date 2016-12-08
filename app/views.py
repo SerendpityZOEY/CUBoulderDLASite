@@ -43,7 +43,8 @@ def navigation():
 @app.route('/student')
 def student():
     app.logger.info('waiting for input in student page')
-    data = sqlUtil.select_all("SELECT `StuMajors`,`ProjName`, `ManReqs`, `OptReqs` FROM `PROJECT_INFO2`")
+    data = sqlUtil.select_all("SELECT `StuMajors`,`ProjName`, `ManReqs`, `OptReqs` FROM `PROJECT_INFO`")
+    print data
     majors = sqlUtil.select_all("SELECT `M_Id`, `Acronym`, `FullName` FROM `MAJOR`")
     return render_template("student.html", data=json.dumps(data), majors=majors)
 
@@ -57,7 +58,7 @@ def project():
     # cursor.execute("SELECT * FROM `project`")
     # projects = cursor.fetchall()
     projects = sqlUtil.select_all(
-        "SELECT `PFName`,`PFPhone`,`PFEmail`,`PFDept`,`SFName`,`SFPhone`,`SFEmail`,`GradName`,`GradPhone`,`GradEmail`,`ProjName`,`LongDesc`,`WebLink`,`ManReqs`,`OptReqs`,`StuMajors` FROM `PROJECT_INFO`")
+        "SELECT `PFName`,`PFPhone`,`PFEmail`,`PFDept`,`SFName`,`SFPhone`,`SFEmail`,`GradName`,`GradPhone`,`GradEmail`,`ProjName`,`LongDesc`,`WebLink`,`ManReqs`,`OptReqs`,`StuMajors` FROM PROJECT_INFO")
     # app.logger.info(projects)
     for PFName, PFPhone, PFEmail, PFDept, SFName, SFPhone, SFEmail, GradName, GradPhone, GradEmail, ProjName, LongDesc, WebLink, ManReqs, OptReqs, StuMajors in projects:
         # cursor.execute("SELECT `name1`, `program1` FROM `faculty` WHERE `id`='{prid}'".format(prid=prid))
@@ -87,7 +88,7 @@ def project():
                 # app.logger.info(StuMajors)
                 Maj = ''
                 if StuMajors!='':
-                    for i, m in enumerate(StuMajors.split(',')):
+                    for m in StuMajors.split(','):
                         Maj=Maj+dic_M[int(m)]+','
         data.append(
             [ProjName, contact, dic[PFDept], WebLink if WebLink is not None else u"", LongDesc, Req, Maj])
@@ -240,6 +241,7 @@ def f_submit():
         'LongDesc': request.form.get('projectDesc'),
         'WebLink': request.form.get('projectLink'),
         'ManReqs': Manreqs,
+        'OptReqs': Manreqs,
         'StuMajors': ','.join(request.form.getlist('majorReq')),
         'AmtOfSup': request.form.get('AmtOfSup'),
         'SupBy': request.form.get('SupBy'),
