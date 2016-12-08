@@ -457,11 +457,13 @@
         $(".add-more").click(function (e) {
             console.log('count', count)
             e.preventDefault();
-            if(count<6){
+            if(count<5){
                 var addto = "#field" + count;
                 next = next + 1;
                 var removeBtn = '<span class="input-group-btn"><button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></span>';
-                var newIn = '<div class="form-group" id="field' + next + '"' + '><input class="form-control"' + 'id="req' + next + '"' + 'name="specialReq' + next + '" type="text" maxlength=1000>' + '</div>';
+                var newIn = '<div class="form-group" id="field' + next + '"' + '><input class="form-control"' +
+                        'id="req' + next + '"' + 'name="specialReq' + next + '" type="text" maxlength=1000 ' +
+                        'placeholder="Special Requirement '+ next +'">' + '</div>';
                 console.log('newIn', newIn)
                 var newInput = $(newIn);
                 var removeButton = $(removeBtn);
