@@ -93,7 +93,7 @@
             <div class="btn-group-wrap text-center">
             <div class="btn-group" role="group" aria-label="...">
               <button type="button" class="btn btn-default" id="autoAssign">Auto Assign</button>
-              <button type="button" class="btn btn-default" onclick="downloadPlotCSV()">Download SpreadSheet</button>
+              <button type="button" class="btn btn-default"><a href="/getCSV">Download SpreadSheet</a></button>
             </div>
             </div>
         </div>
@@ -198,15 +198,6 @@
         });
     }
 
-    function downloadPlotCSV() {
-        $.ajax({
-            url: "/getCSV",
-            type: "post",
-            success: function(data) {
-                alert('success')
-            }
-        });
-    }
 </script>
 </body>
 </html>
