@@ -23,7 +23,7 @@ for proj in projects:
     projDict[proj[0]] = proj[1]
 
 for i in data:
-    print(i[0], stuDict[i[0]], projDict[i[1]])
+    # print(i[0], stuDict[i[0]], projDict[i[1]])
     res.append([i[0], stuDict[i[0]], projDict[i[1]]])
 with open('./app/result.csv', 'wb') as csvfile:
     fieldnames = ["Student Name", 'Student Number', "Assigned Project Name"]
