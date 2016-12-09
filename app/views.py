@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, json, redirect, url_for, make_response
+from flask import render_template, request, json, redirect, url_for, send_file
 from flaskext.mysql import MySQL
 import MysqlUtil
 import random
@@ -520,12 +520,9 @@ def autoMatch():
 def download():
     print('start downloading')
     os.system('python exportCsv.py'),
-    file = open('../result.csv', 'r')
+    file = open('result.csv', 'r')
     csv = file.read()
-    csv = 'foo,bar,baz\nhai,bai,crai\n'
-    response = make_response(csv)
-    cd = 'attachment; filename=mycsv.csv'
-    response.headers['Content-Disposition'] = cd
-    response.mimetype='text/csv'
-
-    return response
+    return send_file(file,
+                     mimetype='text/csv',
+                     attachment_filename='Adjacency.csv',
+                     as_attachment=True)

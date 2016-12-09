@@ -201,7 +201,7 @@
     function downloadPlotCSV() {
         $.ajax({
             url: "/getCSV",
-            type: "get",
+            type: "post",
             success: function(data) {
                 alert('success')
             }

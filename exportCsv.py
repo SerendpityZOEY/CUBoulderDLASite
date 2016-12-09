@@ -25,19 +25,19 @@ for proj in projects:
 for i in data:
     print(i[0], stuDict[i[0]], projDict[i[1]])
     res.append([i[0], stuDict[i[0]], projDict[i[1]]])
-with open('result.csv', 'wb') as csvfile:
+with open('./app/result.csv', 'wb') as csvfile:
     fieldnames = ["Student Name", 'Student Number', "Assigned Project Name"]
     writer = DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     # print projDict
     # print 
     for i in data:
-        print i 
-        print fieldnames[0]
-        print stuDict[i[0]][0]
-        print fieldnames[1]
-        print stuDict[i[0]][1]
-        print fieldnames[2]
-        print projDict[i[1]][0]
+        print (i)
+        print (fieldnames[0])
+        print (stuDict[i[0]][0])
+        print (fieldnames[1])
+        print (stuDict[i[0]][1])
+        print (fieldnames[2])
+        print (projDict[i[1]][0])
         writer.writerow({fieldnames[0]: stuDict[i[0]][0], fieldnames[1]: stuDict[i[0]][1], fieldnames[2]: projDict[i[1]].encode('utf8')})
     # res.append([i[0], stuDict[i[0]], projDict[i[1]]]) 
