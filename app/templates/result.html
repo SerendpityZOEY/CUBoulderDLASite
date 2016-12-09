@@ -88,9 +88,17 @@
 </nav>
 
 <h1>Assigned Results</h1>
-    <div class="col-md-10 center" style="padding-left:auto;padding-right:auto;">
-        <button type="button" class="btn btn-default center-block" id="autoAssign">Auto Assign</button>
+    <div class="row">
+        <div class="col-md-10 center" style="padding-left:auto;padding-right:auto;">
+            <div class="btn-group-wrap text-center">
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default" id="autoAssign">Auto Assign</button>
+              <button type="button" class="btn btn-default" onclick="downloadPlotCSV()">Download SpreadSheet</button>
+            </div>
+            </div>
+        </div>
     </div>
+
 <div class="container-fluid">
 
 <div class="row">
@@ -186,6 +194,16 @@
             },
             error: function (error) {
                 window.location.href = "error";
+            }
+        });
+    }
+
+    function downloadPlotCSV() {
+        $.ajax({
+            url: "/getCSV",
+            type: "get",
+            success: function(data) {
+                alert('success')
             }
         });
     }

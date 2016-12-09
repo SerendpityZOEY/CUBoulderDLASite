@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, json, redirect, url_for
+from flask import render_template, request, json, redirect, url_for, make_response
 from flaskext.mysql import MySQL
 import MysqlUtil
 import random
@@ -9,7 +9,7 @@ import hashlib
 from hashlib import sha512
 import datetime
 from collections import defaultdict, Counter
-
+import os
 
 sqlUtil = MysqlUtil.MysqlUtil(app)
 sqlUtil.use_account('developer')
@@ -514,3 +514,18 @@ def autoMatch():
 
     Program accept minor major(fewest program prefer) first assigned
     """
+
+
+@app.route('/getCSV', methods=['GET','POST'])
+def download():
+    print('start downloading')
+    os.system('python exportCsv.py'),
+    file = open('../result.csv', 'r')
+    csv = file.read()
+    csv = 'foo,bar,baz\nhai,bai,crai\n'
+    response = make_response(csv)
+    cd = 'attachment; filename=mycsv.csv'
+    response.headers['Content-Disposition'] = cd
+    response.mimetype='text/csv'
+
+    return response
